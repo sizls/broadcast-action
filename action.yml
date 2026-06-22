@@ -1,0 +1,36 @@
+name: "Sizl Broadcast"
+description: "Auto-post release announcements to social + community channels with Pluck-signed receipts. Tier 1 only — drafts requiring approval route to the Worker template instead."
+author: "Sizl"
+branding:
+  icon: "send"
+  color: "blue"
+
+inputs:
+  platforms:
+    description: "Comma-separated list of platforms to post to (bluesky, mastodon, discord, ...)"
+    required: true
+  config-path:
+    description: "Path to the broadcast config JSON file inside the consumer repo. Default `.sizl/broadcast.config.json`. The Action loads this via `JSON.parse` — `.ts` configs are not supported (would require dynamic import inside the bundled Action, which expands attack surface)."
+    required: false
+    default: ".sizl/broadcast.config.json"
+  dry-run:
+    description: "When true, the Action validates + sanitizes + signs but does NOT post."
+    required: false
+    default: "false"
+  posts-index-url:
+    description: "Sizl-hosted posts-index URL where the Action POSTs the cassette envelope after a successful post. Default `https://broadcast.directive.run/posts`."
+    required: false
+    default: "https://broadcast.directive.run/posts"
+  posts-index-secret:
+    description: "HMAC secret for the posts-index POST. Required only when post-index-url is reachable; dry-runs skip the call."
+    required: false
+
+outputs:
+  cassette-hashes:
+    description: "JSON array of {platform, cassetteHash, postId, rekorUrl} entries — one per posted platform."
+  skipped:
+    description: "JSON array of {platform, reason} entries for platforms that were skipped (kill-switch, sanitize, validation, idempotency)."
+
+runs:
+  using: "node20"
+  main: "dist/index.js"

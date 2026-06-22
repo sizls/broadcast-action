@@ -1,0 +1,108 @@
+# `sizls/broadcast-action`
+
+> Auto-post release announcements to social + community channels from your GitHub Actions release workflow. Every post gets a Pluck-signed receipt anchored to Sigstore Rekor so visitors at [`directive.run/broadcast`](https://directive.run/broadcast) can verify the post happened, exactly as shown, months later.
+
+This is the **mirror** of `@sizl/broadcast-action` — the source lives in the private [`sizls/broadcast`](https://github.com/sizls/broadcast) monorepo and is published here on every release as a bundled `dist/index.js` you can pin by SHA. Every release is signed via [Sigstore](https://sigstore.dev) using GitHub Actions keyless OIDC, so you can verify the binary you're running is the binary the monorepo produced.
+
+## Install (30 seconds)
+
+Add to your release workflow:
+
+```yaml
+# .github/workflows/release.yml
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  broadcast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: sizls/broadcast-action@<sha>   # pin by SHA, not tag (see "Verify the binary" below)
+        with:
+          platforms: bluesky,mastodon,discord
+          dry-run: false
+        env:
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+          MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+```
+
+## What it does
+
+When a GitHub release is published in your project, this Action:
+
+1. Translates the release payload into the broadcast runtime's `AnnounceableEvent` shape.
+2. **Resolves the tier** for the event from your `.sizl/broadcast.config.json` (PATCH releases default to Tier 1, MINOR / MAJOR / RECAP / MANUAL default to Tier 2).
+3. **Refuses Tier 2/3 events with a structured error** — the GitHub Actions runtime is ephemeral and cannot host the 15-minute Tier 2 approval window. The refusal message points you at the Cloudflare Worker template (`pnpm create broadcast-worker`) which CAN.
+4. For Tier 1 events, runs the broadcaster's safety floor (cost circuit breaker, internal-token sanitizer, kill switch, dry-run mode) and dispatches the post.
+5. After each successful post, POSTs the cassette envelope (Pluck signature + Rekor URL) to the Sizl-hosted posts-index at `broadcast.directive.run/posts`. That endpoint feeds the `directive.run/broadcast` kill-log page and the long-running engagement collector.
+
+## Inputs
+
+| Input | Required | Default | Description |
+|---|---|---|---|
+| `platforms` | yes | — | Comma-separated platform IDs (`bluesky,mastodon,twitter,linkedin,discord,slack,facebook,instagram,threads,reddit,mailchimp,convertkit,beehiiv,buttondown,ghost,mailerlite,substack`). |
+| `config-path` | no | `.sizl/broadcast.config.json` | Path to your broadcast config JSON file inside the repo. The Action loads this via `JSON.parse`; `.ts` configs are not supported. |
+| `dry-run` | no | `false` | When `true`, validates + sanitizes + signs but doesn't post. |
+| `posts-index-url` | no | `https://broadcast.directive.run/posts` | Sizl-hosted posts-index URL to POST cassette envelopes to. |
+| `posts-index-secret` | no | — | HMAC secret for the posts-index POST. Skipped on dry-run. |
+
+## Outputs
+
+| Output | Description |
+|---|---|
+| `cassette-hashes` | JSON array of `{platform, cassetteHash, postId, rekorUrl}` entries — one per posted platform. |
+| `skipped` | JSON array of `{platform, reason}` entries for platforms that were skipped (kill-switch, sanitize, validation, idempotency). |
+
+## Verify the binary
+
+Every release of this Action is signed with Sigstore keyless OIDC tied to the source workflow in `sizls/broadcast`. Before pinning a new SHA, run:
+
+```bash
+cosign verify-blob \
+  --certificate-identity-regexp "https://github.com/sizls/broadcast/\\.github/workflows/release-action\\.yml@.+" \
+  --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
+  --signature dist/index.js.sig \
+  dist/index.js
+```
+
+The certificate-identity regex anchors the signature to the source workflow path — even if an attacker compromises the public mirror repo and tries to push an unsigned binary, `cosign verify-blob` will fail.
+
+**Always pin by SHA, not tag.** Tags can be retargeted. SHAs cannot. The pinned-SHA pattern matches industry norms for production GitHub Actions (see `dependabot` and `renovate` defaults).
+
+```yaml
+# good
+- uses: sizls/broadcast-action@a1b2c3d4...
+# avoid
+- uses: sizls/broadcast-action@v1
+- uses: sizls/broadcast-action@main
+```
+
+## Why a separate public repo?
+
+The source — adapter network, cost-breaker logic, sanitizer rules — lives in the private `sizls/broadcast` monorepo because the moat is the Sizl-curated adapter + Bureau-signing surface, not any single bundle. This public mirror exists because GitHub Actions resolves `uses: <repo>@<sha>` against a public repository path. Mirroring the bundled artifact here (and ONLY the artifact, no source) is the canonical pattern that keeps the source posture private while letting the Action be consumed externally.
+
+## Docs
+
+- [`directive.run/docs/broadcast/action`](https://directive.run/docs/broadcast/action) — full reference
+- [`directive.run/docs/broadcast/worker`](https://directive.run/docs/broadcast/worker) — Cloudflare Worker template (Tier 2/3 events)
+- [`directive.run/docs/broadcast/cli`](https://directive.run/docs/broadcast/cli) — `@sizl/broadcast` CLI for manual posts + backfills
+- [`directive.run/broadcast`](https://directive.run/broadcast) — public Pluck-verifiable kill log
+
+## License
+
+Apache-2.0 — see [LICENSE.md](./LICENSE.md).
+
+The source remains under a separate license inside the private monorepo. This mirror's license applies only to the published bundle.
+
+## Security
+
+Found a security issue? Don't open a public issue — email `security@directive.run` or use [GitHub's private vulnerability reporting](https://github.com/sizls/broadcast-action/security/advisories/new).
+
+---
+
+*Built by [Sizl](https://sizl.dev) on [Directive](https://directive.run) and [Pluck](https://pluck.run).*
