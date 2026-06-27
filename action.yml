@@ -27,9 +27,11 @@ inputs:
 
 outputs:
   cassette-hashes:
-    description: "JSON array of {platform, cassetteHash, postId, rekorUrl} entries — one per posted platform."
+    description: "JSON array of {platform, cassetteHash, postId} entries — one per posted platform."
   skipped:
     description: "JSON array of {platform, reason} entries for platforms that were skipped (kill-switch, sanitize, validation, idempotency)."
+  receipt-urls:
+    description: "JSON array of {platform, receiptUrl} entries returned by the SaaS path. Empty on the legacy HMAC path — receipts there resolve through the kill-log page at the posts-index host."
 
 runs:
   using: "node20"

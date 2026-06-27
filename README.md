@@ -6,7 +6,8 @@ This is the **mirror** of `@sizl/broadcast-action` — the source lives in the p
 
 ## Install (30 seconds)
 
-Add to your release workflow:
+Add to your release workflow. The SaaS path at `broadcast.run` is the
+shortest install — one API key, three platform tokens, done:
 
 ```yaml
 # .github/workflows/release.yml
@@ -14,22 +15,46 @@ on:
   release:
     types: [published]
 
-permissions:
-  contents: read
-
 jobs:
   broadcast:
     runs-on: ubuntu-latest
     steps:
-      - uses: sizls/broadcast-action@<sha>   # pin by SHA, not tag (see "Verify the binary" below)
+      - uses: sizls/broadcast-action@<sha>   # pin by SHA, not tag
         with:
           platforms: bluesky,mastodon,discord
-          dry-run: false
+        env:
+          BROADCAST_API_KEY:     ${{ secrets.BROADCAST_API_KEY }}
+          BLUESKY_APP_PASSWORD:  ${{ secrets.BLUESKY_APP_PASSWORD }}
+          MASTODON_TOKEN:        ${{ secrets.MASTODON_TOKEN }}
+          DISCORD_WEBHOOK_URL:   ${{ secrets.DISCORD_WEBHOOK_URL }}
+```
+
+Get a `BROADCAST_API_KEY` by emailing `hi@broadcast.run` during the
+private beta. Every post comes back with a public receipt URL at
+`broadcast.run/r/<token>` that anyone can open to cryptographically
+verify the post in their own browser — no signup, no SDK, just
+WebCrypto against the inlined cassette envelope.
+
+### Legacy / self-host (no SaaS account)
+
+If you run your own posts-index Worker (e.g. directive's existing
+`broadcast.directive.run` deployment), skip `BROADCAST_API_KEY` and use
+the HMAC inputs instead:
+
+```yaml
+      - uses: sizls/broadcast-action@<sha>
+        with:
+          platforms: bluesky,mastodon,discord
+          posts-index-url: https://broadcast.directive.run/posts
+          posts-index-secret: ${{ secrets.POSTS_INDEX_SECRET }}
         env:
           BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
-          MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
-          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          MASTODON_TOKEN:       ${{ secrets.MASTODON_TOKEN }}
+          DISCORD_WEBHOOK_URL:  ${{ secrets.DISCORD_WEBHOOK_URL }}
 ```
+
+When `BROADCAST_API_KEY` is unset the action falls back to this path
+verbatim — pre-existing consumers don't need to migrate.
 
 ## What it does
 

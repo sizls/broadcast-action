@@ -67017,6 +67017,22 @@ async function postCassettesToIndex(input) {
     );
   }
 }
+async function postRawToSaas(input) {
+  const res = await fetch(input.url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${input.apiKey}`
+    },
+    body: JSON.stringify({ entries: input.entries })
+  });
+  if (!res.ok) {
+    throw new Error(
+      `broadcast SaaS POST failed: ${res.status} ${await res.text().catch(() => "")}`
+    );
+  }
+  return await res.json();
+}
 async function runDispatch(input) {
   const built = buildAdaptersFromEnv({
     platforms: input.platforms,
@@ -67109,14 +67125,74 @@ async function runDispatch(input) {
       }
     }
   }
-  if (input.postsIndex && !input.dryRun && fullEntries.length > 0) {
+  let receiptUrls;
+  if (input.saas && !input.dryRun && fullEntries.length > 0) {
+    const saasEntries = fullEntries.map((entry) => toSaasEntry(entry, input.event, input.operatorKeyId)).filter((e) => e !== null);
+    if (saasEntries.length > 0) {
+      const response = await postRawToSaas({
+        url: input.saas.url,
+        apiKey: input.saas.apiKey,
+        entries: saasEntries
+      });
+      receiptUrls = response.accepted.map((a) => ({
+        platform: a.platform,
+        receiptUrl: a.receiptUrl
+      }));
+      for (const r of response.rejected) {
+        skipped.push({
+          platform: r.platform,
+          reason: `saas-rejected: ${r.reason}`
+        });
+      }
+      if (response.usage) {
+        (input.log ?? ((m) => console.warn(m)))(
+          `[broadcast] usage: ${response.usage.usedThisMonth}/${response.usage.cap} broadcasts this month`
+        );
+      }
+    }
+  } else if (input.postsIndex && !input.dryRun && fullEntries.length > 0) {
     await postCassettesToIndex({
       url: input.postsIndex.url,
       secret: input.postsIndex.secret,
       entries: fullEntries
     });
   }
-  return { cassetteHashes, skipped };
+  return {
+    cassetteHashes,
+    skipped,
+    ...receiptUrls ? { receiptUrls } : {}
+  };
+}
+function toSaasEntry(entry, event, operatorKeyId) {
+  if (!entry.cassette || typeof entry.cassette !== "object" || !("payload" in entry.cassette)) {
+    return null;
+  }
+  const payload = entry.cassette.payload;
+  if (!payload || typeof payload !== "object") return null;
+  const p = payload;
+  if (typeof p.eventId !== "string") return null;
+  if (typeof p.briefHash !== "string") return null;
+  if (typeof p.finalText !== "string") return null;
+  const drafts = Array.isArray(p.draftsConsidered) ? p.draftsConsidered : [];
+  const approval = p.approval;
+  if (!approval || typeof approval.tier !== "string" || typeof approval.approvedBy !== "string" || typeof approval.approvedAt !== "number") {
+    return null;
+  }
+  const postUrl = typeof p.platformResponse?.url === "string" ? p.platformResponse.url : event.ref.url;
+  return {
+    platform: entry.platform,
+    postId: entry.postId,
+    postUrl,
+    text: p.finalText,
+    eventId: p.eventId,
+    briefHash: p.briefHash,
+    draftsConsidered: drafts,
+    approval: {
+      tier: approval.tier,
+      approvedBy: approval.approvedBy,
+      approvedAt: approval.approvedAt
+    }
+  };
 }
 function assertNever(value) {
   throw new Error(
@@ -67182,7 +67258,9 @@ function parseInputs() {
     configPath: core.getInput("config-path") || ".sizl/broadcast.config.json",
     dryRun: core.getBooleanInput("dry-run"),
     postsIndexUrl: core.getInput("posts-index-url") || "https://broadcast.directive.run/posts",
-    postsIndexSecret: core.getInput("posts-index-secret") || null
+    postsIndexSecret: core.getInput("posts-index-secret") || null,
+    broadcastApiKey: process.env.BROADCAST_API_KEY ?? null,
+    broadcastUrl: process.env.BROADCAST_URL ?? "https://broadcast.run/v1/broadcast"
   };
 }
 async function buildAnnounceableEvent() {
@@ -67235,7 +67313,15 @@ async function run() {
     platforms: inputs.platforms,
     env: process.env,
     dryRun: inputs.dryRun,
-    ...inputs.postsIndexSecret ? {
+    // Trust anchor: SaaS API key wins when present (the Worker
+    // server-signs with the tenant's managed key). Otherwise fall back
+    // to the legacy HMAC path for directive's existing deployment.
+    ...inputs.broadcastApiKey ? {
+      saas: {
+        url: inputs.broadcastUrl,
+        apiKey: inputs.broadcastApiKey
+      }
+    } : inputs.postsIndexSecret ? {
       postsIndex: {
         url: inputs.postsIndexUrl,
         secret: inputs.postsIndexSecret
@@ -67251,9 +67337,15 @@ async function run() {
   }
   core.setOutput("cassette-hashes", JSON.stringify(result.cassetteHashes));
   core.setOutput("skipped", JSON.stringify(result.skipped));
+  core.setOutput("receipt-urls", JSON.stringify(result.receiptUrls ?? []));
   core.info(
     `[broadcast-action] dispatched ${result.cassetteHashes.length} post(s); skipped ${result.skipped.length}.`
   );
+  if (result.receiptUrls && result.receiptUrls.length > 0) {
+    for (const r of result.receiptUrls) {
+      core.info(`[broadcast-action] ${r.platform} receipt: ${r.receiptUrl}`);
+    }
+  }
 }
 run().catch((err) => {
   if (err instanceof Error) {
