@@ -8,14 +8,14 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x, {
-  get: (a, b) => (typeof require !== "undefined" ? require : a)[b]
-}) : x)(function(x) {
+var __require = /* @__PURE__ */ ((x3) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x3, {
+  get: (a2, b2) => (typeof require !== "undefined" ? require : a2)[b2]
+}) : x3)(function(x3) {
   if (typeof require !== "undefined") return require.apply(this, arguments);
-  throw Error('Dynamic require of "' + x + '" is not supported');
+  throw Error('Dynamic require of "' + x3 + '" is not supported');
 });
-var __esm = (fn, res) => function __init() {
-  return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
+var __esm = (fn2, res) => function __init() {
+  return fn2 && (res = (0, fn2[__getOwnPropNames(fn2)[0]])(fn2 = 0)), res;
 };
 var __commonJS = (cb, mod) => function __require2() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
@@ -76,23 +76,23 @@ var require_utils = __commonJS({
 // ../../node_modules/.pnpm/@actions+core@1.11.1/node_modules/@actions/core/lib/command.js
 var require_command = __commonJS({
   "../../node_modules/.pnpm/@actions+core@1.11.1/node_modules/@actions/core/lib/command.js"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      var desc = Object.getOwnPropertyDescriptor(m, k);
-      if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      var desc = Object.getOwnPropertyDescriptor(m3, k);
+      if (!desc || ("get" in desc ? !m3.__esModule : desc.writable || desc.configurable)) {
         desc = { enumerable: true, get: function() {
-          return m[k];
+          return m3[k];
         } };
       }
-      Object.defineProperty(o, k2, desc);
-    }) : (function(o, m, k, k2) {
+      Object.defineProperty(o2, k2, desc);
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    }) : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o2, v2) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v2 });
+    }) : function(o2, v2) {
+      o2["default"] = v2;
     });
     var __importStar2 = exports && exports.__importStar || function(mod) {
       if (mod && mod.__esModule) return mod;
@@ -161,23 +161,23 @@ var require_command = __commonJS({
 // ../../node_modules/.pnpm/@actions+core@1.11.1/node_modules/@actions/core/lib/file-command.js
 var require_file_command = __commonJS({
   "../../node_modules/.pnpm/@actions+core@1.11.1/node_modules/@actions/core/lib/file-command.js"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      var desc = Object.getOwnPropertyDescriptor(m, k);
-      if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      var desc = Object.getOwnPropertyDescriptor(m3, k);
+      if (!desc || ("get" in desc ? !m3.__esModule : desc.writable || desc.configurable)) {
         desc = { enumerable: true, get: function() {
-          return m[k];
+          return m3[k];
         } };
       }
-      Object.defineProperty(o, k2, desc);
-    }) : (function(o, m, k, k2) {
+      Object.defineProperty(o2, k2, desc);
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    }) : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o2, v2) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v2 });
+    }) : function(o2, v2) {
+      o2["default"] = v2;
     });
     var __importStar2 = exports && exports.__importStar || function(mod) {
       if (mod && mod.__esModule) return mod;
@@ -275,8 +275,8 @@ var require_proxy = __commonJS({
       if (typeof reqPort === "number") {
         upperReqHosts.push(`${upperReqHosts[0]}:${reqPort}`);
       }
-      for (const upperNoProxyItem of noProxy.split(",").map((x) => x.trim().toUpperCase()).filter((x) => x)) {
-        if (upperNoProxyItem === "*" || upperReqHosts.some((x) => x === upperNoProxyItem || x.endsWith(`.${upperNoProxyItem}`) || upperNoProxyItem.startsWith(".") && x.endsWith(`${upperNoProxyItem}`))) {
+      for (const upperNoProxyItem of noProxy.split(",").map((x3) => x3.trim().toUpperCase()).filter((x3) => x3)) {
+        if (upperNoProxyItem === "*" || upperReqHosts.some((x3) => x3 === upperNoProxyItem || x3.endsWith(`.${upperNoProxyItem}`) || upperNoProxyItem.startsWith(".") && x3.endsWith(`${upperNoProxyItem}`))) {
           return true;
         }
       }
@@ -503,8 +503,8 @@ var require_tunnel = __commonJS({
         var overrides = arguments[i];
         if (typeof overrides === "object") {
           var keys = Object.keys(overrides);
-          for (var j = 0, keyLen = keys.length; j < keyLen; ++j) {
-            var k = keys[j];
+          for (var j3 = 0, keyLen = keys.length; j3 < keyLen; ++j3) {
+            var k = keys[j3];
             if (overrides[k] !== void 0) {
               target[k] = overrides[k];
             }
@@ -949,7 +949,7 @@ var require_util = __commonJS({
     var nodeUtil = __require("util");
     var { stringify } = __require("querystring");
     var { headerNameLowerCasedRecord } = require_constants();
-    var [nodeMajor, nodeMinor] = process.versions.node.split(".").map((v) => Number(v));
+    var [nodeMajor, nodeMinor] = process.versions.node.split(".").map((v2) => Number(v2));
     function nop() {
     }
     function isStream(obj) {
@@ -1088,8 +1088,8 @@ var require_util = __commonJS({
     }
     var KEEPALIVE_TIMEOUT_EXPR = /timeout=(\d+)/;
     function parseKeepAliveTimeout(val) {
-      const m = val.toString().match(KEEPALIVE_TIMEOUT_EXPR);
-      return m ? parseInt(m[1], 10) * 1e3 : null;
+      const m3 = val.toString().match(KEEPALIVE_TIMEOUT_EXPR);
+      return m3 ? parseInt(m3[1], 10) * 1e3 : null;
     }
     function headerNameToString(value) {
       return headerNameLowerCasedRecord[value] || value.toLowerCase();
@@ -1101,7 +1101,7 @@ var require_util = __commonJS({
         let val = obj[key];
         if (!val) {
           if (Array.isArray(headers[i + 1])) {
-            obj[key] = headers[i + 1].map((x) => x.toString("utf8"));
+            obj[key] = headers[i + 1].map((x3) => x3.toString("utf8"));
           } else {
             obj[key] = headers[i + 1].toString("utf8");
           }
@@ -1270,11 +1270,11 @@ var require_util = __commonJS({
     }
     function parseRangeHeader(range) {
       if (range == null || range === "") return { start: 0, end: null, size: null };
-      const m = range ? range.match(/^bytes (\d+)-(\d+)\/(\d+)?$/) : null;
-      return m ? {
-        start: parseInt(m[1]),
-        end: m[2] ? parseInt(m[2]) : null,
-        size: m[3] ? parseInt(m[3]) : null
+      const m3 = range ? range.match(/^bytes (\d+)-(\d+)\/(\d+)?$/) : null;
+      return m3 ? {
+        start: parseInt(m3[1]),
+        end: m3[2] ? parseInt(m3[2]) : null,
+        size: m3[3] ? parseInt(m3[3]) : null
       } : null;
     }
     var kEnumerableProperty = /* @__PURE__ */ Object.create(null);
@@ -1442,11 +1442,11 @@ var require_sbmh = __commonJS({
       }
       const chlen = chunk.length;
       this._bufpos = pos || 0;
-      let r;
-      while (r !== chlen && this.matches < this.maxMatches) {
-        r = this._sbmh_feed(chunk);
+      let r2;
+      while (r2 !== chlen && this.matches < this.maxMatches) {
+        r2 = this._sbmh_feed(chunk);
       }
-      return r;
+      return r2;
     };
     SBMH.prototype._sbmh_feed = function(data) {
       const len = data.length;
@@ -1607,9 +1607,9 @@ var require_HeaderParser = __commonJS({
     }
     inherits(HeaderParser, EventEmitter);
     HeaderParser.prototype.push = function(data) {
-      const r = this.ss.push(data);
+      const r2 = this.ss.push(data);
       if (this.finished) {
-        return r;
+        return r2;
       }
     };
     HeaderParser.prototype.reset = function() {
@@ -1637,14 +1637,14 @@ var require_HeaderParser = __commonJS({
       }
       const lines = this.buffer.split(RE_CRLF);
       const len = lines.length;
-      let m, h;
+      let m3, h3;
       for (var i = 0; i < len; ++i) {
         if (lines[i].length === 0) {
           continue;
         }
         if (lines[i][0] === "	" || lines[i][0] === " ") {
-          if (h) {
-            this.header[h][this.header[h].length - 1] += lines[i];
+          if (h3) {
+            this.header[h3][this.header[h3].length - 1] += lines[i];
             continue;
           }
         }
@@ -1652,10 +1652,10 @@ var require_HeaderParser = __commonJS({
         if (posColon === -1 || posColon === 0) {
           return;
         }
-        m = RE_HDR.exec(lines[i]);
-        h = m[1].toLowerCase();
-        this.header[h] = this.header[h] || [];
-        this.header[h].push(m[2] || "");
+        m3 = RE_HDR.exec(lines[i]);
+        h3 = m3[1].toLowerCase();
+        this.header[h3] = this.header[h3] || [];
+        this.header[h3].push(m3[2] || "");
         if (++this.npairs === this.maxHeaderPairs) {
           break;
         }
@@ -1752,9 +1752,9 @@ var require_Dicer = __commonJS({
             this._ignore();
           }
         }
-        const r = this._hparser.push(data);
-        if (!this._inHeader && r !== void 0 && r < data.length) {
-          data = data.slice(r);
+        const r2 = this._hparser.push(data);
+        if (!this._inHeader && r2 !== void 0 && r2 < data.length) {
+          data = data.slice(r2);
         } else {
           return cb();
         }
@@ -1793,7 +1793,7 @@ var require_Dicer = __commonJS({
       let buf;
       const self = this;
       let i = 0;
-      let r;
+      let r2;
       let shouldWriteMore = true;
       if (!this._part && this._justMatched && data) {
         while (this._dashes < 2 && start + i < end) {
@@ -1856,9 +1856,9 @@ var require_Dicer = __commonJS({
           if (buf) {
             this._hparser.push(buf);
           }
-          r = this._hparser.push(data.slice(start, end));
-          if (!this._inHeader && r !== void 0 && r < end) {
-            this._oninfo(false, data, start + r, end);
+          r2 = this._hparser.push(data.slice(start, end));
+          if (!this._inHeader && r2 !== void 0 && r2 < end) {
+            this._oninfo(false, data, start + r2, end);
           }
         }
       }
@@ -2516,7 +2516,7 @@ var require_parseParams = __commonJS({
       let charset = "";
       let inquote = false;
       let escaping = false;
-      let p = 0;
+      let p2 = 0;
       let tmp = "";
       const len = str.length;
       for (var i = 0; i < len; ++i) {
@@ -2556,7 +2556,7 @@ var require_parseParams = __commonJS({
             continue;
           } else if (state === STATE_KEY && (char === "*" || char === "=") && res.length) {
             state = char === "*" ? STATE_CHARSET : STATE_VALUE;
-            res[p] = [tmp, void 0];
+            res[p2] = [tmp, void 0];
             tmp = "";
             continue;
           } else if (!inquote && char === ";") {
@@ -2573,13 +2573,13 @@ var require_parseParams = __commonJS({
             } else if (tmp.length) {
               tmp = decodeText(tmp, "binary", "utf8");
             }
-            if (res[p] === void 0) {
-              res[p] = tmp;
+            if (res[p2] === void 0) {
+              res[p2] = tmp;
             } else {
-              res[p][1] = tmp;
+              res[p2][1] = tmp;
             }
             tmp = "";
-            ++p;
+            ++p2;
             continue;
           } else if (!inquote && (char === " " || char === "	")) {
             continue;
@@ -2596,12 +2596,12 @@ var require_parseParams = __commonJS({
       } else if (tmp) {
         tmp = decodeText(tmp, "binary", "utf8");
       }
-      if (res[p] === void 0) {
+      if (res[p2] === void 0) {
         if (tmp) {
-          res[p] = tmp;
+          res[p2] = tmp;
         }
       } else {
-        res[p][1] = tmp;
+        res[p2][1] = tmp;
       }
       return res;
     }
@@ -2875,11 +2875,11 @@ var require_multipart = __commonJS({
       });
     }
     Multipart.prototype.write = function(chunk, cb) {
-      const r = this.parser.write(chunk);
-      if (r && !this._pause) {
+      const r2 = this.parser.write(chunk);
+      if (r2 && !this._pause) {
         cb();
       } else {
-        this._needDrain = !r;
+        this._needDrain = !r2;
         this._cb = cb;
       }
     };
@@ -3050,7 +3050,7 @@ var require_Decoder = __commonJS({
       str = str.replace(RE_PLUS, " ");
       let res = "";
       let i = 0;
-      let p = 0;
+      let p2 = 0;
       const len = str.length;
       for (; i < len; ++i) {
         if (this.buffer !== void 0) {
@@ -3060,23 +3060,23 @@ var require_Decoder = __commonJS({
             --i;
           } else {
             this.buffer += str[i];
-            ++p;
+            ++p2;
             if (this.buffer.length === 2) {
               res += String.fromCharCode(parseInt(this.buffer, 16));
               this.buffer = void 0;
             }
           }
         } else if (str[i] === "%") {
-          if (i > p) {
-            res += str.substring(p, i);
-            p = i;
+          if (i > p2) {
+            res += str.substring(p2, i);
+            p2 = i;
           }
           this.buffer = "";
-          ++p;
+          ++p2;
         }
       }
-      if (p < len && this.buffer === void 0) {
-        res += str.substring(p);
+      if (p2 < len && this.buffer === void 0) {
+        res += str.substring(p2);
       }
       return res;
     };
@@ -3136,14 +3136,14 @@ var require_urlencoded = __commonJS({
       let idxeq;
       let idxamp;
       let i;
-      let p = 0;
+      let p2 = 0;
       const len = data.length;
-      while (p < len) {
+      while (p2 < len) {
         if (this._state === "key") {
           idxeq = idxamp = void 0;
-          for (i = p; i < len; ++i) {
+          for (i = p2; i < len; ++i) {
             if (!this._checkingBytes) {
-              ++p;
+              ++p2;
             }
             if (data[i] === 61) {
               idxeq = i;
@@ -3160,8 +3160,8 @@ var require_urlencoded = __commonJS({
             }
           }
           if (idxeq !== void 0) {
-            if (idxeq > p) {
-              this._key += this.decoder.write(data.toString("binary", p, idxeq));
+            if (idxeq > p2) {
+              this._key += this.decoder.write(data.toString("binary", p2, idxeq));
             }
             this._state = "val";
             this._hitLimit = false;
@@ -3170,13 +3170,13 @@ var require_urlencoded = __commonJS({
             this._bytesVal = 0;
             this._valTrunc = false;
             this.decoder.reset();
-            p = idxeq + 1;
+            p2 = idxeq + 1;
           } else if (idxamp !== void 0) {
             ++this._fields;
             let key;
             const keyTrunc = this._keyTrunc;
-            if (idxamp > p) {
-              key = this._key += this.decoder.write(data.toString("binary", p, idxamp));
+            if (idxamp > p2) {
+              key = this._key += this.decoder.write(data.toString("binary", p2, idxamp));
             } else {
               key = this._key;
             }
@@ -3195,30 +3195,30 @@ var require_urlencoded = __commonJS({
                 false
               );
             }
-            p = idxamp + 1;
+            p2 = idxamp + 1;
             if (this._fields === this.fieldsLimit) {
               return cb();
             }
           } else if (this._hitLimit) {
-            if (i > p) {
-              this._key += this.decoder.write(data.toString("binary", p, i));
+            if (i > p2) {
+              this._key += this.decoder.write(data.toString("binary", p2, i));
             }
-            p = i;
+            p2 = i;
             if ((this._bytesKey = this._key.length) === this.fieldNameSizeLimit) {
               this._checkingBytes = false;
               this._keyTrunc = true;
             }
           } else {
-            if (p < len) {
-              this._key += this.decoder.write(data.toString("binary", p));
+            if (p2 < len) {
+              this._key += this.decoder.write(data.toString("binary", p2));
             }
-            p = len;
+            p2 = len;
           }
         } else {
           idxamp = void 0;
-          for (i = p; i < len; ++i) {
+          for (i = p2; i < len; ++i) {
             if (!this._checkingBytes) {
-              ++p;
+              ++p2;
             }
             if (data[i] === 38) {
               idxamp = i;
@@ -3233,8 +3233,8 @@ var require_urlencoded = __commonJS({
           }
           if (idxamp !== void 0) {
             ++this._fields;
-            if (idxamp > p) {
-              this._val += this.decoder.write(data.toString("binary", p, idxamp));
+            if (idxamp > p2) {
+              this._val += this.decoder.write(data.toString("binary", p2, idxamp));
             }
             this.boy.emit(
               "field",
@@ -3250,24 +3250,24 @@ var require_urlencoded = __commonJS({
             this._bytesKey = 0;
             this._keyTrunc = false;
             this.decoder.reset();
-            p = idxamp + 1;
+            p2 = idxamp + 1;
             if (this._fields === this.fieldsLimit) {
               return cb();
             }
           } else if (this._hitLimit) {
-            if (i > p) {
-              this._val += this.decoder.write(data.toString("binary", p, i));
+            if (i > p2) {
+              this._val += this.decoder.write(data.toString("binary", p2, i));
             }
-            p = i;
+            p2 = i;
             if (this._val === "" && this.fieldSizeLimit === 0 || (this._bytesVal = this._val.length) === this.fieldSizeLimit) {
               this._checkingBytes = false;
               this._valTrunc = true;
             }
           } else {
-            if (p < len) {
-              this._val += this.decoder.write(data.toString("binary", p));
+            if (p2 < len) {
+              this._val += this.decoder.write(data.toString("binary", p2));
             }
-            p = len;
+            p2 = len;
           }
         }
       }
@@ -3535,9 +3535,9 @@ var require_constants2 = __commonJS({
       }
     })();
     var channel;
-    var structuredClone = globalThis.structuredClone ?? // https://github.com/nodejs/node/blob/b27ae24dcc4251bad726d9d84baf678d1f707fed/lib/internal/structured_clone.js
+    var structuredClone2 = globalThis.structuredClone ?? // https://github.com/nodejs/node/blob/b27ae24dcc4251bad726d9d84baf678d1f707fed/lib/internal/structured_clone.js
     // structuredClone was added in v17.0.0, but fetch supports v16.8
-    function structuredClone2(value, options = void 0) {
+    function structuredClone3(value, options = void 0) {
       if (arguments.length === 0) {
         throw new TypeError("missing argument");
       }
@@ -3551,7 +3551,7 @@ var require_constants2 = __commonJS({
     };
     module.exports = {
       DOMException: DOMException2,
-      structuredClone,
+      structuredClone: structuredClone2,
       subresource,
       forbiddenMethods,
       requestBodyHeader,
@@ -3662,17 +3662,17 @@ var require_util2 = __commonJS({
     }
     function isValidReasonPhrase(statusText) {
       for (let i = 0; i < statusText.length; ++i) {
-        const c = statusText.charCodeAt(i);
-        if (!(c === 9 || // HTAB
-        c >= 32 && c <= 126 || // SP / VCHAR
-        c >= 128 && c <= 255)) {
+        const c2 = statusText.charCodeAt(i);
+        if (!(c2 === 9 || // HTAB
+        c2 >= 32 && c2 <= 126 || // SP / VCHAR
+        c2 >= 128 && c2 <= 255)) {
           return false;
         }
       }
       return true;
     }
-    function isTokenCharCode(c) {
-      switch (c) {
+    function isTokenCharCode(c2) {
+      switch (c2) {
         case 34:
         case 40:
         case 41:
@@ -3692,7 +3692,7 @@ var require_util2 = __commonJS({
         case 125:
           return false;
         default:
-          return c >= 33 && c <= 126;
+          return c2 >= 33 && c2 <= 126;
       }
     }
     function isValidHTTPToken(characters) {
@@ -3998,11 +3998,11 @@ var require_util2 = __commonJS({
     }
     function tryUpgradeRequestToAPotentiallyTrustworthyURL(request2) {
     }
-    function sameOrigin(A, B) {
-      if (A.origin === B.origin && A.origin === "null") {
+    function sameOrigin(A4, B3) {
+      if (A4.origin === B3.origin && A4.origin === "null") {
         return true;
       }
-      if (A.protocol === B.protocol && A.hostname === B.hostname && A.port === B.port) {
+      if (A4.protocol === B3.protocol && A4.hostname === B3.hostname && A4.port === B3.port) {
         return true;
       }
       return false;
@@ -4265,11 +4265,11 @@ var require_webidl = __commonJS({
         message: `"${context2.value}" is an invalid ${context2.type}.`
       });
     };
-    webidl.brandCheck = function(V, I, opts = void 0) {
-      if (opts?.strict !== false && !(V instanceof I)) {
+    webidl.brandCheck = function(V2, I2, opts = void 0) {
+      if (opts?.strict !== false && !(V2 instanceof I2)) {
         throw new TypeError("Illegal invocation");
       } else {
-        return V?.[Symbol.toStringTag] === I.prototype[Symbol.toStringTag];
+        return V2?.[Symbol.toStringTag] === I2.prototype[Symbol.toStringTag];
       }
     };
     webidl.argumentLengthCheck = function({ length }, min, ctx) {
@@ -4286,8 +4286,8 @@ var require_webidl = __commonJS({
         message: "Illegal constructor"
       });
     };
-    webidl.util.Type = function(V) {
-      switch (typeof V) {
+    webidl.util.Type = function(V2) {
+      switch (typeof V2) {
         case "undefined":
           return "Undefined";
         case "boolean":
@@ -4302,14 +4302,14 @@ var require_webidl = __commonJS({
           return "BigInt";
         case "function":
         case "object": {
-          if (V === null) {
+          if (V2 === null) {
             return "Null";
           }
           return "Object";
         }
       }
     };
-    webidl.util.ConvertToInt = function(V, bitLength, signedness, opts = {}) {
+    webidl.util.ConvertToInt = function(V2, bitLength, signedness, opts = {}) {
       let upperBound;
       let lowerBound;
       if (bitLength === 64) {
@@ -4326,61 +4326,61 @@ var require_webidl = __commonJS({
         lowerBound = Math.pow(-2, bitLength) - 1;
         upperBound = Math.pow(2, bitLength - 1) - 1;
       }
-      let x = Number(V);
-      if (x === 0) {
-        x = 0;
+      let x3 = Number(V2);
+      if (x3 === 0) {
+        x3 = 0;
       }
       if (opts.enforceRange === true) {
-        if (Number.isNaN(x) || x === Number.POSITIVE_INFINITY || x === Number.NEGATIVE_INFINITY) {
+        if (Number.isNaN(x3) || x3 === Number.POSITIVE_INFINITY || x3 === Number.NEGATIVE_INFINITY) {
           throw webidl.errors.exception({
             header: "Integer conversion",
-            message: `Could not convert ${V} to an integer.`
+            message: `Could not convert ${V2} to an integer.`
           });
         }
-        x = webidl.util.IntegerPart(x);
-        if (x < lowerBound || x > upperBound) {
+        x3 = webidl.util.IntegerPart(x3);
+        if (x3 < lowerBound || x3 > upperBound) {
           throw webidl.errors.exception({
             header: "Integer conversion",
-            message: `Value must be between ${lowerBound}-${upperBound}, got ${x}.`
+            message: `Value must be between ${lowerBound}-${upperBound}, got ${x3}.`
           });
         }
-        return x;
+        return x3;
       }
-      if (!Number.isNaN(x) && opts.clamp === true) {
-        x = Math.min(Math.max(x, lowerBound), upperBound);
-        if (Math.floor(x) % 2 === 0) {
-          x = Math.floor(x);
+      if (!Number.isNaN(x3) && opts.clamp === true) {
+        x3 = Math.min(Math.max(x3, lowerBound), upperBound);
+        if (Math.floor(x3) % 2 === 0) {
+          x3 = Math.floor(x3);
         } else {
-          x = Math.ceil(x);
+          x3 = Math.ceil(x3);
         }
-        return x;
+        return x3;
       }
-      if (Number.isNaN(x) || x === 0 && Object.is(0, x) || x === Number.POSITIVE_INFINITY || x === Number.NEGATIVE_INFINITY) {
+      if (Number.isNaN(x3) || x3 === 0 && Object.is(0, x3) || x3 === Number.POSITIVE_INFINITY || x3 === Number.NEGATIVE_INFINITY) {
         return 0;
       }
-      x = webidl.util.IntegerPart(x);
-      x = x % Math.pow(2, bitLength);
-      if (signedness === "signed" && x >= Math.pow(2, bitLength) - 1) {
-        return x - Math.pow(2, bitLength);
+      x3 = webidl.util.IntegerPart(x3);
+      x3 = x3 % Math.pow(2, bitLength);
+      if (signedness === "signed" && x3 >= Math.pow(2, bitLength) - 1) {
+        return x3 - Math.pow(2, bitLength);
       }
-      return x;
+      return x3;
     };
     webidl.util.IntegerPart = function(n) {
-      const r = Math.floor(Math.abs(n));
+      const r2 = Math.floor(Math.abs(n));
       if (n < 0) {
-        return -1 * r;
+        return -1 * r2;
       }
-      return r;
+      return r2;
     };
     webidl.sequenceConverter = function(converter) {
-      return (V) => {
-        if (webidl.util.Type(V) !== "Object") {
+      return (V2) => {
+        if (webidl.util.Type(V2) !== "Object") {
           throw webidl.errors.exception({
             header: "Sequence",
-            message: `Value of type ${webidl.util.Type(V)} is not an Object.`
+            message: `Value of type ${webidl.util.Type(V2)} is not an Object.`
           });
         }
-        const method = V?.[Symbol.iterator]?.();
+        const method = V2?.[Symbol.iterator]?.();
         const seq = [];
         if (method === void 0 || typeof method.next !== "function") {
           throw webidl.errors.exception({
@@ -4399,29 +4399,29 @@ var require_webidl = __commonJS({
       };
     };
     webidl.recordConverter = function(keyConverter, valueConverter) {
-      return (O) => {
-        if (webidl.util.Type(O) !== "Object") {
+      return (O2) => {
+        if (webidl.util.Type(O2) !== "Object") {
           throw webidl.errors.exception({
             header: "Record",
-            message: `Value of type ${webidl.util.Type(O)} is not an Object.`
+            message: `Value of type ${webidl.util.Type(O2)} is not an Object.`
           });
         }
         const result = {};
-        if (!types.isProxy(O)) {
-          const keys2 = Object.keys(O);
+        if (!types.isProxy(O2)) {
+          const keys2 = Object.keys(O2);
           for (const key of keys2) {
             const typedKey = keyConverter(key);
-            const typedValue = valueConverter(O[key]);
+            const typedValue = valueConverter(O2[key]);
             result[typedKey] = typedValue;
           }
           return result;
         }
-        const keys = Reflect.ownKeys(O);
+        const keys = Reflect.ownKeys(O2);
         for (const key of keys) {
-          const desc = Reflect.getOwnPropertyDescriptor(O, key);
+          const desc = Reflect.getOwnPropertyDescriptor(O2, key);
           if (desc?.enumerable) {
             const typedKey = keyConverter(key);
-            const typedValue = valueConverter(O[key]);
+            const typedValue = valueConverter(O2[key]);
             result[typedKey] = typedValue;
           }
         }
@@ -4429,14 +4429,14 @@ var require_webidl = __commonJS({
       };
     };
     webidl.interfaceConverter = function(i) {
-      return (V, opts = {}) => {
-        if (opts.strict !== false && !(V instanceof i)) {
+      return (V2, opts = {}) => {
+        if (opts.strict !== false && !(V2 instanceof i)) {
           throw webidl.errors.exception({
             header: i.name,
-            message: `Expected ${V} to be an instance of ${i.name}.`
+            message: `Expected ${V2} to be an instance of ${i.name}.`
           });
         }
-        return V;
+        return V2;
       };
     };
     webidl.dictionaryConverter = function(converters) {
@@ -4481,115 +4481,115 @@ var require_webidl = __commonJS({
       };
     };
     webidl.nullableConverter = function(converter) {
-      return (V) => {
-        if (V === null) {
-          return V;
+      return (V2) => {
+        if (V2 === null) {
+          return V2;
         }
-        return converter(V);
+        return converter(V2);
       };
     };
-    webidl.converters.DOMString = function(V, opts = {}) {
-      if (V === null && opts.legacyNullToEmptyString) {
+    webidl.converters.DOMString = function(V2, opts = {}) {
+      if (V2 === null && opts.legacyNullToEmptyString) {
         return "";
       }
-      if (typeof V === "symbol") {
+      if (typeof V2 === "symbol") {
         throw new TypeError("Could not convert argument of type symbol to string.");
       }
-      return String(V);
+      return String(V2);
     };
-    webidl.converters.ByteString = function(V) {
-      const x = webidl.converters.DOMString(V);
-      for (let index = 0; index < x.length; index++) {
-        if (x.charCodeAt(index) > 255) {
+    webidl.converters.ByteString = function(V2) {
+      const x3 = webidl.converters.DOMString(V2);
+      for (let index = 0; index < x3.length; index++) {
+        if (x3.charCodeAt(index) > 255) {
           throw new TypeError(
-            `Cannot convert argument to a ByteString because the character at index ${index} has a value of ${x.charCodeAt(index)} which is greater than 255.`
+            `Cannot convert argument to a ByteString because the character at index ${index} has a value of ${x3.charCodeAt(index)} which is greater than 255.`
           );
         }
       }
-      return x;
+      return x3;
     };
     webidl.converters.USVString = toUSVString;
-    webidl.converters.boolean = function(V) {
-      const x = Boolean(V);
-      return x;
+    webidl.converters.boolean = function(V2) {
+      const x3 = Boolean(V2);
+      return x3;
     };
-    webidl.converters.any = function(V) {
-      return V;
+    webidl.converters.any = function(V2) {
+      return V2;
     };
-    webidl.converters["long long"] = function(V) {
-      const x = webidl.util.ConvertToInt(V, 64, "signed");
-      return x;
+    webidl.converters["long long"] = function(V2) {
+      const x3 = webidl.util.ConvertToInt(V2, 64, "signed");
+      return x3;
     };
-    webidl.converters["unsigned long long"] = function(V) {
-      const x = webidl.util.ConvertToInt(V, 64, "unsigned");
-      return x;
+    webidl.converters["unsigned long long"] = function(V2) {
+      const x3 = webidl.util.ConvertToInt(V2, 64, "unsigned");
+      return x3;
     };
-    webidl.converters["unsigned long"] = function(V) {
-      const x = webidl.util.ConvertToInt(V, 32, "unsigned");
-      return x;
+    webidl.converters["unsigned long"] = function(V2) {
+      const x3 = webidl.util.ConvertToInt(V2, 32, "unsigned");
+      return x3;
     };
-    webidl.converters["unsigned short"] = function(V, opts) {
-      const x = webidl.util.ConvertToInt(V, 16, "unsigned", opts);
-      return x;
+    webidl.converters["unsigned short"] = function(V2, opts) {
+      const x3 = webidl.util.ConvertToInt(V2, 16, "unsigned", opts);
+      return x3;
     };
-    webidl.converters.ArrayBuffer = function(V, opts = {}) {
-      if (webidl.util.Type(V) !== "Object" || !types.isAnyArrayBuffer(V)) {
+    webidl.converters.ArrayBuffer = function(V2, opts = {}) {
+      if (webidl.util.Type(V2) !== "Object" || !types.isAnyArrayBuffer(V2)) {
         throw webidl.errors.conversionFailed({
-          prefix: `${V}`,
-          argument: `${V}`,
+          prefix: `${V2}`,
+          argument: `${V2}`,
           types: ["ArrayBuffer"]
         });
       }
-      if (opts.allowShared === false && types.isSharedArrayBuffer(V)) {
+      if (opts.allowShared === false && types.isSharedArrayBuffer(V2)) {
         throw webidl.errors.exception({
           header: "ArrayBuffer",
           message: "SharedArrayBuffer is not allowed."
         });
       }
-      return V;
+      return V2;
     };
-    webidl.converters.TypedArray = function(V, T, opts = {}) {
-      if (webidl.util.Type(V) !== "Object" || !types.isTypedArray(V) || V.constructor.name !== T.name) {
+    webidl.converters.TypedArray = function(V2, T2, opts = {}) {
+      if (webidl.util.Type(V2) !== "Object" || !types.isTypedArray(V2) || V2.constructor.name !== T2.name) {
         throw webidl.errors.conversionFailed({
-          prefix: `${T.name}`,
-          argument: `${V}`,
-          types: [T.name]
+          prefix: `${T2.name}`,
+          argument: `${V2}`,
+          types: [T2.name]
         });
       }
-      if (opts.allowShared === false && types.isSharedArrayBuffer(V.buffer)) {
+      if (opts.allowShared === false && types.isSharedArrayBuffer(V2.buffer)) {
         throw webidl.errors.exception({
           header: "ArrayBuffer",
           message: "SharedArrayBuffer is not allowed."
         });
       }
-      return V;
+      return V2;
     };
-    webidl.converters.DataView = function(V, opts = {}) {
-      if (webidl.util.Type(V) !== "Object" || !types.isDataView(V)) {
+    webidl.converters.DataView = function(V2, opts = {}) {
+      if (webidl.util.Type(V2) !== "Object" || !types.isDataView(V2)) {
         throw webidl.errors.exception({
           header: "DataView",
           message: "Object is not a DataView."
         });
       }
-      if (opts.allowShared === false && types.isSharedArrayBuffer(V.buffer)) {
+      if (opts.allowShared === false && types.isSharedArrayBuffer(V2.buffer)) {
         throw webidl.errors.exception({
           header: "ArrayBuffer",
           message: "SharedArrayBuffer is not allowed."
         });
       }
-      return V;
+      return V2;
     };
-    webidl.converters.BufferSource = function(V, opts = {}) {
-      if (types.isAnyArrayBuffer(V)) {
-        return webidl.converters.ArrayBuffer(V, opts);
+    webidl.converters.BufferSource = function(V2, opts = {}) {
+      if (types.isAnyArrayBuffer(V2)) {
+        return webidl.converters.ArrayBuffer(V2, opts);
       }
-      if (types.isTypedArray(V)) {
-        return webidl.converters.TypedArray(V, V.constructor);
+      if (types.isTypedArray(V2)) {
+        return webidl.converters.TypedArray(V2, V2.constructor);
       }
-      if (types.isDataView(V)) {
-        return webidl.converters.DataView(V, opts);
+      if (types.isDataView(V2)) {
+        return webidl.converters.DataView(V2, opts);
       }
-      throw new TypeError(`Could not convert ${V} to a BufferSource.`);
+      throw new TypeError(`Could not convert ${V2} to a BufferSource.`);
     };
     webidl.converters["sequence<ByteString>"] = webidl.sequenceConverter(
       webidl.converters.ByteString
@@ -4903,7 +4903,7 @@ var require_file = __commonJS({
     var { parseMIMEType, serializeAMimeType } = require_dataURL();
     var { kEnumerableProperty } = require_util();
     var encoder = new TextEncoder();
-    var File = class _File extends Blob2 {
+    var File2 = class _File extends Blob2 {
       constructor(fileBits, fileName, options = {}) {
         webidl.argumentLengthCheck(arguments, 2, { header: "File constructor" });
         fileBits = webidl.converters["sequence<BlobPart>"](fileBits);
@@ -4911,7 +4911,7 @@ var require_file = __commonJS({
         options = webidl.converters.FilePropertyBag(options);
         const n = fileName;
         let t = options.type;
-        let d;
+        let d2;
         substep: {
           if (t) {
             t = parseMIMEType(t);
@@ -4921,12 +4921,12 @@ var require_file = __commonJS({
             }
             t = serializeAMimeType(t).toLowerCase();
           }
-          d = options.lastModified;
+          d2 = options.lastModified;
         }
         super(processBlobParts(fileBits, options), { type: t });
         this[kState] = {
           name: n,
-          lastModified: d,
+          lastModified: d2,
           type: t
         };
       }
@@ -4947,12 +4947,12 @@ var require_file = __commonJS({
       constructor(blobLike, fileName, options = {}) {
         const n = fileName;
         const t = options.type;
-        const d = options.lastModified ?? Date.now();
+        const d2 = options.lastModified ?? Date.now();
         this[kState] = {
           blobLike,
           name: n,
           type: t,
-          lastModified: d
+          lastModified: d2
         };
       }
       stream(...args) {
@@ -4991,7 +4991,7 @@ var require_file = __commonJS({
         return "File";
       }
     };
-    Object.defineProperties(File.prototype, {
+    Object.defineProperties(File2.prototype, {
       [Symbol.toStringTag]: {
         value: "File",
         configurable: true
@@ -5000,16 +5000,16 @@ var require_file = __commonJS({
       lastModified: kEnumerableProperty
     });
     webidl.converters.Blob = webidl.interfaceConverter(Blob2);
-    webidl.converters.BlobPart = function(V, opts) {
-      if (webidl.util.Type(V) === "Object") {
-        if (isBlobLike(V)) {
-          return webidl.converters.Blob(V, { strict: false });
+    webidl.converters.BlobPart = function(V2, opts) {
+      if (webidl.util.Type(V2) === "Object") {
+        if (isBlobLike(V2)) {
+          return webidl.converters.Blob(V2, { strict: false });
         }
-        if (ArrayBuffer.isView(V) || types.isAnyArrayBuffer(V)) {
-          return webidl.converters.BufferSource(V, opts);
+        if (ArrayBuffer.isView(V2) || types.isAnyArrayBuffer(V2)) {
+          return webidl.converters.BufferSource(V2, opts);
         }
       }
-      return webidl.converters.USVString(V, opts);
+      return webidl.converters.USVString(V2, opts);
     };
     webidl.converters["sequence<BlobPart>"] = webidl.sequenceConverter(
       webidl.converters.BlobPart
@@ -5071,9 +5071,9 @@ var require_file = __commonJS({
       return s.replace(/\r?\n/g, nativeLineEnding);
     }
     function isFileLike(object) {
-      return NativeFile && object instanceof NativeFile || object instanceof File || object && (typeof object.stream === "function" || typeof object.arrayBuffer === "function") && object[Symbol.toStringTag] === "File";
+      return NativeFile && object instanceof NativeFile || object instanceof File2 || object && (typeof object.stream === "function" || typeof object.arrayBuffer === "function") && object[Symbol.toStringTag] === "File";
     }
-    module.exports = { File, FileLike, isFileLike };
+    module.exports = { File: File2, FileLike, isFileLike };
   }
 });
 
@@ -5085,7 +5085,7 @@ var require_formdata = __commonJS({
     var { File: UndiciFile, FileLike, isFileLike } = require_file();
     var { webidl } = require_webidl();
     var { Blob: Blob2, File: NativeFile } = __require("buffer");
-    var File = NativeFile ?? UndiciFile;
+    var File2 = NativeFile ?? UndiciFile;
     var FormData2 = class _FormData {
       constructor(form) {
         if (form !== void 0) {
@@ -5216,14 +5216,14 @@ var require_formdata = __commonJS({
         value = Buffer.from(value).toString("utf8");
       } else {
         if (!isFileLike(value)) {
-          value = value instanceof Blob2 ? new File([value], "blob", { type: value.type }) : new FileLike(value, "blob", { type: value.type });
+          value = value instanceof Blob2 ? new File2([value], "blob", { type: value.type }) : new FileLike(value, "blob", { type: value.type });
         }
         if (filename !== void 0) {
           const options = {
             type: value.type,
             lastModified: value.lastModified
           };
-          value = NativeFile && value instanceof NativeFile || value instanceof UndiciFile ? new File([value], filename, options) : new FileLike(value, filename, options);
+          value = NativeFile && value instanceof NativeFile || value instanceof UndiciFile ? new File2([value], filename, options) : new FileLike(value, filename, options);
         }
       }
       return { name, value };
@@ -5248,7 +5248,7 @@ var require_body = __commonJS({
     var { FormData: FormData2 } = require_formdata();
     var { kState } = require_symbols2();
     var { webidl } = require_webidl();
-    var { DOMException: DOMException2, structuredClone } = require_constants2();
+    var { DOMException: DOMException2, structuredClone: structuredClone2 } = require_constants2();
     var { Blob: Blob2, File: NativeFile } = __require("buffer");
     var { kBodyUsed } = require_symbols();
     var assert = __require("assert");
@@ -5264,7 +5264,7 @@ var require_body = __commonJS({
       random = (max) => Math.floor(Math.random(max));
     }
     var ReadableStream = globalThis.ReadableStream;
-    var File = NativeFile ?? UndiciFile;
+    var File2 = NativeFile ?? UndiciFile;
     var textEncoder = new TextEncoder();
     var textDecoder = new TextDecoder();
     function extractBody(object, keepalive = false) {
@@ -5412,7 +5412,7 @@ Content-Type: ${value.type || "application/octet-stream"}\r
     }
     function cloneBody(body) {
       const [out1, out2] = body.stream.tee();
-      const out2Clone = structuredClone(out2, { transfer: [out2] });
+      const out2Clone = structuredClone2(out2, { transfer: [out2] });
       const [, finalClone] = out2Clone.tee();
       body.stream = out1;
       return {
@@ -5499,14 +5499,14 @@ Content-Type: ${value.type || "application/octet-stream"}\r
                 });
                 value.on("end", () => {
                   chunks.push(Buffer.from(base64chunk, "base64"));
-                  responseFormData.append(name, new File(chunks, filename, { type: mimeType }));
+                  responseFormData.append(name, new File2(chunks, filename, { type: mimeType }));
                 });
               } else {
                 value.on("data", (chunk) => {
                   chunks.push(chunk);
                 });
                 value.on("end", () => {
-                  responseFormData.append(name, new File(chunks, filename, { type: mimeType }));
+                  responseFormData.append(name, new File2(chunks, filename, { type: mimeType }));
                 });
               }
             });
@@ -6623,7 +6623,7 @@ var require_constants3 = __commonJS({
         exports.HEADER_CHARS.push(i);
       }
     }
-    exports.CONNECTION_TOKEN_CHARS = exports.HEADER_CHARS.filter((c) => c !== 44);
+    exports.CONNECTION_TOKEN_CHARS = exports.HEADER_CHARS.filter((c2) => c2 !== 44);
     exports.MAJOR = exports.NUM_MAP;
     exports.MINOR = exports.MAJOR;
     var HEADER_STATE;
@@ -7227,39 +7227,39 @@ var require_client = __commonJS({
       return await WebAssembly.instantiate(mod, {
         env: {
           /* eslint-disable camelcase */
-          wasm_on_url: (p, at, len) => {
+          wasm_on_url: (p2, at2, len) => {
             return 0;
           },
-          wasm_on_status: (p, at, len) => {
-            assert.strictEqual(currentParser.ptr, p);
-            const start = at - currentBufferPtr + currentBufferRef.byteOffset;
+          wasm_on_status: (p2, at2, len) => {
+            assert.strictEqual(currentParser.ptr, p2);
+            const start = at2 - currentBufferPtr + currentBufferRef.byteOffset;
             return currentParser.onStatus(new FastBuffer(currentBufferRef.buffer, start, len)) || 0;
           },
-          wasm_on_message_begin: (p) => {
-            assert.strictEqual(currentParser.ptr, p);
+          wasm_on_message_begin: (p2) => {
+            assert.strictEqual(currentParser.ptr, p2);
             return currentParser.onMessageBegin() || 0;
           },
-          wasm_on_header_field: (p, at, len) => {
-            assert.strictEqual(currentParser.ptr, p);
-            const start = at - currentBufferPtr + currentBufferRef.byteOffset;
+          wasm_on_header_field: (p2, at2, len) => {
+            assert.strictEqual(currentParser.ptr, p2);
+            const start = at2 - currentBufferPtr + currentBufferRef.byteOffset;
             return currentParser.onHeaderField(new FastBuffer(currentBufferRef.buffer, start, len)) || 0;
           },
-          wasm_on_header_value: (p, at, len) => {
-            assert.strictEqual(currentParser.ptr, p);
-            const start = at - currentBufferPtr + currentBufferRef.byteOffset;
+          wasm_on_header_value: (p2, at2, len) => {
+            assert.strictEqual(currentParser.ptr, p2);
+            const start = at2 - currentBufferPtr + currentBufferRef.byteOffset;
             return currentParser.onHeaderValue(new FastBuffer(currentBufferRef.buffer, start, len)) || 0;
           },
-          wasm_on_headers_complete: (p, statusCode, upgrade, shouldKeepAlive) => {
-            assert.strictEqual(currentParser.ptr, p);
+          wasm_on_headers_complete: (p2, statusCode, upgrade, shouldKeepAlive) => {
+            assert.strictEqual(currentParser.ptr, p2);
             return currentParser.onHeadersComplete(statusCode, Boolean(upgrade), Boolean(shouldKeepAlive)) || 0;
           },
-          wasm_on_body: (p, at, len) => {
-            assert.strictEqual(currentParser.ptr, p);
-            const start = at - currentBufferPtr + currentBufferRef.byteOffset;
+          wasm_on_body: (p2, at2, len) => {
+            assert.strictEqual(currentParser.ptr, p2);
+            const start = at2 - currentBufferPtr + currentBufferRef.byteOffset;
             return currentParser.onBody(new FastBuffer(currentBufferRef.buffer, start, len)) || 0;
           },
-          wasm_on_message_complete: (p) => {
-            assert.strictEqual(currentParser.ptr, p);
+          wasm_on_message_complete: (p2) => {
+            assert.strictEqual(currentParser.ptr, p2);
             return currentParser.onMessageComplete() || 0;
           }
           /* eslint-enable camelcase */
@@ -8667,7 +8667,7 @@ var require_pool_base = __commonJS({
             pool.emit("drain", origin, [pool, ...targets]);
           }
           if (pool[kClosedResolve] && queue.isEmpty()) {
-            Promise.all(pool[kClients].map((c) => c.close())).then(pool[kClosedResolve]);
+            Promise.all(pool[kClients].map((c2) => c2.close())).then(pool[kClosedResolve]);
           }
         };
         this[kOnConnect] = (origin, targets) => {
@@ -8716,7 +8716,7 @@ var require_pool_base = __commonJS({
       }
       async [kClose]() {
         if (this[kQueue].isEmpty()) {
-          return Promise.all(this[kClients].map((c) => c.close()));
+          return Promise.all(this[kClients].map((c2) => c2.close()));
         } else {
           return new Promise((resolve2) => {
             this[kClosedResolve] = resolve2;
@@ -8731,7 +8731,7 @@ var require_pool_base = __commonJS({
           }
           item.handler.onError(err);
         }
-        return Promise.all(this[kClients].map((c) => c.destroy(err)));
+        return Promise.all(this[kClients].map((c2) => c2.destroy(err)));
       }
       [kDispatch](opts, handler2) {
         const dispatcher = this[kGetDispatcher]();
@@ -8893,9 +8893,9 @@ var require_balanced_pool = __commonJS({
     var kWeight = /* @__PURE__ */ Symbol("kWeight");
     var kMaxWeightPerServer = /* @__PURE__ */ Symbol("kMaxWeightPerServer");
     var kErrorPenalty = /* @__PURE__ */ Symbol("kErrorPenalty");
-    function getGreatestCommonDivisor(a, b) {
-      if (b === 0) return a;
-      return getGreatestCommonDivisor(b, a % b);
+    function getGreatestCommonDivisor(a2, b2) {
+      if (b2 === 0) return a2;
+      return getGreatestCommonDivisor(b2, a2 % b2);
     }
     function defaultFactory(origin, opts) {
       return new Pool(origin, opts);
@@ -8949,7 +8949,7 @@ var require_balanced_pool = __commonJS({
         return this;
       }
       _updateBalancedPoolStats() {
-        this[kGreatestCommonDivisor] = this[kClients].map((p) => p[kWeight]).reduce(getGreatestCommonDivisor, 0);
+        this[kGreatestCommonDivisor] = this[kClients].map((p2) => p2[kWeight]).reduce(getGreatestCommonDivisor, 0);
       }
       removeUpstream(upstream) {
         const upstreamOrigin = parseOrigin(upstream).origin;
@@ -8960,7 +8960,7 @@ var require_balanced_pool = __commonJS({
         return this;
       }
       get upstreams() {
-        return this[kClients].filter((dispatcher) => dispatcher.closed !== true && dispatcher.destroyed !== true).map((p) => p[kUrl].origin);
+        return this[kClients].filter((dispatcher) => dispatcher.closed !== true && dispatcher.destroyed !== true).map((p2) => p2[kUrl].origin);
       }
       [kGetDispatcher]() {
         if (this[kClients].length === 0) {
@@ -8970,7 +8970,7 @@ var require_balanced_pool = __commonJS({
         if (!dispatcher) {
           return;
         }
-        const allClientsBusy = this[kClients].map((pool) => pool[kNeedDrain]).reduce((a, b) => a && b, true);
+        const allClientsBusy = this[kClients].map((pool) => pool[kNeedDrain]).reduce((a2, b2) => a2 && b2, true);
         if (allClientsBusy) {
           return;
         }
@@ -10418,7 +10418,7 @@ var require_mock_utils = __commonJS({
       return Object.entries(data).reduce((keyValuePairs, [key, value]) => [
         ...keyValuePairs,
         Buffer.from(`${key}`),
-        Array.isArray(value) ? value.map((x) => Buffer.from(`${x}`)) : Buffer.from(`${value}`)
+        Array.isArray(value) ? value.map((x3) => Buffer.from(`${x3}`)) : Buffer.from(`${value}`)
       ], []);
     }
     function getStatusText(statusCode) {
@@ -11507,10 +11507,10 @@ var require_headers = __commonJS({
     }
     function headerValueNormalize(potentialValue) {
       let i = 0;
-      let j = potentialValue.length;
-      while (j > i && isHTTPWhiteSpaceCharCode(potentialValue.charCodeAt(j - 1))) --j;
-      while (j > i && isHTTPWhiteSpaceCharCode(potentialValue.charCodeAt(i))) ++i;
-      return i === 0 && j === potentialValue.length ? potentialValue : potentialValue.substring(i, j);
+      let j3 = potentialValue.length;
+      while (j3 > i && isHTTPWhiteSpaceCharCode(potentialValue.charCodeAt(j3 - 1))) --j3;
+      while (j3 > i && isHTTPWhiteSpaceCharCode(potentialValue.charCodeAt(i))) ++i;
+      return i === 0 && j3 === potentialValue.length ? potentialValue : potentialValue.substring(i, j3);
     }
     function fill(headers, object) {
       if (Array.isArray(object)) {
@@ -11745,13 +11745,13 @@ var require_headers = __commonJS({
           return this[kHeadersList][kHeadersSortedMap];
         }
         const headers = [];
-        const names = [...this[kHeadersList]].sort((a, b) => a[0] < b[0] ? -1 : 1);
+        const names = [...this[kHeadersList]].sort((a2, b2) => a2[0] < b2[0] ? -1 : 1);
         const cookies = this[kHeadersList].cookies;
         for (let i = 0; i < names.length; ++i) {
           const [name, value] = names[i];
           if (name === "set-cookie") {
-            for (let j = 0; j < cookies.length; ++j) {
-              headers.push([name, cookies[j]]);
+            for (let j3 = 0; j3 < cookies.length; ++j3) {
+              headers.push([name, cookies[j3]]);
             }
           } else {
             assert(value !== null);
@@ -11851,12 +11851,12 @@ var require_headers = __commonJS({
         enumerable: false
       }
     });
-    webidl.converters.HeadersInit = function(V) {
-      if (webidl.util.Type(V) === "Object") {
-        if (V[Symbol.iterator]) {
-          return webidl.converters["sequence<sequence<ByteString>>"](V);
+    webidl.converters.HeadersInit = function(V2) {
+      if (webidl.util.Type(V2) === "Object") {
+        if (V2[Symbol.iterator]) {
+          return webidl.converters["sequence<sequence<ByteString>>"](V2);
         }
-        return webidl.converters["record<ByteString, ByteString>"](V);
+        return webidl.converters["record<ByteString, ByteString>"](V2);
       }
       throw webidl.errors.conversionFailed({
         prefix: "Headers constructor",
@@ -12111,12 +12111,12 @@ var require_response = __commonJS({
         ...state
       };
       return new Proxy(response, {
-        get(target, p) {
-          return p in state ? state[p] : target[p];
+        get(target, p2) {
+          return p2 in state ? state[p2] : target[p2];
         },
-        set(target, p, value) {
-          assert(!(p in state));
-          target[p] = value;
+        set(target, p2, value) {
+          assert(!(p2 in state));
+          target[p2] = value;
           return true;
         }
       });
@@ -12196,32 +12196,32 @@ var require_response = __commonJS({
     webidl.converters.URLSearchParams = webidl.interfaceConverter(
       URLSearchParams
     );
-    webidl.converters.XMLHttpRequestBodyInit = function(V) {
-      if (typeof V === "string") {
-        return webidl.converters.USVString(V);
+    webidl.converters.XMLHttpRequestBodyInit = function(V2) {
+      if (typeof V2 === "string") {
+        return webidl.converters.USVString(V2);
       }
-      if (isBlobLike(V)) {
-        return webidl.converters.Blob(V, { strict: false });
+      if (isBlobLike(V2)) {
+        return webidl.converters.Blob(V2, { strict: false });
       }
-      if (types.isArrayBuffer(V) || types.isTypedArray(V) || types.isDataView(V)) {
-        return webidl.converters.BufferSource(V);
+      if (types.isArrayBuffer(V2) || types.isTypedArray(V2) || types.isDataView(V2)) {
+        return webidl.converters.BufferSource(V2);
       }
-      if (util.isFormDataLike(V)) {
-        return webidl.converters.FormData(V, { strict: false });
+      if (util.isFormDataLike(V2)) {
+        return webidl.converters.FormData(V2, { strict: false });
       }
-      if (V instanceof URLSearchParams) {
-        return webidl.converters.URLSearchParams(V);
+      if (V2 instanceof URLSearchParams) {
+        return webidl.converters.URLSearchParams(V2);
       }
-      return webidl.converters.DOMString(V);
+      return webidl.converters.DOMString(V2);
     };
-    webidl.converters.BodyInit = function(V) {
-      if (V instanceof ReadableStream) {
-        return webidl.converters.ReadableStream(V);
+    webidl.converters.BodyInit = function(V2) {
+      if (V2 instanceof ReadableStream) {
+        return webidl.converters.ReadableStream(V2);
       }
-      if (V?.[Symbol.asyncIterator]) {
-        return V;
+      if (V2?.[Symbol.asyncIterator]) {
+        return V2;
       }
-      return webidl.converters.XMLHttpRequestBodyInit(V);
+      return webidl.converters.XMLHttpRequestBodyInit(V2);
     };
     webidl.converters.ResponseInit = webidl.dictionaryConverter([
       {
@@ -12796,14 +12796,14 @@ var require_request2 = __commonJS({
     webidl.converters.Request = webidl.interfaceConverter(
       Request2
     );
-    webidl.converters.RequestInfo = function(V) {
-      if (typeof V === "string") {
-        return webidl.converters.USVString(V);
+    webidl.converters.RequestInfo = function(V2) {
+      if (typeof V2 === "string") {
+        return webidl.converters.USVString(V2);
       }
-      if (V instanceof Request2) {
-        return webidl.converters.Request(V);
+      if (V2 instanceof Request2) {
+        return webidl.converters.Request(V2);
       }
-      return webidl.converters.USVString(V);
+      return webidl.converters.USVString(V2);
     };
     webidl.converters.AbortSignal = webidl.interfaceConverter(
       AbortSignal
@@ -12987,18 +12987,18 @@ var require_fetch = __commonJS({
     };
     function fetch2(input, init = {}) {
       webidl.argumentLengthCheck(arguments, 1, { header: "globalThis.fetch" });
-      const p = createDeferredPromise();
+      const p2 = createDeferredPromise();
       let requestObject;
       try {
         requestObject = new Request2(input, init);
       } catch (e) {
-        p.reject(e);
-        return p.promise;
+        p2.reject(e);
+        return p2.promise;
       }
       const request2 = requestObject[kState];
       if (requestObject.signal.aborted) {
-        abortFetch(p, request2, null, requestObject.signal.reason);
-        return p.promise;
+        abortFetch(p2, request2, null, requestObject.signal.reason);
+        return p2.promise;
       }
       const globalObject = request2.client.globalObject;
       if (globalObject?.constructor?.name === "ServiceWorkerGlobalScope") {
@@ -13014,7 +13014,7 @@ var require_fetch = __commonJS({
           locallyAborted = true;
           assert(controller != null);
           controller.abort(requestObject.signal.reason);
-          abortFetch(p, request2, responseObject, requestObject.signal.reason);
+          abortFetch(p2, request2, responseObject, requestObject.signal.reason);
         }
       );
       const handleFetchDone = (response) => finalizeAndReportTiming(response, "fetch");
@@ -13023,11 +13023,11 @@ var require_fetch = __commonJS({
           return Promise.resolve();
         }
         if (response.aborted) {
-          abortFetch(p, request2, responseObject, controller.serializedAbortReason);
+          abortFetch(p2, request2, responseObject, controller.serializedAbortReason);
           return Promise.resolve();
         }
         if (response.type === "error") {
-          p.reject(
+          p2.reject(
             Object.assign(new TypeError("fetch failed"), { cause: response.error })
           );
           return Promise.resolve();
@@ -13038,7 +13038,7 @@ var require_fetch = __commonJS({
         responseObject[kHeaders][kHeadersList] = response.headersList;
         responseObject[kHeaders][kGuard] = "immutable";
         responseObject[kHeaders][kRealm] = relevantRealm;
-        p.resolve(responseObject);
+        p2.resolve(responseObject);
       };
       controller = fetching({
         request: request2,
@@ -13047,7 +13047,7 @@ var require_fetch = __commonJS({
         dispatcher: init.dispatcher ?? getGlobalDispatcher()
         // undici
       });
-      return p.promise;
+      return p2.promise;
     }
     function finalizeAndReportTiming(response, initiatorType = "other") {
       if (response.type === "error" && response.aborted) {
@@ -13086,11 +13086,11 @@ var require_fetch = __commonJS({
         performance.markResourceTiming(timingInfo, originalURL.href, initiatorType, globalThis2, cacheState);
       }
     }
-    function abortFetch(p, request2, responseObject, error) {
+    function abortFetch(p2, request2, responseObject, error) {
       if (!error) {
         error = new DOMException2("The operation was aborted.", "AbortError");
       }
-      p.reject(error);
+      p2.reject(error);
       if (request2.body != null && isReadable(request2.body?.stream)) {
         request2.body.stream.cancel(error).catch((err) => {
           if (err.code === "ERR_INVALID_STATE") {
@@ -13798,7 +13798,7 @@ var require_fetch = __commonJS({
                   const key = headersList[n + 0].toString("latin1");
                   const val = headersList[n + 1].toString("latin1");
                   if (key.toLowerCase() === "content-encoding") {
-                    codings = val.toLowerCase().split(",").map((x) => x.trim());
+                    codings = val.toLowerCase().split(",").map((x3) => x3.trim());
                   } else if (key.toLowerCase() === "location") {
                     location = val;
                   }
@@ -13809,7 +13809,7 @@ var require_fetch = __commonJS({
                 for (const key of keys) {
                   const val = headersList[key];
                   if (key.toLowerCase() === "content-encoding") {
-                    codings = val.toLowerCase().split(",").map((x) => x.trim()).reverse();
+                    codings = val.toLowerCase().split(",").map((x3) => x3.trim()).reverse();
                   } else if (key.toLowerCase() === "location") {
                     location = val;
                   }
@@ -14426,25 +14426,25 @@ var require_util4 = __commonJS({
       return new TextDecoder(encoding).decode(sliced);
     }
     function BOMSniffing(ioQueue) {
-      const [a, b, c] = ioQueue;
-      if (a === 239 && b === 187 && c === 191) {
+      const [a2, b2, c2] = ioQueue;
+      if (a2 === 239 && b2 === 187 && c2 === 191) {
         return "UTF-8";
-      } else if (a === 254 && b === 255) {
+      } else if (a2 === 254 && b2 === 255) {
         return "UTF-16BE";
-      } else if (a === 255 && b === 254) {
+      } else if (a2 === 255 && b2 === 254) {
         return "UTF-16LE";
       }
       return null;
     }
     function combineByteSequences(sequences) {
-      const size = sequences.reduce((a, b) => {
-        return a + b.byteLength;
+      const size = sequences.reduce((a2, b2) => {
+        return a2 + b2.byteLength;
       }, 0);
       let offset = 0;
-      return sequences.reduce((a, b) => {
-        a.set(b, offset);
-        offset += b.byteLength;
-        return a;
+      return sequences.reduce((a2, b2) => {
+        a2.set(b2, offset);
+        offset += b2.byteLength;
+        return a2;
       }, new Uint8Array(size));
     }
     module.exports = {
@@ -14581,14 +14581,14 @@ var require_filereader = __commonJS({
         webidl.brandCheck(this, _FileReader);
         return this[kEvents].loadend;
       }
-      set onloadend(fn) {
+      set onloadend(fn2) {
         webidl.brandCheck(this, _FileReader);
         if (this[kEvents].loadend) {
           this.removeEventListener("loadend", this[kEvents].loadend);
         }
-        if (typeof fn === "function") {
-          this[kEvents].loadend = fn;
-          this.addEventListener("loadend", fn);
+        if (typeof fn2 === "function") {
+          this[kEvents].loadend = fn2;
+          this.addEventListener("loadend", fn2);
         } else {
           this[kEvents].loadend = null;
         }
@@ -14597,14 +14597,14 @@ var require_filereader = __commonJS({
         webidl.brandCheck(this, _FileReader);
         return this[kEvents].error;
       }
-      set onerror(fn) {
+      set onerror(fn2) {
         webidl.brandCheck(this, _FileReader);
         if (this[kEvents].error) {
           this.removeEventListener("error", this[kEvents].error);
         }
-        if (typeof fn === "function") {
-          this[kEvents].error = fn;
-          this.addEventListener("error", fn);
+        if (typeof fn2 === "function") {
+          this[kEvents].error = fn2;
+          this.addEventListener("error", fn2);
         } else {
           this[kEvents].error = null;
         }
@@ -14613,14 +14613,14 @@ var require_filereader = __commonJS({
         webidl.brandCheck(this, _FileReader);
         return this[kEvents].loadstart;
       }
-      set onloadstart(fn) {
+      set onloadstart(fn2) {
         webidl.brandCheck(this, _FileReader);
         if (this[kEvents].loadstart) {
           this.removeEventListener("loadstart", this[kEvents].loadstart);
         }
-        if (typeof fn === "function") {
-          this[kEvents].loadstart = fn;
-          this.addEventListener("loadstart", fn);
+        if (typeof fn2 === "function") {
+          this[kEvents].loadstart = fn2;
+          this.addEventListener("loadstart", fn2);
         } else {
           this[kEvents].loadstart = null;
         }
@@ -14629,14 +14629,14 @@ var require_filereader = __commonJS({
         webidl.brandCheck(this, _FileReader);
         return this[kEvents].progress;
       }
-      set onprogress(fn) {
+      set onprogress(fn2) {
         webidl.brandCheck(this, _FileReader);
         if (this[kEvents].progress) {
           this.removeEventListener("progress", this[kEvents].progress);
         }
-        if (typeof fn === "function") {
-          this[kEvents].progress = fn;
-          this.addEventListener("progress", fn);
+        if (typeof fn2 === "function") {
+          this[kEvents].progress = fn2;
+          this.addEventListener("progress", fn2);
         } else {
           this[kEvents].progress = null;
         }
@@ -14645,14 +14645,14 @@ var require_filereader = __commonJS({
         webidl.brandCheck(this, _FileReader);
         return this[kEvents].load;
       }
-      set onload(fn) {
+      set onload(fn2) {
         webidl.brandCheck(this, _FileReader);
         if (this[kEvents].load) {
           this.removeEventListener("load", this[kEvents].load);
         }
-        if (typeof fn === "function") {
-          this[kEvents].load = fn;
-          this.addEventListener("load", fn);
+        if (typeof fn2 === "function") {
+          this[kEvents].load = fn2;
+          this.addEventListener("load", fn2);
         } else {
           this[kEvents].load = null;
         }
@@ -14661,14 +14661,14 @@ var require_filereader = __commonJS({
         webidl.brandCheck(this, _FileReader);
         return this[kEvents].abort;
       }
-      set onabort(fn) {
+      set onabort(fn2) {
         webidl.brandCheck(this, _FileReader);
         if (this[kEvents].abort) {
           this.removeEventListener("abort", this[kEvents].abort);
         }
-        if (typeof fn === "function") {
-          this[kEvents].abort = fn;
-          this.addEventListener("abort", fn);
+        if (typeof fn2 === "function") {
+          this[kEvents].abort = fn2;
+          this.addEventListener("abort", fn2);
         } else {
           this[kEvents].abort = null;
         }
@@ -14728,9 +14728,9 @@ var require_util5 = __commonJS({
     var assert = __require("assert");
     var { URLSerializer } = require_dataURL();
     var { isValidHeaderName } = require_util2();
-    function urlEquals(A, B, excludeFragment = false) {
-      const serializedA = URLSerializer(A, excludeFragment);
-      const serializedB = URLSerializer(B, excludeFragment);
+    function urlEquals(A4, B3, excludeFragment = false) {
+      const serializedA = URLSerializer(A4, excludeFragment);
+      const serializedB = URLSerializer(B3, excludeFragment);
       return serializedA === serializedB;
     }
     function fieldValues(header) {
@@ -14786,25 +14786,25 @@ var require_cache = __commonJS({
         webidl.argumentLengthCheck(arguments, 1, { header: "Cache.match" });
         request2 = webidl.converters.RequestInfo(request2);
         options = webidl.converters.CacheQueryOptions(options);
-        const p = await this.matchAll(request2, options);
-        if (p.length === 0) {
+        const p2 = await this.matchAll(request2, options);
+        if (p2.length === 0) {
           return;
         }
-        return p[0];
+        return p2[0];
       }
       async matchAll(request2 = void 0, options = {}) {
         webidl.brandCheck(this, _Cache);
         if (request2 !== void 0) request2 = webidl.converters.RequestInfo(request2);
         options = webidl.converters.CacheQueryOptions(options);
-        let r = null;
+        let r2 = null;
         if (request2 !== void 0) {
           if (request2 instanceof Request2) {
-            r = request2[kState];
-            if (r.method !== "GET" && !options.ignoreMethod) {
+            r2 = request2[kState];
+            if (r2.method !== "GET" && !options.ignoreMethod) {
               return [];
             }
           } else if (typeof request2 === "string") {
-            r = new Request2(request2)[kState];
+            r2 = new Request2(request2)[kState];
           }
         }
         const responses = [];
@@ -14813,7 +14813,7 @@ var require_cache = __commonJS({
             responses.push(requestResponse[1]);
           }
         } else {
-          const requestResponses = this.#queryCache(r, options);
+          const requestResponses = this.#queryCache(r2, options);
           for (const requestResponse of requestResponses) {
             responses.push(requestResponse[1]);
           }
@@ -14848,8 +14848,8 @@ var require_cache = __commonJS({
           if (typeof request2 === "string") {
             continue;
           }
-          const r = request2[kState];
-          if (!urlIsHttpHttpsScheme(r.url) || r.method !== "GET") {
+          const r2 = request2[kState];
+          if (!urlIsHttpHttpsScheme(r2.url) || r2.method !== "GET") {
             throw webidl.errors.exception({
               header: "Cache.addAll",
               message: "Expected http/s scheme when method is not GET."
@@ -14858,19 +14858,19 @@ var require_cache = __commonJS({
         }
         const fetchControllers = [];
         for (const request2 of requests) {
-          const r = new Request2(request2)[kState];
-          if (!urlIsHttpHttpsScheme(r.url)) {
+          const r2 = new Request2(request2)[kState];
+          if (!urlIsHttpHttpsScheme(r2.url)) {
             throw webidl.errors.exception({
               header: "Cache.addAll",
               message: "Expected http/s scheme."
             });
           }
-          r.initiator = "fetch";
-          r.destination = "subresource";
-          requestList.push(r);
+          r2.initiator = "fetch";
+          r2.destination = "subresource";
+          requestList.push(r2);
           const responsePromise = createDeferredPromise();
           fetchControllers.push(fetching({
-            request: r,
+            request: r2,
             dispatcher: getGlobalDispatcher(),
             processResponse(response) {
               if (response.type === "error" || response.status === 206 || response.status < 200 || response.status > 299) {
@@ -14904,8 +14904,8 @@ var require_cache = __commonJS({
           }));
           responsePromises.push(responsePromise.promise);
         }
-        const p = Promise.all(responsePromises);
-        const responses = await p;
+        const p2 = Promise.all(responsePromises);
+        const responses = await p2;
         const operations = [];
         let index = 0;
         for (const response of responses) {
@@ -15021,20 +15021,20 @@ var require_cache = __commonJS({
         webidl.argumentLengthCheck(arguments, 1, { header: "Cache.delete" });
         request2 = webidl.converters.RequestInfo(request2);
         options = webidl.converters.CacheQueryOptions(options);
-        let r = null;
+        let r2 = null;
         if (request2 instanceof Request2) {
-          r = request2[kState];
-          if (r.method !== "GET" && !options.ignoreMethod) {
+          r2 = request2[kState];
+          if (r2.method !== "GET" && !options.ignoreMethod) {
             return false;
           }
         } else {
           assert(typeof request2 === "string");
-          r = new Request2(request2)[kState];
+          r2 = new Request2(request2)[kState];
         }
         const operations = [];
         const operation = {
           type: "delete",
-          request: r,
+          request: r2,
           options
         };
         operations.push(operation);
@@ -15065,15 +15065,15 @@ var require_cache = __commonJS({
         webidl.brandCheck(this, _Cache);
         if (request2 !== void 0) request2 = webidl.converters.RequestInfo(request2);
         options = webidl.converters.CacheQueryOptions(options);
-        let r = null;
+        let r2 = null;
         if (request2 !== void 0) {
           if (request2 instanceof Request2) {
-            r = request2[kState];
-            if (r.method !== "GET" && !options.ignoreMethod) {
+            r2 = request2[kState];
+            if (r2.method !== "GET" && !options.ignoreMethod) {
               return [];
             }
           } else if (typeof request2 === "string") {
-            r = new Request2(request2)[kState];
+            r2 = new Request2(request2)[kState];
           }
         }
         const promise = createDeferredPromise();
@@ -15083,7 +15083,7 @@ var require_cache = __commonJS({
             requests.push(requestResponse[0]);
           }
         } else {
-          const requestResponses = this.#queryCache(r, options);
+          const requestResponses = this.#queryCache(r2, options);
           for (const requestResponse of requestResponses) {
             requests.push(requestResponse[0]);
           }
@@ -15147,14 +15147,14 @@ var require_cache = __commonJS({
                   message: "put operation should have an associated response"
                 });
               }
-              const r = operation.request;
-              if (!urlIsHttpHttpsScheme(r.url)) {
+              const r2 = operation.request;
+              if (!urlIsHttpHttpsScheme(r2.url)) {
                 throw webidl.errors.exception({
                   header: "Cache.#batchCacheOperations",
                   message: "expected http or https scheme"
                 });
               }
-              if (r.method !== "GET") {
+              if (r2.method !== "GET") {
                 throw webidl.errors.exception({
                   header: "Cache.#batchCacheOperations",
                   message: "not get method"
@@ -16431,7 +16431,7 @@ var require_receiver = __commonJS({
        * @param {Buffer} chunk
        * @param {() => void} callback
        */
-      _write(chunk, _, callback) {
+      _write(chunk, _2, callback) {
         this.#buffers.push(chunk);
         this.#byteOffset += chunk.length;
         this.run(callback);
@@ -16715,10 +16715,10 @@ var require_websocket = __commonJS({
         if (typeof protocols === "string") {
           protocols = [protocols];
         }
-        if (protocols.length !== new Set(protocols.map((p) => p.toLowerCase())).size) {
+        if (protocols.length !== new Set(protocols.map((p2) => p2.toLowerCase())).size) {
           throw new DOMException2("Invalid Sec-WebSocket-Protocol value", "SyntaxError");
         }
-        if (protocols.length > 0 && !protocols.every((p) => isValidSubprotocol(p))) {
+        if (protocols.length > 0 && !protocols.every((p2) => isValidSubprotocol(p2))) {
           throw new DOMException2("Invalid Sec-WebSocket-Protocol value", "SyntaxError");
         }
         this[kWebSocketURL] = new URL(urlRecord.href);
@@ -16862,14 +16862,14 @@ var require_websocket = __commonJS({
         webidl.brandCheck(this, _WebSocket);
         return this.#events.open;
       }
-      set onopen(fn) {
+      set onopen(fn2) {
         webidl.brandCheck(this, _WebSocket);
         if (this.#events.open) {
           this.removeEventListener("open", this.#events.open);
         }
-        if (typeof fn === "function") {
-          this.#events.open = fn;
-          this.addEventListener("open", fn);
+        if (typeof fn2 === "function") {
+          this.#events.open = fn2;
+          this.addEventListener("open", fn2);
         } else {
           this.#events.open = null;
         }
@@ -16878,14 +16878,14 @@ var require_websocket = __commonJS({
         webidl.brandCheck(this, _WebSocket);
         return this.#events.error;
       }
-      set onerror(fn) {
+      set onerror(fn2) {
         webidl.brandCheck(this, _WebSocket);
         if (this.#events.error) {
           this.removeEventListener("error", this.#events.error);
         }
-        if (typeof fn === "function") {
-          this.#events.error = fn;
-          this.addEventListener("error", fn);
+        if (typeof fn2 === "function") {
+          this.#events.error = fn2;
+          this.addEventListener("error", fn2);
         } else {
           this.#events.error = null;
         }
@@ -16894,14 +16894,14 @@ var require_websocket = __commonJS({
         webidl.brandCheck(this, _WebSocket);
         return this.#events.close;
       }
-      set onclose(fn) {
+      set onclose(fn2) {
         webidl.brandCheck(this, _WebSocket);
         if (this.#events.close) {
           this.removeEventListener("close", this.#events.close);
         }
-        if (typeof fn === "function") {
-          this.#events.close = fn;
-          this.addEventListener("close", fn);
+        if (typeof fn2 === "function") {
+          this.#events.close = fn2;
+          this.addEventListener("close", fn2);
         } else {
           this.#events.close = null;
         }
@@ -16910,14 +16910,14 @@ var require_websocket = __commonJS({
         webidl.brandCheck(this, _WebSocket);
         return this.#events.message;
       }
-      set onmessage(fn) {
+      set onmessage(fn2) {
         webidl.brandCheck(this, _WebSocket);
         if (this.#events.message) {
           this.removeEventListener("message", this.#events.message);
         }
-        if (typeof fn === "function") {
-          this.#events.message = fn;
-          this.addEventListener("message", fn);
+        if (typeof fn2 === "function") {
+          this.#events.message = fn2;
+          this.addEventListener("message", fn2);
         } else {
           this.#events.message = null;
         }
@@ -16994,11 +16994,11 @@ var require_websocket = __commonJS({
     webidl.converters["sequence<DOMString>"] = webidl.sequenceConverter(
       webidl.converters.DOMString
     );
-    webidl.converters["DOMString or sequence<DOMString>"] = function(V) {
-      if (webidl.util.Type(V) === "Object" && Symbol.iterator in V) {
-        return webidl.converters["sequence<DOMString>"](V);
+    webidl.converters["DOMString or sequence<DOMString>"] = function(V2) {
+      if (webidl.util.Type(V2) === "Object" && Symbol.iterator in V2) {
+        return webidl.converters["sequence<DOMString>"](V2);
       }
-      return webidl.converters.DOMString(V);
+      return webidl.converters.DOMString(V2);
     };
     webidl.converters.WebSocketInit = webidl.dictionaryConverter([
       {
@@ -17010,7 +17010,7 @@ var require_websocket = __commonJS({
       },
       {
         key: "dispatcher",
-        converter: (V) => V,
+        converter: (V2) => V2,
         get defaultValue() {
           return getGlobalDispatcher();
         }
@@ -17020,22 +17020,22 @@ var require_websocket = __commonJS({
         converter: webidl.nullableConverter(webidl.converters.HeadersInit)
       }
     ]);
-    webidl.converters["DOMString or sequence<DOMString> or WebSocketInit"] = function(V) {
-      if (webidl.util.Type(V) === "Object" && !(Symbol.iterator in V)) {
-        return webidl.converters.WebSocketInit(V);
+    webidl.converters["DOMString or sequence<DOMString> or WebSocketInit"] = function(V2) {
+      if (webidl.util.Type(V2) === "Object" && !(Symbol.iterator in V2)) {
+        return webidl.converters.WebSocketInit(V2);
       }
-      return { protocols: webidl.converters["DOMString or sequence<DOMString>"](V) };
+      return { protocols: webidl.converters["DOMString or sequence<DOMString>"](V2) };
     };
-    webidl.converters.WebSocketSendData = function(V) {
-      if (webidl.util.Type(V) === "Object") {
-        if (isBlobLike(V)) {
-          return webidl.converters.Blob(V, { strict: false });
+    webidl.converters.WebSocketSendData = function(V2) {
+      if (webidl.util.Type(V2) === "Object") {
+        if (isBlobLike(V2)) {
+          return webidl.converters.Blob(V2, { strict: false });
         }
-        if (ArrayBuffer.isView(V) || types.isAnyArrayBuffer(V)) {
-          return webidl.converters.BufferSource(V);
+        if (ArrayBuffer.isView(V2) || types.isAnyArrayBuffer(V2)) {
+          return webidl.converters.BufferSource(V2);
         }
       }
-      return webidl.converters.USVString(V);
+      return webidl.converters.USVString(V2);
     };
     module.exports = {
       WebSocket
@@ -17086,7 +17086,7 @@ var require_undici = __commonJS({
     module.exports.createRedirectInterceptor = createRedirectInterceptor;
     module.exports.buildConnector = buildConnector;
     module.exports.errors = errors;
-    function makeDispatcher(fn) {
+    function makeDispatcher(fn2) {
       return (url, opts, handler2) => {
         if (typeof opts === "function") {
           handler2 = opts;
@@ -17117,7 +17117,7 @@ var require_undici = __commonJS({
         if (agent) {
           throw new InvalidArgumentError("unsupported opts.agent. Did you mean opts.client?");
         }
-        return fn.call(dispatcher, {
+        return fn2.call(dispatcher, {
           ...opts,
           origin: url.origin,
           path: url.search ? `${url.pathname}${url.search}` : url.pathname,
@@ -17184,23 +17184,23 @@ var require_undici = __commonJS({
 // ../../node_modules/.pnpm/@actions+http-client@2.2.3/node_modules/@actions/http-client/lib/index.js
 var require_lib = __commonJS({
   "../../node_modules/.pnpm/@actions+http-client@2.2.3/node_modules/@actions/http-client/lib/index.js"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      var desc = Object.getOwnPropertyDescriptor(m, k);
-      if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      var desc = Object.getOwnPropertyDescriptor(m3, k);
+      if (!desc || ("get" in desc ? !m3.__esModule : desc.writable || desc.configurable)) {
         desc = { enumerable: true, get: function() {
-          return m[k];
+          return m3[k];
         } };
       }
-      Object.defineProperty(o, k2, desc);
-    }) : (function(o, m, k, k2) {
+      Object.defineProperty(o2, k2, desc);
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    }) : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o2, v2) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v2 });
+    }) : function(o2, v2) {
+      o2["default"] = v2;
     });
     var __importStar2 = exports && exports.__importStar || function(mod) {
       if (mod && mod.__esModule) return mod;
@@ -17753,9 +17753,9 @@ var require_lib = __commonJS({
             }
             function dateTimeDeserializer(key, value) {
               if (typeof value === "string") {
-                const a = new Date(value);
-                if (!isNaN(a.valueOf())) {
-                  return a;
+                const a2 = new Date(value);
+                if (!isNaN(a2.valueOf())) {
+                  return a2;
                 }
               }
               return value;
@@ -17795,7 +17795,7 @@ var require_lib = __commonJS({
       }
     };
     exports.HttpClient = HttpClient;
-    var lowercaseKeys2 = (obj) => Object.keys(obj).reduce((c, k) => (c[k.toLowerCase()] = obj[k], c), {});
+    var lowercaseKeys2 = (obj) => Object.keys(obj).reduce((c2, k) => (c2[k.toLowerCase()] = obj[k], c2), {});
   }
 });
 
@@ -18295,23 +18295,23 @@ var require_summary = __commonJS({
 // ../../node_modules/.pnpm/@actions+core@1.11.1/node_modules/@actions/core/lib/path-utils.js
 var require_path_utils = __commonJS({
   "../../node_modules/.pnpm/@actions+core@1.11.1/node_modules/@actions/core/lib/path-utils.js"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      var desc = Object.getOwnPropertyDescriptor(m, k);
-      if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      var desc = Object.getOwnPropertyDescriptor(m3, k);
+      if (!desc || ("get" in desc ? !m3.__esModule : desc.writable || desc.configurable)) {
         desc = { enumerable: true, get: function() {
-          return m[k];
+          return m3[k];
         } };
       }
-      Object.defineProperty(o, k2, desc);
-    }) : (function(o, m, k, k2) {
+      Object.defineProperty(o2, k2, desc);
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    }) : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o2, v2) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v2 });
+    }) : function(o2, v2) {
+      o2["default"] = v2;
     });
     var __importStar2 = exports && exports.__importStar || function(mod) {
       if (mod && mod.__esModule) return mod;
@@ -18343,19 +18343,19 @@ var require_path_utils = __commonJS({
 // ../../node_modules/.pnpm/@actions+io@1.1.3/node_modules/@actions/io/lib/io-util.js
 var require_io_util = __commonJS({
   "../../node_modules/.pnpm/@actions+io@1.1.3/node_modules/@actions/io/lib/io-util.js"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      Object.defineProperty(o, k2, { enumerable: true, get: function() {
-        return m[k];
+      Object.defineProperty(o2, k2, { enumerable: true, get: function() {
+        return m3[k];
       } });
-    }) : (function(o, m, k, k2) {
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    }) : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o2, v2) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v2 });
+    }) : function(o2, v2) {
+      o2["default"] = v2;
     });
     var __importStar2 = exports && exports.__importStar || function(mod) {
       if (mod && mod.__esModule) return mod;
@@ -18423,15 +18423,15 @@ var require_io_util = __commonJS({
       });
     }
     exports.isDirectory = isDirectory;
-    function isRooted(p) {
-      p = normalizeSeparators(p);
-      if (!p) {
+    function isRooted(p2) {
+      p2 = normalizeSeparators(p2);
+      if (!p2) {
         throw new Error('isRooted() parameter "p" cannot be empty');
       }
       if (exports.IS_WINDOWS) {
-        return p.startsWith("\\") || /^[A-Z]:/i.test(p);
+        return p2.startsWith("\\") || /^[A-Z]:/i.test(p2);
       }
-      return p.startsWith("/");
+      return p2.startsWith("/");
     }
     exports.isRooted = isRooted;
     function tryGetExecutablePath(filePath, extensions) {
@@ -18493,13 +18493,13 @@ var require_io_util = __commonJS({
       });
     }
     exports.tryGetExecutablePath = tryGetExecutablePath;
-    function normalizeSeparators(p) {
-      p = p || "";
+    function normalizeSeparators(p2) {
+      p2 = p2 || "";
       if (exports.IS_WINDOWS) {
-        p = p.replace(/\//g, "\\");
-        return p.replace(/\\\\+/g, "\\");
+        p2 = p2.replace(/\//g, "\\");
+        return p2.replace(/\\\\+/g, "\\");
       }
-      return p.replace(/\/\/+/g, "/");
+      return p2.replace(/\/\/+/g, "/");
     }
     function isUnixExecutable(stats) {
       return (stats.mode & 1) > 0 || (stats.mode & 8) > 0 && stats.gid === process.getgid() || (stats.mode & 64) > 0 && stats.uid === process.getuid();
@@ -18515,19 +18515,19 @@ var require_io_util = __commonJS({
 // ../../node_modules/.pnpm/@actions+io@1.1.3/node_modules/@actions/io/lib/io.js
 var require_io = __commonJS({
   "../../node_modules/.pnpm/@actions+io@1.1.3/node_modules/@actions/io/lib/io.js"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      Object.defineProperty(o, k2, { enumerable: true, get: function() {
-        return m[k];
+      Object.defineProperty(o2, k2, { enumerable: true, get: function() {
+        return m3[k];
       } });
-    }) : (function(o, m, k, k2) {
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    }) : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o2, v2) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v2 });
+    }) : function(o2, v2) {
+      o2["default"] = v2;
     });
     var __importStar2 = exports && exports.__importStar || function(mod) {
       if (mod && mod.__esModule) return mod;
@@ -18694,9 +18694,9 @@ var require_io = __commonJS({
         }
         const directories = [];
         if (process.env.PATH) {
-          for (const p of process.env.PATH.split(path.delimiter)) {
-            if (p) {
-              directories.push(p);
+          for (const p2 of process.env.PATH.split(path.delimiter)) {
+            if (p2) {
+              directories.push(p2);
             }
           }
         }
@@ -18762,19 +18762,19 @@ var require_io = __commonJS({
 // ../../node_modules/.pnpm/@actions+exec@1.1.1/node_modules/@actions/exec/lib/toolrunner.js
 var require_toolrunner = __commonJS({
   "../../node_modules/.pnpm/@actions+exec@1.1.1/node_modules/@actions/exec/lib/toolrunner.js"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      Object.defineProperty(o, k2, { enumerable: true, get: function() {
-        return m[k];
+      Object.defineProperty(o2, k2, { enumerable: true, get: function() {
+        return m3[k];
       } });
-    }) : (function(o, m, k, k2) {
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    }) : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o2, v2) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v2 });
+    }) : function(o2, v2) {
+      o2["default"] = v2;
     });
     var __importStar2 = exports && exports.__importStar || function(mod) {
       if (mod && mod.__esModule) return mod;
@@ -18844,24 +18844,24 @@ var require_toolrunner = __commonJS({
         if (IS_WINDOWS) {
           if (this._isCmdFile()) {
             cmd += toolPath;
-            for (const a of args) {
-              cmd += ` ${a}`;
+            for (const a2 of args) {
+              cmd += ` ${a2}`;
             }
           } else if (options.windowsVerbatimArguments) {
             cmd += `"${toolPath}"`;
-            for (const a of args) {
-              cmd += ` ${a}`;
+            for (const a2 of args) {
+              cmd += ` ${a2}`;
             }
           } else {
             cmd += this._windowsQuoteCmdArg(toolPath);
-            for (const a of args) {
-              cmd += ` ${this._windowsQuoteCmdArg(a)}`;
+            for (const a2 of args) {
+              cmd += ` ${this._windowsQuoteCmdArg(a2)}`;
             }
           }
         } else {
           cmd += toolPath;
-          for (const a of args) {
-            cmd += ` ${a}`;
+          for (const a2 of args) {
+            cmd += ` ${a2}`;
           }
         }
         return cmd;
@@ -18894,9 +18894,9 @@ var require_toolrunner = __commonJS({
         if (IS_WINDOWS) {
           if (this._isCmdFile()) {
             let argline = `/D /S /C "${this._windowsQuoteCmdArg(this.toolPath)}`;
-            for (const a of this.args) {
+            for (const a2 of this.args) {
               argline += " ";
-              argline += options.windowsVerbatimArguments ? a : this._windowsQuoteCmdArg(a);
+              argline += options.windowsVerbatimArguments ? a2 : this._windowsQuoteCmdArg(a2);
             }
             argline += '"';
             return [argline];
@@ -18944,7 +18944,7 @@ var require_toolrunner = __commonJS({
         ];
         let needsQuotes = false;
         for (const char of arg) {
-          if (cmdSpecialChars.some((x) => x === char)) {
+          if (cmdSpecialChars.some((x3) => x3 === char)) {
             needsQuotes = true;
             break;
           }
@@ -19137,39 +19137,39 @@ var require_toolrunner = __commonJS({
       let inQuotes = false;
       let escaped = false;
       let arg = "";
-      function append(c) {
-        if (escaped && c !== '"') {
+      function append(c2) {
+        if (escaped && c2 !== '"') {
           arg += "\\";
         }
-        arg += c;
+        arg += c2;
         escaped = false;
       }
       for (let i = 0; i < argString.length; i++) {
-        const c = argString.charAt(i);
-        if (c === '"') {
+        const c2 = argString.charAt(i);
+        if (c2 === '"') {
           if (!escaped) {
             inQuotes = !inQuotes;
           } else {
-            append(c);
+            append(c2);
           }
           continue;
         }
-        if (c === "\\" && escaped) {
-          append(c);
+        if (c2 === "\\" && escaped) {
+          append(c2);
           continue;
         }
-        if (c === "\\" && inQuotes) {
+        if (c2 === "\\" && inQuotes) {
           escaped = true;
           continue;
         }
-        if (c === " " && !inQuotes) {
+        if (c2 === " " && !inQuotes) {
           if (arg.length > 0) {
             args.push(arg);
             arg = "";
           }
           continue;
         }
-        append(c);
+        append(c2);
       }
       if (arg.length > 0) {
         args.push(arg.trim());
@@ -19245,19 +19245,19 @@ var require_toolrunner = __commonJS({
 // ../../node_modules/.pnpm/@actions+exec@1.1.1/node_modules/@actions/exec/lib/exec.js
 var require_exec = __commonJS({
   "../../node_modules/.pnpm/@actions+exec@1.1.1/node_modules/@actions/exec/lib/exec.js"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      Object.defineProperty(o, k2, { enumerable: true, get: function() {
-        return m[k];
+      Object.defineProperty(o2, k2, { enumerable: true, get: function() {
+        return m3[k];
       } });
-    }) : (function(o, m, k, k2) {
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    }) : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o2, v2) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v2 });
+    }) : function(o2, v2) {
+      o2["default"] = v2;
     });
     var __importStar2 = exports && exports.__importStar || function(mod) {
       if (mod && mod.__esModule) return mod;
@@ -19351,23 +19351,23 @@ var require_exec = __commonJS({
 // ../../node_modules/.pnpm/@actions+core@1.11.1/node_modules/@actions/core/lib/platform.js
 var require_platform = __commonJS({
   "../../node_modules/.pnpm/@actions+core@1.11.1/node_modules/@actions/core/lib/platform.js"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      var desc = Object.getOwnPropertyDescriptor(m, k);
-      if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      var desc = Object.getOwnPropertyDescriptor(m3, k);
+      if (!desc || ("get" in desc ? !m3.__esModule : desc.writable || desc.configurable)) {
         desc = { enumerable: true, get: function() {
-          return m[k];
+          return m3[k];
         } };
       }
-      Object.defineProperty(o, k2, desc);
-    }) : (function(o, m, k, k2) {
+      Object.defineProperty(o2, k2, desc);
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    }) : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o2, v2) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v2 });
+    }) : function(o2, v2) {
+      o2["default"] = v2;
     });
     var __importStar2 = exports && exports.__importStar || function(mod) {
       if (mod && mod.__esModule) return mod;
@@ -19469,23 +19469,23 @@ var require_platform = __commonJS({
 // ../../node_modules/.pnpm/@actions+core@1.11.1/node_modules/@actions/core/lib/core.js
 var require_core = __commonJS({
   "../../node_modules/.pnpm/@actions+core@1.11.1/node_modules/@actions/core/lib/core.js"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      var desc = Object.getOwnPropertyDescriptor(m, k);
-      if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      var desc = Object.getOwnPropertyDescriptor(m3, k);
+      if (!desc || ("get" in desc ? !m3.__esModule : desc.writable || desc.configurable)) {
         desc = { enumerable: true, get: function() {
-          return m[k];
+          return m3[k];
         } };
       }
-      Object.defineProperty(o, k2, desc);
-    }) : (function(o, m, k, k2) {
+      Object.defineProperty(o2, k2, desc);
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    }) : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o2, v2) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v2 });
+    }) : function(o2, v2) {
+      o2["default"] = v2;
     });
     var __importStar2 = exports && exports.__importStar || function(mod) {
       if (mod && mod.__esModule) return mod;
@@ -19572,7 +19572,7 @@ var require_core = __commonJS({
     }
     exports.getInput = getInput2;
     function getMultilineInput(name, options) {
-      const inputs = getInput2(name, options).split("\n").filter((x) => x !== "");
+      const inputs = getInput2(name, options).split("\n").filter((x3) => x3 !== "");
       if (options && options.trimWhitespace === false) {
         return inputs;
       }
@@ -19641,12 +19641,12 @@ Support boolean input list: \`true | True | TRUE | false | False | FALSE\``);
       (0, command_1.issue)("endgroup");
     }
     exports.endGroup = endGroup;
-    function group(name, fn) {
+    function group(name, fn2) {
       return __awaiter2(this, void 0, void 0, function* () {
         startGroup(name);
         let result;
         try {
-          result = yield fn();
+          result = yield fn2();
         } finally {
           endGroup();
         }
@@ -19755,23 +19755,23 @@ var require_context = __commonJS({
 // ../../node_modules/.pnpm/@actions+github@6.0.1/node_modules/@actions/github/lib/internal/utils.js
 var require_utils3 = __commonJS({
   "../../node_modules/.pnpm/@actions+github@6.0.1/node_modules/@actions/github/lib/internal/utils.js"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      var desc = Object.getOwnPropertyDescriptor(m, k);
-      if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      var desc = Object.getOwnPropertyDescriptor(m3, k);
+      if (!desc || ("get" in desc ? !m3.__esModule : desc.writable || desc.configurable)) {
         desc = { enumerable: true, get: function() {
-          return m[k];
+          return m3[k];
         } };
       }
-      Object.defineProperty(o, k2, desc);
-    }) : (function(o, m, k, k2) {
+      Object.defineProperty(o2, k2, desc);
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    }) : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o2, v2) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v2 });
+    }) : function(o2, v2) {
+      o2["default"] = v2;
     });
     var __importStar2 = exports && exports.__importStar || function(mod) {
       if (mod && mod.__esModule) return mod;
@@ -20159,7 +20159,7 @@ function extractUrlVariableNames(url) {
   if (!matches) {
     return [];
   }
-  return matches.map(removeNonChars).reduce((a, b) => a.concat(b), []);
+  return matches.map(removeNonChars).reduce((a2, b2) => a2.concat(b2), []);
 }
 var urlVariableRegex;
 var init_extract_url_variable_names = __esm({
@@ -20193,8 +20193,8 @@ function encodeReserved(str) {
   }).join("");
 }
 function encodeUnreserved(str) {
-  return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
-    return "%" + c.charCodeAt(0).toString(16).toUpperCase();
+  return encodeURIComponent(str).replace(/[!'()*]/g, function(c2) {
+    return "%" + c2.charCodeAt(0).toString(16).toUpperCase();
   });
 }
 function encodeValue(operator, value, key) {
@@ -20280,7 +20280,7 @@ function expand(template, context2) {
   var operators = ["+", "#", ".", "/", ";", "?", "&"];
   template = template.replace(
     /\{([^\{\}]+)\}|([^\{\}]+)/g,
-    function(_, expression, literal) {
+    function(_2, expression, literal) {
       if (expression) {
         let operator = "";
         const values = [];
@@ -20477,12 +20477,12 @@ var init_dist_web2 = __esm({
 var require_wrappy = __commonJS({
   "../../node_modules/.pnpm/wrappy@1.0.2/node_modules/wrappy/wrappy.js"(exports, module) {
     module.exports = wrappy;
-    function wrappy(fn, cb) {
-      if (fn && cb) return wrappy(fn)(cb);
-      if (typeof fn !== "function")
+    function wrappy(fn2, cb) {
+      if (fn2 && cb) return wrappy(fn2)(cb);
+      if (typeof fn2 !== "function")
         throw new TypeError("need wrapper function");
-      Object.keys(fn).forEach(function(k) {
-        wrapper[k] = fn[k];
+      Object.keys(fn2).forEach(function(k) {
+        wrapper[k] = fn2[k];
       });
       return wrapper;
       function wrapper() {
@@ -20490,7 +20490,7 @@ var require_wrappy = __commonJS({
         for (var i = 0; i < args.length; i++) {
           args[i] = arguments[i];
         }
-        var ret = fn.apply(this, args);
+        var ret = fn2.apply(this, args);
         var cb2 = args[args.length - 1];
         if (typeof ret === "function" && ret !== cb2) {
           Object.keys(cb2).forEach(function(k) {
@@ -20523,26 +20523,26 @@ var require_once = __commonJS({
         configurable: true
       });
     });
-    function once2(fn) {
-      var f = function() {
-        if (f.called) return f.value;
-        f.called = true;
-        return f.value = fn.apply(this, arguments);
+    function once2(fn2) {
+      var f3 = function() {
+        if (f3.called) return f3.value;
+        f3.called = true;
+        return f3.value = fn2.apply(this, arguments);
       };
-      f.called = false;
-      return f;
+      f3.called = false;
+      return f3;
     }
-    function onceStrict(fn) {
-      var f = function() {
-        if (f.called)
-          throw new Error(f.onceError);
-        f.called = true;
-        return f.value = fn.apply(this, arguments);
+    function onceStrict(fn2) {
+      var f3 = function() {
+        if (f3.called)
+          throw new Error(f3.onceError);
+        f3.called = true;
+        return f3.value = fn2.apply(this, arguments);
       };
-      var name = fn.name || "Function wrapped with `once`";
-      f.onceError = name + " shouldn't be called more than once";
-      f.called = false;
-      return f;
+      var name = fn2.name || "Function wrapped with `once`";
+      f3.onceError = name + " shouldn't be called more than once";
+      f3.called = false;
+      return f3;
     }
   }
 });
@@ -23660,23 +23660,23 @@ var init_dist_web5 = __esm({
 // ../../node_modules/.pnpm/@actions+github@6.0.1/node_modules/@actions/github/lib/utils.js
 var require_utils4 = __commonJS({
   "../../node_modules/.pnpm/@actions+github@6.0.1/node_modules/@actions/github/lib/utils.js"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      var desc = Object.getOwnPropertyDescriptor(m, k);
-      if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      var desc = Object.getOwnPropertyDescriptor(m3, k);
+      if (!desc || ("get" in desc ? !m3.__esModule : desc.writable || desc.configurable)) {
         desc = { enumerable: true, get: function() {
-          return m[k];
+          return m3[k];
         } };
       }
-      Object.defineProperty(o, k2, desc);
-    }) : (function(o, m, k, k2) {
+      Object.defineProperty(o2, k2, desc);
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    }) : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o2, v2) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v2 });
+    }) : function(o2, v2) {
+      o2["default"] = v2;
     });
     var __importStar2 = exports && exports.__importStar || function(mod) {
       if (mod && mod.__esModule) return mod;
@@ -23719,23 +23719,23 @@ var require_utils4 = __commonJS({
 // ../../node_modules/.pnpm/@actions+github@6.0.1/node_modules/@actions/github/lib/github.js
 var require_github = __commonJS({
   "../../node_modules/.pnpm/@actions+github@6.0.1/node_modules/@actions/github/lib/github.js"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      var desc = Object.getOwnPropertyDescriptor(m, k);
-      if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      var desc = Object.getOwnPropertyDescriptor(m3, k);
+      if (!desc || ("get" in desc ? !m3.__esModule : desc.writable || desc.configurable)) {
         desc = { enumerable: true, get: function() {
-          return m[k];
+          return m3[k];
         } };
       }
-      Object.defineProperty(o, k2, desc);
-    }) : (function(o, m, k, k2) {
+      Object.defineProperty(o2, k2, desc);
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    }) : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o2, v2) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v2 });
+    }) : function(o2, v2) {
+      o2["default"] = v2;
     });
     var __importStar2 = exports && exports.__importStar || function(mod) {
       if (mod && mod.__esModule) return mod;
@@ -23766,7 +23766,7 @@ var require_util8 = __commonJS({
     exports.getParsedType = exports.ZodParsedType = exports.objectUtil = exports.util = void 0;
     var util;
     (function(util2) {
-      util2.assertEqual = (_) => {
+      util2.assertEqual = (_2) => {
       };
       function assertIs(_arg) {
       }
@@ -23816,7 +23816,7 @@ var require_util8 = __commonJS({
         return array.map((val) => typeof val === "string" ? `'${val}'` : val).join(separator);
       }
       util2.joinValues = joinValues;
-      util2.jsonStringifyReplacer = (_, value) => {
+      util2.jsonStringifyReplacer = (_2, value) => {
         if (typeof value === "bigint") {
           return value.toString();
         }
@@ -24185,7 +24185,7 @@ var require_parseUtil = __commonJS({
         };
       }
       let errorMessage = "";
-      const maps = errorMaps.filter((m) => !!m).slice().reverse();
+      const maps = errorMaps.filter((m3) => !!m3).slice().reverse();
       for (const map of maps) {
         errorMessage = map(fullIssue, { data, defaultError: errorMessage }).message;
       }
@@ -24212,7 +24212,7 @@ var require_parseUtil = __commonJS({
           // then global override map
           overrideMap === en_js_1.default ? void 0 : en_js_1.default
           // then global default map
-        ].filter((x) => !!x)
+        ].filter((x3) => !!x3)
       });
       ctx.common.issues.push(issue);
     }
@@ -24278,13 +24278,13 @@ var require_parseUtil = __commonJS({
     exports.DIRTY = DIRTY;
     var OK = (value) => ({ status: "valid", value });
     exports.OK = OK;
-    var isAborted = (x) => x.status === "aborted";
+    var isAborted = (x3) => x3.status === "aborted";
     exports.isAborted = isAborted;
-    var isDirty = (x) => x.status === "dirty";
+    var isDirty = (x3) => x3.status === "dirty";
     exports.isDirty = isDirty;
-    var isValid = (x) => x.status === "valid";
+    var isValid = (x3) => x3.status === "valid";
     exports.isValid = isValid;
-    var isAsync = (x) => typeof Promise !== "undefined" && x instanceof Promise;
+    var isAsync = (x3) => typeof Promise !== "undefined" && x3 instanceof Promise;
     exports.isAsync = isAsync;
   }
 });
@@ -26650,17 +26650,17 @@ var require_types = __commonJS({
       }
     };
     exports.ZodDiscriminatedUnion = ZodDiscriminatedUnion;
-    function mergeValues(a, b) {
-      const aType = (0, util_js_1.getParsedType)(a);
-      const bType = (0, util_js_1.getParsedType)(b);
-      if (a === b) {
-        return { valid: true, data: a };
+    function mergeValues(a2, b2) {
+      const aType = (0, util_js_1.getParsedType)(a2);
+      const bType = (0, util_js_1.getParsedType)(b2);
+      if (a2 === b2) {
+        return { valid: true, data: a2 };
       } else if (aType === util_js_1.ZodParsedType.object && bType === util_js_1.ZodParsedType.object) {
-        const bKeys = util_js_1.util.objectKeys(b);
-        const sharedKeys = util_js_1.util.objectKeys(a).filter((key) => bKeys.indexOf(key) !== -1);
-        const newObj = { ...a, ...b };
+        const bKeys = util_js_1.util.objectKeys(b2);
+        const sharedKeys = util_js_1.util.objectKeys(a2).filter((key) => bKeys.indexOf(key) !== -1);
+        const newObj = { ...a2, ...b2 };
         for (const key of sharedKeys) {
-          const sharedValue = mergeValues(a[key], b[key]);
+          const sharedValue = mergeValues(a2[key], b2[key]);
           if (!sharedValue.valid) {
             return { valid: false };
           }
@@ -26668,13 +26668,13 @@ var require_types = __commonJS({
         }
         return { valid: true, data: newObj };
       } else if (aType === util_js_1.ZodParsedType.array && bType === util_js_1.ZodParsedType.array) {
-        if (a.length !== b.length) {
+        if (a2.length !== b2.length) {
           return { valid: false };
         }
         const newArray = [];
-        for (let index = 0; index < a.length; index++) {
-          const itemA = a[index];
-          const itemB = b[index];
+        for (let index = 0; index < a2.length; index++) {
+          const itemA = a2[index];
+          const itemB = b2[index];
           const sharedValue = mergeValues(itemA, itemB);
           if (!sharedValue.valid) {
             return { valid: false };
@@ -26682,8 +26682,8 @@ var require_types = __commonJS({
           newArray.push(sharedValue.data);
         }
         return { valid: true, data: newArray };
-      } else if (aType === util_js_1.ZodParsedType.date && bType === util_js_1.ZodParsedType.date && +a === +b) {
-        return { valid: true, data: a };
+      } else if (aType === util_js_1.ZodParsedType.date && bType === util_js_1.ZodParsedType.date && +a2 === +b2) {
+        return { valid: true, data: a2 };
       } else {
         return { valid: false };
       }
@@ -26779,7 +26779,7 @@ var require_types = __commonJS({
           if (!schema)
             return null;
           return schema._parse(new ParseInputLazyPath(ctx, item, ctx.path, itemIndex));
-        }).filter((x) => !!x);
+        }).filter((x3) => !!x3);
         if (ctx.common.async) {
           return Promise.all(items).then((results) => {
             return parseUtil_js_1.ParseStatus.mergeArray(status, results);
@@ -27036,7 +27036,7 @@ var require_types = __commonJS({
           return (0, parseUtil_js_1.makeIssue)({
             data: args,
             path: ctx.path,
-            errorMaps: [ctx.common.contextualErrorMap, ctx.schemaErrorMap, (0, errors_js_1.getErrorMap)(), errors_js_1.defaultErrorMap].filter((x) => !!x),
+            errorMaps: [ctx.common.contextualErrorMap, ctx.schemaErrorMap, (0, errors_js_1.getErrorMap)(), errors_js_1.defaultErrorMap].filter((x3) => !!x3),
             issueData: {
               code: ZodError_js_1.ZodIssueCode.invalid_arguments,
               argumentsError: error
@@ -27047,7 +27047,7 @@ var require_types = __commonJS({
           return (0, parseUtil_js_1.makeIssue)({
             data: returns,
             path: ctx.path,
-            errorMaps: [ctx.common.contextualErrorMap, ctx.schemaErrorMap, (0, errors_js_1.getErrorMap)(), errors_js_1.defaultErrorMap].filter((x) => !!x),
+            errorMaps: [ctx.common.contextualErrorMap, ctx.schemaErrorMap, (0, errors_js_1.getErrorMap)(), errors_js_1.defaultErrorMap].filter((x3) => !!x3),
             issueData: {
               code: ZodError_js_1.ZodIssueCode.invalid_return_type,
               returnTypeError: error
@@ -27055,31 +27055,31 @@ var require_types = __commonJS({
           });
         }
         const params = { errorMap: ctx.common.contextualErrorMap };
-        const fn = ctx.data;
+        const fn2 = ctx.data;
         if (this._def.returns instanceof ZodPromise) {
-          const me = this;
+          const me3 = this;
           return (0, parseUtil_js_1.OK)(async function(...args) {
             const error = new ZodError_js_1.ZodError([]);
-            const parsedArgs = await me._def.args.parseAsync(args, params).catch((e) => {
+            const parsedArgs = await me3._def.args.parseAsync(args, params).catch((e) => {
               error.addIssue(makeArgsIssue(args, e));
               throw error;
             });
-            const result = await Reflect.apply(fn, this, parsedArgs);
-            const parsedReturns = await me._def.returns._def.type.parseAsync(result, params).catch((e) => {
+            const result = await Reflect.apply(fn2, this, parsedArgs);
+            const parsedReturns = await me3._def.returns._def.type.parseAsync(result, params).catch((e) => {
               error.addIssue(makeReturnsIssue(result, e));
               throw error;
             });
             return parsedReturns;
           });
         } else {
-          const me = this;
+          const me3 = this;
           return (0, parseUtil_js_1.OK)(function(...args) {
-            const parsedArgs = me._def.args.safeParse(args, params);
+            const parsedArgs = me3._def.args.safeParse(args, params);
             if (!parsedArgs.success) {
               throw new ZodError_js_1.ZodError([makeArgsIssue(args, parsedArgs.error)]);
             }
-            const result = Reflect.apply(fn, this, parsedArgs.data);
-            const parsedReturns = me._def.returns.safeParse(result, params);
+            const result = Reflect.apply(fn2, this, parsedArgs.data);
+            const parsedReturns = me3._def.returns.safeParse(result, params);
             if (!parsedReturns.success) {
               throw new ZodError_js_1.ZodError([makeReturnsIssue(result, parsedReturns.error)]);
             }
@@ -27655,10 +27655,10 @@ var require_types = __commonJS({
           }
         }
       }
-      static create(a, b) {
+      static create(a2, b2) {
         return new _ZodPipeline({
-          in: a,
-          out: b,
+          in: a2,
+          out: b2,
           typeName: ZodFirstPartyTypeKind.ZodPipeline
         });
       }
@@ -27688,24 +27688,24 @@ var require_types = __commonJS({
       });
     };
     function cleanParams(params, data) {
-      const p = typeof params === "function" ? params(data) : typeof params === "string" ? { message: params } : params;
-      const p2 = typeof p === "string" ? { message: p } : p;
-      return p2;
+      const p2 = typeof params === "function" ? params(data) : typeof params === "string" ? { message: params } : params;
+      const p22 = typeof p2 === "string" ? { message: p2 } : p2;
+      return p22;
     }
     function custom(check, _params = {}, fatal) {
       if (check)
         return ZodAny.create().superRefine((data, ctx) => {
-          const r = check(data);
-          if (r instanceof Promise) {
-            return r.then((r2) => {
-              if (!r2) {
+          const r2 = check(data);
+          if (r2 instanceof Promise) {
+            return r2.then((r3) => {
+              if (!r3) {
                 const params = cleanParams(_params, data);
                 const _fatal = params.fatal ?? fatal ?? true;
                 ctx.addIssue({ code: "custom", ...params, fatal: _fatal });
               }
             });
           }
-          if (!r) {
+          if (!r2) {
             const params = cleanParams(_params, data);
             const _fatal = params.fatal ?? fatal ?? true;
             ctx.addIssue({ code: "custom", ...params, fatal: _fatal });
@@ -27852,21 +27852,21 @@ var require_types = __commonJS({
 // ../../node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/external.cjs
 var require_external = __commonJS({
   "../../node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/external.cjs"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      var desc = Object.getOwnPropertyDescriptor(m, k);
-      if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      var desc = Object.getOwnPropertyDescriptor(m3, k);
+      if (!desc || ("get" in desc ? !m3.__esModule : desc.writable || desc.configurable)) {
         desc = { enumerable: true, get: function() {
-          return m[k];
+          return m3[k];
         } };
       }
-      Object.defineProperty(o, k2, desc);
-    }) : (function(o, m, k, k2) {
+      Object.defineProperty(o2, k2, desc);
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __exportStar2 = exports && exports.__exportStar || function(m, exports2) {
-      for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p)) __createBinding2(exports2, m, p);
+    var __exportStar2 = exports && exports.__exportStar || function(m3, exports2) {
+      for (var p2 in m3) if (p2 !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p2)) __createBinding2(exports2, m3, p2);
     };
     Object.defineProperty(exports, "__esModule", { value: true });
     __exportStar2(require_errors2(), exports);
@@ -27881,23 +27881,23 @@ var require_external = __commonJS({
 // ../../node_modules/.pnpm/zod@3.25.76/node_modules/zod/index.cjs
 var require_zod = __commonJS({
   "../../node_modules/.pnpm/zod@3.25.76/node_modules/zod/index.cjs"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      var desc = Object.getOwnPropertyDescriptor(m, k);
-      if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      var desc = Object.getOwnPropertyDescriptor(m3, k);
+      if (!desc || ("get" in desc ? !m3.__esModule : desc.writable || desc.configurable)) {
         desc = { enumerable: true, get: function() {
-          return m[k];
+          return m3[k];
         } };
       }
-      Object.defineProperty(o, k2, desc);
-    }) : (function(o, m, k, k2) {
+      Object.defineProperty(o2, k2, desc);
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    }) : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o2, v2) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v2 });
+    }) : function(o2, v2) {
+      o2["default"] = v2;
     });
     var __importStar2 = exports && exports.__importStar || function(mod) {
       if (mod && mod.__esModule) return mod;
@@ -27908,8 +27908,8 @@ var require_zod = __commonJS({
       __setModuleDefault2(result, mod);
       return result;
     };
-    var __exportStar2 = exports && exports.__exportStar || function(m, exports2) {
-      for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p)) __createBinding2(exports2, m, p);
+    var __exportStar2 = exports && exports.__exportStar || function(m3, exports2) {
+      for (var p2 in m3) if (p2 !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p2)) __createBinding2(exports2, m3, p2);
     };
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.z = void 0;
@@ -27957,31 +27957,31 @@ __export(tslib_es6_exports, {
   __values: () => __values,
   default: () => tslib_es6_default
 });
-function __extends(d, b) {
-  if (typeof b !== "function" && b !== null)
-    throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-  extendStatics(d, b);
+function __extends(d2, b2) {
+  if (typeof b2 !== "function" && b2 !== null)
+    throw new TypeError("Class extends value " + String(b2) + " is not a constructor or null");
+  extendStatics(d2, b2);
   function __() {
-    this.constructor = d;
+    this.constructor = d2;
   }
-  d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  d2.prototype = b2 === null ? Object.create(b2) : (__.prototype = b2.prototype, new __());
 }
 function __rest(s, e) {
   var t = {};
-  for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-    t[p] = s[p];
+  for (var p2 in s) if (Object.prototype.hasOwnProperty.call(s, p2) && e.indexOf(p2) < 0)
+    t[p2] = s[p2];
   if (s != null && typeof Object.getOwnPropertySymbols === "function")
-    for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-      if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-        t[p[i]] = s[p[i]];
+    for (var i = 0, p2 = Object.getOwnPropertySymbols(s); i < p2.length; i++) {
+      if (e.indexOf(p2[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p2[i]))
+        t[p2[i]] = s[p2[i]];
     }
   return t;
 }
 function __decorate(decorators, target, key, desc) {
-  var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-  if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-  else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-  return c > 3 && r && Object.defineProperty(target, key, r), r;
+  var c2 = arguments.length, r2 = c2 < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d2;
+  if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r2 = Reflect.decorate(decorators, target, key, desc);
+  else for (var i = decorators.length - 1; i >= 0; i--) if (d2 = decorators[i]) r2 = (c2 < 3 ? d2(r2) : c2 > 3 ? d2(target, key, r2) : d2(target, key)) || r2;
+  return c2 > 3 && r2 && Object.defineProperty(target, key, r2), r2;
 }
 function __param(paramIndex, decorator) {
   return function(target, key) {
@@ -27989,32 +27989,32 @@ function __param(paramIndex, decorator) {
   };
 }
 function __esDecorate(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-  function accept(f) {
-    if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-    return f;
+  function accept(f3) {
+    if (f3 !== void 0 && typeof f3 !== "function") throw new TypeError("Function expected");
+    return f3;
   }
   var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
   var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
   var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-  var _, done = false;
+  var _2, done = false;
   for (var i = decorators.length - 1; i >= 0; i--) {
     var context2 = {};
-    for (var p in contextIn) context2[p] = p === "access" ? {} : contextIn[p];
-    for (var p in contextIn.access) context2.access[p] = contextIn.access[p];
-    context2.addInitializer = function(f) {
+    for (var p2 in contextIn) context2[p2] = p2 === "access" ? {} : contextIn[p2];
+    for (var p2 in contextIn.access) context2.access[p2] = contextIn.access[p2];
+    context2.addInitializer = function(f3) {
       if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-      extraInitializers.push(accept(f || null));
+      extraInitializers.push(accept(f3 || null));
     };
     var result = (0, decorators[i])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context2);
     if (kind === "accessor") {
       if (result === void 0) continue;
       if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-      if (_ = accept(result.get)) descriptor.get = _;
-      if (_ = accept(result.set)) descriptor.set = _;
-      if (_ = accept(result.init)) initializers.unshift(_);
-    } else if (_ = accept(result)) {
-      if (kind === "field") initializers.unshift(_);
-      else descriptor[key] = _;
+      if (_2 = accept(result.get)) descriptor.get = _2;
+      if (_2 = accept(result.set)) descriptor.set = _2;
+      if (_2 = accept(result.init)) initializers.unshift(_2);
+    } else if (_2 = accept(result)) {
+      if (kind === "field") initializers.unshift(_2);
+      else descriptor[key] = _2;
     }
   }
   if (target) Object.defineProperty(target, contextIn.name, descriptor);
@@ -28027,12 +28027,12 @@ function __runInitializers(thisArg, initializers, value) {
   }
   return useValue ? value : void 0;
 }
-function __propKey(x) {
-  return typeof x === "symbol" ? x : "".concat(x);
+function __propKey(x3) {
+  return typeof x3 === "symbol" ? x3 : "".concat(x3);
 }
-function __setFunctionName(f, name, prefix) {
+function __setFunctionName(f3, name, prefix) {
   if (typeof name === "symbol") name = name.description ? "[".concat(name.description, "]") : "";
-  return Object.defineProperty(f, "name", { configurable: true, value: prefix ? "".concat(prefix, " ", name) : name });
+  return Object.defineProperty(f3, "name", { configurable: true, value: prefix ? "".concat(prefix, " ", name) : name });
 }
 function __metadata(metadataKey, metadataValue) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
@@ -28065,99 +28065,99 @@ function __awaiter(thisArg, _arguments, P, generator) {
   });
 }
 function __generator(thisArg, body) {
-  var _ = { label: 0, sent: function() {
+  var _2 = { label: 0, sent: function() {
     if (t[0] & 1) throw t[1];
     return t[1];
-  }, trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
-  return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function() {
+  }, trys: [], ops: [] }, f3, y2, t, g3 = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
+  return g3.next = verb(0), g3["throw"] = verb(1), g3["return"] = verb(2), typeof Symbol === "function" && (g3[Symbol.iterator] = function() {
     return this;
-  }), g;
+  }), g3;
   function verb(n) {
-    return function(v) {
-      return step([n, v]);
+    return function(v2) {
+      return step([n, v2]);
     };
   }
   function step(op) {
-    if (f) throw new TypeError("Generator is already executing.");
-    while (g && (g = 0, op[0] && (_ = 0)), _) try {
-      if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-      if (y = 0, t) op = [op[0] & 2, t.value];
+    if (f3) throw new TypeError("Generator is already executing.");
+    while (g3 && (g3 = 0, op[0] && (_2 = 0)), _2) try {
+      if (f3 = 1, y2 && (t = op[0] & 2 ? y2["return"] : op[0] ? y2["throw"] || ((t = y2["return"]) && t.call(y2), 0) : y2.next) && !(t = t.call(y2, op[1])).done) return t;
+      if (y2 = 0, t) op = [op[0] & 2, t.value];
       switch (op[0]) {
         case 0:
         case 1:
           t = op;
           break;
         case 4:
-          _.label++;
+          _2.label++;
           return { value: op[1], done: false };
         case 5:
-          _.label++;
-          y = op[1];
+          _2.label++;
+          y2 = op[1];
           op = [0];
           continue;
         case 7:
-          op = _.ops.pop();
-          _.trys.pop();
+          op = _2.ops.pop();
+          _2.trys.pop();
           continue;
         default:
-          if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
-            _ = 0;
+          if (!(t = _2.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
+            _2 = 0;
             continue;
           }
           if (op[0] === 3 && (!t || op[1] > t[0] && op[1] < t[3])) {
-            _.label = op[1];
+            _2.label = op[1];
             break;
           }
-          if (op[0] === 6 && _.label < t[1]) {
-            _.label = t[1];
+          if (op[0] === 6 && _2.label < t[1]) {
+            _2.label = t[1];
             t = op;
             break;
           }
-          if (t && _.label < t[2]) {
-            _.label = t[2];
-            _.ops.push(op);
+          if (t && _2.label < t[2]) {
+            _2.label = t[2];
+            _2.ops.push(op);
             break;
           }
-          if (t[2]) _.ops.pop();
-          _.trys.pop();
+          if (t[2]) _2.ops.pop();
+          _2.trys.pop();
           continue;
       }
-      op = body.call(thisArg, _);
+      op = body.call(thisArg, _2);
     } catch (e) {
       op = [6, e];
-      y = 0;
+      y2 = 0;
     } finally {
-      f = t = 0;
+      f3 = t = 0;
     }
     if (op[0] & 5) throw op[1];
     return { value: op[0] ? op[1] : void 0, done: true };
   }
 }
-function __exportStar(m, o) {
-  for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(o, p)) __createBinding(o, m, p);
+function __exportStar(m3, o2) {
+  for (var p2 in m3) if (p2 !== "default" && !Object.prototype.hasOwnProperty.call(o2, p2)) __createBinding(o2, m3, p2);
 }
-function __values(o) {
-  var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
-  if (m) return m.call(o);
-  if (o && typeof o.length === "number") return {
+function __values(o2) {
+  var s = typeof Symbol === "function" && Symbol.iterator, m3 = s && o2[s], i = 0;
+  if (m3) return m3.call(o2);
+  if (o2 && typeof o2.length === "number") return {
     next: function() {
-      if (o && i >= o.length) o = void 0;
-      return { value: o && o[i++], done: !o };
+      if (o2 && i >= o2.length) o2 = void 0;
+      return { value: o2 && o2[i++], done: !o2 };
     }
   };
   throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 }
-function __read(o, n) {
-  var m = typeof Symbol === "function" && o[Symbol.iterator];
-  if (!m) return o;
-  var i = m.call(o), r, ar = [], e;
+function __read(o2, n) {
+  var m3 = typeof Symbol === "function" && o2[Symbol.iterator];
+  if (!m3) return o2;
+  var i = m3.call(o2), r2, ar = [], e;
   try {
-    while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    while ((n === void 0 || n-- > 0) && !(r2 = i.next()).done) ar.push(r2.value);
   } catch (error) {
     e = { error };
   } finally {
     try {
-      if (r && !r.done && (m = i["return"])) m.call(i);
+      if (r2 && !r2.done && (m3 = i["return"])) m3.call(i);
     } finally {
       if (e) throw e.error;
     }
@@ -28171,13 +28171,13 @@ function __spread() {
 }
 function __spreadArrays() {
   for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-  for (var r = Array(s), k = 0, i = 0; i < il; i++)
-    for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-      r[k] = a[j];
-  return r;
+  for (var r2 = Array(s), k = 0, i = 0; i < il; i++)
+    for (var a2 = arguments[i], j3 = 0, jl = a2.length; j3 < jl; j3++, k++)
+      r2[k] = a2[j3];
+  return r2;
 }
 function __spreadArray(to, from, pack) {
-  if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+  if (pack || arguments.length === 2) for (var i = 0, l2 = from.length, ar; i < l2; i++) {
     if (ar || !(i in from)) {
       if (!ar) ar = Array.prototype.slice.call(from, 0, i);
       ar[i] = from[i];
@@ -28185,39 +28185,39 @@ function __spreadArray(to, from, pack) {
   }
   return to.concat(ar || Array.prototype.slice.call(from));
 }
-function __await(v) {
-  return this instanceof __await ? (this.v = v, this) : new __await(v);
+function __await(v2) {
+  return this instanceof __await ? (this.v = v2, this) : new __await(v2);
 }
 function __asyncGenerator(thisArg, _arguments, generator) {
   if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-  var g = generator.apply(thisArg, _arguments || []), i, q = [];
+  var g3 = generator.apply(thisArg, _arguments || []), i, q3 = [];
   return i = Object.create((typeof AsyncIterator === "function" ? AsyncIterator : Object).prototype), verb("next"), verb("throw"), verb("return", awaitReturn), i[Symbol.asyncIterator] = function() {
     return this;
   }, i;
-  function awaitReturn(f) {
-    return function(v) {
-      return Promise.resolve(v).then(f, reject);
+  function awaitReturn(f3) {
+    return function(v2) {
+      return Promise.resolve(v2).then(f3, reject);
     };
   }
-  function verb(n, f) {
-    if (g[n]) {
-      i[n] = function(v) {
-        return new Promise(function(a, b) {
-          q.push([n, v, a, b]) > 1 || resume(n, v);
+  function verb(n, f3) {
+    if (g3[n]) {
+      i[n] = function(v2) {
+        return new Promise(function(a2, b2) {
+          q3.push([n, v2, a2, b2]) > 1 || resume(n, v2);
         });
       };
-      if (f) i[n] = f(i[n]);
+      if (f3) i[n] = f3(i[n]);
     }
   }
-  function resume(n, v) {
+  function resume(n, v2) {
     try {
-      step(g[n](v));
+      step(g3[n](v2));
     } catch (e) {
-      settle(q[0][3], e);
+      settle(q3[0][3], e);
     }
   }
-  function step(r) {
-    r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r);
+  function step(r2) {
+    r2.value instanceof __await ? Promise.resolve(r2.value.v).then(fulfill, reject) : settle(q3[0][2], r2);
   }
   function fulfill(value) {
     resume("next", value);
@@ -28225,39 +28225,39 @@ function __asyncGenerator(thisArg, _arguments, generator) {
   function reject(value) {
     resume("throw", value);
   }
-  function settle(f, v) {
-    if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]);
+  function settle(f3, v2) {
+    if (f3(v2), q3.shift(), q3.length) resume(q3[0][0], q3[0][1]);
   }
 }
-function __asyncDelegator(o) {
-  var i, p;
+function __asyncDelegator(o2) {
+  var i, p2;
   return i = {}, verb("next"), verb("throw", function(e) {
     throw e;
   }), verb("return"), i[Symbol.iterator] = function() {
     return this;
   }, i;
-  function verb(n, f) {
-    i[n] = o[n] ? function(v) {
-      return (p = !p) ? { value: __await(o[n](v)), done: false } : f ? f(v) : v;
-    } : f;
+  function verb(n, f3) {
+    i[n] = o2[n] ? function(v2) {
+      return (p2 = !p2) ? { value: __await(o2[n](v2)), done: false } : f3 ? f3(v2) : v2;
+    } : f3;
   }
 }
-function __asyncValues(o) {
+function __asyncValues(o2) {
   if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-  var m = o[Symbol.asyncIterator], i;
-  return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function() {
+  var m3 = o2[Symbol.asyncIterator], i;
+  return m3 ? m3.call(o2) : (o2 = typeof __values === "function" ? __values(o2) : o2[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function() {
     return this;
   }, i);
   function verb(n) {
-    i[n] = o[n] && function(v) {
+    i[n] = o2[n] && function(v2) {
       return new Promise(function(resolve2, reject) {
-        v = o[n](v), settle(resolve2, reject, v.done, v.value);
+        v2 = o2[n](v2), settle(resolve2, reject, v2.done, v2.value);
       });
     };
   }
-  function settle(resolve2, reject, d, v) {
-    Promise.resolve(v).then(function(v2) {
-      resolve2({ value: v2, done: d });
+  function settle(resolve2, reject, d2, v2) {
+    Promise.resolve(v2).then(function(v3) {
+      resolve2({ value: v3, done: d2 });
     }, reject);
   }
 }
@@ -28281,16 +28281,16 @@ function __importStar(mod) {
 function __importDefault(mod) {
   return mod && mod.__esModule ? mod : { default: mod };
 }
-function __classPrivateFieldGet(receiver, state, kind, f) {
-  if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
-  if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
-  return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+function __classPrivateFieldGet(receiver, state, kind, f3) {
+  if (kind === "a" && !f3) throw new TypeError("Private accessor was defined without a getter");
+  if (typeof state === "function" ? receiver !== state || !f3 : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+  return kind === "m" ? f3 : kind === "a" ? f3.call(receiver) : f3 ? f3.value : state.get(receiver);
 }
-function __classPrivateFieldSet(receiver, state, value, kind, f) {
+function __classPrivateFieldSet(receiver, state, value, kind, f3) {
   if (kind === "m") throw new TypeError("Private method is not writable");
-  if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
-  if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
-  return kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value), value;
+  if (kind === "a" && !f3) throw new TypeError("Private accessor was defined without a setter");
+  if (typeof state === "function" ? receiver !== state || !f3 : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
+  return kind === "a" ? f3.call(receiver, value) : f3 ? f3.value = value : state.set(receiver, value), value;
 }
 function __classPrivateFieldIn(state, receiver) {
   if (receiver === null || typeof receiver !== "object" && typeof receiver !== "function") throw new TypeError("Cannot use 'in' operator on non-object");
@@ -28328,14 +28328,14 @@ function __disposeResources(env) {
     env.error = env.hasError ? new _SuppressedError(e, env.error, "An error was suppressed during disposal.") : e;
     env.hasError = true;
   }
-  var r, s = 0;
+  var r2, s = 0;
   function next() {
-    while (r = env.stack.pop()) {
+    while (r2 = env.stack.pop()) {
       try {
-        if (!r.async && s === 1) return s = 0, env.stack.push(r), Promise.resolve().then(next);
-        if (r.dispose) {
-          var result = r.dispose.call(r.value);
-          if (r.async) return s |= 2, Promise.resolve(result).then(next, function(e) {
+        if (!r2.async && s === 1) return s = 0, env.stack.push(r2), Promise.resolve().then(next);
+        if (r2.dispose) {
+          var result = r2.dispose.call(r2.value);
+          if (r2.async) return s |= 2, Promise.resolve(result).then(next, function(e) {
             fail(e);
             return next();
           });
@@ -28351,8 +28351,8 @@ function __disposeResources(env) {
 }
 function __rewriteRelativeImportExtension(path, preserveJsx) {
   if (typeof path === "string" && /^\.\.?\//.test(path)) {
-    return path.replace(/\.(tsx)$|((?:\.d)?)((?:\.[^./]+?)?)\.([cm]?)ts$/i, function(m, tsx, d, ext, cm) {
-      return tsx ? preserveJsx ? ".jsx" : ".js" : d && (!ext || !cm) ? m : d + ext + "." + cm.toLowerCase() + "js";
+    return path.replace(/\.(tsx)$|((?:\.d)?)((?:\.[^./]+?)?)\.([cm]?)ts$/i, function(m3, tsx, d2, ext, cm) {
+      return tsx ? preserveJsx ? ".jsx" : ".js" : d2 && (!ext || !cm) ? m3 : d2 + ext + "." + cm.toLowerCase() + "js";
     });
   }
   return path;
@@ -28360,49 +28360,49 @@ function __rewriteRelativeImportExtension(path, preserveJsx) {
 var extendStatics, __assign, __createBinding, __setModuleDefault, ownKeys, _SuppressedError, tslib_es6_default;
 var init_tslib_es6 = __esm({
   "../../node_modules/.pnpm/tslib@2.8.1/node_modules/tslib/tslib.es6.mjs"() {
-    extendStatics = function(d, b) {
-      extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d2, b2) {
-        d2.__proto__ = b2;
-      } || function(d2, b2) {
-        for (var p in b2) if (Object.prototype.hasOwnProperty.call(b2, p)) d2[p] = b2[p];
+    extendStatics = function(d2, b2) {
+      extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d3, b3) {
+        d3.__proto__ = b3;
+      } || function(d3, b3) {
+        for (var p2 in b3) if (Object.prototype.hasOwnProperty.call(b3, p2)) d3[p2] = b3[p2];
       };
-      return extendStatics(d, b);
+      return extendStatics(d2, b2);
     };
     __assign = function() {
       __assign = Object.assign || function __assign2(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
           s = arguments[i];
-          for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+          for (var p2 in s) if (Object.prototype.hasOwnProperty.call(s, p2)) t[p2] = s[p2];
         }
         return t;
       };
       return __assign.apply(this, arguments);
     };
-    __createBinding = Object.create ? (function(o, m, k, k2) {
+    __createBinding = Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      var desc = Object.getOwnPropertyDescriptor(m, k);
-      if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      var desc = Object.getOwnPropertyDescriptor(m3, k);
+      if (!desc || ("get" in desc ? !m3.__esModule : desc.writable || desc.configurable)) {
         desc = { enumerable: true, get: function() {
-          return m[k];
+          return m3[k];
         } };
       }
-      Object.defineProperty(o, k2, desc);
-    }) : (function(o, m, k, k2) {
+      Object.defineProperty(o2, k2, desc);
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     });
-    __setModuleDefault = Object.create ? (function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    }) : function(o, v) {
-      o["default"] = v;
+    __setModuleDefault = Object.create ? (function(o2, v2) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v2 });
+    }) : function(o2, v2) {
+      o2["default"] = v2;
     };
-    ownKeys = function(o) {
-      ownKeys = Object.getOwnPropertyNames || function(o2) {
+    ownKeys = function(o2) {
+      ownKeys = Object.getOwnPropertyNames || function(o3) {
         var ar = [];
-        for (var k in o2) if (Object.prototype.hasOwnProperty.call(o2, k)) ar[ar.length] = k;
+        for (var k in o3) if (Object.prototype.hasOwnProperty.call(o3, k)) ar[ar.length] = k;
         return ar;
       };
-      return ownKeys(o);
+      return ownKeys(o2);
     };
     _SuppressedError = typeof SuppressedError === "function" ? SuppressedError : function(error, suppressed, message) {
       var e = new Error(message);
@@ -28529,17 +28529,17 @@ var require_handle = __commonJS({
         throw new InvalidHandleError("Handle domain needs at least two parts");
       }
       for (let i = 0; i < labels.length; i++) {
-        const l = labels[i];
-        if (l.length < 1) {
+        const l2 = labels[i];
+        if (l2.length < 1) {
           throw new InvalidHandleError("Handle parts can not be empty");
         }
-        if (l.length > 63) {
+        if (l2.length > 63) {
           throw new InvalidHandleError("Handle part too long (max 63 chars)");
         }
-        if (l.endsWith("-") || l.startsWith("-")) {
+        if (l2.endsWith("-") || l2.startsWith("-")) {
           throw new InvalidHandleError("Handle parts can not start or end with hyphens");
         }
-        if (i + 1 === labels.length && !/^[a-zA-Z]/.test(l)) {
+        if (i + 1 === labels.length && !/^[a-zA-Z]/.test(l2)) {
           throw new InvalidHandleError("Handle final component (TLD) must start with ASCII letter");
         }
       }
@@ -28696,20 +28696,20 @@ var require_nsid = __commonJS({
           message: "NSID needs at least three parts"
         };
       }
-      for (const l of segments) {
-        if (l.length < 1) {
+      for (const l2 of segments) {
+        if (l2.length < 1) {
           return {
             success: false,
             message: "NSID parts can not be empty"
           };
         }
-        if (l.length > 63) {
+        if (l2.length > 63) {
           return {
             success: false,
             message: "NSID part too long (max 63 chars)"
           };
         }
-        if (startsWithHyphen(l) || endsWithHyphen(l)) {
+        if (startsWithHyphen(l2) || endsWithHyphen(l2)) {
           return {
             success: false,
             message: "NSID parts can not start or end with hyphen"
@@ -28733,21 +28733,21 @@ var require_nsid = __commonJS({
         value: segments
       };
     }
-    function hasDisallowedCharacters(v) {
-      return !/^[a-zA-Z0-9.-]*$/.test(v);
+    function hasDisallowedCharacters(v2) {
+      return !/^[a-zA-Z0-9.-]*$/.test(v2);
     }
-    function startsWithNumber(v) {
-      const charCode = v.charCodeAt(0);
+    function startsWithNumber(v2) {
+      const charCode = v2.charCodeAt(0);
       return charCode >= 48 && charCode <= 57;
     }
-    function startsWithHyphen(v) {
-      return v.charCodeAt(0) === 45;
+    function startsWithHyphen(v2) {
+      return v2.charCodeAt(0) === 45;
     }
-    function endsWithHyphen(v) {
-      return v.charCodeAt(v.length - 1) === 45;
+    function endsWithHyphen(v2) {
+      return v2.charCodeAt(v2.length - 1) === 45;
     }
-    function isValidIdentifier(v) {
-      return !startsWithNumber(v) && !v.includes("-");
+    function isValidIdentifier(v2) {
+      return !startsWithNumber(v2) && !v2.includes("-");
     }
     function ensureValidNsidRegex(nsid) {
       const result = validateNsidRegex(nsid);
@@ -28918,32 +28918,32 @@ var require_aturi = __commonJS({
       get hostname() {
         return this.host;
       }
-      set hostname(v) {
-        (0, at_identifier_js_1.ensureValidAtIdentifier)(v);
-        this.host = v;
+      set hostname(v2) {
+        (0, at_identifier_js_1.ensureValidAtIdentifier)(v2);
+        this.host = v2;
       }
       get search() {
         return this.searchParams.toString();
       }
-      set search(v) {
-        this.searchParams = new URLSearchParams(v);
+      set search(v2) {
+        this.searchParams = new URLSearchParams(v2);
       }
       get collection() {
         return this.pathname.split("/").filter(Boolean)[0] || "";
       }
-      set collection(v) {
-        (0, nsid_js_1.ensureValidNsid)(v);
+      set collection(v2) {
+        (0, nsid_js_1.ensureValidNsid)(v2);
         const parts = this.pathname.split("/").filter(Boolean);
-        parts[0] = v;
+        parts[0] = v2;
         this.pathname = parts.join("/");
       }
       get rkey() {
         return this.pathname.split("/").filter(Boolean)[1] || "";
       }
-      set rkey(v) {
+      set rkey(v2) {
         const parts = this.pathname.split("/").filter(Boolean);
         parts[0] ||= "undefined";
-        parts[1] = v;
+        parts[1] = v2;
         this.pathname = parts.join("/");
       }
       get href() {
@@ -29504,7 +29504,7 @@ var require_types2 = __commonJS({
     });
     exports.lexiconDoc = zod_1.z.object({
       lexicon: zod_1.z.literal(1),
-      id: zod_1.z.string().refine((v) => syntax_1.NSID.isValid(v), {
+      id: zod_1.z.string().refine((v2) => syntax_1.NSID.isValid(v2), {
         message: "Must be a valid NSID"
       }),
       revision: zod_1.z.number().optional(),
@@ -29521,18 +29521,18 @@ var require_types2 = __commonJS({
         }
       }
     });
-    function isValidLexiconDoc(v) {
-      return exports.lexiconDoc.safeParse(v).success;
+    function isValidLexiconDoc(v2) {
+      return exports.lexiconDoc.safeParse(v2).success;
     }
-    function isObj(v) {
-      return v != null && typeof v === "object";
+    function isObj(v2) {
+      return v2 != null && typeof v2 === "object";
     }
-    function isDiscriminatedObject(v) {
-      return isObj(v) && "$type" in v && typeof v.$type === "string";
+    function isDiscriminatedObject(v2) {
+      return isObj(v2) && "$type" in v2 && typeof v2.$type === "string";
     }
-    function parseLexiconDoc(v) {
-      exports.lexiconDoc.parse(v);
-      return v;
+    function parseLexiconDoc(v2) {
+      exports.lexiconDoc.parse(v2);
+      return v2;
     }
     var ValidationError = class extends Error {
     };
@@ -29573,16 +29573,16 @@ var require_varint = __commonJS({
     var MSB$1 = 128;
     var REST$1 = 127;
     function read(buf, offset) {
-      var res = 0, offset = offset || 0, shift = 0, counter = offset, b, l = buf.length;
+      var res = 0, offset = offset || 0, shift = 0, counter = offset, b2, l2 = buf.length;
       do {
-        if (counter >= l) {
+        if (counter >= l2) {
           read.bytes = 0;
           throw new RangeError("Could not decode varint");
         }
-        b = buf[counter++];
-        res += shift < 28 ? (b & REST$1) << shift : (b & REST$1) * Math.pow(2, shift);
+        b2 = buf[counter++];
+        res += shift < 28 ? (b2 & REST$1) << shift : (b2 & REST$1) * Math.pow(2, shift);
         shift += 7;
-      } while (b >= MSB$1);
+      } while (b2 >= MSB$1);
       read.bytes = counter - offset;
       return res;
     }
@@ -29639,10 +29639,10 @@ var require_bytes = __commonJS({
   "../../node_modules/.pnpm/multiformats@9.9.0/node_modules/multiformats/cjs/src/bytes.js"(exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     var empty = new Uint8Array(0);
-    var toHex = (d) => d.reduce((hex, byte) => hex + byte.toString(16).padStart(2, "0"), "");
+    var toHex = (d2) => d2.reduce((hex, byte) => hex + byte.toString(16).padStart(2, "0"), "");
     var fromHex = (hex) => {
       const hexes = hex.match(/../g);
-      return hexes ? new Uint8Array(hexes.map((b) => parseInt(b, 16))) : empty;
+      return hexes ? new Uint8Array(hexes.map((b2) => parseInt(b2, 16))) : empty;
     };
     var equals = (aa, bb) => {
       if (aa === bb)
@@ -29657,19 +29657,19 @@ var require_bytes = __commonJS({
       }
       return true;
     };
-    var coerce = (o) => {
-      if (o instanceof Uint8Array && o.constructor.name === "Uint8Array")
-        return o;
-      if (o instanceof ArrayBuffer)
-        return new Uint8Array(o);
-      if (ArrayBuffer.isView(o)) {
-        return new Uint8Array(o.buffer, o.byteOffset, o.byteLength);
+    var coerce = (o2) => {
+      if (o2 instanceof Uint8Array && o2.constructor.name === "Uint8Array")
+        return o2;
+      if (o2 instanceof ArrayBuffer)
+        return new Uint8Array(o2);
+      if (ArrayBuffer.isView(o2)) {
+        return new Uint8Array(o2.buffer, o2.byteOffset, o2.byteLength);
       }
       throw new Error("Unknown type, must be binary type");
     };
-    var isBinary = (o) => o instanceof ArrayBuffer || ArrayBuffer.isView(o);
+    var isBinary = (o2) => o2 instanceof ArrayBuffer || ArrayBuffer.isView(o2);
     var fromString = (str) => new TextEncoder().encode(str);
-    var toString = (b) => new TextDecoder().decode(b);
+    var toString = (b2) => new TextDecoder().decode(b2);
     exports.coerce = coerce;
     exports.empty = empty;
     exports.equals = equals;
@@ -29707,11 +29707,11 @@ var require_digest = __commonJS({
       }
       return new Digest(code, size, digest, bytes$1);
     };
-    var equals = (a, b) => {
-      if (a === b) {
+    var equals = (a2, b2) => {
+      if (a2 === b2) {
         return true;
       } else {
-        return a.code === b.code && a.size === b.size && bytes.equals(a.bytes, b.bytes);
+        return a2.code === b2.code && a2.size === b2.size && bytes.equals(a2.bytes, b2.bytes);
       }
     };
     var Digest = class {
@@ -29737,14 +29737,14 @@ var require_base_x = __commonJS({
         throw new TypeError("Alphabet too long");
       }
       var BASE_MAP = new Uint8Array(256);
-      for (var j = 0; j < BASE_MAP.length; j++) {
-        BASE_MAP[j] = 255;
+      for (var j3 = 0; j3 < BASE_MAP.length; j3++) {
+        BASE_MAP[j3] = 255;
       }
       for (var i = 0; i < ALPHABET.length; i++) {
-        var x = ALPHABET.charAt(i);
-        var xc = x.charCodeAt(0);
+        var x3 = ALPHABET.charAt(i);
+        var xc = x3.charCodeAt(0);
         if (BASE_MAP[xc] !== 255) {
-          throw new TypeError(x + " is ambiguous");
+          throw new TypeError(x3 + " is ambiguous");
         }
         BASE_MAP[xc] = i;
       }
@@ -29843,9 +29843,9 @@ var require_base_x = __commonJS({
           it4++;
         }
         var vch = new Uint8Array(zeroes + (size - it4));
-        var j2 = zeroes;
+        var j4 = zeroes;
         while (it4 !== size) {
-          vch[j2++] = b256[it4++];
+          vch[j4++] = b256[it4++];
         }
         return vch;
       }
@@ -30449,7 +30449,7 @@ var require_check = __commonJS({
       return def.safeParse(obj).success;
     };
     exports.is = is;
-    var create = (def) => (v) => def.safeParse(v).success;
+    var create = (def) => (v2) => def.safeParse(v2).success;
     exports.create = create;
     var assure = (def, obj) => {
       return def.parse(obj);
@@ -30549,24 +30549,24 @@ var require_util10 = __commonJS({
     var s32encode = (i) => {
       let s = "";
       while (i) {
-        const c = i % 32;
+        const c2 = i % 32;
         i = Math.floor(i / 32);
-        s = S32_CHAR.charAt(c) + s;
+        s = S32_CHAR.charAt(c2) + s;
       }
       return s;
     };
     exports.s32encode = s32encode;
     var s32decode = (s) => {
       let i = 0;
-      for (const c of s) {
-        i = i * 32 + S32_CHAR.indexOf(c);
+      for (const c2 of s) {
+        i = i * 32 + S32_CHAR.indexOf(c2);
       }
       return i;
     };
     exports.s32decode = s32decode;
-    var asyncFilter = async (arr, fn) => {
-      const results = await Promise.all(arr.map((t) => fn(t)));
-      return arr.filter((_, i) => results[i]);
+    var asyncFilter = async (arr, fn2) => {
+      const results = await Promise.all(arr.map((t) => fn2(t)));
+      return arr.filter((_2, i) => results[i]);
     };
     exports.asyncFilter = asyncFilter;
     var isErrnoException = (err) => {
@@ -30620,10 +30620,10 @@ var require_arrays = __commonJS({
         return acc;
       }, /* @__PURE__ */ new Map());
     }
-    var mapDefined = (arr, fn) => {
+    var mapDefined = (arr, fn2) => {
       const output = [];
       for (const item of arr) {
-        const val = fn(item);
+        const val = fn2(item);
         if (val !== void 0) {
           output.push(val);
         }
@@ -30700,7 +30700,7 @@ var require_async = __commonJS({
     };
     exports.createDeferrables = createDeferrables;
     var allComplete = async (deferrables) => {
-      await Promise.all(deferrables.map((d) => d.complete));
+      await Promise.all(deferrables.map((d2) => d2.complete));
     };
     exports.allComplete = allComplete;
     var AsyncBuffer = class {
@@ -30755,7 +30755,7 @@ var require_async = __commonJS({
         return this.closed;
       }
       resetPromise() {
-        this.promise = new Promise((r) => this.resolve = r);
+        this.promise = new Promise((r2) => this.resolve = r2);
       }
       push(item) {
         this.buffer.push(item);
@@ -30884,11 +30884,11 @@ var require_tid2 = __commonJS({
       static fromStr(str) {
         return new _TID(str);
       }
-      static oldestFirst(a, b) {
-        return a.compareTo(b);
+      static oldestFirst(a2, b2) {
+        return a2.compareTo(b2);
       }
-      static newestFirst(a, b) {
-        return b.compareTo(a);
+      static newestFirst(a2, b2) {
+        return b2.compareTo(a2);
       }
       static is(str) {
         return dedash(str).length === TID_LEN;
@@ -31207,18 +31207,18 @@ var require_base256emoji = __commonJS({
     Object.defineProperty(exports, "__esModule", { value: true });
     var base = require_base();
     var alphabet = Array.from("\u{1F680}\u{1FA90}\u2604\u{1F6F0}\u{1F30C}\u{1F311}\u{1F312}\u{1F313}\u{1F314}\u{1F315}\u{1F316}\u{1F317}\u{1F318}\u{1F30D}\u{1F30F}\u{1F30E}\u{1F409}\u2600\u{1F4BB}\u{1F5A5}\u{1F4BE}\u{1F4BF}\u{1F602}\u2764\u{1F60D}\u{1F923}\u{1F60A}\u{1F64F}\u{1F495}\u{1F62D}\u{1F618}\u{1F44D}\u{1F605}\u{1F44F}\u{1F601}\u{1F525}\u{1F970}\u{1F494}\u{1F496}\u{1F499}\u{1F622}\u{1F914}\u{1F606}\u{1F644}\u{1F4AA}\u{1F609}\u263A\u{1F44C}\u{1F917}\u{1F49C}\u{1F614}\u{1F60E}\u{1F607}\u{1F339}\u{1F926}\u{1F389}\u{1F49E}\u270C\u2728\u{1F937}\u{1F631}\u{1F60C}\u{1F338}\u{1F64C}\u{1F60B}\u{1F497}\u{1F49A}\u{1F60F}\u{1F49B}\u{1F642}\u{1F493}\u{1F929}\u{1F604}\u{1F600}\u{1F5A4}\u{1F603}\u{1F4AF}\u{1F648}\u{1F447}\u{1F3B6}\u{1F612}\u{1F92D}\u2763\u{1F61C}\u{1F48B}\u{1F440}\u{1F62A}\u{1F611}\u{1F4A5}\u{1F64B}\u{1F61E}\u{1F629}\u{1F621}\u{1F92A}\u{1F44A}\u{1F973}\u{1F625}\u{1F924}\u{1F449}\u{1F483}\u{1F633}\u270B\u{1F61A}\u{1F61D}\u{1F634}\u{1F31F}\u{1F62C}\u{1F643}\u{1F340}\u{1F337}\u{1F63B}\u{1F613}\u2B50\u2705\u{1F97A}\u{1F308}\u{1F608}\u{1F918}\u{1F4A6}\u2714\u{1F623}\u{1F3C3}\u{1F490}\u2639\u{1F38A}\u{1F498}\u{1F620}\u261D\u{1F615}\u{1F33A}\u{1F382}\u{1F33B}\u{1F610}\u{1F595}\u{1F49D}\u{1F64A}\u{1F639}\u{1F5E3}\u{1F4AB}\u{1F480}\u{1F451}\u{1F3B5}\u{1F91E}\u{1F61B}\u{1F534}\u{1F624}\u{1F33C}\u{1F62B}\u26BD\u{1F919}\u2615\u{1F3C6}\u{1F92B}\u{1F448}\u{1F62E}\u{1F646}\u{1F37B}\u{1F343}\u{1F436}\u{1F481}\u{1F632}\u{1F33F}\u{1F9E1}\u{1F381}\u26A1\u{1F31E}\u{1F388}\u274C\u270A\u{1F44B}\u{1F630}\u{1F928}\u{1F636}\u{1F91D}\u{1F6B6}\u{1F4B0}\u{1F353}\u{1F4A2}\u{1F91F}\u{1F641}\u{1F6A8}\u{1F4A8}\u{1F92C}\u2708\u{1F380}\u{1F37A}\u{1F913}\u{1F619}\u{1F49F}\u{1F331}\u{1F616}\u{1F476}\u{1F974}\u25B6\u27A1\u2753\u{1F48E}\u{1F4B8}\u2B07\u{1F628}\u{1F31A}\u{1F98B}\u{1F637}\u{1F57A}\u26A0\u{1F645}\u{1F61F}\u{1F635}\u{1F44E}\u{1F932}\u{1F920}\u{1F927}\u{1F4CC}\u{1F535}\u{1F485}\u{1F9D0}\u{1F43E}\u{1F352}\u{1F617}\u{1F911}\u{1F30A}\u{1F92F}\u{1F437}\u260E\u{1F4A7}\u{1F62F}\u{1F486}\u{1F446}\u{1F3A4}\u{1F647}\u{1F351}\u2744\u{1F334}\u{1F4A3}\u{1F438}\u{1F48C}\u{1F4CD}\u{1F940}\u{1F922}\u{1F445}\u{1F4A1}\u{1F4A9}\u{1F450}\u{1F4F8}\u{1F47B}\u{1F910}\u{1F92E}\u{1F3BC}\u{1F975}\u{1F6A9}\u{1F34E}\u{1F34A}\u{1F47C}\u{1F48D}\u{1F4E3}\u{1F942}");
-    var alphabetBytesToChars = alphabet.reduce((p, c, i) => {
-      p[i] = c;
-      return p;
+    var alphabetBytesToChars = alphabet.reduce((p2, c2, i) => {
+      p2[i] = c2;
+      return p2;
     }, []);
-    var alphabetCharsToBytes = alphabet.reduce((p, c, i) => {
-      p[c.codePointAt(0)] = i;
-      return p;
+    var alphabetCharsToBytes = alphabet.reduce((p2, c2, i) => {
+      p2[c2.codePointAt(0)] = i;
+      return p2;
     }, []);
     function encode(data) {
-      return data.reduce((p, c) => {
-        p += alphabetBytesToChars[c];
-        return p;
+      return data.reduce((p2, c2) => {
+        p2 += alphabetBytesToChars[c2];
+        return p2;
       }, "");
     }
     function decode(str) {
@@ -31572,12 +31572,12 @@ var require_uint8array = __commonJS({
       }
       return void 0;
     }
-    function ui8Equals(a, b) {
-      if (a.byteLength !== b.byteLength) {
+    function ui8Equals(a2, b2) {
+      if (a2.byteLength !== b2.byteLength) {
         return false;
       }
-      for (let i = 0; i < a.byteLength; i++) {
-        if (a[i] !== b[i]) {
+      for (let i = 0; i < a2.byteLength; i++) {
+        if (a2[i] !== b2[i]) {
           return false;
         }
       }
@@ -31625,10 +31625,10 @@ var require_cid2 = __commonJS({
     exports.RAW_DATA_CODEC = 85;
     exports.SHA256_HASH_CODE = sha2_1.sha256.code;
     exports.SHA512_HASH_CODE = sha2_1.sha512.code;
-    function multihashEquals(a, b) {
-      if (a === b)
+    function multihashEquals(a2, b2) {
+      if (a2 === b2)
         return true;
-      return a.code === b.code && (0, uint8array_js_1.ui8Equals)(a.digest, b.digest);
+      return a2.code === b2.code && (0, uint8array_js_1.ui8Equals)(a2.digest, b2.digest);
     }
     function asMultiformatsCID(input) {
       const cid = (
@@ -31883,9 +31883,9 @@ var require_blob = __commonJS({
             } else if (includeLegacy && isLegacyBlobRef(value, options)) {
               yield value;
             } else {
-              for (const v of Object.values(value)) {
-                if (v != null)
-                  stack.push(v);
+              for (const v2 of Object.values(value)) {
+                if (v2 != null)
+                  stack.push(v2);
               }
             }
           }
@@ -31904,52 +31904,52 @@ var require_lex_equals = __commonJS({
     var cid_js_1 = require_cid2();
     var object_js_1 = require_object();
     var uint8array_js_1 = require_uint8array();
-    function lexEquals(a, b) {
-      if (Object.is(a, b)) {
+    function lexEquals(a2, b2) {
+      if (Object.is(a2, b2)) {
         return true;
       }
-      if (a == null || b == null || typeof a !== "object" || typeof b !== "object") {
+      if (a2 == null || b2 == null || typeof a2 !== "object" || typeof b2 !== "object") {
         return false;
       }
-      if (Array.isArray(a)) {
-        if (!Array.isArray(b)) {
+      if (Array.isArray(a2)) {
+        if (!Array.isArray(b2)) {
           return false;
         }
-        if (a.length !== b.length) {
+        if (a2.length !== b2.length) {
           return false;
         }
-        for (let i = 0; i < a.length; i++) {
-          if (!lexEquals(a[i], b[i])) {
+        for (let i = 0; i < a2.length; i++) {
+          if (!lexEquals(a2[i], b2[i])) {
             return false;
           }
         }
         return true;
-      } else if (Array.isArray(b)) {
+      } else if (Array.isArray(b2)) {
         return false;
       }
-      if (ArrayBuffer.isView(a)) {
-        if (!ArrayBuffer.isView(b))
+      if (ArrayBuffer.isView(a2)) {
+        if (!ArrayBuffer.isView(b2))
           return false;
-        return (0, uint8array_js_1.ui8Equals)(a, b);
-      } else if (ArrayBuffer.isView(b)) {
+        return (0, uint8array_js_1.ui8Equals)(a2, b2);
+      } else if (ArrayBuffer.isView(b2)) {
         return false;
       }
-      if ((0, cid_js_1.isCid)(a)) {
-        return (0, cid_js_1.ifCid)(b)?.equals(a) === true;
-      } else if ((0, cid_js_1.isCid)(b)) {
+      if ((0, cid_js_1.isCid)(a2)) {
+        return (0, cid_js_1.ifCid)(b2)?.equals(a2) === true;
+      } else if ((0, cid_js_1.isCid)(b2)) {
         return false;
       }
-      if (!(0, object_js_1.isPlainObject)(a) || !(0, object_js_1.isPlainObject)(b)) {
+      if (!(0, object_js_1.isPlainObject)(a2) || !(0, object_js_1.isPlainObject)(b2)) {
         throw new TypeError("Invalid LexValue (expected CID, Uint8Array, or LexMap)");
       }
-      const aKeys = Object.keys(a);
-      const bKeys = Object.keys(b);
+      const aKeys = Object.keys(a2);
+      const bKeys = Object.keys(b2);
       if (aKeys.length !== bKeys.length) {
         return false;
       }
       for (const key of aKeys) {
-        const aVal = a[key];
-        const bVal = b[key];
+        const aVal = a2[key];
+        const bVal = b2[key];
         if (aVal === void 0) {
           if (bVal === void 0 && bKeys.includes(key))
             continue;
@@ -32280,7 +32280,7 @@ var require_grapheme = __commonJS({
     }
     function countGraphemes(text) {
       let count = 0;
-      for (let _ of graphemeSegments(text)) count += 1;
+      for (let _2 of graphemeSegments(text)) count += 1;
       return count;
     }
     function* splitGraphemes(text) {
@@ -32375,7 +32375,7 @@ var require_utf8_grapheme_len = __commonJS({
     );
     exports.graphemeLenNative = segmenter ? function graphemeLenNative(str) {
       let length = 0;
-      for (const _ of segmenter.segment(str))
+      for (const _2 of segmenter.segment(str))
         length++;
       return length;
     } : (
@@ -32784,10 +32784,10 @@ var require_ipld = __commonJS({
       return (0, lex_json_1.lexToJson)(val);
     };
     exports.ipldToJson = ipldToJson;
-    var ipldEquals = (a, b) => {
-      if (!(0, lex_data_1.lexEquals)(a, b))
+    var ipldEquals = (a2, b2) => {
+      if (!(0, lex_data_1.lexEquals)(a2, b2))
         return false;
-      if (Number.isNaN(a))
+      if (Number.isNaN(a2))
         return false;
       return true;
     };
@@ -32803,13 +32803,13 @@ var require_retry = __commonJS({
     exports.createRetryable = createRetryable;
     exports.backoffMs = backoffMs;
     var util_1 = require_util10();
-    async function retry(fn, opts = {}) {
+    async function retry(fn2, opts = {}) {
       const { maxRetries = 3, retryable = () => true, getWaitMs = backoffMs } = opts;
       let retries = 0;
       let doneError;
       while (!doneError) {
         try {
-          return await fn();
+          return await fn2();
         } catch (err) {
           const waitMs = getWaitMs(retries);
           const willRetry = retries < maxRetries && waitMs !== null && retryable(err);
@@ -32826,7 +32826,7 @@ var require_retry = __commonJS({
       throw doneError;
     }
     function createRetryable(retryable) {
-      return async (fn, opts) => retry(fn, { ...opts, retryable });
+      return async (fn2, opts) => retry(fn2, { ...opts, retryable });
     }
     function backoffMs(n, multiplier = 100, max = 1e3) {
       const exponentialMs = Math.pow(2, n) * multiplier;
@@ -33010,17 +33010,17 @@ var require_handle2 = __commonJS({
         throw new InvalidHandleError("Handle domain needs at least two parts");
       }
       for (let i = 0; i < labels.length; i++) {
-        const l = labels[i];
-        if (l.length < 1) {
+        const l2 = labels[i];
+        if (l2.length < 1) {
           throw new InvalidHandleError("Handle parts can not be empty");
         }
-        if (l.length > 63) {
+        if (l2.length > 63) {
           throw new InvalidHandleError("Handle part too long (max 63 chars)");
         }
-        if (l.endsWith("-") || l.startsWith("-")) {
+        if (l2.endsWith("-") || l2.startsWith("-")) {
           throw new InvalidHandleError("Handle parts can not start or end with hyphens");
         }
-        if (i + 1 === labels.length && !/^[a-zA-Z]/.test(l)) {
+        if (i + 1 === labels.length && !/^[a-zA-Z]/.test(l2)) {
           throw new InvalidHandleError("Handle final component (TLD) must start with ASCII letter");
         }
       }
@@ -33207,14 +33207,14 @@ var require_nsid2 = __commonJS({
       if (segments.length < 3) {
         return (0, result_js_1.failure)("NSID needs at least three parts");
       }
-      for (const l of segments) {
-        if (l.length < 1) {
+      for (const l2 of segments) {
+        if (l2.length < 1) {
           return (0, result_js_1.failure)("NSID parts can not be empty");
         }
-        if (l.length > 63) {
+        if (l2.length > 63) {
           return (0, result_js_1.failure)("NSID part too long (max 63 chars)");
         }
-        if (startsWithHyphen(l) || endsWithHyphen(l)) {
+        if (startsWithHyphen(l2) || endsWithHyphen(l2)) {
           return (0, result_js_1.failure)("NSID parts can not start or end with hyphen");
         }
       }
@@ -33226,21 +33226,21 @@ var require_nsid2 = __commonJS({
       }
       return (0, result_js_1.success)(segments);
     }
-    function hasDisallowedCharacters(v) {
-      return !/^[a-zA-Z0-9.-]*$/.test(v);
+    function hasDisallowedCharacters(v2) {
+      return !/^[a-zA-Z0-9.-]*$/.test(v2);
     }
-    function startsWithNumber(v) {
-      const charCode = v.charCodeAt(0);
+    function startsWithNumber(v2) {
+      const charCode = v2.charCodeAt(0);
       return charCode >= 48 && charCode <= 57;
     }
-    function startsWithHyphen(v) {
-      return v.charCodeAt(0) === 45;
+    function startsWithHyphen(v2) {
+      return v2.charCodeAt(0) === 45;
     }
-    function endsWithHyphen(v) {
-      return v.charCodeAt(v.length - 1) === 45;
+    function endsWithHyphen(v2) {
+      return v2.charCodeAt(v2.length - 1) === 45;
     }
-    function isValidIdentifier(v) {
-      return !startsWithNumber(v) && !v.includes("-");
+    function isValidIdentifier(v2) {
+      return !startsWithNumber(v2) && !v2.includes("-");
     }
     function ensureValidNsidRegex(nsid) {
       const result = validateNsidRegex(nsid);
@@ -33477,15 +33477,15 @@ var require_aturi2 = __commonJS({
       get hostname() {
         return this.host;
       }
-      set hostname(v) {
-        (0, at_identifier_js_1.ensureValidAtIdentifier)(v);
-        this.host = v;
+      set hostname(v2) {
+        (0, at_identifier_js_1.ensureValidAtIdentifier)(v2);
+        this.host = v2;
       }
       get search() {
         return this.searchParams.toString();
       }
-      set search(v) {
-        this.searchParams = new URLSearchParams(v);
+      set search(v2) {
+        this.searchParams = new URLSearchParams(v2);
       }
       get collection() {
         return this.pathname.split("/").filter(Boolean)[0] || "";
@@ -33495,13 +33495,13 @@ var require_aturi2 = __commonJS({
         (0, nsid_js_1.ensureValidNsid)(collection);
         return collection;
       }
-      set collection(v) {
-        (0, nsid_js_1.ensureValidNsid)(v);
-        this.unsafelySetCollection(v);
+      set collection(v2) {
+        (0, nsid_js_1.ensureValidNsid)(v2);
+        this.unsafelySetCollection(v2);
       }
-      unsafelySetCollection(v) {
+      unsafelySetCollection(v2) {
         const parts = this.pathname.split("/").filter(Boolean);
-        parts[0] = v;
+        parts[0] = v2;
         this.pathname = parts.join("/");
       }
       get rkey() {
@@ -33512,14 +33512,14 @@ var require_aturi2 = __commonJS({
         (0, recordkey_js_1.ensureValidRecordKey)(rkey);
         return rkey;
       }
-      set rkey(v) {
-        (0, recordkey_js_1.ensureValidRecordKey)(v);
-        this.unsafelySetRkey(v);
+      set rkey(v2) {
+        (0, recordkey_js_1.ensureValidRecordKey)(v2);
+        this.unsafelySetRkey(v2);
       }
-      unsafelySetRkey(v) {
+      unsafelySetRkey(v2) {
         const parts = this.pathname.split("/").filter(Boolean);
         parts[0] ||= "undefined";
-        parts[1] = v;
+        parts[1] = v2;
         this.pathname = parts.join("/");
       }
       get href() {
@@ -33668,8 +33668,8 @@ var require_datetime2 = __commonJS({
         return "1970-01-01T00:00:00.000Z";
       }
     }
-    var failure = (m) => ({ success: false, message: m });
-    var success = (v) => ({ success: true, value: v });
+    var failure = (m3) => ({ success: false, message: m3 });
+    var success = (v2) => ({ success: true, value: v2 });
     var DATETIME_REGEX = /^(?<full_year>[0-9]{4})-(?<date_month>0[1-9]|1[012])-(?<date_mday>[0-2][0-9]|3[01])T(?<time_hour>[0-1][0-9]|2[0-3]):(?<time_minute>[0-5][0-9]):(?<time_second>[0-5][0-9]|60)(?<time_secfrac>\.[0-9]+)?(?<time_offset>Z|(?<time_numoffset>[+-](?:[0-1][0-9]|2[0-3]):[0-5][0-9]))$/;
     function parseString(input) {
       if (typeof input !== "string") {
@@ -33966,32 +33966,32 @@ var require_did_doc = __commonJS({
 // ../../node_modules/.pnpm/@atproto+common-web@0.4.21/node_modules/@atproto/common-web/dist/index.js
 var require_dist5 = __commonJS({
   "../../node_modules/.pnpm/@atproto+common-web@0.4.21/node_modules/@atproto/common-web/dist/index.js"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      var desc = Object.getOwnPropertyDescriptor(m, k);
-      if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      var desc = Object.getOwnPropertyDescriptor(m3, k);
+      if (!desc || ("get" in desc ? !m3.__esModule : desc.writable || desc.configurable)) {
         desc = { enumerable: true, get: function() {
-          return m[k];
+          return m3[k];
         } };
       }
-      Object.defineProperty(o, k2, desc);
-    }) : (function(o, m, k, k2) {
+      Object.defineProperty(o2, k2, desc);
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    }) : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o2, v2) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v2 });
+    }) : function(o2, v2) {
+      o2["default"] = v2;
     });
     var __importStar2 = exports && exports.__importStar || /* @__PURE__ */ (function() {
-      var ownKeys2 = function(o) {
-        ownKeys2 = Object.getOwnPropertyNames || function(o2) {
+      var ownKeys2 = function(o2) {
+        ownKeys2 = Object.getOwnPropertyNames || function(o3) {
           var ar = [];
-          for (var k in o2) if (Object.prototype.hasOwnProperty.call(o2, k)) ar[ar.length] = k;
+          for (var k in o3) if (Object.prototype.hasOwnProperty.call(o3, k)) ar[ar.length] = k;
           return ar;
         };
-        return ownKeys2(o);
+        return ownKeys2(o2);
       };
       return function(mod) {
         if (mod && mod.__esModule) return mod;
@@ -34003,8 +34003,8 @@ var require_dist5 = __commonJS({
         return result;
       };
     })();
-    var __exportStar2 = exports && exports.__exportStar || function(m, exports2) {
-      for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p)) __createBinding2(exports2, m, p);
+    var __exportStar2 = exports && exports.__exportStar || function(m3, exports2) {
+      for (var p2 in m3) if (p2 !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p2)) __createBinding2(exports2, m3, p2);
     };
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.util = exports.check = void 0;
@@ -34127,41 +34127,41 @@ var require_blob3 = __commonJS({
 var require_dist6 = __commonJS({
   "../../node_modules/.pnpm/iso-datestring-validator@2.2.2/node_modules/iso-datestring-validator/dist/index.js"(exports) {
     (() => {
-      var e = { d: (t2, r2) => {
-        for (var n2 in r2) e.o(r2, n2) && !e.o(t2, n2) && Object.defineProperty(t2, n2, { enumerable: true, get: r2[n2] });
+      var e = { d: (t2, r3) => {
+        for (var n2 in r3) e.o(r3, n2) && !e.o(t2, n2) && Object.defineProperty(t2, n2, { enumerable: true, get: r3[n2] });
       }, o: (e2, t2) => Object.prototype.hasOwnProperty.call(e2, t2), r: (e2) => {
         "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e2, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e2, "__esModule", { value: true });
       } }, t = {};
-      function r(e2, t2) {
+      function r2(e2, t2) {
         return void 0 === t2 && (t2 = "-"), new RegExp("^(?!0{4}" + t2 + "0{2}" + t2 + "0{2})((?=[0-9]{4}" + t2 + "(((0[^2])|1[0-2])|02(?=" + t2 + "(([0-1][0-9])|2[0-8])))" + t2 + "[0-9]{2})|(?=((([13579][26])|([2468][048])|(0[48]))0{2})|([0-9]{2}((((0|[2468])[48])|[2468][048])|([13579][26])))" + t2 + "02" + t2 + "29))([0-9]{4})" + t2 + "(?!((0[469])|11)" + t2 + "31)((0[1,3-9]|1[0-2])|(02(?!" + t2 + "3)))" + t2 + "(0[1-9]|[1-2][0-9]|3[0-1])$").test(e2);
       }
       function n(e2) {
         var t2 = /\D/.exec(e2);
         return t2 ? t2[0] : "";
       }
-      function i(e2, t2, r2) {
-        void 0 === t2 && (t2 = ":"), void 0 === r2 && (r2 = false);
+      function i(e2, t2, r3) {
+        void 0 === t2 && (t2 = ":"), void 0 === r3 && (r3 = false);
         var i2 = new RegExp("^([0-1]|2(?=([0-3])|4" + t2 + "00))[0-9]" + t2 + "[0-5][0-9](" + t2 + "([0-5]|6(?=0))[0-9])?(.[0-9]{1,9})?$");
-        if (!r2 || !/[Z+\-]/.test(e2)) return i2.test(e2);
+        if (!r3 || !/[Z+\-]/.test(e2)) return i2.test(e2);
         if (/Z$/.test(e2)) return i2.test(e2.replace("Z", ""));
-        var o2 = e2.includes("+"), a2 = e2.split(/[+-]/), u2 = a2[0], d2 = a2[1];
-        return i2.test(u2) && (function(e3, t3, r3) {
-          return void 0 === r3 && (r3 = ":"), new RegExp(t3 ? "^(0(?!(2" + r3 + "4)|0" + r3 + "3)|1(?=([0-1]|2(?=" + r3 + "[04])|[34](?=" + r3 + "0))))([03469](?=" + r3 + "[03])|[17](?=" + r3 + "0)|2(?=" + r3 + "[04])|5(?=" + r3 + "[034])|8(?=" + r3 + "[04]))" + r3 + "([03](?=0)|4(?=5))[05]$" : "^(0(?=[^0])|1(?=[0-2]))([39](?=" + r3 + "[03])|[0-24-8](?=" + r3 + "00))" + r3 + "[03]0$").test(e3);
-        })(d2, o2, n(d2));
+        var o3 = e2.includes("+"), a3 = e2.split(/[+-]/), u3 = a3[0], d3 = a3[1];
+        return i2.test(u3) && (function(e3, t3, r4) {
+          return void 0 === r4 && (r4 = ":"), new RegExp(t3 ? "^(0(?!(2" + r4 + "4)|0" + r4 + "3)|1(?=([0-1]|2(?=" + r4 + "[04])|[34](?=" + r4 + "0))))([03469](?=" + r4 + "[03])|[17](?=" + r4 + "0)|2(?=" + r4 + "[04])|5(?=" + r4 + "[034])|8(?=" + r4 + "[04]))" + r4 + "([03](?=0)|4(?=5))[05]$" : "^(0(?=[^0])|1(?=[0-2]))([39](?=" + r4 + "[03])|[0-24-8](?=" + r4 + "00))" + r4 + "[03]0$").test(e3);
+        })(d3, o3, n(d3));
       }
-      function o(e2) {
-        var t2 = e2.split("T"), o2 = t2[0], a2 = t2[1], u2 = r(o2, n(o2));
-        if (!a2) return false;
-        var d2, s = (d2 = a2.match(/([^Z+\-\d])(?=\d+\1)/), Array.isArray(d2) ? d2[0] : "");
-        return u2 && i(a2, s, true);
+      function o2(e2) {
+        var t2 = e2.split("T"), o3 = t2[0], a3 = t2[1], u3 = r2(o3, n(o3));
+        if (!a3) return false;
+        var d3, s = (d3 = a3.match(/([^Z+\-\d])(?=\d+\1)/), Array.isArray(d3) ? d3[0] : "");
+        return u3 && i(a3, s, true);
       }
-      function a(e2, t2) {
+      function a2(e2, t2) {
         return void 0 === t2 && (t2 = "-"), new RegExp("^[0-9]{4}" + t2 + "(0(?=[^0])|1(?=[0-2]))[0-9]$").test(e2);
       }
-      e.r(t), e.d(t, { isValidDate: () => r, isValidISODateString: () => o, isValidTime: () => i, isValidYearMonth: () => a });
-      var u = exports;
-      for (var d in t) u[d] = t[d];
-      t.__esModule && Object.defineProperty(u, "__esModule", { value: true });
+      e.r(t), e.d(t, { isValidDate: () => r2, isValidISODateString: () => o2, isValidTime: () => i, isValidYearMonth: () => a2 });
+      var u2 = exports;
+      for (var d2 in t) u2[d2] = t[d2];
+      t.__esModule && Object.defineProperty(u2, "__esModule", { value: true });
     })();
   }
 });
@@ -34314,32 +34314,32 @@ var require_formats = __commonJS({
 // ../../node_modules/.pnpm/@atproto+lexicon@0.4.14/node_modules/@atproto/lexicon/dist/validators/primitives.js
 var require_primitives = __commonJS({
   "../../node_modules/.pnpm/@atproto+lexicon@0.4.14/node_modules/@atproto/lexicon/dist/validators/primitives.js"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      var desc = Object.getOwnPropertyDescriptor(m, k);
-      if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      var desc = Object.getOwnPropertyDescriptor(m3, k);
+      if (!desc || ("get" in desc ? !m3.__esModule : desc.writable || desc.configurable)) {
         desc = { enumerable: true, get: function() {
-          return m[k];
+          return m3[k];
         } };
       }
-      Object.defineProperty(o, k2, desc);
-    }) : (function(o, m, k, k2) {
+      Object.defineProperty(o2, k2, desc);
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    }) : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o2, v2) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v2 });
+    }) : function(o2, v2) {
+      o2["default"] = v2;
     });
     var __importStar2 = exports && exports.__importStar || /* @__PURE__ */ (function() {
-      var ownKeys2 = function(o) {
-        ownKeys2 = Object.getOwnPropertyNames || function(o2) {
+      var ownKeys2 = function(o2) {
+        ownKeys2 = Object.getOwnPropertyNames || function(o3) {
           var ar = [];
-          for (var k in o2) if (Object.prototype.hasOwnProperty.call(o2, k)) ar[ar.length] = k;
+          for (var k in o3) if (Object.prototype.hasOwnProperty.call(o3, k)) ar[ar.length] = k;
           return ar;
         };
-        return ownKeys2(o);
+        return ownKeys2(o2);
       };
       return function(mod) {
         if (mod && mod.__esModule) return mod;
@@ -34785,32 +34785,32 @@ var require_complex = __commonJS({
 // ../../node_modules/.pnpm/@atproto+lexicon@0.4.14/node_modules/@atproto/lexicon/dist/validators/xrpc.js
 var require_xrpc = __commonJS({
   "../../node_modules/.pnpm/@atproto+lexicon@0.4.14/node_modules/@atproto/lexicon/dist/validators/xrpc.js"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      var desc = Object.getOwnPropertyDescriptor(m, k);
-      if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      var desc = Object.getOwnPropertyDescriptor(m3, k);
+      if (!desc || ("get" in desc ? !m3.__esModule : desc.writable || desc.configurable)) {
         desc = { enumerable: true, get: function() {
-          return m[k];
+          return m3[k];
         } };
       }
-      Object.defineProperty(o, k2, desc);
-    }) : (function(o, m, k, k2) {
+      Object.defineProperty(o2, k2, desc);
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    }) : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o2, v2) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v2 });
+    }) : function(o2, v2) {
+      o2["default"] = v2;
     });
     var __importStar2 = exports && exports.__importStar || /* @__PURE__ */ (function() {
-      var ownKeys2 = function(o) {
-        ownKeys2 = Object.getOwnPropertyNames || function(o2) {
+      var ownKeys2 = function(o2) {
+        ownKeys2 = Object.getOwnPropertyNames || function(o3) {
           var ar = [];
-          for (var k in o2) if (Object.prototype.hasOwnProperty.call(o2, k)) ar[ar.length] = k;
+          for (var k in o3) if (Object.prototype.hasOwnProperty.call(o3, k)) ar[ar.length] = k;
           return ar;
         };
-        return ownKeys2(o);
+        return ownKeys2(o2);
       };
       return function(mod) {
         if (mod && mod.__esModule) return mod;
@@ -35187,21 +35187,21 @@ var require_serialize = __commonJS({
 // ../../node_modules/.pnpm/@atproto+lexicon@0.4.14/node_modules/@atproto/lexicon/dist/index.js
 var require_dist7 = __commonJS({
   "../../node_modules/.pnpm/@atproto+lexicon@0.4.14/node_modules/@atproto/lexicon/dist/index.js"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      var desc = Object.getOwnPropertyDescriptor(m, k);
-      if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      var desc = Object.getOwnPropertyDescriptor(m3, k);
+      if (!desc || ("get" in desc ? !m3.__esModule : desc.writable || desc.configurable)) {
         desc = { enumerable: true, get: function() {
-          return m[k];
+          return m3[k];
         } };
       }
-      Object.defineProperty(o, k2, desc);
-    }) : (function(o, m, k, k2) {
+      Object.defineProperty(o2, k2, desc);
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __exportStar2 = exports && exports.__exportStar || function(m, exports2) {
-      for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p)) __createBinding2(exports2, m, p);
+    var __exportStar2 = exports && exports.__exportStar || function(m3, exports2) {
+      for (var p2 in m3) if (p2 !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p2)) __createBinding2(exports2, m3, p2);
     };
     Object.defineProperty(exports, "__esModule", { value: true });
     __exportStar2(require_types2(), exports);
@@ -35218,8 +35218,8 @@ var require_util12 = __commonJS({
     exports.is$typed = is$typed;
     exports.maybe$typed = maybe$typed;
     exports.asPredicate = asPredicate;
-    function isObject(v) {
-      return v != null && typeof v === "object";
+    function isObject(v2) {
+      return v2 != null && typeof v2 === "object";
     }
     function is$type($type, id, hash2) {
       return hash2 === "main" ? $type === id : (
@@ -35227,15 +35227,15 @@ var require_util12 = __commonJS({
         typeof $type === "string" && $type.length === id.length + 1 + hash2.length && $type.charCodeAt(id.length) === 35 && $type.startsWith(id) && $type.endsWith(hash2)
       );
     }
-    function is$typed(v, id, hash2) {
-      return isObject(v) && "$type" in v && is$type(v.$type, id, hash2);
+    function is$typed(v2, id, hash2) {
+      return isObject(v2) && "$type" in v2 && is$type(v2.$type, id, hash2);
     }
-    function maybe$typed(v, id, hash2) {
-      return isObject(v) && ("$type" in v ? v.$type === void 0 || is$type(v.$type, id, hash2) : true);
+    function maybe$typed(v2, id, hash2) {
+      return isObject(v2) && ("$type" in v2 ? v2.$type === void 0 || is$type(v2.$type, id, hash2) : true);
     }
     function asPredicate(validate) {
-      return function(v) {
-        return validate(v).success;
+      return function(v2) {
+        return validate(v2).success;
       };
     }
   }
@@ -50130,8 +50130,8 @@ var require_lexicons2 = __commonJS({
     };
     exports.schemas = Object.values(exports.schemaDict);
     exports.lexicons = new lexicon_1.Lexicons(exports.schemas);
-    function validate(v, id, hash2, requiredType) {
-      return (requiredType ? util_js_1.is$typed : util_js_1.maybe$typed)(v, id, hash2) ? exports.lexicons.validate(`${id}#${hash2}`, v) : {
+    function validate(v2, id, hash2, requiredType) {
+      return (requiredType ? util_js_1.is$typed : util_js_1.maybe$typed)(v2, id, hash2) ? exports.lexicons.validate(`${id}#${hash2}`, v2) : {
         success: false,
         error: new lexicon_1.ValidationError(`Must be an object with "${hash2 === "main" ? id : `${id}#${hash2}`}" $type property`)
       };
@@ -50696,8 +50696,8 @@ var require_util14 = __commonJS({
         throw new Error("ReadableStream is not supported in this environment");
       }
     };
-    function isErrorResponseBody(v) {
-      return types_1.errorResponseBody.safeParse(v).success;
+    function isErrorResponseBody(v2) {
+      return types_1.errorResponseBody.safeParse(v2).success;
     }
     function getMethodSchemaHTTPMethod(schema) {
       if (schema.type === "procedure") {
@@ -51032,7 +51032,7 @@ var require_client2 = __commonJS({
         throw new Error("Client.fetch is no longer supported. Use an XrpcClient instead.");
       }
       /** @deprecated */
-      set fetch(_) {
+      set fetch(_2) {
         throw new Error("Client.fetch is no longer supported. Use an XrpcClient instead.");
       }
       // method calls
@@ -51086,21 +51086,21 @@ var require_client2 = __commonJS({
 // ../../node_modules/.pnpm/@atproto+xrpc@0.6.12/node_modules/@atproto/xrpc/dist/index.js
 var require_dist8 = __commonJS({
   "../../node_modules/.pnpm/@atproto+xrpc@0.6.12/node_modules/@atproto/xrpc/dist/index.js"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      var desc = Object.getOwnPropertyDescriptor(m, k);
-      if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      var desc = Object.getOwnPropertyDescriptor(m3, k);
+      if (!desc || ("get" in desc ? !m3.__esModule : desc.writable || desc.configurable)) {
         desc = { enumerable: true, get: function() {
-          return m[k];
+          return m3[k];
         } };
       }
-      Object.defineProperty(o, k2, desc);
-    }) : (function(o, m, k, k2) {
+      Object.defineProperty(o2, k2, desc);
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __exportStar2 = exports && exports.__exportStar || function(m, exports2) {
-      for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p)) __createBinding2(exports2, m, p);
+    var __exportStar2 = exports && exports.__exportStar || function(m3, exports2) {
+      for (var p2 in m3) if (p2 !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p2)) __createBinding2(exports2, m3, p2);
     };
     Object.defineProperty(exports, "__esModule", { value: true });
     __exportStar2(require_client2(), exports);
@@ -51300,46 +51300,46 @@ var require_applyWrites = __commonJS({
       return e;
     }
     var hashCreate = "create";
-    function isCreate(v) {
-      return is$typed(v, id, hashCreate);
+    function isCreate(v2) {
+      return is$typed(v2, id, hashCreate);
     }
-    function validateCreate(v) {
-      return validate(v, id, hashCreate);
+    function validateCreate(v2) {
+      return validate(v2, id, hashCreate);
     }
     var hashUpdate = "update";
-    function isUpdate(v) {
-      return is$typed(v, id, hashUpdate);
+    function isUpdate(v2) {
+      return is$typed(v2, id, hashUpdate);
     }
-    function validateUpdate(v) {
-      return validate(v, id, hashUpdate);
+    function validateUpdate(v2) {
+      return validate(v2, id, hashUpdate);
     }
     var hashDelete = "delete";
-    function isDelete(v) {
-      return is$typed(v, id, hashDelete);
+    function isDelete(v2) {
+      return is$typed(v2, id, hashDelete);
     }
-    function validateDelete(v) {
-      return validate(v, id, hashDelete);
+    function validateDelete(v2) {
+      return validate(v2, id, hashDelete);
     }
     var hashCreateResult = "createResult";
-    function isCreateResult(v) {
-      return is$typed(v, id, hashCreateResult);
+    function isCreateResult(v2) {
+      return is$typed(v2, id, hashCreateResult);
     }
-    function validateCreateResult(v) {
-      return validate(v, id, hashCreateResult);
+    function validateCreateResult(v2) {
+      return validate(v2, id, hashCreateResult);
     }
     var hashUpdateResult = "updateResult";
-    function isUpdateResult(v) {
-      return is$typed(v, id, hashUpdateResult);
+    function isUpdateResult(v2) {
+      return is$typed(v2, id, hashUpdateResult);
     }
-    function validateUpdateResult(v) {
-      return validate(v, id, hashUpdateResult);
+    function validateUpdateResult(v2) {
+      return validate(v2, id, hashUpdateResult);
     }
     var hashDeleteResult = "deleteResult";
-    function isDeleteResult(v) {
-      return is$typed(v, id, hashDeleteResult);
+    function isDeleteResult(v2) {
+      return is$typed(v2, id, hashDeleteResult);
     }
-    function validateDeleteResult(v) {
-      return validate(v, id, hashDeleteResult);
+    function validateDeleteResult(v2) {
+      return validate(v2, id, hashDeleteResult);
     }
   }
 });
@@ -51606,11 +51606,11 @@ var require_createAppPassword = __commonJS({
       return e;
     }
     var hashAppPassword = "appPassword";
-    function isAppPassword(v) {
-      return is$typed(v, id, hashAppPassword);
+    function isAppPassword(v2) {
+      return is$typed(v2, id, hashAppPassword);
     }
-    function validateAppPassword(v) {
-      return validate(v, id, hashAppPassword);
+    function validateAppPassword(v2) {
+      return validate(v2, id, hashAppPassword);
     }
   }
 });
@@ -51767,11 +51767,11 @@ var require_listAppPasswords = __commonJS({
       return e;
     }
     var hashAppPassword = "appPassword";
-    function isAppPassword(v) {
-      return is$typed(v, id, hashAppPassword);
+    function isAppPassword(v2) {
+      return is$typed(v2, id, hashAppPassword);
     }
-    function validateAppPassword(v) {
-      return validate(v, id, hashAppPassword);
+    function validateAppPassword(v2) {
+      return validate(v2, id, hashAppPassword);
     }
   }
 });
@@ -53035,39 +53035,39 @@ var require_defs = __commonJS({
     var validate = lexicons_1.validate;
     var id = "com.atproto.admin.defs";
     var hashStatusAttr = "statusAttr";
-    function isStatusAttr(v) {
-      return is$typed(v, id, hashStatusAttr);
+    function isStatusAttr(v2) {
+      return is$typed(v2, id, hashStatusAttr);
     }
-    function validateStatusAttr(v) {
-      return validate(v, id, hashStatusAttr);
+    function validateStatusAttr(v2) {
+      return validate(v2, id, hashStatusAttr);
     }
     var hashAccountView = "accountView";
-    function isAccountView(v) {
-      return is$typed(v, id, hashAccountView);
+    function isAccountView(v2) {
+      return is$typed(v2, id, hashAccountView);
     }
-    function validateAccountView(v) {
-      return validate(v, id, hashAccountView);
+    function validateAccountView(v2) {
+      return validate(v2, id, hashAccountView);
     }
     var hashRepoRef = "repoRef";
-    function isRepoRef(v) {
-      return is$typed(v, id, hashRepoRef);
+    function isRepoRef(v2) {
+      return is$typed(v2, id, hashRepoRef);
     }
-    function validateRepoRef(v) {
-      return validate(v, id, hashRepoRef);
+    function validateRepoRef(v2) {
+      return validate(v2, id, hashRepoRef);
     }
     var hashRepoBlobRef = "repoBlobRef";
-    function isRepoBlobRef(v) {
-      return is$typed(v, id, hashRepoBlobRef);
+    function isRepoBlobRef(v2) {
+      return is$typed(v2, id, hashRepoBlobRef);
     }
-    function validateRepoBlobRef(v) {
-      return validate(v, id, hashRepoBlobRef);
+    function validateRepoBlobRef(v2) {
+      return validate(v2, id, hashRepoBlobRef);
     }
     var hashThreatSignature = "threatSignature";
-    function isThreatSignature(v) {
-      return is$typed(v, id, hashThreatSignature);
+    function isThreatSignature(v2) {
+      return is$typed(v2, id, hashThreatSignature);
     }
-    function validateThreatSignature(v) {
-      return validate(v, id, hashThreatSignature);
+    function validateThreatSignature(v2) {
+      return validate(v2, id, hashThreatSignature);
     }
   }
 });
@@ -53309,11 +53309,11 @@ var require_defs2 = __commonJS({
     var validate = lexicons_1.validate;
     var id = "com.atproto.identity.defs";
     var hashIdentityInfo = "identityInfo";
-    function isIdentityInfo(v) {
-      return is$typed(v, id, hashIdentityInfo);
+    function isIdentityInfo(v2) {
+      return is$typed(v2, id, hashIdentityInfo);
     }
-    function validateIdentityInfo(v) {
-      return validate(v, id, hashIdentityInfo);
+    function validateIdentityInfo(v2) {
+      return validate(v2, id, hashIdentityInfo);
     }
   }
 });
@@ -53413,39 +53413,39 @@ var require_defs3 = __commonJS({
     var validate = lexicons_1.validate;
     var id = "com.atproto.label.defs";
     var hashLabel = "label";
-    function isLabel(v) {
-      return is$typed(v, id, hashLabel);
+    function isLabel(v2) {
+      return is$typed(v2, id, hashLabel);
     }
-    function validateLabel(v) {
-      return validate(v, id, hashLabel);
+    function validateLabel(v2) {
+      return validate(v2, id, hashLabel);
     }
     var hashSelfLabels = "selfLabels";
-    function isSelfLabels(v) {
-      return is$typed(v, id, hashSelfLabels);
+    function isSelfLabels(v2) {
+      return is$typed(v2, id, hashSelfLabels);
     }
-    function validateSelfLabels(v) {
-      return validate(v, id, hashSelfLabels);
+    function validateSelfLabels(v2) {
+      return validate(v2, id, hashSelfLabels);
     }
     var hashSelfLabel = "selfLabel";
-    function isSelfLabel(v) {
-      return is$typed(v, id, hashSelfLabel);
+    function isSelfLabel(v2) {
+      return is$typed(v2, id, hashSelfLabel);
     }
-    function validateSelfLabel(v) {
-      return validate(v, id, hashSelfLabel);
+    function validateSelfLabel(v2) {
+      return validate(v2, id, hashSelfLabel);
     }
     var hashLabelValueDefinition = "labelValueDefinition";
-    function isLabelValueDefinition(v) {
-      return is$typed(v, id, hashLabelValueDefinition);
+    function isLabelValueDefinition(v2) {
+      return is$typed(v2, id, hashLabelValueDefinition);
     }
-    function validateLabelValueDefinition(v) {
-      return validate(v, id, hashLabelValueDefinition);
+    function validateLabelValueDefinition(v2) {
+      return validate(v2, id, hashLabelValueDefinition);
     }
     var hashLabelValueDefinitionStrings = "labelValueDefinitionStrings";
-    function isLabelValueDefinitionStrings(v) {
-      return is$typed(v, id, hashLabelValueDefinitionStrings);
+    function isLabelValueDefinitionStrings(v2) {
+      return is$typed(v2, id, hashLabelValueDefinitionStrings);
     }
-    function validateLabelValueDefinitionStrings(v) {
-      return validate(v, id, hashLabelValueDefinitionStrings);
+    function validateLabelValueDefinitionStrings(v2) {
+      return validate(v2, id, hashLabelValueDefinitionStrings);
     }
   }
 });
@@ -53479,18 +53479,18 @@ var require_subscribeLabels = __commonJS({
     var validate = lexicons_1.validate;
     var id = "com.atproto.label.subscribeLabels";
     var hashLabels = "labels";
-    function isLabels(v) {
-      return is$typed(v, id, hashLabels);
+    function isLabels(v2) {
+      return is$typed(v2, id, hashLabels);
     }
-    function validateLabels(v) {
-      return validate(v, id, hashLabels);
+    function validateLabels(v2) {
+      return validate(v2, id, hashLabels);
     }
     var hashInfo = "info";
-    function isInfo(v) {
-      return is$typed(v, id, hashInfo);
+    function isInfo(v2) {
+      return is$typed(v2, id, hashInfo);
     }
-    function validateInfo(v) {
-      return validate(v, id, hashInfo);
+    function validateInfo(v2) {
+      return validate(v2, id, hashInfo);
     }
   }
 });
@@ -53507,11 +53507,11 @@ var require_schema = __commonJS({
     var validate = lexicons_1.validate;
     var id = "com.atproto.lexicon.schema";
     var hashRecord = "main";
-    function isRecord(v) {
-      return is$typed(v, id, hashRecord);
+    function isRecord(v2) {
+      return is$typed(v2, id, hashRecord);
     }
-    function validateRecord(v) {
-      return validate(v, id, hashRecord, true);
+    function validateRecord(v2) {
+      return validate(v2, id, hashRecord, true);
     }
   }
 });
@@ -53563,11 +53563,11 @@ var require_defs5 = __commonJS({
     var validate = lexicons_1.validate;
     var id = "com.atproto.repo.defs";
     var hashCommitMeta = "commitMeta";
-    function isCommitMeta(v) {
-      return is$typed(v, id, hashCommitMeta);
+    function isCommitMeta(v2) {
+      return is$typed(v2, id, hashCommitMeta);
     }
-    function validateCommitMeta(v) {
-      return validate(v, id, hashCommitMeta);
+    function validateCommitMeta(v2) {
+      return validate(v2, id, hashCommitMeta);
     }
   }
 });
@@ -53618,11 +53618,11 @@ var require_listMissingBlobs = __commonJS({
       return e;
     }
     var hashRecordBlob = "recordBlob";
-    function isRecordBlob(v) {
-      return is$typed(v, id, hashRecordBlob);
+    function isRecordBlob(v2) {
+      return is$typed(v2, id, hashRecordBlob);
     }
-    function validateRecordBlob(v) {
-      return validate(v, id, hashRecordBlob);
+    function validateRecordBlob(v2) {
+      return validate(v2, id, hashRecordBlob);
     }
   }
 });
@@ -53643,11 +53643,11 @@ var require_listRecords = __commonJS({
       return e;
     }
     var hashRecord = "record";
-    function isRecord(v) {
-      return is$typed(v, id, hashRecord);
+    function isRecord(v2) {
+      return is$typed(v2, id, hashRecord);
     }
-    function validateRecord(v) {
-      return validate(v, id, hashRecord);
+    function validateRecord(v2) {
+      return validate(v2, id, hashRecord);
     }
   }
 });
@@ -53664,11 +53664,11 @@ var require_strongRef = __commonJS({
     var validate = lexicons_1.validate;
     var id = "com.atproto.repo.strongRef";
     var hashMain = "main";
-    function isMain(v) {
-      return is$typed(v, id, hashMain);
+    function isMain(v2) {
+      return is$typed(v2, id, hashMain);
     }
-    function validateMain(v) {
-      return validate(v, id, hashMain);
+    function validateMain(v2) {
+      return validate(v2, id, hashMain);
     }
   }
 });
@@ -53749,11 +53749,11 @@ var require_createInviteCodes = __commonJS({
       return e;
     }
     var hashAccountCodes = "accountCodes";
-    function isAccountCodes(v) {
-      return is$typed(v, id, hashAccountCodes);
+    function isAccountCodes(v2) {
+      return is$typed(v2, id, hashAccountCodes);
     }
-    function validateAccountCodes(v) {
-      return validate(v, id, hashAccountCodes);
+    function validateAccountCodes(v2) {
+      return validate(v2, id, hashAccountCodes);
     }
   }
 });
@@ -53787,18 +53787,18 @@ var require_defs6 = __commonJS({
     var validate = lexicons_1.validate;
     var id = "com.atproto.server.defs";
     var hashInviteCode = "inviteCode";
-    function isInviteCode(v) {
-      return is$typed(v, id, hashInviteCode);
+    function isInviteCode(v2) {
+      return is$typed(v2, id, hashInviteCode);
     }
-    function validateInviteCode(v) {
-      return validate(v, id, hashInviteCode);
+    function validateInviteCode(v2) {
+      return validate(v2, id, hashInviteCode);
     }
     var hashInviteCodeUse = "inviteCodeUse";
-    function isInviteCodeUse(v) {
-      return is$typed(v, id, hashInviteCodeUse);
+    function isInviteCodeUse(v2) {
+      return is$typed(v2, id, hashInviteCodeUse);
     }
-    function validateInviteCodeUse(v) {
-      return validate(v, id, hashInviteCodeUse);
+    function validateInviteCodeUse(v2) {
+      return validate(v2, id, hashInviteCodeUse);
     }
   }
 });
@@ -53836,18 +53836,18 @@ var require_describeServer = __commonJS({
       return e;
     }
     var hashLinks = "links";
-    function isLinks(v) {
-      return is$typed(v, id, hashLinks);
+    function isLinks(v2) {
+      return is$typed(v2, id, hashLinks);
     }
-    function validateLinks(v) {
-      return validate(v, id, hashLinks);
+    function validateLinks(v2) {
+      return validate(v2, id, hashLinks);
     }
     var hashContact = "contact";
-    function isContact(v) {
-      return is$typed(v, id, hashContact);
+    function isContact(v2) {
+      return is$typed(v2, id, hashContact);
     }
-    function validateContact(v) {
-      return validate(v, id, hashContact);
+    function validateContact(v2) {
+      return validate(v2, id, hashContact);
     }
   }
 });
@@ -53999,11 +53999,11 @@ var require_listHosts = __commonJS({
       return e;
     }
     var hashHost = "host";
-    function isHost(v) {
-      return is$typed(v, id, hashHost);
+    function isHost(v2) {
+      return is$typed(v2, id, hashHost);
     }
-    function validateHost(v) {
-      return validate(v, id, hashHost);
+    function validateHost(v2) {
+      return validate(v2, id, hashHost);
     }
   }
 });
@@ -54024,11 +54024,11 @@ var require_listRepos = __commonJS({
       return e;
     }
     var hashRepo = "repo";
-    function isRepo(v) {
-      return is$typed(v, id, hashRepo);
+    function isRepo(v2) {
+      return is$typed(v2, id, hashRepo);
     }
-    function validateRepo(v) {
-      return validate(v, id, hashRepo);
+    function validateRepo(v2) {
+      return validate(v2, id, hashRepo);
     }
   }
 });
@@ -54049,11 +54049,11 @@ var require_listReposByCollection = __commonJS({
       return e;
     }
     var hashRepo = "repo";
-    function isRepo(v) {
-      return is$typed(v, id, hashRepo);
+    function isRepo(v2) {
+      return is$typed(v2, id, hashRepo);
     }
-    function validateRepo(v) {
-      return validate(v, id, hashRepo);
+    function validateRepo(v2) {
+      return validate(v2, id, hashRepo);
     }
   }
 });
@@ -54095,46 +54095,46 @@ var require_subscribeRepos = __commonJS({
     var validate = lexicons_1.validate;
     var id = "com.atproto.sync.subscribeRepos";
     var hashCommit = "commit";
-    function isCommit(v) {
-      return is$typed(v, id, hashCommit);
+    function isCommit(v2) {
+      return is$typed(v2, id, hashCommit);
     }
-    function validateCommit(v) {
-      return validate(v, id, hashCommit);
+    function validateCommit(v2) {
+      return validate(v2, id, hashCommit);
     }
     var hashSync = "sync";
-    function isSync(v) {
-      return is$typed(v, id, hashSync);
+    function isSync(v2) {
+      return is$typed(v2, id, hashSync);
     }
-    function validateSync(v) {
-      return validate(v, id, hashSync);
+    function validateSync(v2) {
+      return validate(v2, id, hashSync);
     }
     var hashIdentity = "identity";
-    function isIdentity(v) {
-      return is$typed(v, id, hashIdentity);
+    function isIdentity(v2) {
+      return is$typed(v2, id, hashIdentity);
     }
-    function validateIdentity(v) {
-      return validate(v, id, hashIdentity);
+    function validateIdentity(v2) {
+      return validate(v2, id, hashIdentity);
     }
     var hashAccount = "account";
-    function isAccount(v) {
-      return is$typed(v, id, hashAccount);
+    function isAccount(v2) {
+      return is$typed(v2, id, hashAccount);
     }
-    function validateAccount(v) {
-      return validate(v, id, hashAccount);
+    function validateAccount(v2) {
+      return validate(v2, id, hashAccount);
     }
     var hashInfo = "info";
-    function isInfo(v) {
-      return is$typed(v, id, hashInfo);
+    function isInfo(v2) {
+      return is$typed(v2, id, hashInfo);
     }
-    function validateInfo(v) {
-      return validate(v, id, hashInfo);
+    function validateInfo(v2) {
+      return validate(v2, id, hashInfo);
     }
     var hashRepoOp = "repoOp";
-    function isRepoOp(v) {
-      return is$typed(v, id, hashRepoOp);
+    function isRepoOp(v2) {
+      return is$typed(v2, id, hashRepoOp);
     }
-    function validateRepoOp(v) {
-      return validate(v, id, hashRepoOp);
+    function validateRepoOp(v2) {
+      return validate(v2, id, hashRepoOp);
     }
   }
 });
@@ -54259,179 +54259,179 @@ var require_defs8 = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.actor.defs";
     var hashProfileViewBasic = "profileViewBasic";
-    function isProfileViewBasic(v) {
-      return is$typed(v, id, hashProfileViewBasic);
+    function isProfileViewBasic(v2) {
+      return is$typed(v2, id, hashProfileViewBasic);
     }
-    function validateProfileViewBasic(v) {
-      return validate(v, id, hashProfileViewBasic);
+    function validateProfileViewBasic(v2) {
+      return validate(v2, id, hashProfileViewBasic);
     }
     var hashProfileView = "profileView";
-    function isProfileView(v) {
-      return is$typed(v, id, hashProfileView);
+    function isProfileView(v2) {
+      return is$typed(v2, id, hashProfileView);
     }
-    function validateProfileView(v) {
-      return validate(v, id, hashProfileView);
+    function validateProfileView(v2) {
+      return validate(v2, id, hashProfileView);
     }
     var hashProfileViewDetailed = "profileViewDetailed";
-    function isProfileViewDetailed(v) {
-      return is$typed(v, id, hashProfileViewDetailed);
+    function isProfileViewDetailed(v2) {
+      return is$typed(v2, id, hashProfileViewDetailed);
     }
-    function validateProfileViewDetailed(v) {
-      return validate(v, id, hashProfileViewDetailed);
+    function validateProfileViewDetailed(v2) {
+      return validate(v2, id, hashProfileViewDetailed);
     }
     var hashProfileAssociated = "profileAssociated";
-    function isProfileAssociated(v) {
-      return is$typed(v, id, hashProfileAssociated);
+    function isProfileAssociated(v2) {
+      return is$typed(v2, id, hashProfileAssociated);
     }
-    function validateProfileAssociated(v) {
-      return validate(v, id, hashProfileAssociated);
+    function validateProfileAssociated(v2) {
+      return validate(v2, id, hashProfileAssociated);
     }
     var hashProfileAssociatedChat = "profileAssociatedChat";
-    function isProfileAssociatedChat(v) {
-      return is$typed(v, id, hashProfileAssociatedChat);
+    function isProfileAssociatedChat(v2) {
+      return is$typed(v2, id, hashProfileAssociatedChat);
     }
-    function validateProfileAssociatedChat(v) {
-      return validate(v, id, hashProfileAssociatedChat);
+    function validateProfileAssociatedChat(v2) {
+      return validate(v2, id, hashProfileAssociatedChat);
     }
     var hashViewerState = "viewerState";
-    function isViewerState(v) {
-      return is$typed(v, id, hashViewerState);
+    function isViewerState(v2) {
+      return is$typed(v2, id, hashViewerState);
     }
-    function validateViewerState(v) {
-      return validate(v, id, hashViewerState);
+    function validateViewerState(v2) {
+      return validate(v2, id, hashViewerState);
     }
     var hashKnownFollowers = "knownFollowers";
-    function isKnownFollowers(v) {
-      return is$typed(v, id, hashKnownFollowers);
+    function isKnownFollowers(v2) {
+      return is$typed(v2, id, hashKnownFollowers);
     }
-    function validateKnownFollowers(v) {
-      return validate(v, id, hashKnownFollowers);
+    function validateKnownFollowers(v2) {
+      return validate(v2, id, hashKnownFollowers);
     }
     var hashAdultContentPref = "adultContentPref";
-    function isAdultContentPref(v) {
-      return is$typed(v, id, hashAdultContentPref);
+    function isAdultContentPref(v2) {
+      return is$typed(v2, id, hashAdultContentPref);
     }
-    function validateAdultContentPref(v) {
-      return validate(v, id, hashAdultContentPref);
+    function validateAdultContentPref(v2) {
+      return validate(v2, id, hashAdultContentPref);
     }
     var hashContentLabelPref = "contentLabelPref";
-    function isContentLabelPref(v) {
-      return is$typed(v, id, hashContentLabelPref);
+    function isContentLabelPref(v2) {
+      return is$typed(v2, id, hashContentLabelPref);
     }
-    function validateContentLabelPref(v) {
-      return validate(v, id, hashContentLabelPref);
+    function validateContentLabelPref(v2) {
+      return validate(v2, id, hashContentLabelPref);
     }
     var hashSavedFeed = "savedFeed";
-    function isSavedFeed(v) {
-      return is$typed(v, id, hashSavedFeed);
+    function isSavedFeed(v2) {
+      return is$typed(v2, id, hashSavedFeed);
     }
-    function validateSavedFeed(v) {
-      return validate(v, id, hashSavedFeed);
+    function validateSavedFeed(v2) {
+      return validate(v2, id, hashSavedFeed);
     }
     var hashSavedFeedsPrefV2 = "savedFeedsPrefV2";
-    function isSavedFeedsPrefV2(v) {
-      return is$typed(v, id, hashSavedFeedsPrefV2);
+    function isSavedFeedsPrefV2(v2) {
+      return is$typed(v2, id, hashSavedFeedsPrefV2);
     }
-    function validateSavedFeedsPrefV2(v) {
-      return validate(v, id, hashSavedFeedsPrefV2);
+    function validateSavedFeedsPrefV2(v2) {
+      return validate(v2, id, hashSavedFeedsPrefV2);
     }
     var hashSavedFeedsPref = "savedFeedsPref";
-    function isSavedFeedsPref(v) {
-      return is$typed(v, id, hashSavedFeedsPref);
+    function isSavedFeedsPref(v2) {
+      return is$typed(v2, id, hashSavedFeedsPref);
     }
-    function validateSavedFeedsPref(v) {
-      return validate(v, id, hashSavedFeedsPref);
+    function validateSavedFeedsPref(v2) {
+      return validate(v2, id, hashSavedFeedsPref);
     }
     var hashPersonalDetailsPref = "personalDetailsPref";
-    function isPersonalDetailsPref(v) {
-      return is$typed(v, id, hashPersonalDetailsPref);
+    function isPersonalDetailsPref(v2) {
+      return is$typed(v2, id, hashPersonalDetailsPref);
     }
-    function validatePersonalDetailsPref(v) {
-      return validate(v, id, hashPersonalDetailsPref);
+    function validatePersonalDetailsPref(v2) {
+      return validate(v2, id, hashPersonalDetailsPref);
     }
     var hashFeedViewPref = "feedViewPref";
-    function isFeedViewPref(v) {
-      return is$typed(v, id, hashFeedViewPref);
+    function isFeedViewPref(v2) {
+      return is$typed(v2, id, hashFeedViewPref);
     }
-    function validateFeedViewPref(v) {
-      return validate(v, id, hashFeedViewPref);
+    function validateFeedViewPref(v2) {
+      return validate(v2, id, hashFeedViewPref);
     }
     var hashThreadViewPref = "threadViewPref";
-    function isThreadViewPref(v) {
-      return is$typed(v, id, hashThreadViewPref);
+    function isThreadViewPref(v2) {
+      return is$typed(v2, id, hashThreadViewPref);
     }
-    function validateThreadViewPref(v) {
-      return validate(v, id, hashThreadViewPref);
+    function validateThreadViewPref(v2) {
+      return validate(v2, id, hashThreadViewPref);
     }
     var hashInterestsPref = "interestsPref";
-    function isInterestsPref(v) {
-      return is$typed(v, id, hashInterestsPref);
+    function isInterestsPref(v2) {
+      return is$typed(v2, id, hashInterestsPref);
     }
-    function validateInterestsPref(v) {
-      return validate(v, id, hashInterestsPref);
+    function validateInterestsPref(v2) {
+      return validate(v2, id, hashInterestsPref);
     }
     var hashMutedWord = "mutedWord";
-    function isMutedWord(v) {
-      return is$typed(v, id, hashMutedWord);
+    function isMutedWord(v2) {
+      return is$typed(v2, id, hashMutedWord);
     }
-    function validateMutedWord(v) {
-      return validate(v, id, hashMutedWord);
+    function validateMutedWord(v2) {
+      return validate(v2, id, hashMutedWord);
     }
     var hashMutedWordsPref = "mutedWordsPref";
-    function isMutedWordsPref(v) {
-      return is$typed(v, id, hashMutedWordsPref);
+    function isMutedWordsPref(v2) {
+      return is$typed(v2, id, hashMutedWordsPref);
     }
-    function validateMutedWordsPref(v) {
-      return validate(v, id, hashMutedWordsPref);
+    function validateMutedWordsPref(v2) {
+      return validate(v2, id, hashMutedWordsPref);
     }
     var hashHiddenPostsPref = "hiddenPostsPref";
-    function isHiddenPostsPref(v) {
-      return is$typed(v, id, hashHiddenPostsPref);
+    function isHiddenPostsPref(v2) {
+      return is$typed(v2, id, hashHiddenPostsPref);
     }
-    function validateHiddenPostsPref(v) {
-      return validate(v, id, hashHiddenPostsPref);
+    function validateHiddenPostsPref(v2) {
+      return validate(v2, id, hashHiddenPostsPref);
     }
     var hashLabelersPref = "labelersPref";
-    function isLabelersPref(v) {
-      return is$typed(v, id, hashLabelersPref);
+    function isLabelersPref(v2) {
+      return is$typed(v2, id, hashLabelersPref);
     }
-    function validateLabelersPref(v) {
-      return validate(v, id, hashLabelersPref);
+    function validateLabelersPref(v2) {
+      return validate(v2, id, hashLabelersPref);
     }
     var hashLabelerPrefItem = "labelerPrefItem";
-    function isLabelerPrefItem(v) {
-      return is$typed(v, id, hashLabelerPrefItem);
+    function isLabelerPrefItem(v2) {
+      return is$typed(v2, id, hashLabelerPrefItem);
     }
-    function validateLabelerPrefItem(v) {
-      return validate(v, id, hashLabelerPrefItem);
+    function validateLabelerPrefItem(v2) {
+      return validate(v2, id, hashLabelerPrefItem);
     }
     var hashBskyAppStatePref = "bskyAppStatePref";
-    function isBskyAppStatePref(v) {
-      return is$typed(v, id, hashBskyAppStatePref);
+    function isBskyAppStatePref(v2) {
+      return is$typed(v2, id, hashBskyAppStatePref);
     }
-    function validateBskyAppStatePref(v) {
-      return validate(v, id, hashBskyAppStatePref);
+    function validateBskyAppStatePref(v2) {
+      return validate(v2, id, hashBskyAppStatePref);
     }
     var hashBskyAppProgressGuide = "bskyAppProgressGuide";
-    function isBskyAppProgressGuide(v) {
-      return is$typed(v, id, hashBskyAppProgressGuide);
+    function isBskyAppProgressGuide(v2) {
+      return is$typed(v2, id, hashBskyAppProgressGuide);
     }
-    function validateBskyAppProgressGuide(v) {
-      return validate(v, id, hashBskyAppProgressGuide);
+    function validateBskyAppProgressGuide(v2) {
+      return validate(v2, id, hashBskyAppProgressGuide);
     }
     var hashNux = "nux";
-    function isNux(v) {
-      return is$typed(v, id, hashNux);
+    function isNux(v2) {
+      return is$typed(v2, id, hashNux);
     }
-    function validateNux(v) {
-      return validate(v, id, hashNux);
+    function validateNux(v2) {
+      return validate(v2, id, hashNux);
     }
     var hashPostInteractionSettingsPref = "postInteractionSettingsPref";
-    function isPostInteractionSettingsPref(v) {
-      return is$typed(v, id, hashPostInteractionSettingsPref);
+    function isPostInteractionSettingsPref(v2) {
+      return is$typed(v2, id, hashPostInteractionSettingsPref);
     }
-    function validatePostInteractionSettingsPref(v) {
-      return validate(v, id, hashPostInteractionSettingsPref);
+    function validatePostInteractionSettingsPref(v2) {
+      return validate(v2, id, hashPostInteractionSettingsPref);
     }
   }
 });
@@ -54508,11 +54508,11 @@ var require_profile = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.actor.profile";
     var hashRecord = "main";
-    function isRecord(v) {
-      return is$typed(v, id, hashRecord);
+    function isRecord(v2) {
+      return is$typed(v2, id, hashRecord);
     }
-    function validateRecord(v) {
-      return validate(v, id, hashRecord, true);
+    function validateRecord(v2) {
+      return validate(v2, id, hashRecord, true);
     }
   }
 });
@@ -54574,11 +54574,11 @@ var require_defs9 = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.embed.defs";
     var hashAspectRatio = "aspectRatio";
-    function isAspectRatio(v) {
-      return is$typed(v, id, hashAspectRatio);
+    function isAspectRatio(v2) {
+      return is$typed(v2, id, hashAspectRatio);
     }
-    function validateAspectRatio(v) {
-      return validate(v, id, hashAspectRatio);
+    function validateAspectRatio(v2) {
+      return validate(v2, id, hashAspectRatio);
     }
   }
 });
@@ -54601,32 +54601,32 @@ var require_external2 = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.embed.external";
     var hashMain = "main";
-    function isMain(v) {
-      return is$typed(v, id, hashMain);
+    function isMain(v2) {
+      return is$typed(v2, id, hashMain);
     }
-    function validateMain(v) {
-      return validate(v, id, hashMain);
+    function validateMain(v2) {
+      return validate(v2, id, hashMain);
     }
     var hashExternal = "external";
-    function isExternal(v) {
-      return is$typed(v, id, hashExternal);
+    function isExternal(v2) {
+      return is$typed(v2, id, hashExternal);
     }
-    function validateExternal(v) {
-      return validate(v, id, hashExternal);
+    function validateExternal(v2) {
+      return validate(v2, id, hashExternal);
     }
     var hashView = "view";
-    function isView(v) {
-      return is$typed(v, id, hashView);
+    function isView(v2) {
+      return is$typed(v2, id, hashView);
     }
-    function validateView(v) {
-      return validate(v, id, hashView);
+    function validateView(v2) {
+      return validate(v2, id, hashView);
     }
     var hashViewExternal = "viewExternal";
-    function isViewExternal(v) {
-      return is$typed(v, id, hashViewExternal);
+    function isViewExternal(v2) {
+      return is$typed(v2, id, hashViewExternal);
     }
-    function validateViewExternal(v) {
-      return validate(v, id, hashViewExternal);
+    function validateViewExternal(v2) {
+      return validate(v2, id, hashViewExternal);
     }
   }
 });
@@ -54649,32 +54649,32 @@ var require_images = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.embed.images";
     var hashMain = "main";
-    function isMain(v) {
-      return is$typed(v, id, hashMain);
+    function isMain(v2) {
+      return is$typed(v2, id, hashMain);
     }
-    function validateMain(v) {
-      return validate(v, id, hashMain);
+    function validateMain(v2) {
+      return validate(v2, id, hashMain);
     }
     var hashImage = "image";
-    function isImage(v) {
-      return is$typed(v, id, hashImage);
+    function isImage(v2) {
+      return is$typed(v2, id, hashImage);
     }
-    function validateImage(v) {
-      return validate(v, id, hashImage);
+    function validateImage(v2) {
+      return validate(v2, id, hashImage);
     }
     var hashView = "view";
-    function isView(v) {
-      return is$typed(v, id, hashView);
+    function isView(v2) {
+      return is$typed(v2, id, hashView);
     }
-    function validateView(v) {
-      return validate(v, id, hashView);
+    function validateView(v2) {
+      return validate(v2, id, hashView);
     }
     var hashViewImage = "viewImage";
-    function isViewImage(v) {
-      return is$typed(v, id, hashViewImage);
+    function isViewImage(v2) {
+      return is$typed(v2, id, hashViewImage);
     }
-    function validateViewImage(v) {
-      return validate(v, id, hashViewImage);
+    function validateViewImage(v2) {
+      return validate(v2, id, hashViewImage);
     }
   }
 });
@@ -54701,46 +54701,46 @@ var require_record = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.embed.record";
     var hashMain = "main";
-    function isMain(v) {
-      return is$typed(v, id, hashMain);
+    function isMain(v2) {
+      return is$typed(v2, id, hashMain);
     }
-    function validateMain(v) {
-      return validate(v, id, hashMain);
+    function validateMain(v2) {
+      return validate(v2, id, hashMain);
     }
     var hashView = "view";
-    function isView(v) {
-      return is$typed(v, id, hashView);
+    function isView(v2) {
+      return is$typed(v2, id, hashView);
     }
-    function validateView(v) {
-      return validate(v, id, hashView);
+    function validateView(v2) {
+      return validate(v2, id, hashView);
     }
     var hashViewRecord = "viewRecord";
-    function isViewRecord(v) {
-      return is$typed(v, id, hashViewRecord);
+    function isViewRecord(v2) {
+      return is$typed(v2, id, hashViewRecord);
     }
-    function validateViewRecord(v) {
-      return validate(v, id, hashViewRecord);
+    function validateViewRecord(v2) {
+      return validate(v2, id, hashViewRecord);
     }
     var hashViewNotFound = "viewNotFound";
-    function isViewNotFound(v) {
-      return is$typed(v, id, hashViewNotFound);
+    function isViewNotFound(v2) {
+      return is$typed(v2, id, hashViewNotFound);
     }
-    function validateViewNotFound(v) {
-      return validate(v, id, hashViewNotFound);
+    function validateViewNotFound(v2) {
+      return validate(v2, id, hashViewNotFound);
     }
     var hashViewBlocked = "viewBlocked";
-    function isViewBlocked(v) {
-      return is$typed(v, id, hashViewBlocked);
+    function isViewBlocked(v2) {
+      return is$typed(v2, id, hashViewBlocked);
     }
-    function validateViewBlocked(v) {
-      return validate(v, id, hashViewBlocked);
+    function validateViewBlocked(v2) {
+      return validate(v2, id, hashViewBlocked);
     }
     var hashViewDetached = "viewDetached";
-    function isViewDetached(v) {
-      return is$typed(v, id, hashViewDetached);
+    function isViewDetached(v2) {
+      return is$typed(v2, id, hashViewDetached);
     }
-    function validateViewDetached(v) {
-      return validate(v, id, hashViewDetached);
+    function validateViewDetached(v2) {
+      return validate(v2, id, hashViewDetached);
     }
   }
 });
@@ -54759,18 +54759,18 @@ var require_recordWithMedia = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.embed.recordWithMedia";
     var hashMain = "main";
-    function isMain(v) {
-      return is$typed(v, id, hashMain);
+    function isMain(v2) {
+      return is$typed(v2, id, hashMain);
     }
-    function validateMain(v) {
-      return validate(v, id, hashMain);
+    function validateMain(v2) {
+      return validate(v2, id, hashMain);
     }
     var hashView = "view";
-    function isView(v) {
-      return is$typed(v, id, hashView);
+    function isView(v2) {
+      return is$typed(v2, id, hashView);
     }
-    function validateView(v) {
-      return validate(v, id, hashView);
+    function validateView(v2) {
+      return validate(v2, id, hashView);
     }
   }
 });
@@ -54791,25 +54791,25 @@ var require_video = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.embed.video";
     var hashMain = "main";
-    function isMain(v) {
-      return is$typed(v, id, hashMain);
+    function isMain(v2) {
+      return is$typed(v2, id, hashMain);
     }
-    function validateMain(v) {
-      return validate(v, id, hashMain);
+    function validateMain(v2) {
+      return validate(v2, id, hashMain);
     }
     var hashCaption = "caption";
-    function isCaption(v) {
-      return is$typed(v, id, hashCaption);
+    function isCaption(v2) {
+      return is$typed(v2, id, hashCaption);
     }
-    function validateCaption(v) {
-      return validate(v, id, hashCaption);
+    function validateCaption(v2) {
+      return validate(v2, id, hashCaption);
     }
     var hashView = "view";
-    function isView(v) {
-      return is$typed(v, id, hashView);
+    function isView(v2) {
+      return is$typed(v2, id, hashView);
     }
-    function validateView(v) {
-      return validate(v, id, hashView);
+    function validateView(v2) {
+      return validate(v2, id, hashView);
     }
   }
 });
@@ -54861,130 +54861,130 @@ var require_defs10 = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.feed.defs";
     var hashPostView = "postView";
-    function isPostView(v) {
-      return is$typed(v, id, hashPostView);
+    function isPostView(v2) {
+      return is$typed(v2, id, hashPostView);
     }
-    function validatePostView(v) {
-      return validate(v, id, hashPostView);
+    function validatePostView(v2) {
+      return validate(v2, id, hashPostView);
     }
     var hashViewerState = "viewerState";
-    function isViewerState(v) {
-      return is$typed(v, id, hashViewerState);
+    function isViewerState(v2) {
+      return is$typed(v2, id, hashViewerState);
     }
-    function validateViewerState(v) {
-      return validate(v, id, hashViewerState);
+    function validateViewerState(v2) {
+      return validate(v2, id, hashViewerState);
     }
     var hashThreadContext = "threadContext";
-    function isThreadContext(v) {
-      return is$typed(v, id, hashThreadContext);
+    function isThreadContext(v2) {
+      return is$typed(v2, id, hashThreadContext);
     }
-    function validateThreadContext(v) {
-      return validate(v, id, hashThreadContext);
+    function validateThreadContext(v2) {
+      return validate(v2, id, hashThreadContext);
     }
     var hashFeedViewPost = "feedViewPost";
-    function isFeedViewPost(v) {
-      return is$typed(v, id, hashFeedViewPost);
+    function isFeedViewPost(v2) {
+      return is$typed(v2, id, hashFeedViewPost);
     }
-    function validateFeedViewPost(v) {
-      return validate(v, id, hashFeedViewPost);
+    function validateFeedViewPost(v2) {
+      return validate(v2, id, hashFeedViewPost);
     }
     var hashReplyRef = "replyRef";
-    function isReplyRef(v) {
-      return is$typed(v, id, hashReplyRef);
+    function isReplyRef(v2) {
+      return is$typed(v2, id, hashReplyRef);
     }
-    function validateReplyRef(v) {
-      return validate(v, id, hashReplyRef);
+    function validateReplyRef(v2) {
+      return validate(v2, id, hashReplyRef);
     }
     var hashReasonRepost = "reasonRepost";
-    function isReasonRepost(v) {
-      return is$typed(v, id, hashReasonRepost);
+    function isReasonRepost(v2) {
+      return is$typed(v2, id, hashReasonRepost);
     }
-    function validateReasonRepost(v) {
-      return validate(v, id, hashReasonRepost);
+    function validateReasonRepost(v2) {
+      return validate(v2, id, hashReasonRepost);
     }
     var hashReasonPin = "reasonPin";
-    function isReasonPin(v) {
-      return is$typed(v, id, hashReasonPin);
+    function isReasonPin(v2) {
+      return is$typed(v2, id, hashReasonPin);
     }
-    function validateReasonPin(v) {
-      return validate(v, id, hashReasonPin);
+    function validateReasonPin(v2) {
+      return validate(v2, id, hashReasonPin);
     }
     var hashThreadViewPost = "threadViewPost";
-    function isThreadViewPost(v) {
-      return is$typed(v, id, hashThreadViewPost);
+    function isThreadViewPost(v2) {
+      return is$typed(v2, id, hashThreadViewPost);
     }
-    function validateThreadViewPost(v) {
-      return validate(v, id, hashThreadViewPost);
+    function validateThreadViewPost(v2) {
+      return validate(v2, id, hashThreadViewPost);
     }
     var hashNotFoundPost = "notFoundPost";
-    function isNotFoundPost(v) {
-      return is$typed(v, id, hashNotFoundPost);
+    function isNotFoundPost(v2) {
+      return is$typed(v2, id, hashNotFoundPost);
     }
-    function validateNotFoundPost(v) {
-      return validate(v, id, hashNotFoundPost);
+    function validateNotFoundPost(v2) {
+      return validate(v2, id, hashNotFoundPost);
     }
     var hashBlockedPost = "blockedPost";
-    function isBlockedPost(v) {
-      return is$typed(v, id, hashBlockedPost);
+    function isBlockedPost(v2) {
+      return is$typed(v2, id, hashBlockedPost);
     }
-    function validateBlockedPost(v) {
-      return validate(v, id, hashBlockedPost);
+    function validateBlockedPost(v2) {
+      return validate(v2, id, hashBlockedPost);
     }
     var hashBlockedAuthor = "blockedAuthor";
-    function isBlockedAuthor(v) {
-      return is$typed(v, id, hashBlockedAuthor);
+    function isBlockedAuthor(v2) {
+      return is$typed(v2, id, hashBlockedAuthor);
     }
-    function validateBlockedAuthor(v) {
-      return validate(v, id, hashBlockedAuthor);
+    function validateBlockedAuthor(v2) {
+      return validate(v2, id, hashBlockedAuthor);
     }
     var hashGeneratorView = "generatorView";
-    function isGeneratorView(v) {
-      return is$typed(v, id, hashGeneratorView);
+    function isGeneratorView(v2) {
+      return is$typed(v2, id, hashGeneratorView);
     }
-    function validateGeneratorView(v) {
-      return validate(v, id, hashGeneratorView);
+    function validateGeneratorView(v2) {
+      return validate(v2, id, hashGeneratorView);
     }
     var hashGeneratorViewerState = "generatorViewerState";
-    function isGeneratorViewerState(v) {
-      return is$typed(v, id, hashGeneratorViewerState);
+    function isGeneratorViewerState(v2) {
+      return is$typed(v2, id, hashGeneratorViewerState);
     }
-    function validateGeneratorViewerState(v) {
-      return validate(v, id, hashGeneratorViewerState);
+    function validateGeneratorViewerState(v2) {
+      return validate(v2, id, hashGeneratorViewerState);
     }
     var hashSkeletonFeedPost = "skeletonFeedPost";
-    function isSkeletonFeedPost(v) {
-      return is$typed(v, id, hashSkeletonFeedPost);
+    function isSkeletonFeedPost(v2) {
+      return is$typed(v2, id, hashSkeletonFeedPost);
     }
-    function validateSkeletonFeedPost(v) {
-      return validate(v, id, hashSkeletonFeedPost);
+    function validateSkeletonFeedPost(v2) {
+      return validate(v2, id, hashSkeletonFeedPost);
     }
     var hashSkeletonReasonRepost = "skeletonReasonRepost";
-    function isSkeletonReasonRepost(v) {
-      return is$typed(v, id, hashSkeletonReasonRepost);
+    function isSkeletonReasonRepost(v2) {
+      return is$typed(v2, id, hashSkeletonReasonRepost);
     }
-    function validateSkeletonReasonRepost(v) {
-      return validate(v, id, hashSkeletonReasonRepost);
+    function validateSkeletonReasonRepost(v2) {
+      return validate(v2, id, hashSkeletonReasonRepost);
     }
     var hashSkeletonReasonPin = "skeletonReasonPin";
-    function isSkeletonReasonPin(v) {
-      return is$typed(v, id, hashSkeletonReasonPin);
+    function isSkeletonReasonPin(v2) {
+      return is$typed(v2, id, hashSkeletonReasonPin);
     }
-    function validateSkeletonReasonPin(v) {
-      return validate(v, id, hashSkeletonReasonPin);
+    function validateSkeletonReasonPin(v2) {
+      return validate(v2, id, hashSkeletonReasonPin);
     }
     var hashThreadgateView = "threadgateView";
-    function isThreadgateView(v) {
-      return is$typed(v, id, hashThreadgateView);
+    function isThreadgateView(v2) {
+      return is$typed(v2, id, hashThreadgateView);
     }
-    function validateThreadgateView(v) {
-      return validate(v, id, hashThreadgateView);
+    function validateThreadgateView(v2) {
+      return validate(v2, id, hashThreadgateView);
     }
     var hashInteraction = "interaction";
-    function isInteraction(v) {
-      return is$typed(v, id, hashInteraction);
+    function isInteraction(v2) {
+      return is$typed(v2, id, hashInteraction);
     }
-    function validateInteraction(v) {
-      return validate(v, id, hashInteraction);
+    function validateInteraction(v2) {
+      return validate(v2, id, hashInteraction);
     }
     exports.REQUESTLESS = `${id}#requestLess`;
     exports.REQUESTMORE = `${id}#requestMore`;
@@ -55021,18 +55021,18 @@ var require_describeFeedGenerator = __commonJS({
       return e;
     }
     var hashFeed = "feed";
-    function isFeed(v) {
-      return is$typed(v, id, hashFeed);
+    function isFeed(v2) {
+      return is$typed(v2, id, hashFeed);
     }
-    function validateFeed(v) {
-      return validate(v, id, hashFeed);
+    function validateFeed(v2) {
+      return validate(v2, id, hashFeed);
     }
     var hashLinks = "links";
-    function isLinks(v) {
-      return is$typed(v, id, hashLinks);
+    function isLinks(v2) {
+      return is$typed(v2, id, hashLinks);
     }
-    function validateLinks(v) {
-      return validate(v, id, hashLinks);
+    function validateLinks(v2) {
+      return validate(v2, id, hashLinks);
     }
   }
 });
@@ -55049,11 +55049,11 @@ var require_generator = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.feed.generator";
     var hashRecord = "main";
-    function isRecord(v) {
-      return is$typed(v, id, hashRecord);
+    function isRecord(v2) {
+      return is$typed(v2, id, hashRecord);
     }
-    function validateRecord(v) {
-      return validate(v, id, hashRecord, true);
+    function validateRecord(v2) {
+      return validate(v2, id, hashRecord, true);
     }
   }
 });
@@ -55119,11 +55119,11 @@ var require_getLikes = __commonJS({
       return e;
     }
     var hashLike = "like";
-    function isLike(v) {
-      return is$typed(v, id, hashLike);
+    function isLike(v2) {
+      return is$typed(v2, id, hashLike);
     }
-    function validateLike(v) {
-      return validate(v, id, hashLike);
+    function validateLike(v2) {
+      return validate(v2, id, hashLike);
     }
   }
 });
@@ -55215,11 +55215,11 @@ var require_like = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.feed.like";
     var hashRecord = "main";
-    function isRecord(v) {
-      return is$typed(v, id, hashRecord);
+    function isRecord(v2) {
+      return is$typed(v2, id, hashRecord);
     }
-    function validateRecord(v) {
-      return validate(v, id, hashRecord, true);
+    function validateRecord(v2) {
+      return validate(v2, id, hashRecord, true);
     }
   }
 });
@@ -55242,32 +55242,32 @@ var require_post = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.feed.post";
     var hashRecord = "main";
-    function isRecord(v) {
-      return is$typed(v, id, hashRecord);
+    function isRecord(v2) {
+      return is$typed(v2, id, hashRecord);
     }
-    function validateRecord(v) {
-      return validate(v, id, hashRecord, true);
+    function validateRecord(v2) {
+      return validate(v2, id, hashRecord, true);
     }
     var hashReplyRef = "replyRef";
-    function isReplyRef(v) {
-      return is$typed(v, id, hashReplyRef);
+    function isReplyRef(v2) {
+      return is$typed(v2, id, hashReplyRef);
     }
-    function validateReplyRef(v) {
-      return validate(v, id, hashReplyRef);
+    function validateReplyRef(v2) {
+      return validate(v2, id, hashReplyRef);
     }
     var hashEntity = "entity";
-    function isEntity(v) {
-      return is$typed(v, id, hashEntity);
+    function isEntity(v2) {
+      return is$typed(v2, id, hashEntity);
     }
-    function validateEntity(v) {
-      return validate(v, id, hashEntity);
+    function validateEntity(v2) {
+      return validate(v2, id, hashEntity);
     }
     var hashTextSlice = "textSlice";
-    function isTextSlice(v) {
-      return is$typed(v, id, hashTextSlice);
+    function isTextSlice(v2) {
+      return is$typed(v2, id, hashTextSlice);
     }
-    function validateTextSlice(v) {
-      return validate(v, id, hashTextSlice);
+    function validateTextSlice(v2) {
+      return validate(v2, id, hashTextSlice);
     }
   }
 });
@@ -55286,18 +55286,18 @@ var require_postgate = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.feed.postgate";
     var hashRecord = "main";
-    function isRecord(v) {
-      return is$typed(v, id, hashRecord);
+    function isRecord(v2) {
+      return is$typed(v2, id, hashRecord);
     }
-    function validateRecord(v) {
-      return validate(v, id, hashRecord, true);
+    function validateRecord(v2) {
+      return validate(v2, id, hashRecord, true);
     }
     var hashDisableRule = "disableRule";
-    function isDisableRule(v) {
-      return is$typed(v, id, hashDisableRule);
+    function isDisableRule(v2) {
+      return is$typed(v2, id, hashDisableRule);
     }
-    function validateDisableRule(v) {
-      return validate(v, id, hashDisableRule);
+    function validateDisableRule(v2) {
+      return validate(v2, id, hashDisableRule);
     }
   }
 });
@@ -55314,11 +55314,11 @@ var require_repost = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.feed.repost";
     var hashRecord = "main";
-    function isRecord(v) {
-      return is$typed(v, id, hashRecord);
+    function isRecord(v2) {
+      return is$typed(v2, id, hashRecord);
     }
-    function validateRecord(v) {
-      return validate(v, id, hashRecord, true);
+    function validateRecord(v2) {
+      return validate(v2, id, hashRecord, true);
     }
   }
 });
@@ -55358,39 +55358,39 @@ var require_threadgate = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.feed.threadgate";
     var hashRecord = "main";
-    function isRecord(v) {
-      return is$typed(v, id, hashRecord);
+    function isRecord(v2) {
+      return is$typed(v2, id, hashRecord);
     }
-    function validateRecord(v) {
-      return validate(v, id, hashRecord, true);
+    function validateRecord(v2) {
+      return validate(v2, id, hashRecord, true);
     }
     var hashMentionRule = "mentionRule";
-    function isMentionRule(v) {
-      return is$typed(v, id, hashMentionRule);
+    function isMentionRule(v2) {
+      return is$typed(v2, id, hashMentionRule);
     }
-    function validateMentionRule(v) {
-      return validate(v, id, hashMentionRule);
+    function validateMentionRule(v2) {
+      return validate(v2, id, hashMentionRule);
     }
     var hashFollowerRule = "followerRule";
-    function isFollowerRule(v) {
-      return is$typed(v, id, hashFollowerRule);
+    function isFollowerRule(v2) {
+      return is$typed(v2, id, hashFollowerRule);
     }
-    function validateFollowerRule(v) {
-      return validate(v, id, hashFollowerRule);
+    function validateFollowerRule(v2) {
+      return validate(v2, id, hashFollowerRule);
     }
     var hashFollowingRule = "followingRule";
-    function isFollowingRule(v) {
-      return is$typed(v, id, hashFollowingRule);
+    function isFollowingRule(v2) {
+      return is$typed(v2, id, hashFollowingRule);
     }
-    function validateFollowingRule(v) {
-      return validate(v, id, hashFollowingRule);
+    function validateFollowingRule(v2) {
+      return validate(v2, id, hashFollowingRule);
     }
     var hashListRule = "listRule";
-    function isListRule(v) {
-      return is$typed(v, id, hashListRule);
+    function isListRule(v2) {
+      return is$typed(v2, id, hashListRule);
     }
-    function validateListRule(v) {
-      return validate(v, id, hashListRule);
+    function validateListRule(v2) {
+      return validate(v2, id, hashListRule);
     }
   }
 });
@@ -55407,11 +55407,11 @@ var require_block = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.graph.block";
     var hashRecord = "main";
-    function isRecord(v) {
-      return is$typed(v, id, hashRecord);
+    function isRecord(v2) {
+      return is$typed(v2, id, hashRecord);
     }
-    function validateRecord(v) {
-      return validate(v, id, hashRecord, true);
+    function validateRecord(v2) {
+      return validate(v2, id, hashRecord, true);
     }
   }
 });
@@ -55443,63 +55443,63 @@ var require_defs11 = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.graph.defs";
     var hashListViewBasic = "listViewBasic";
-    function isListViewBasic(v) {
-      return is$typed(v, id, hashListViewBasic);
+    function isListViewBasic(v2) {
+      return is$typed(v2, id, hashListViewBasic);
     }
-    function validateListViewBasic(v) {
-      return validate(v, id, hashListViewBasic);
+    function validateListViewBasic(v2) {
+      return validate(v2, id, hashListViewBasic);
     }
     var hashListView = "listView";
-    function isListView(v) {
-      return is$typed(v, id, hashListView);
+    function isListView(v2) {
+      return is$typed(v2, id, hashListView);
     }
-    function validateListView(v) {
-      return validate(v, id, hashListView);
+    function validateListView(v2) {
+      return validate(v2, id, hashListView);
     }
     var hashListItemView = "listItemView";
-    function isListItemView(v) {
-      return is$typed(v, id, hashListItemView);
+    function isListItemView(v2) {
+      return is$typed(v2, id, hashListItemView);
     }
-    function validateListItemView(v) {
-      return validate(v, id, hashListItemView);
+    function validateListItemView(v2) {
+      return validate(v2, id, hashListItemView);
     }
     var hashStarterPackView = "starterPackView";
-    function isStarterPackView(v) {
-      return is$typed(v, id, hashStarterPackView);
+    function isStarterPackView(v2) {
+      return is$typed(v2, id, hashStarterPackView);
     }
-    function validateStarterPackView(v) {
-      return validate(v, id, hashStarterPackView);
+    function validateStarterPackView(v2) {
+      return validate(v2, id, hashStarterPackView);
     }
     var hashStarterPackViewBasic = "starterPackViewBasic";
-    function isStarterPackViewBasic(v) {
-      return is$typed(v, id, hashStarterPackViewBasic);
+    function isStarterPackViewBasic(v2) {
+      return is$typed(v2, id, hashStarterPackViewBasic);
     }
-    function validateStarterPackViewBasic(v) {
-      return validate(v, id, hashStarterPackViewBasic);
+    function validateStarterPackViewBasic(v2) {
+      return validate(v2, id, hashStarterPackViewBasic);
     }
     exports.MODLIST = `${id}#modlist`;
     exports.CURATELIST = `${id}#curatelist`;
     exports.REFERENCELIST = `${id}#referencelist`;
     var hashListViewerState = "listViewerState";
-    function isListViewerState(v) {
-      return is$typed(v, id, hashListViewerState);
+    function isListViewerState(v2) {
+      return is$typed(v2, id, hashListViewerState);
     }
-    function validateListViewerState(v) {
-      return validate(v, id, hashListViewerState);
+    function validateListViewerState(v2) {
+      return validate(v2, id, hashListViewerState);
     }
     var hashNotFoundActor = "notFoundActor";
-    function isNotFoundActor(v) {
-      return is$typed(v, id, hashNotFoundActor);
+    function isNotFoundActor(v2) {
+      return is$typed(v2, id, hashNotFoundActor);
     }
-    function validateNotFoundActor(v) {
-      return validate(v, id, hashNotFoundActor);
+    function validateNotFoundActor(v2) {
+      return validate(v2, id, hashNotFoundActor);
     }
     var hashRelationship = "relationship";
-    function isRelationship(v) {
-      return is$typed(v, id, hashRelationship);
+    function isRelationship(v2) {
+      return is$typed(v2, id, hashRelationship);
     }
-    function validateRelationship(v) {
-      return validate(v, id, hashRelationship);
+    function validateRelationship(v2) {
+      return validate(v2, id, hashRelationship);
     }
   }
 });
@@ -55516,11 +55516,11 @@ var require_follow = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.graph.follow";
     var hashRecord = "main";
-    function isRecord(v) {
-      return is$typed(v, id, hashRecord);
+    function isRecord(v2) {
+      return is$typed(v2, id, hashRecord);
     }
-    function validateRecord(v) {
-      return validate(v, id, hashRecord, true);
+    function validateRecord(v2) {
+      return validate(v2, id, hashRecord, true);
     }
   }
 });
@@ -55732,11 +55732,11 @@ var require_list = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.graph.list";
     var hashRecord = "main";
-    function isRecord(v) {
-      return is$typed(v, id, hashRecord);
+    function isRecord(v2) {
+      return is$typed(v2, id, hashRecord);
     }
-    function validateRecord(v) {
-      return validate(v, id, hashRecord, true);
+    function validateRecord(v2) {
+      return validate(v2, id, hashRecord, true);
     }
   }
 });
@@ -55753,11 +55753,11 @@ var require_listblock = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.graph.listblock";
     var hashRecord = "main";
-    function isRecord(v) {
-      return is$typed(v, id, hashRecord);
+    function isRecord(v2) {
+      return is$typed(v2, id, hashRecord);
     }
-    function validateRecord(v) {
-      return validate(v, id, hashRecord, true);
+    function validateRecord(v2) {
+      return validate(v2, id, hashRecord, true);
     }
   }
 });
@@ -55774,11 +55774,11 @@ var require_listitem = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.graph.listitem";
     var hashRecord = "main";
-    function isRecord(v) {
-      return is$typed(v, id, hashRecord);
+    function isRecord(v2) {
+      return is$typed(v2, id, hashRecord);
     }
-    function validateRecord(v) {
-      return validate(v, id, hashRecord, true);
+    function validateRecord(v2) {
+      return validate(v2, id, hashRecord, true);
     }
   }
 });
@@ -55857,18 +55857,18 @@ var require_starterpack = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.graph.starterpack";
     var hashRecord = "main";
-    function isRecord(v) {
-      return is$typed(v, id, hashRecord);
+    function isRecord(v2) {
+      return is$typed(v2, id, hashRecord);
     }
-    function validateRecord(v) {
-      return validate(v, id, hashRecord, true);
+    function validateRecord(v2) {
+      return validate(v2, id, hashRecord, true);
     }
     var hashFeedItem = "feedItem";
-    function isFeedItem(v) {
-      return is$typed(v, id, hashFeedItem);
+    function isFeedItem(v2) {
+      return is$typed(v2, id, hashFeedItem);
     }
-    function validateFeedItem(v) {
-      return validate(v, id, hashFeedItem);
+    function validateFeedItem(v2) {
+      return validate(v2, id, hashFeedItem);
     }
   }
 });
@@ -55936,32 +55936,32 @@ var require_defs12 = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.labeler.defs";
     var hashLabelerView = "labelerView";
-    function isLabelerView(v) {
-      return is$typed(v, id, hashLabelerView);
+    function isLabelerView(v2) {
+      return is$typed(v2, id, hashLabelerView);
     }
-    function validateLabelerView(v) {
-      return validate(v, id, hashLabelerView);
+    function validateLabelerView(v2) {
+      return validate(v2, id, hashLabelerView);
     }
     var hashLabelerViewDetailed = "labelerViewDetailed";
-    function isLabelerViewDetailed(v) {
-      return is$typed(v, id, hashLabelerViewDetailed);
+    function isLabelerViewDetailed(v2) {
+      return is$typed(v2, id, hashLabelerViewDetailed);
     }
-    function validateLabelerViewDetailed(v) {
-      return validate(v, id, hashLabelerViewDetailed);
+    function validateLabelerViewDetailed(v2) {
+      return validate(v2, id, hashLabelerViewDetailed);
     }
     var hashLabelerViewerState = "labelerViewerState";
-    function isLabelerViewerState(v) {
-      return is$typed(v, id, hashLabelerViewerState);
+    function isLabelerViewerState(v2) {
+      return is$typed(v2, id, hashLabelerViewerState);
     }
-    function validateLabelerViewerState(v) {
-      return validate(v, id, hashLabelerViewerState);
+    function validateLabelerViewerState(v2) {
+      return validate(v2, id, hashLabelerViewerState);
     }
     var hashLabelerPolicies = "labelerPolicies";
-    function isLabelerPolicies(v) {
-      return is$typed(v, id, hashLabelerPolicies);
+    function isLabelerPolicies(v2) {
+      return is$typed(v2, id, hashLabelerPolicies);
     }
-    function validateLabelerPolicies(v) {
-      return validate(v, id, hashLabelerPolicies);
+    function validateLabelerPolicies(v2) {
+      return validate(v2, id, hashLabelerPolicies);
     }
   }
 });
@@ -55993,11 +55993,11 @@ var require_service = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.labeler.service";
     var hashRecord = "main";
-    function isRecord(v) {
-      return is$typed(v, id, hashRecord);
+    function isRecord(v2) {
+      return is$typed(v2, id, hashRecord);
     }
-    function validateRecord(v) {
-      return validate(v, id, hashRecord, true);
+    function validateRecord(v2) {
+      return validate(v2, id, hashRecord, true);
     }
   }
 });
@@ -56033,11 +56033,11 @@ var require_listNotifications = __commonJS({
       return e;
     }
     var hashNotification = "notification";
-    function isNotification(v) {
-      return is$typed(v, id, hashNotification);
+    function isNotification(v2) {
+      return is$typed(v2, id, hashNotification);
     }
-    function validateNotification(v) {
-      return validate(v, id, hashNotification);
+    function validateNotification(v2) {
+      return validate(v2, id, hashNotification);
     }
   }
 });
@@ -56107,39 +56107,39 @@ var require_facet = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.richtext.facet";
     var hashMain = "main";
-    function isMain(v) {
-      return is$typed(v, id, hashMain);
+    function isMain(v2) {
+      return is$typed(v2, id, hashMain);
     }
-    function validateMain(v) {
-      return validate(v, id, hashMain);
+    function validateMain(v2) {
+      return validate(v2, id, hashMain);
     }
     var hashMention = "mention";
-    function isMention(v) {
-      return is$typed(v, id, hashMention);
+    function isMention(v2) {
+      return is$typed(v2, id, hashMention);
     }
-    function validateMention(v) {
-      return validate(v, id, hashMention);
+    function validateMention(v2) {
+      return validate(v2, id, hashMention);
     }
     var hashLink = "link";
-    function isLink(v) {
-      return is$typed(v, id, hashLink);
+    function isLink(v2) {
+      return is$typed(v2, id, hashLink);
     }
-    function validateLink(v) {
-      return validate(v, id, hashLink);
+    function validateLink(v2) {
+      return validate(v2, id, hashLink);
     }
     var hashTag = "tag";
-    function isTag(v) {
-      return is$typed(v, id, hashTag);
+    function isTag(v2) {
+      return is$typed(v2, id, hashTag);
     }
-    function validateTag(v) {
-      return validate(v, id, hashTag);
+    function validateTag(v2) {
+      return validate(v2, id, hashTag);
     }
     var hashByteSlice = "byteSlice";
-    function isByteSlice(v) {
-      return is$typed(v, id, hashByteSlice);
+    function isByteSlice(v2) {
+      return is$typed(v2, id, hashByteSlice);
     }
-    function validateByteSlice(v) {
-      return validate(v, id, hashByteSlice);
+    function validateByteSlice(v2) {
+      return validate(v2, id, hashByteSlice);
     }
   }
 });
@@ -56166,46 +56166,46 @@ var require_defs13 = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.unspecced.defs";
     var hashSkeletonSearchPost = "skeletonSearchPost";
-    function isSkeletonSearchPost(v) {
-      return is$typed(v, id, hashSkeletonSearchPost);
+    function isSkeletonSearchPost(v2) {
+      return is$typed(v2, id, hashSkeletonSearchPost);
     }
-    function validateSkeletonSearchPost(v) {
-      return validate(v, id, hashSkeletonSearchPost);
+    function validateSkeletonSearchPost(v2) {
+      return validate(v2, id, hashSkeletonSearchPost);
     }
     var hashSkeletonSearchActor = "skeletonSearchActor";
-    function isSkeletonSearchActor(v) {
-      return is$typed(v, id, hashSkeletonSearchActor);
+    function isSkeletonSearchActor(v2) {
+      return is$typed(v2, id, hashSkeletonSearchActor);
     }
-    function validateSkeletonSearchActor(v) {
-      return validate(v, id, hashSkeletonSearchActor);
+    function validateSkeletonSearchActor(v2) {
+      return validate(v2, id, hashSkeletonSearchActor);
     }
     var hashSkeletonSearchStarterPack = "skeletonSearchStarterPack";
-    function isSkeletonSearchStarterPack(v) {
-      return is$typed(v, id, hashSkeletonSearchStarterPack);
+    function isSkeletonSearchStarterPack(v2) {
+      return is$typed(v2, id, hashSkeletonSearchStarterPack);
     }
-    function validateSkeletonSearchStarterPack(v) {
-      return validate(v, id, hashSkeletonSearchStarterPack);
+    function validateSkeletonSearchStarterPack(v2) {
+      return validate(v2, id, hashSkeletonSearchStarterPack);
     }
     var hashTrendingTopic = "trendingTopic";
-    function isTrendingTopic(v) {
-      return is$typed(v, id, hashTrendingTopic);
+    function isTrendingTopic(v2) {
+      return is$typed(v2, id, hashTrendingTopic);
     }
-    function validateTrendingTopic(v) {
-      return validate(v, id, hashTrendingTopic);
+    function validateTrendingTopic(v2) {
+      return validate(v2, id, hashTrendingTopic);
     }
     var hashSkeletonTrend = "skeletonTrend";
-    function isSkeletonTrend(v) {
-      return is$typed(v, id, hashSkeletonTrend);
+    function isSkeletonTrend(v2) {
+      return is$typed(v2, id, hashSkeletonTrend);
     }
-    function validateSkeletonTrend(v) {
-      return validate(v, id, hashSkeletonTrend);
+    function validateSkeletonTrend(v2) {
+      return validate(v2, id, hashSkeletonTrend);
     }
     var hashTrendView = "trendView";
-    function isTrendView(v) {
-      return is$typed(v, id, hashTrendView);
+    function isTrendView(v2) {
+      return is$typed(v2, id, hashTrendView);
     }
-    function validateTrendView(v) {
-      return validate(v, id, hashTrendView);
+    function validateTrendView(v2) {
+      return validate(v2, id, hashTrendView);
     }
   }
 });
@@ -56361,11 +56361,11 @@ var require_getTaggedSuggestions = __commonJS({
       return e;
     }
     var hashSuggestion = "suggestion";
-    function isSuggestion(v) {
-      return is$typed(v, id, hashSuggestion);
+    function isSuggestion(v2) {
+      return is$typed(v2, id, hashSuggestion);
     }
-    function validateSuggestion(v) {
-      return validate(v, id, hashSuggestion);
+    function validateSuggestion(v2) {
+      return validate(v2, id, hashSuggestion);
     }
   }
 });
@@ -56427,11 +56427,11 @@ var require_defs14 = __commonJS({
     var validate = lexicons_1.validate;
     var id = "app.bsky.video.defs";
     var hashJobStatus = "jobStatus";
-    function isJobStatus(v) {
-      return is$typed(v, id, hashJobStatus);
+    function isJobStatus(v2) {
+      return is$typed(v2, id, hashJobStatus);
     }
-    function validateJobStatus(v) {
-      return validate(v, id, hashJobStatus);
+    function validateJobStatus(v2) {
+      return validate(v2, id, hashJobStatus);
     }
   }
 });
@@ -56493,11 +56493,11 @@ var require_declaration = __commonJS({
     var validate = lexicons_1.validate;
     var id = "chat.bsky.actor.declaration";
     var hashRecord = "main";
-    function isRecord(v) {
-      return is$typed(v, id, hashRecord);
+    function isRecord(v2) {
+      return is$typed(v2, id, hashRecord);
     }
-    function validateRecord(v) {
-      return validate(v, id, hashRecord, true);
+    function validateRecord(v2) {
+      return validate(v2, id, hashRecord, true);
     }
   }
 });
@@ -56514,11 +56514,11 @@ var require_defs15 = __commonJS({
     var validate = lexicons_1.validate;
     var id = "chat.bsky.actor.defs";
     var hashProfileViewBasic = "profileViewBasic";
-    function isProfileViewBasic(v) {
-      return is$typed(v, id, hashProfileViewBasic);
+    function isProfileViewBasic(v2) {
+      return is$typed(v2, id, hashProfileViewBasic);
     }
-    function validateProfileViewBasic(v) {
-      return validate(v, id, hashProfileViewBasic);
+    function validateProfileViewBasic(v2) {
+      return validate(v2, id, hashProfileViewBasic);
     }
   }
 });
@@ -56616,137 +56616,137 @@ var require_defs16 = __commonJS({
     var validate = lexicons_1.validate;
     var id = "chat.bsky.convo.defs";
     var hashMessageRef = "messageRef";
-    function isMessageRef(v) {
-      return is$typed(v, id, hashMessageRef);
+    function isMessageRef(v2) {
+      return is$typed(v2, id, hashMessageRef);
     }
-    function validateMessageRef(v) {
-      return validate(v, id, hashMessageRef);
+    function validateMessageRef(v2) {
+      return validate(v2, id, hashMessageRef);
     }
     var hashMessageInput = "messageInput";
-    function isMessageInput(v) {
-      return is$typed(v, id, hashMessageInput);
+    function isMessageInput(v2) {
+      return is$typed(v2, id, hashMessageInput);
     }
-    function validateMessageInput(v) {
-      return validate(v, id, hashMessageInput);
+    function validateMessageInput(v2) {
+      return validate(v2, id, hashMessageInput);
     }
     var hashMessageView = "messageView";
-    function isMessageView(v) {
-      return is$typed(v, id, hashMessageView);
+    function isMessageView(v2) {
+      return is$typed(v2, id, hashMessageView);
     }
-    function validateMessageView(v) {
-      return validate(v, id, hashMessageView);
+    function validateMessageView(v2) {
+      return validate(v2, id, hashMessageView);
     }
     var hashDeletedMessageView = "deletedMessageView";
-    function isDeletedMessageView(v) {
-      return is$typed(v, id, hashDeletedMessageView);
+    function isDeletedMessageView(v2) {
+      return is$typed(v2, id, hashDeletedMessageView);
     }
-    function validateDeletedMessageView(v) {
-      return validate(v, id, hashDeletedMessageView);
+    function validateDeletedMessageView(v2) {
+      return validate(v2, id, hashDeletedMessageView);
     }
     var hashMessageViewSender = "messageViewSender";
-    function isMessageViewSender(v) {
-      return is$typed(v, id, hashMessageViewSender);
+    function isMessageViewSender(v2) {
+      return is$typed(v2, id, hashMessageViewSender);
     }
-    function validateMessageViewSender(v) {
-      return validate(v, id, hashMessageViewSender);
+    function validateMessageViewSender(v2) {
+      return validate(v2, id, hashMessageViewSender);
     }
     var hashReactionView = "reactionView";
-    function isReactionView(v) {
-      return is$typed(v, id, hashReactionView);
+    function isReactionView(v2) {
+      return is$typed(v2, id, hashReactionView);
     }
-    function validateReactionView(v) {
-      return validate(v, id, hashReactionView);
+    function validateReactionView(v2) {
+      return validate(v2, id, hashReactionView);
     }
     var hashReactionViewSender = "reactionViewSender";
-    function isReactionViewSender(v) {
-      return is$typed(v, id, hashReactionViewSender);
+    function isReactionViewSender(v2) {
+      return is$typed(v2, id, hashReactionViewSender);
     }
-    function validateReactionViewSender(v) {
-      return validate(v, id, hashReactionViewSender);
+    function validateReactionViewSender(v2) {
+      return validate(v2, id, hashReactionViewSender);
     }
     var hashMessageAndReactionView = "messageAndReactionView";
-    function isMessageAndReactionView(v) {
-      return is$typed(v, id, hashMessageAndReactionView);
+    function isMessageAndReactionView(v2) {
+      return is$typed(v2, id, hashMessageAndReactionView);
     }
-    function validateMessageAndReactionView(v) {
-      return validate(v, id, hashMessageAndReactionView);
+    function validateMessageAndReactionView(v2) {
+      return validate(v2, id, hashMessageAndReactionView);
     }
     var hashConvoView = "convoView";
-    function isConvoView(v) {
-      return is$typed(v, id, hashConvoView);
+    function isConvoView(v2) {
+      return is$typed(v2, id, hashConvoView);
     }
-    function validateConvoView(v) {
-      return validate(v, id, hashConvoView);
+    function validateConvoView(v2) {
+      return validate(v2, id, hashConvoView);
     }
     var hashLogBeginConvo = "logBeginConvo";
-    function isLogBeginConvo(v) {
-      return is$typed(v, id, hashLogBeginConvo);
+    function isLogBeginConvo(v2) {
+      return is$typed(v2, id, hashLogBeginConvo);
     }
-    function validateLogBeginConvo(v) {
-      return validate(v, id, hashLogBeginConvo);
+    function validateLogBeginConvo(v2) {
+      return validate(v2, id, hashLogBeginConvo);
     }
     var hashLogAcceptConvo = "logAcceptConvo";
-    function isLogAcceptConvo(v) {
-      return is$typed(v, id, hashLogAcceptConvo);
+    function isLogAcceptConvo(v2) {
+      return is$typed(v2, id, hashLogAcceptConvo);
     }
-    function validateLogAcceptConvo(v) {
-      return validate(v, id, hashLogAcceptConvo);
+    function validateLogAcceptConvo(v2) {
+      return validate(v2, id, hashLogAcceptConvo);
     }
     var hashLogLeaveConvo = "logLeaveConvo";
-    function isLogLeaveConvo(v) {
-      return is$typed(v, id, hashLogLeaveConvo);
+    function isLogLeaveConvo(v2) {
+      return is$typed(v2, id, hashLogLeaveConvo);
     }
-    function validateLogLeaveConvo(v) {
-      return validate(v, id, hashLogLeaveConvo);
+    function validateLogLeaveConvo(v2) {
+      return validate(v2, id, hashLogLeaveConvo);
     }
     var hashLogMuteConvo = "logMuteConvo";
-    function isLogMuteConvo(v) {
-      return is$typed(v, id, hashLogMuteConvo);
+    function isLogMuteConvo(v2) {
+      return is$typed(v2, id, hashLogMuteConvo);
     }
-    function validateLogMuteConvo(v) {
-      return validate(v, id, hashLogMuteConvo);
+    function validateLogMuteConvo(v2) {
+      return validate(v2, id, hashLogMuteConvo);
     }
     var hashLogUnmuteConvo = "logUnmuteConvo";
-    function isLogUnmuteConvo(v) {
-      return is$typed(v, id, hashLogUnmuteConvo);
+    function isLogUnmuteConvo(v2) {
+      return is$typed(v2, id, hashLogUnmuteConvo);
     }
-    function validateLogUnmuteConvo(v) {
-      return validate(v, id, hashLogUnmuteConvo);
+    function validateLogUnmuteConvo(v2) {
+      return validate(v2, id, hashLogUnmuteConvo);
     }
     var hashLogCreateMessage = "logCreateMessage";
-    function isLogCreateMessage(v) {
-      return is$typed(v, id, hashLogCreateMessage);
+    function isLogCreateMessage(v2) {
+      return is$typed(v2, id, hashLogCreateMessage);
     }
-    function validateLogCreateMessage(v) {
-      return validate(v, id, hashLogCreateMessage);
+    function validateLogCreateMessage(v2) {
+      return validate(v2, id, hashLogCreateMessage);
     }
     var hashLogDeleteMessage = "logDeleteMessage";
-    function isLogDeleteMessage(v) {
-      return is$typed(v, id, hashLogDeleteMessage);
+    function isLogDeleteMessage(v2) {
+      return is$typed(v2, id, hashLogDeleteMessage);
     }
-    function validateLogDeleteMessage(v) {
-      return validate(v, id, hashLogDeleteMessage);
+    function validateLogDeleteMessage(v2) {
+      return validate(v2, id, hashLogDeleteMessage);
     }
     var hashLogReadMessage = "logReadMessage";
-    function isLogReadMessage(v) {
-      return is$typed(v, id, hashLogReadMessage);
+    function isLogReadMessage(v2) {
+      return is$typed(v2, id, hashLogReadMessage);
     }
-    function validateLogReadMessage(v) {
-      return validate(v, id, hashLogReadMessage);
+    function validateLogReadMessage(v2) {
+      return validate(v2, id, hashLogReadMessage);
     }
     var hashLogAddReaction = "logAddReaction";
-    function isLogAddReaction(v) {
-      return is$typed(v, id, hashLogAddReaction);
+    function isLogAddReaction(v2) {
+      return is$typed(v2, id, hashLogAddReaction);
     }
-    function validateLogAddReaction(v) {
-      return validate(v, id, hashLogAddReaction);
+    function validateLogAddReaction(v2) {
+      return validate(v2, id, hashLogAddReaction);
     }
     var hashLogRemoveReaction = "logRemoveReaction";
-    function isLogRemoveReaction(v) {
-      return is$typed(v, id, hashLogRemoveReaction);
+    function isLogRemoveReaction(v2) {
+      return is$typed(v2, id, hashLogRemoveReaction);
     }
-    function validateLogRemoveReaction(v) {
-      return validate(v, id, hashLogRemoveReaction);
+    function validateLogRemoveReaction(v2) {
+      return validate(v2, id, hashLogRemoveReaction);
     }
   }
 });
@@ -56917,11 +56917,11 @@ var require_sendMessageBatch = __commonJS({
       return e;
     }
     var hashBatchItem = "batchItem";
-    function isBatchItem(v) {
-      return is$typed(v, id, hashBatchItem);
+    function isBatchItem(v2) {
+      return is$typed(v2, id, hashBatchItem);
     }
-    function validateBatchItem(v) {
-      return validate(v, id, hashBatchItem);
+    function validateBatchItem(v2) {
+      return validate(v2, id, hashBatchItem);
     }
   }
 });
@@ -56987,11 +56987,11 @@ var require_getActorMetadata = __commonJS({
       return e;
     }
     var hashMetadata = "metadata";
-    function isMetadata(v) {
-      return is$typed(v, id, hashMetadata);
+    function isMetadata(v2) {
+      return is$typed(v2, id, hashMetadata);
     }
-    function validateMetadata(v) {
-      return validate(v, id, hashMetadata);
+    function validateMetadata(v2) {
+      return validate(v2, id, hashMetadata);
     }
   }
 });
@@ -57038,11 +57038,11 @@ var require_defs17 = __commonJS({
     var validate = lexicons_1.validate;
     var id = "tools.ozone.communication.defs";
     var hashTemplateView = "templateView";
-    function isTemplateView(v) {
-      return is$typed(v, id, hashTemplateView);
+    function isTemplateView(v2) {
+      return is$typed(v2, id, hashTemplateView);
     }
-    function validateTemplateView(v) {
-      return validate(v, id, hashTemplateView);
+    function validateTemplateView(v2) {
+      return validate(v2, id, hashTemplateView);
     }
   }
 });
@@ -57166,281 +57166,281 @@ var require_defs18 = __commonJS({
     var validate = lexicons_1.validate;
     var id = "tools.ozone.moderation.defs";
     var hashModEventView = "modEventView";
-    function isModEventView(v) {
-      return is$typed(v, id, hashModEventView);
+    function isModEventView(v2) {
+      return is$typed(v2, id, hashModEventView);
     }
-    function validateModEventView(v) {
-      return validate(v, id, hashModEventView);
+    function validateModEventView(v2) {
+      return validate(v2, id, hashModEventView);
     }
     var hashModEventViewDetail = "modEventViewDetail";
-    function isModEventViewDetail(v) {
-      return is$typed(v, id, hashModEventViewDetail);
+    function isModEventViewDetail(v2) {
+      return is$typed(v2, id, hashModEventViewDetail);
     }
-    function validateModEventViewDetail(v) {
-      return validate(v, id, hashModEventViewDetail);
+    function validateModEventViewDetail(v2) {
+      return validate(v2, id, hashModEventViewDetail);
     }
     var hashSubjectStatusView = "subjectStatusView";
-    function isSubjectStatusView(v) {
-      return is$typed(v, id, hashSubjectStatusView);
+    function isSubjectStatusView(v2) {
+      return is$typed(v2, id, hashSubjectStatusView);
     }
-    function validateSubjectStatusView(v) {
-      return validate(v, id, hashSubjectStatusView);
+    function validateSubjectStatusView(v2) {
+      return validate(v2, id, hashSubjectStatusView);
     }
     var hashSubjectView = "subjectView";
-    function isSubjectView(v) {
-      return is$typed(v, id, hashSubjectView);
+    function isSubjectView(v2) {
+      return is$typed(v2, id, hashSubjectView);
     }
-    function validateSubjectView(v) {
-      return validate(v, id, hashSubjectView);
+    function validateSubjectView(v2) {
+      return validate(v2, id, hashSubjectView);
     }
     var hashAccountStats = "accountStats";
-    function isAccountStats(v) {
-      return is$typed(v, id, hashAccountStats);
+    function isAccountStats(v2) {
+      return is$typed(v2, id, hashAccountStats);
     }
-    function validateAccountStats(v) {
-      return validate(v, id, hashAccountStats);
+    function validateAccountStats(v2) {
+      return validate(v2, id, hashAccountStats);
     }
     var hashRecordsStats = "recordsStats";
-    function isRecordsStats(v) {
-      return is$typed(v, id, hashRecordsStats);
+    function isRecordsStats(v2) {
+      return is$typed(v2, id, hashRecordsStats);
     }
-    function validateRecordsStats(v) {
-      return validate(v, id, hashRecordsStats);
+    function validateRecordsStats(v2) {
+      return validate(v2, id, hashRecordsStats);
     }
     exports.REVIEWOPEN = `${id}#reviewOpen`;
     exports.REVIEWESCALATED = `${id}#reviewEscalated`;
     exports.REVIEWCLOSED = `${id}#reviewClosed`;
     exports.REVIEWNONE = `${id}#reviewNone`;
     var hashModEventTakedown = "modEventTakedown";
-    function isModEventTakedown(v) {
-      return is$typed(v, id, hashModEventTakedown);
+    function isModEventTakedown(v2) {
+      return is$typed(v2, id, hashModEventTakedown);
     }
-    function validateModEventTakedown(v) {
-      return validate(v, id, hashModEventTakedown);
+    function validateModEventTakedown(v2) {
+      return validate(v2, id, hashModEventTakedown);
     }
     var hashModEventReverseTakedown = "modEventReverseTakedown";
-    function isModEventReverseTakedown(v) {
-      return is$typed(v, id, hashModEventReverseTakedown);
+    function isModEventReverseTakedown(v2) {
+      return is$typed(v2, id, hashModEventReverseTakedown);
     }
-    function validateModEventReverseTakedown(v) {
-      return validate(v, id, hashModEventReverseTakedown);
+    function validateModEventReverseTakedown(v2) {
+      return validate(v2, id, hashModEventReverseTakedown);
     }
     var hashModEventResolveAppeal = "modEventResolveAppeal";
-    function isModEventResolveAppeal(v) {
-      return is$typed(v, id, hashModEventResolveAppeal);
+    function isModEventResolveAppeal(v2) {
+      return is$typed(v2, id, hashModEventResolveAppeal);
     }
-    function validateModEventResolveAppeal(v) {
-      return validate(v, id, hashModEventResolveAppeal);
+    function validateModEventResolveAppeal(v2) {
+      return validate(v2, id, hashModEventResolveAppeal);
     }
     var hashModEventComment = "modEventComment";
-    function isModEventComment(v) {
-      return is$typed(v, id, hashModEventComment);
+    function isModEventComment(v2) {
+      return is$typed(v2, id, hashModEventComment);
     }
-    function validateModEventComment(v) {
-      return validate(v, id, hashModEventComment);
+    function validateModEventComment(v2) {
+      return validate(v2, id, hashModEventComment);
     }
     var hashModEventReport = "modEventReport";
-    function isModEventReport(v) {
-      return is$typed(v, id, hashModEventReport);
+    function isModEventReport(v2) {
+      return is$typed(v2, id, hashModEventReport);
     }
-    function validateModEventReport(v) {
-      return validate(v, id, hashModEventReport);
+    function validateModEventReport(v2) {
+      return validate(v2, id, hashModEventReport);
     }
     var hashModEventLabel = "modEventLabel";
-    function isModEventLabel(v) {
-      return is$typed(v, id, hashModEventLabel);
+    function isModEventLabel(v2) {
+      return is$typed(v2, id, hashModEventLabel);
     }
-    function validateModEventLabel(v) {
-      return validate(v, id, hashModEventLabel);
+    function validateModEventLabel(v2) {
+      return validate(v2, id, hashModEventLabel);
     }
     var hashModEventPriorityScore = "modEventPriorityScore";
-    function isModEventPriorityScore(v) {
-      return is$typed(v, id, hashModEventPriorityScore);
+    function isModEventPriorityScore(v2) {
+      return is$typed(v2, id, hashModEventPriorityScore);
     }
-    function validateModEventPriorityScore(v) {
-      return validate(v, id, hashModEventPriorityScore);
+    function validateModEventPriorityScore(v2) {
+      return validate(v2, id, hashModEventPriorityScore);
     }
     var hashModEventAcknowledge = "modEventAcknowledge";
-    function isModEventAcknowledge(v) {
-      return is$typed(v, id, hashModEventAcknowledge);
+    function isModEventAcknowledge(v2) {
+      return is$typed(v2, id, hashModEventAcknowledge);
     }
-    function validateModEventAcknowledge(v) {
-      return validate(v, id, hashModEventAcknowledge);
+    function validateModEventAcknowledge(v2) {
+      return validate(v2, id, hashModEventAcknowledge);
     }
     var hashModEventEscalate = "modEventEscalate";
-    function isModEventEscalate(v) {
-      return is$typed(v, id, hashModEventEscalate);
+    function isModEventEscalate(v2) {
+      return is$typed(v2, id, hashModEventEscalate);
     }
-    function validateModEventEscalate(v) {
-      return validate(v, id, hashModEventEscalate);
+    function validateModEventEscalate(v2) {
+      return validate(v2, id, hashModEventEscalate);
     }
     var hashModEventMute = "modEventMute";
-    function isModEventMute(v) {
-      return is$typed(v, id, hashModEventMute);
+    function isModEventMute(v2) {
+      return is$typed(v2, id, hashModEventMute);
     }
-    function validateModEventMute(v) {
-      return validate(v, id, hashModEventMute);
+    function validateModEventMute(v2) {
+      return validate(v2, id, hashModEventMute);
     }
     var hashModEventUnmute = "modEventUnmute";
-    function isModEventUnmute(v) {
-      return is$typed(v, id, hashModEventUnmute);
+    function isModEventUnmute(v2) {
+      return is$typed(v2, id, hashModEventUnmute);
     }
-    function validateModEventUnmute(v) {
-      return validate(v, id, hashModEventUnmute);
+    function validateModEventUnmute(v2) {
+      return validate(v2, id, hashModEventUnmute);
     }
     var hashModEventMuteReporter = "modEventMuteReporter";
-    function isModEventMuteReporter(v) {
-      return is$typed(v, id, hashModEventMuteReporter);
+    function isModEventMuteReporter(v2) {
+      return is$typed(v2, id, hashModEventMuteReporter);
     }
-    function validateModEventMuteReporter(v) {
-      return validate(v, id, hashModEventMuteReporter);
+    function validateModEventMuteReporter(v2) {
+      return validate(v2, id, hashModEventMuteReporter);
     }
     var hashModEventUnmuteReporter = "modEventUnmuteReporter";
-    function isModEventUnmuteReporter(v) {
-      return is$typed(v, id, hashModEventUnmuteReporter);
+    function isModEventUnmuteReporter(v2) {
+      return is$typed(v2, id, hashModEventUnmuteReporter);
     }
-    function validateModEventUnmuteReporter(v) {
-      return validate(v, id, hashModEventUnmuteReporter);
+    function validateModEventUnmuteReporter(v2) {
+      return validate(v2, id, hashModEventUnmuteReporter);
     }
     var hashModEventEmail = "modEventEmail";
-    function isModEventEmail(v) {
-      return is$typed(v, id, hashModEventEmail);
+    function isModEventEmail(v2) {
+      return is$typed(v2, id, hashModEventEmail);
     }
-    function validateModEventEmail(v) {
-      return validate(v, id, hashModEventEmail);
+    function validateModEventEmail(v2) {
+      return validate(v2, id, hashModEventEmail);
     }
     var hashModEventDivert = "modEventDivert";
-    function isModEventDivert(v) {
-      return is$typed(v, id, hashModEventDivert);
+    function isModEventDivert(v2) {
+      return is$typed(v2, id, hashModEventDivert);
     }
-    function validateModEventDivert(v) {
-      return validate(v, id, hashModEventDivert);
+    function validateModEventDivert(v2) {
+      return validate(v2, id, hashModEventDivert);
     }
     var hashModEventTag = "modEventTag";
-    function isModEventTag(v) {
-      return is$typed(v, id, hashModEventTag);
+    function isModEventTag(v2) {
+      return is$typed(v2, id, hashModEventTag);
     }
-    function validateModEventTag(v) {
-      return validate(v, id, hashModEventTag);
+    function validateModEventTag(v2) {
+      return validate(v2, id, hashModEventTag);
     }
     var hashAccountEvent = "accountEvent";
-    function isAccountEvent(v) {
-      return is$typed(v, id, hashAccountEvent);
+    function isAccountEvent(v2) {
+      return is$typed(v2, id, hashAccountEvent);
     }
-    function validateAccountEvent(v) {
-      return validate(v, id, hashAccountEvent);
+    function validateAccountEvent(v2) {
+      return validate(v2, id, hashAccountEvent);
     }
     var hashIdentityEvent = "identityEvent";
-    function isIdentityEvent(v) {
-      return is$typed(v, id, hashIdentityEvent);
+    function isIdentityEvent(v2) {
+      return is$typed(v2, id, hashIdentityEvent);
     }
-    function validateIdentityEvent(v) {
-      return validate(v, id, hashIdentityEvent);
+    function validateIdentityEvent(v2) {
+      return validate(v2, id, hashIdentityEvent);
     }
     var hashRecordEvent = "recordEvent";
-    function isRecordEvent(v) {
-      return is$typed(v, id, hashRecordEvent);
+    function isRecordEvent(v2) {
+      return is$typed(v2, id, hashRecordEvent);
     }
-    function validateRecordEvent(v) {
-      return validate(v, id, hashRecordEvent);
+    function validateRecordEvent(v2) {
+      return validate(v2, id, hashRecordEvent);
     }
     var hashRepoView = "repoView";
-    function isRepoView(v) {
-      return is$typed(v, id, hashRepoView);
+    function isRepoView(v2) {
+      return is$typed(v2, id, hashRepoView);
     }
-    function validateRepoView(v) {
-      return validate(v, id, hashRepoView);
+    function validateRepoView(v2) {
+      return validate(v2, id, hashRepoView);
     }
     var hashRepoViewDetail = "repoViewDetail";
-    function isRepoViewDetail(v) {
-      return is$typed(v, id, hashRepoViewDetail);
+    function isRepoViewDetail(v2) {
+      return is$typed(v2, id, hashRepoViewDetail);
     }
-    function validateRepoViewDetail(v) {
-      return validate(v, id, hashRepoViewDetail);
+    function validateRepoViewDetail(v2) {
+      return validate(v2, id, hashRepoViewDetail);
     }
     var hashRepoViewNotFound = "repoViewNotFound";
-    function isRepoViewNotFound(v) {
-      return is$typed(v, id, hashRepoViewNotFound);
+    function isRepoViewNotFound(v2) {
+      return is$typed(v2, id, hashRepoViewNotFound);
     }
-    function validateRepoViewNotFound(v) {
-      return validate(v, id, hashRepoViewNotFound);
+    function validateRepoViewNotFound(v2) {
+      return validate(v2, id, hashRepoViewNotFound);
     }
     var hashRecordView = "recordView";
-    function isRecordView(v) {
-      return is$typed(v, id, hashRecordView);
+    function isRecordView(v2) {
+      return is$typed(v2, id, hashRecordView);
     }
-    function validateRecordView(v) {
-      return validate(v, id, hashRecordView);
+    function validateRecordView(v2) {
+      return validate(v2, id, hashRecordView);
     }
     var hashRecordViewDetail = "recordViewDetail";
-    function isRecordViewDetail(v) {
-      return is$typed(v, id, hashRecordViewDetail);
+    function isRecordViewDetail(v2) {
+      return is$typed(v2, id, hashRecordViewDetail);
     }
-    function validateRecordViewDetail(v) {
-      return validate(v, id, hashRecordViewDetail);
+    function validateRecordViewDetail(v2) {
+      return validate(v2, id, hashRecordViewDetail);
     }
     var hashRecordViewNotFound = "recordViewNotFound";
-    function isRecordViewNotFound(v) {
-      return is$typed(v, id, hashRecordViewNotFound);
+    function isRecordViewNotFound(v2) {
+      return is$typed(v2, id, hashRecordViewNotFound);
     }
-    function validateRecordViewNotFound(v) {
-      return validate(v, id, hashRecordViewNotFound);
+    function validateRecordViewNotFound(v2) {
+      return validate(v2, id, hashRecordViewNotFound);
     }
     var hashModeration = "moderation";
-    function isModeration(v) {
-      return is$typed(v, id, hashModeration);
+    function isModeration(v2) {
+      return is$typed(v2, id, hashModeration);
     }
-    function validateModeration(v) {
-      return validate(v, id, hashModeration);
+    function validateModeration(v2) {
+      return validate(v2, id, hashModeration);
     }
     var hashModerationDetail = "moderationDetail";
-    function isModerationDetail(v) {
-      return is$typed(v, id, hashModerationDetail);
+    function isModerationDetail(v2) {
+      return is$typed(v2, id, hashModerationDetail);
     }
-    function validateModerationDetail(v) {
-      return validate(v, id, hashModerationDetail);
+    function validateModerationDetail(v2) {
+      return validate(v2, id, hashModerationDetail);
     }
     var hashBlobView = "blobView";
-    function isBlobView(v) {
-      return is$typed(v, id, hashBlobView);
+    function isBlobView(v2) {
+      return is$typed(v2, id, hashBlobView);
     }
-    function validateBlobView(v) {
-      return validate(v, id, hashBlobView);
+    function validateBlobView(v2) {
+      return validate(v2, id, hashBlobView);
     }
     var hashImageDetails = "imageDetails";
-    function isImageDetails(v) {
-      return is$typed(v, id, hashImageDetails);
+    function isImageDetails(v2) {
+      return is$typed(v2, id, hashImageDetails);
     }
-    function validateImageDetails(v) {
-      return validate(v, id, hashImageDetails);
+    function validateImageDetails(v2) {
+      return validate(v2, id, hashImageDetails);
     }
     var hashVideoDetails = "videoDetails";
-    function isVideoDetails(v) {
-      return is$typed(v, id, hashVideoDetails);
+    function isVideoDetails(v2) {
+      return is$typed(v2, id, hashVideoDetails);
     }
-    function validateVideoDetails(v) {
-      return validate(v, id, hashVideoDetails);
+    function validateVideoDetails(v2) {
+      return validate(v2, id, hashVideoDetails);
     }
     var hashAccountHosting = "accountHosting";
-    function isAccountHosting(v) {
-      return is$typed(v, id, hashAccountHosting);
+    function isAccountHosting(v2) {
+      return is$typed(v2, id, hashAccountHosting);
     }
-    function validateAccountHosting(v) {
-      return validate(v, id, hashAccountHosting);
+    function validateAccountHosting(v2) {
+      return validate(v2, id, hashAccountHosting);
     }
     var hashRecordHosting = "recordHosting";
-    function isRecordHosting(v) {
-      return is$typed(v, id, hashRecordHosting);
+    function isRecordHosting(v2) {
+      return is$typed(v2, id, hashRecordHosting);
     }
-    function validateRecordHosting(v) {
-      return validate(v, id, hashRecordHosting);
+    function validateRecordHosting(v2) {
+      return validate(v2, id, hashRecordHosting);
     }
     var hashReporterStats = "reporterStats";
-    function isReporterStats(v) {
-      return is$typed(v, id, hashReporterStats);
+    function isReporterStats(v2) {
+      return is$typed(v2, id, hashReporterStats);
     }
-    function validateReporterStats(v) {
-      return validate(v, id, hashReporterStats);
+    function validateReporterStats(v2) {
+      return validate(v2, id, hashReporterStats);
     }
   }
 });
@@ -57583,18 +57583,18 @@ var require_getConfig2 = __commonJS({
       return e;
     }
     var hashServiceConfig = "serviceConfig";
-    function isServiceConfig(v) {
-      return is$typed(v, id, hashServiceConfig);
+    function isServiceConfig(v2) {
+      return is$typed(v2, id, hashServiceConfig);
     }
-    function validateServiceConfig(v) {
-      return validate(v, id, hashServiceConfig);
+    function validateServiceConfig(v2) {
+      return validate(v2, id, hashServiceConfig);
     }
     var hashViewerConfig = "viewerConfig";
-    function isViewerConfig(v) {
-      return is$typed(v, id, hashViewerConfig);
+    function isViewerConfig(v2) {
+      return is$typed(v2, id, hashViewerConfig);
     }
-    function validateViewerConfig(v) {
-      return validate(v, id, hashViewerConfig);
+    function validateViewerConfig(v2) {
+      return validate(v2, id, hashViewerConfig);
     }
   }
 });
@@ -57628,18 +57628,18 @@ var require_defs19 = __commonJS({
     var validate = lexicons_1.validate;
     var id = "tools.ozone.set.defs";
     var hashSet = "set";
-    function isSet(v) {
-      return is$typed(v, id, hashSet);
+    function isSet(v2) {
+      return is$typed(v2, id, hashSet);
     }
-    function validateSet(v) {
-      return validate(v, id, hashSet);
+    function validateSet(v2) {
+      return validate(v2, id, hashSet);
     }
     var hashSetView = "setView";
-    function isSetView(v) {
-      return is$typed(v, id, hashSetView);
+    function isSetView(v2) {
+      return is$typed(v2, id, hashSetView);
     }
-    function validateSetView(v) {
-      return validate(v, id, hashSetView);
+    function validateSetView(v2) {
+      return validate(v2, id, hashSetView);
     }
   }
 });
@@ -57686,11 +57686,11 @@ var require_defs20 = __commonJS({
     var validate = lexicons_1.validate;
     var id = "tools.ozone.setting.defs";
     var hashOption = "option";
-    function isOption(v) {
-      return is$typed(v, id, hashOption);
+    function isOption(v2) {
+      return is$typed(v2, id, hashOption);
     }
-    function validateOption(v) {
-      return validate(v, id, hashOption);
+    function validateOption(v2) {
+      return validate(v2, id, hashOption);
     }
   }
 });
@@ -57752,11 +57752,11 @@ var require_defs21 = __commonJS({
     var validate = lexicons_1.validate;
     var id = "tools.ozone.signature.defs";
     var hashSigDetail = "sigDetail";
-    function isSigDetail(v) {
-      return is$typed(v, id, hashSigDetail);
+    function isSigDetail(v2) {
+      return is$typed(v2, id, hashSigDetail);
     }
-    function validateSigDetail(v) {
-      return validate(v, id, hashSigDetail);
+    function validateSigDetail(v2) {
+      return validate(v2, id, hashSigDetail);
     }
   }
 });
@@ -57792,11 +57792,11 @@ var require_findRelatedAccounts = __commonJS({
       return e;
     }
     var hashRelatedAccount = "relatedAccount";
-    function isRelatedAccount(v) {
-      return is$typed(v, id, hashRelatedAccount);
+    function isRelatedAccount(v2) {
+      return is$typed(v2, id, hashRelatedAccount);
     }
-    function validateRelatedAccount(v) {
-      return validate(v, id, hashRelatedAccount);
+    function validateRelatedAccount(v2) {
+      return validate(v2, id, hashRelatedAccount);
     }
   }
 });
@@ -57829,11 +57829,11 @@ var require_defs22 = __commonJS({
     var validate = lexicons_1.validate;
     var id = "tools.ozone.team.defs";
     var hashMember = "member";
-    function isMember(v) {
-      return is$typed(v, id, hashMember);
+    function isMember(v2) {
+      return is$typed(v2, id, hashMember);
     }
-    function validateMember(v) {
-      return validate(v, id, hashMember);
+    function validateMember(v2) {
+      return validate(v2, id, hashMember);
     }
     exports.ROLEADMIN = `${id}#roleAdmin`;
     exports.ROLEMODERATOR = `${id}#roleModerator`;
@@ -57859,23 +57859,23 @@ var require_listMembers = __commonJS({
 // ../../node_modules/.pnpm/@atproto+api@0.14.22/node_modules/@atproto/api/dist/client/index.js
 var require_client3 = __commonJS({
   "../../node_modules/.pnpm/@atproto+api@0.14.22/node_modules/@atproto/api/dist/client/index.js"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      var desc = Object.getOwnPropertyDescriptor(m, k);
-      if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      var desc = Object.getOwnPropertyDescriptor(m3, k);
+      if (!desc || ("get" in desc ? !m3.__esModule : desc.writable || desc.configurable)) {
         desc = { enumerable: true, get: function() {
-          return m[k];
+          return m3[k];
         } };
       }
-      Object.defineProperty(o, k2, desc);
-    }) : (function(o, m, k, k2) {
+      Object.defineProperty(o2, k2, desc);
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    }) : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o2, v2) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v2 });
+    }) : function(o2, v2) {
+      o2["default"] = v2;
     });
     var __importStar2 = exports && exports.__importStar || function(mod) {
       if (mod && mod.__esModule) return mod;
@@ -61807,8 +61807,8 @@ var require_detection = __commonJS({
       let match;
       const facets = [];
       {
-        const re = util_1.MENTION_REGEX;
-        while (match = re.exec(text.utf16)) {
+        const re3 = util_1.MENTION_REGEX;
+        while (match = re3.exec(text.utf16)) {
           if (!isValidDomain(match[3]) && !match[3].endsWith(".test")) {
             continue;
           }
@@ -61830,8 +61830,8 @@ var require_detection = __commonJS({
         }
       }
       {
-        const re = util_1.URL_REGEX;
-        while (match = re.exec(text.utf16)) {
+        const re3 = util_1.URL_REGEX;
+        while (match = re3.exec(text.utf16)) {
           let uri = match[2];
           if (!uri.startsWith("http")) {
             const domain = match.groups?.domain;
@@ -61865,8 +61865,8 @@ var require_detection = __commonJS({
         }
       }
       {
-        const re = util_1.TAG_REGEX;
-        while (match = re.exec(text.utf16)) {
+        const re3 = util_1.TAG_REGEX;
+        while (match = re3.exec(text.utf16)) {
           const leading = match[1];
           let tag = match[2];
           if (!tag)
@@ -62162,7 +62162,7 @@ var require_rich_text = __commonJS({
           for (const facet of this.facets) {
             for (const feature of facet.features) {
               if (client_1.AppBskyRichtextFacet.isMention(feature)) {
-                promises.push(agent.com.atproto.identity.resolveHandle({ handle: feature.did }).then((res) => res?.data.did).catch((_) => void 0).then((did) => {
+                promises.push(agent.com.atproto.identity.resolveHandle({ handle: feature.did }).then((res) => res?.data.did).catch((_2) => void 0).then((did) => {
                   feature.did = did || "";
                 }));
               }
@@ -62185,7 +62185,7 @@ var require_rich_text = __commonJS({
       }
     };
     exports.RichText = RichText;
-    var facetSort = (a, b) => a.index.byteStart - b.index.byteStart;
+    var facetSort = (a2, b2) => a2.index.byteStart - b2.index.byteStart;
     var facetFilter = (facet) => (
       // discard negative-length facets. zero-length facets are valid
       facet.index.byteStart <= facet.index.byteEnd
@@ -62217,11 +62217,11 @@ var require_rich_text = __commonJS({
       }
       return facets;
     }
-    function cloneDeep(v) {
-      if (typeof v === "undefined") {
-        return v;
+    function cloneDeep(v2) {
+      if (typeof v2 === "undefined") {
+        return v2;
       }
-      return JSON.parse(JSON.stringify(v));
+      return JSON.parse(JSON.stringify(v2));
     }
   }
 });
@@ -62562,13 +62562,13 @@ var require_decision = __commonJS({
         });
       }
       static merge(...decisions) {
-        const decisionsFiltered = decisions.filter((v) => v != null);
+        const decisionsFiltered = decisions.filter((v2) => v2 != null);
         const decision = new _ModerationDecision();
         if (decisionsFiltered[0]) {
           decision.did = decisionsFiltered[0].did;
           decision.isMe = decisionsFiltered[0].isMe;
         }
-        decision.causes = decisionsFiltered.flatMap((d) => d.causes);
+        decision.causes = decisionsFiltered.flatMap((d2) => d2.causes);
         return decision;
       }
       downgrade() {
@@ -62837,8 +62837,8 @@ var require_decision = __commonJS({
       }
       return ModerationBehaviorSeverity.Low;
     }
-    function sortByPriority(a, b) {
-      return a.priority - b.priority;
+    function sortByPriority(a2, b2) {
+      return a2.priority - b2.priority;
     }
   }
 });
@@ -63301,8 +63301,8 @@ var require_user_list = __commonJS({
       }
       return acc;
     }
-    function isProfile(v) {
-      return v && typeof v === "object" && "did" in v;
+    function isProfile(v2) {
+      return v2 && typeof v2 === "object" && "did" in v2;
     }
   }
 });
@@ -63559,16 +63559,16 @@ var require_mocker = __commonJS({
 // ../../node_modules/.pnpm/await-lock@2.2.2/node_modules/await-lock/build/AwaitLock.js
 var require_AwaitLock = __commonJS({
   "../../node_modules/.pnpm/await-lock@2.2.2/node_modules/await-lock/build/AwaitLock.js"(exports) {
-    var __classPrivateFieldGet2 = exports && exports.__classPrivateFieldGet || function(receiver, state, kind, f) {
-      if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
-      if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
-      return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+    var __classPrivateFieldGet2 = exports && exports.__classPrivateFieldGet || function(receiver, state, kind, f3) {
+      if (kind === "a" && !f3) throw new TypeError("Private accessor was defined without a getter");
+      if (typeof state === "function" ? receiver !== state || !f3 : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+      return kind === "m" ? f3 : kind === "a" ? f3.call(receiver) : f3 ? f3.value : state.get(receiver);
     };
-    var __classPrivateFieldSet2 = exports && exports.__classPrivateFieldSet || function(receiver, state, value, kind, f) {
+    var __classPrivateFieldSet2 = exports && exports.__classPrivateFieldSet || function(receiver, state, value, kind, f3) {
       if (kind === "m") throw new TypeError("Private method is not writable");
-      if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
-      if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
-      return kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value), value;
+      if (kind === "a" && !f3) throw new TypeError("Private accessor was defined without a setter");
+      if (typeof state === "function" ? receiver !== state || !f3 : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
+      return kind === "a" ? f3.call(receiver, value) : f3 ? f3.value = value : state.set(receiver, value), value;
     };
     var _AwaitLock_acquired;
     var _AwaitLock_waitingResolvers;
@@ -63615,7 +63615,7 @@ var require_AwaitLock = __commonJS({
             };
             __classPrivateFieldGet2(this, _AwaitLock_waitingResolvers, "f").add(resolver);
           }),
-          new Promise((_, reject) => {
+          new Promise((_2, reject) => {
             timer = setTimeout(() => {
               __classPrivateFieldGet2(this, _AwaitLock_waitingResolvers, "f").delete(resolver);
               reject(new Error(`Timed out waiting for lock`));
@@ -63686,23 +63686,23 @@ var require_predicate = __commonJS({
 // ../../node_modules/.pnpm/@atproto+api@0.14.22/node_modules/@atproto/api/dist/agent.js
 var require_agent2 = __commonJS({
   "../../node_modules/.pnpm/@atproto+api@0.14.22/node_modules/@atproto/api/dist/agent.js"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      var desc = Object.getOwnPropertyDescriptor(m, k);
-      if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      var desc = Object.getOwnPropertyDescriptor(m3, k);
+      if (!desc || ("get" in desc ? !m3.__esModule : desc.writable || desc.configurable)) {
         desc = { enumerable: true, get: function() {
-          return m[k];
+          return m3[k];
         } };
       }
-      Object.defineProperty(o, k2, desc);
-    }) : (function(o, m, k, k2) {
+      Object.defineProperty(o2, k2, desc);
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    }) : function(o, v) {
-      o["default"] = v;
+    var __setModuleDefault2 = exports && exports.__setModuleDefault || (Object.create ? (function(o2, v2) {
+      Object.defineProperty(o2, "default", { enumerable: true, value: v2 });
+    }) : function(o2, v2) {
+      o2["default"] = v2;
     });
     var __importStar2 = exports && exports.__importStar || function(mod) {
       if (mod && mod.__esModule) return mod;
@@ -63713,10 +63713,10 @@ var require_agent2 = __commonJS({
       __setModuleDefault2(result, mod);
       return result;
     };
-    var __classPrivateFieldGet2 = exports && exports.__classPrivateFieldGet || function(receiver, state, kind, f) {
-      if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
-      if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
-      return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+    var __classPrivateFieldGet2 = exports && exports.__classPrivateFieldGet || function(receiver, state, kind, f3) {
+      if (kind === "a" && !f3) throw new TypeError("Private accessor was defined without a getter");
+      if (typeof state === "function" ? receiver !== state || !f3 : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+      return kind === "m" ? f3 : kind === "a" ? f3.call(receiver) : f3 ? f3.value : state.get(receiver);
     };
     var __importDefault2 = exports && exports.__importDefault || function(mod) {
       return mod && mod.__esModule ? mod : { "default": mod };
@@ -63770,7 +63770,7 @@ var require_agent2 = __commonJS({
             headers.set("atproto-proxy", this.proxy);
           }
           headers.set("atproto-accept-labelers", [
-            ...this.appLabelers.map((l) => `${l};redact`),
+            ...this.appLabelers.map((l2) => `${l2};redact`),
             ...this.labelers,
             headers.get("atproto-accept-labelers")?.trim()
           ].filter(Boolean).join(", "));
@@ -64043,9 +64043,9 @@ var require_agent2 = __commonJS({
       async getLabelDefinitions(prefs) {
         const dids = [...this.appLabelers];
         if (isBskyPrefs(prefs)) {
-          dids.push(...prefs.moderationPrefs.labelers.map((l) => l.did));
+          dids.push(...prefs.moderationPrefs.labelers.map((l2) => l2.did));
         } else if (isModPrefs(prefs)) {
-          dids.push(...prefs.labelers.map((l) => l.did));
+          dids.push(...prefs.labelers.map((l2) => l2.did));
         } else {
           dids.push(...prefs);
         }
@@ -64123,7 +64123,7 @@ var require_agent2 = __commonJS({
         const upsert = async () => {
           const repo = this.assertDid;
           const collection = "app.bsky.actor.profile";
-          const existing = await this.com.atproto.repo.getRecord({ repo, collection, rkey: "self" }).catch((_) => void 0);
+          const existing = await this.com.atproto.repo.getRecord({ repo, collection, rkey: "self" }).catch((_2) => void 0);
           const existingRecord = existing && predicate.isValidProfile(existing.data.value) ? existing.data.value : void 0;
           const updated = await updateFn(existingRecord);
           const validation = index_1.AppBskyActorProfile.validateRecord({
@@ -64243,14 +64243,14 @@ var require_agent2 = __commonJS({
               prefs.birthDate = new Date(pref.birthDate);
             }
           } else if (predicate.isValidFeedViewPref(pref)) {
-            const { $type: _, feed, ...v } = pref;
-            prefs.feedViewPrefs[feed] = { ...FEED_VIEW_PREF_DEFAULTS, ...v };
+            const { $type: _2, feed, ...v2 } = pref;
+            prefs.feedViewPrefs[feed] = { ...FEED_VIEW_PREF_DEFAULTS, ...v2 };
           } else if (predicate.isValidThreadViewPref(pref)) {
-            const { $type: _, ...v } = pref;
-            prefs.threadViewPrefs = { ...prefs.threadViewPrefs, ...v };
+            const { $type: _2, ...v2 } = pref;
+            prefs.threadViewPrefs = { ...prefs.threadViewPrefs, ...v2 };
           } else if (predicate.isValidInterestsPref(pref)) {
-            const { $type: _, ...v } = pref;
-            prefs.interests = { ...prefs.interests, ...v };
+            const { $type: _2, ...v2 } = pref;
+            prefs.interests = { ...prefs.interests, ...v2 };
           } else if (predicate.isValidMutedWordsPref(pref)) {
             prefs.moderationPrefs.mutedWords = pref.items;
             if (prefs.moderationPrefs.mutedWords.length) {
@@ -64359,8 +64359,8 @@ var require_agent2 = __commonJS({
         });
       }
       async addSavedFeeds(savedFeeds) {
-        const toSave = savedFeeds.map((f) => ({
-          ...f,
+        const toSave = savedFeeds.map((f3) => ({
+          ...f3,
           id: common_web_1.TID.nextStr()
         }));
         toSave.forEach(util_1.validateSavedFeed);
@@ -64386,46 +64386,46 @@ var require_agent2 = __commonJS({
       /**
        * @deprecated use `addSavedFeeds`
        */
-      async addSavedFeed(v) {
+      async addSavedFeed(v2) {
         return this.updateFeedPreferences((saved, pinned) => ({
-          saved: [...saved.filter((uri) => uri !== v), v],
+          saved: [...saved.filter((uri) => uri !== v2), v2],
           pinned
         }));
       }
       /**
        * @deprecated use `removeSavedFeeds`
        */
-      async removeSavedFeed(v) {
+      async removeSavedFeed(v2) {
         return this.updateFeedPreferences((saved, pinned) => ({
-          saved: saved.filter((uri) => uri !== v),
-          pinned: pinned.filter((uri) => uri !== v)
+          saved: saved.filter((uri) => uri !== v2),
+          pinned: pinned.filter((uri) => uri !== v2)
         }));
       }
       /**
        * @deprecated use `addSavedFeeds` or `updateSavedFeeds`
        */
-      async addPinnedFeed(v) {
+      async addPinnedFeed(v2) {
         return this.updateFeedPreferences((saved, pinned) => ({
-          saved: [...saved.filter((uri) => uri !== v), v],
-          pinned: [...pinned.filter((uri) => uri !== v), v]
+          saved: [...saved.filter((uri) => uri !== v2), v2],
+          pinned: [...pinned.filter((uri) => uri !== v2), v2]
         }));
       }
       /**
        * @deprecated use `updateSavedFeeds` or `removeSavedFeeds`
        */
-      async removePinnedFeed(v) {
+      async removePinnedFeed(v2) {
         return this.updateFeedPreferences((saved, pinned) => ({
           saved,
-          pinned: pinned.filter((uri) => uri !== v)
+          pinned: pinned.filter((uri) => uri !== v2)
         }));
       }
-      async setAdultContentEnabled(v) {
+      async setAdultContentEnabled(v2) {
         await this.updatePreferences((prefs) => {
           const adultContentPref = prefs.findLast(predicate.isValidAdultContentPref) || {
             $type: "app.bsky.actor.defs#adultContentPref",
-            enabled: v
+            enabled: v2
           };
-          adultContentPref.enabled = v;
+          adultContentPref.enabled = v2;
           return prefs.filter((pref) => !index_1.AppBskyActorDefs.isAdultContentPref(pref)).concat(adultContentPref);
         });
       }
@@ -64488,7 +64488,7 @@ var require_agent2 = __commonJS({
             $type: "app.bsky.actor.defs#labelersPref",
             labelers: []
           };
-          labelersPref.labelers = labelersPref.labelers.filter((l) => l.did !== did);
+          labelersPref.labelers = labelersPref.labelers.filter((l2) => l2.did !== did);
           return prefs2.filter((pref) => !index_1.AppBskyActorDefs.isLabelersPref(pref)).concat(labelersPref);
         });
         this.configureLabelers(prefsArrayToLabelerDids(prefs));
@@ -64505,7 +64505,7 @@ var require_agent2 = __commonJS({
       async setFeedViewPrefs(feed, pref) {
         await this.updatePreferences((prefs) => {
           const existing = prefs.filter(predicate.isValidFeedViewPref).findLast((pref2) => pref2.feed === feed);
-          return prefs.filter((p) => !index_1.AppBskyActorDefs.isFeedViewPref(p) || p.feed !== feed).concat({
+          return prefs.filter((p2) => !index_1.AppBskyActorDefs.isFeedViewPref(p2) || p2.feed !== feed).concat({
             ...existing,
             ...pref,
             $type: "app.bsky.actor.defs#feedViewPref",
@@ -64516,7 +64516,7 @@ var require_agent2 = __commonJS({
       async setThreadViewPrefs(pref) {
         await this.updatePreferences((prefs) => {
           const existing = prefs.findLast(predicate.isValidThreadViewPref);
-          return prefs.filter((p) => !index_1.AppBskyActorDefs.isThreadViewPref(p)).concat({
+          return prefs.filter((p2) => !index_1.AppBskyActorDefs.isThreadViewPref(p2)).concat({
             ...existing,
             ...pref,
             $type: "app.bsky.actor.defs#threadViewPref"
@@ -64526,7 +64526,7 @@ var require_agent2 = __commonJS({
       async setInterestsPref(pref) {
         await this.updatePreferences((prefs) => {
           const existing = prefs.findLast(predicate.isValidInterestsPref);
-          return prefs.filter((p) => !index_1.AppBskyActorDefs.isInterestsPref(p)).concat({
+          return prefs.filter((p2) => !index_1.AppBskyActorDefs.isInterestsPref(p2)).concat({
             ...existing,
             ...pref,
             $type: "app.bsky.actor.defs#interestsPref"
@@ -64558,7 +64558,7 @@ var require_agent2 = __commonJS({
               items: [newMutedWord]
             };
           }
-          return prefs.filter((p) => !index_1.AppBskyActorDefs.isMutedWordsPref(p)).concat(mutedWordsPref);
+          return prefs.filter((p2) => !index_1.AppBskyActorDefs.isMutedWordsPref(p2)).concat(mutedWordsPref);
         });
       }
       /**
@@ -64599,7 +64599,7 @@ var require_agent2 = __commonJS({
               }
             });
             mutedWordsPref.items = migrateLegacyMutedWordsItems(mutedWordsPref.items);
-            return prefs.filter((p) => !index_1.AppBskyActorDefs.isMutedWordsPref(p)).concat(mutedWordsPref);
+            return prefs.filter((p2) => !index_1.AppBskyActorDefs.isMutedWordsPref(p2)).concat(mutedWordsPref);
           }
           return prefs;
         });
@@ -64619,7 +64619,7 @@ var require_agent2 = __commonJS({
               }
             }
             mutedWordsPref.items = migrateLegacyMutedWordsItems(mutedWordsPref.items);
-            return prefs.filter((p) => !index_1.AppBskyActorDefs.isMutedWordsPref(p)).concat(mutedWordsPref);
+            return prefs.filter((p2) => !index_1.AppBskyActorDefs.isMutedWordsPref(p2)).concat(mutedWordsPref);
           }
           return prefs;
         });
@@ -64642,7 +64642,7 @@ var require_agent2 = __commonJS({
             $type: "app.bsky.actor.defs#bskyAppStatePref"
           };
           pref.queuedNudges = (pref.queuedNudges || []).concat(nudges);
-          return prefs.filter((p) => !index_1.AppBskyActorDefs.isBskyAppStatePref(p)).concat(pref);
+          return prefs.filter((p2) => !index_1.AppBskyActorDefs.isBskyAppStatePref(p2)).concat(pref);
         });
       }
       async bskyAppDismissNudges(nudges) {
@@ -64652,7 +64652,7 @@ var require_agent2 = __commonJS({
           };
           nudges = Array.isArray(nudges) ? nudges : [nudges];
           pref.queuedNudges = (pref.queuedNudges || []).filter((nudge) => !nudges.includes(nudge));
-          return prefs.filter((p) => !index_1.AppBskyActorDefs.isBskyAppStatePref(p)).concat(pref);
+          return prefs.filter((p2) => !index_1.AppBskyActorDefs.isBskyAppStatePref(p2)).concat(pref);
         });
       }
       async bskyAppSetActiveProgressGuide(guide) {
@@ -64666,7 +64666,7 @@ var require_agent2 = __commonJS({
             $type: "app.bsky.actor.defs#bskyAppStatePref"
           };
           pref.activeProgressGuide = guide;
-          return prefs.filter((p) => !index_1.AppBskyActorDefs.isBskyAppStatePref(p)).concat(pref);
+          return prefs.filter((p2) => !index_1.AppBskyActorDefs.isBskyAppStatePref(p2)).concat(pref);
         });
       }
       /**
@@ -64694,7 +64694,7 @@ var require_agent2 = __commonJS({
             next = nux;
           }
           pref.nuxs = pref.nuxs.filter((n) => n.id !== nux.id).concat(next);
-          return prefs.filter((p) => !index_1.AppBskyActorDefs.isBskyAppStatePref(p)).concat(pref);
+          return prefs.filter((p2) => !index_1.AppBskyActorDefs.isBskyAppStatePref(p2)).concat(pref);
         });
       }
       /**
@@ -64706,7 +64706,7 @@ var require_agent2 = __commonJS({
             $type: "app.bsky.actor.defs#bskyAppStatePref"
           };
           pref.nuxs = (pref.nuxs || []).filter((nux) => !ids.includes(nux.id));
-          return prefs.filter((p) => !index_1.AppBskyActorDefs.isBskyAppStatePref(p)).concat(pref);
+          return prefs.filter((p2) => !index_1.AppBskyActorDefs.isBskyAppStatePref(p2)).concat(pref);
         });
       }
       async setPostInteractionSettings(settings) {
@@ -64719,7 +64719,7 @@ var require_agent2 = __commonJS({
           };
           pref.threadgateAllowRules = settings.threadgateAllowRules;
           pref.postgateEmbeddingRules = settings.postgateEmbeddingRules;
-          return prefs.filter((p) => !index_1.AppBskyActorDefs.isPostInteractionSettingsPref(p)).concat(pref);
+          return prefs.filter((p2) => !index_1.AppBskyActorDefs.isPostInteractionSettingsPref(p2)).concat(pref);
         });
       }
       /**
@@ -64758,7 +64758,7 @@ var require_agent2 = __commonJS({
           else
             hiddenItems.delete(postUri);
           pref.items = [...hiddenItems];
-          return prefs.filter((p) => !index_1.AppBskyActorDefs.isHiddenPostsPref(p)).concat(pref);
+          return prefs.filter((p2) => !index_1.AppBskyActorDefs.isHiddenPostsPref(p2)).concat(pref);
         });
       }
       /**
@@ -64787,9 +64787,9 @@ var require_agent2 = __commonJS({
             items: []
           };
           const newSavedFeeds = cb(existingV2Pref.items);
-          existingV2Pref.items = [...newSavedFeeds].sort((a, b) => (
+          existingV2Pref.items = [...newSavedFeeds].sort((a2, b2) => (
             // @NOTE: preserve order of items with the same pinned status
-            a.pinned === b.pinned ? 0 : a.pinned ? -1 : 1
+            a2.pinned === b2.pinned ? 0 : a2.pinned ? -1 : 1
           ));
           maybeMutatedSavedFeeds = newSavedFeeds;
           let updatedPrefs = prefs.filter((pref) => !index_1.AppBskyActorDefs.isSavedFeedsPrefV2(pref)).concat(existingV2Pref);
@@ -64850,11 +64850,11 @@ var require_agent2 = __commonJS({
       }
       return dids;
     }
-    function isBskyPrefs(v) {
-      return v && typeof v === "object" && "moderationPrefs" in v && isModPrefs(v.moderationPrefs);
+    function isBskyPrefs(v2) {
+      return v2 && typeof v2 === "object" && "moderationPrefs" in v2 && isModPrefs(v2.moderationPrefs);
     }
-    function isModPrefs(v) {
-      return v && typeof v === "object" && "labelers" in v;
+    function isModPrefs(v2) {
+      return v2 && typeof v2 === "object" && "labelers" in v2;
     }
     function migrateLegacyMutedWordsItems(items) {
       return items.map((item) => ({
@@ -64927,7 +64927,7 @@ var require_atp_agent = __commonJS({
       get persistSession() {
         throw new Error('Cannot set persistSession directly. "persistSession" is defined through the constructor and will be invoked automatically when session data changes.');
       }
-      set persistSession(v) {
+      set persistSession(v2) {
         throw new Error('Cannot set persistSession directly. "persistSession" must be defined in the constructor and can no longer be changed.');
       }
       /** @deprecated use {@link AtpAgent.serviceUrl} instead */
@@ -65231,8 +65231,8 @@ var require_atp_agent = __commonJS({
       }
     };
     exports.CredentialSession = CredentialSession;
-    function isErrorObject(v) {
-      return xrpc_1.errorResponseBody.safeParse(v).success;
+    function isErrorObject(v2) {
+      return xrpc_1.errorResponseBody.safeParse(v2).success;
     }
     async function isErrorResponse(response, status, errorNames) {
       if (!status.includes(response.status))
@@ -65282,21 +65282,21 @@ var require_bsky_agent = __commonJS({
 // ../../node_modules/.pnpm/@atproto+api@0.14.22/node_modules/@atproto/api/dist/index.js
 var require_dist9 = __commonJS({
   "../../node_modules/.pnpm/@atproto+api@0.14.22/node_modules/@atproto/api/dist/index.js"(exports) {
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o, m, k, k2) {
+    var __createBinding2 = exports && exports.__createBinding || (Object.create ? (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      var desc = Object.getOwnPropertyDescriptor(m, k);
-      if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      var desc = Object.getOwnPropertyDescriptor(m3, k);
+      if (!desc || ("get" in desc ? !m3.__esModule : desc.writable || desc.configurable)) {
         desc = { enumerable: true, get: function() {
-          return m[k];
+          return m3[k];
         } };
       }
-      Object.defineProperty(o, k2, desc);
-    }) : (function(o, m, k, k2) {
+      Object.defineProperty(o2, k2, desc);
+    }) : (function(o2, m3, k, k2) {
       if (k2 === void 0) k2 = k;
-      o[k2] = m[k];
+      o2[k2] = m3[k];
     }));
-    var __exportStar2 = exports && exports.__exportStar || function(m, exports2) {
-      for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p)) __createBinding2(exports2, m, p);
+    var __exportStar2 = exports && exports.__exportStar || function(m3, exports2) {
+      for (var p2 in m3) if (p2 !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p2)) __createBinding2(exports2, m3, p2);
     };
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.lexicons = exports.default = exports.BskyAgent = exports.CredentialSession = exports.AtpAgent = exports.Agent = exports.LABELS = exports.DEFAULT_LABEL_SETTINGS = exports.asPredicate = exports.schemas = exports.parseLanguage = exports.stringifyLex = exports.lexToJson = exports.jsonToLex = exports.jsonStringToLex = exports.BlobRef = exports.AtUri = void 0;
@@ -65379,6 +65379,4230 @@ var require_dist9 = __commonJS({
 // src/index.ts
 var core = __toESM(require_core(), 1);
 var github = __toESM(require_github(), 1);
+
+// ../../node_modules/.pnpm/@directive-run+core@1.23.0/node_modules/@directive-run/core/dist/chunk-IZNOPHPL.js
+var S = typeof process < "u" && process.env?.NODE_ENV !== "production";
+function l(e, o2 = /* @__PURE__ */ new WeakSet()) {
+  if (e === null || typeof e != "object") return e;
+  let t = e;
+  if (o2.has(t) || Object.isFrozen(t)) return e;
+  if (o2.add(t), Array.isArray(t)) for (let s of t) l(s, o2);
+  else for (let s of Object.keys(t)) l(t[s], o2);
+  return Object.freeze(t), e;
+}
+function A(e) {
+  return l(e);
+}
+function T(e, o2, t) {
+  return (...s) => {
+    try {
+      return t(...s);
+    } catch (u2) {
+      throw u2 instanceof Error && u2.message.startsWith("[Directive] ") ? new Error(`[Directive] ${e} '${o2}': ${u2.message.slice(12)}`, { cause: u2 }) : u2;
+    }
+  };
+}
+var w = /* @__PURE__ */ Symbol.for("@directive-run/core.timeout-marker");
+async function E(e, o2, t) {
+  let s, u2 = new Promise((g3, d2) => {
+    s = setTimeout(() => {
+      let c2 = new Error(t);
+      Object.defineProperty(c2, w, { value: true, enumerable: false, configurable: false, writable: false }), d2(c2);
+    }, o2);
+  });
+  try {
+    return await Promise.race([e, u2]);
+  } finally {
+    clearTimeout(s);
+  }
+}
+function m(e, o2 = 50) {
+  let t = /* @__PURE__ */ new WeakSet();
+  function s(r2) {
+    if (r2 === null) return "null";
+    if (r2 === void 0) return "undefined";
+    let n = typeof r2;
+    if (n === "string") return JSON.stringify(r2);
+    if (n === "number" || n === "boolean") return String(r2);
+    if (n === "function") return '"[function]"';
+    if (n === "symbol") return '"[symbol]"';
+  }
+  function u2(r2, n) {
+    if (t.has(r2)) return '"[circular]"';
+    t.add(r2);
+    let i = n();
+    return t.delete(r2), i;
+  }
+  function g3(r2, n) {
+    return u2(r2, () => `[${r2.map((i) => c2(i, n + 1)).join(",")}]`);
+  }
+  function d2(r2, n) {
+    return u2(r2, () => `{${Object.keys(r2).sort().map((f3) => `${JSON.stringify(f3)}:${c2(r2[f3], n + 1)}`).join(",")}}`);
+  }
+  function c2(r2, n) {
+    if (n > o2) return '"[max depth exceeded]"';
+    if (typeof r2 == "bigint") return `${r2.toString()}n`;
+    let i = s(r2);
+    if (i !== void 0) return i;
+    if (r2 instanceof Date) return `D:${r2.toISOString()}`;
+    if (r2 instanceof RegExp) return `R:${r2.source}:${r2.flags}`;
+    if (r2 instanceof Map) {
+      let a2 = [...r2.entries()].sort();
+      return `M:${c2(a2, n + 1)}`;
+    }
+    if (r2 instanceof Set) {
+      let a2 = [...r2].sort();
+      return `S:${c2(a2, n + 1)}`;
+    }
+    return Array.isArray(r2) ? g3(r2, n) : typeof r2 == "object" ? d2(r2, n) : '"[unknown]"';
+  }
+  return c2(e, 0);
+}
+function D(e, o2 = 50) {
+  let t = /* @__PURE__ */ new Set(["__proto__", "constructor", "prototype"]), s = /* @__PURE__ */ new WeakSet();
+  function u2(r2, n) {
+    if (s.has(r2)) return true;
+    s.add(r2);
+    let i = n();
+    return s.delete(r2), i;
+  }
+  function g3(r2, n) {
+    for (let i of r2) if (!c2(i, n + 1)) return false;
+    return true;
+  }
+  function d2(r2, n) {
+    for (let i of Object.keys(r2)) if (t.has(i) || !c2(r2[i], n + 1)) return false;
+    return true;
+  }
+  function c2(r2, n) {
+    if (n > o2) return false;
+    if (r2 == null || typeof r2 != "object") return true;
+    let i = r2;
+    return Array.isArray(i) ? u2(i, () => g3(i, n)) : u2(i, () => d2(i, n));
+  }
+  return c2(e, 0);
+}
+function R(e) {
+  let o2 = m(e), t = 5381;
+  for (let s = 0; s < o2.length; s++) t = (t << 5) + t ^ o2.charCodeAt(s);
+  return (t >>> 0).toString(16);
+}
+
+// ../../node_modules/.pnpm/@directive-run+core@1.23.0/node_modules/@directive-run/core/dist/chunk-LN5H74CU.js
+var g = /* @__PURE__ */ new Set(["$eq", "$ne", "$in", "$nin", "$exists", "$gt", "$gte", "$lt", "$lte", "$between", "$matches", "$startsWith", "$endsWith", "$contains", "$changed"]);
+var O = 64;
+function u(e) {
+  return typeof e != "object" || e === null || Array.isArray(e) ? false : !(e instanceof Date) && !(e instanceof RegExp);
+}
+function x(e) {
+  if (typeof e != "object" || e === null || Array.isArray(e)) return false;
+  let n = Object.getPrototypeOf(e);
+  return n === Object.prototype || n === null;
+}
+function E2(e) {
+  if (!u(e)) return false;
+  let n = 0, r2 = false;
+  for (let i of Object.keys(e)) {
+    if (i.startsWith("$")) r2 = true, g.has(i) || f(`predicate: unknown operator "${i}" \u2014 looks like a typo. Known operators: ${[...g].join(", ")}`);
+    else if (r2 || n === 0) return false;
+    n++;
+  }
+  return r2 ? n > 0 : false;
+}
+function re(e) {
+  return e === null ? false : Array.isArray(e) ? e.every((n) => x(n) && "fact" in n && "op" in n) : x(e);
+}
+function h(e, n, r2 = "", i = /* @__PURE__ */ new WeakSet(), t = 0) {
+  if (t > O) {
+    S && console.warn(`[Directive] predicate depth limit (${O}) exceeded \u2014 flatten the predicate or split it into multiple constraints. If this is unexpected, check for a cyclic spec object.`), n.bail?.("depth");
+    return;
+  }
+  if (Array.isArray(e)) {
+    e.forEach((s, o2) => {
+      if (!u(s)) return;
+      let c2 = s;
+      if (typeof c2.fact == "string" && typeof c2.op == "string") {
+        let l2 = r2 ? `${r2}[${o2}]` : `[${o2}]`;
+        n.operator?.(r2 ? `${r2}.${c2.fact}` : c2.fact, c2.op, c2.value, `${l2}.value`);
+      }
+    });
+    return;
+  }
+  if (!u(e)) return;
+  if (i.has(e)) {
+    S && console.warn("[Directive] walkPredicate: cyclic predicate spec"), n.bail?.("cycle");
+    return;
+  }
+  i.add(e);
+  let a$1 = e;
+  for (let s of ["$all", "$any", "$not"]) if (s in a$1) {
+    if (n.combinator?.(s) === false) return;
+    let c2 = s === "$not" ? [a$1.$not] : a$1[s] ?? [];
+    for (let l2 of c2) h(l2, n, r2, i, t + 1);
+    return;
+  }
+  for (let s of Object.keys(a$1)) {
+    let o2 = r2 ? `${r2}.${s}` : s;
+    if (s.startsWith("$")) {
+      n.strayOperatorKey?.(s, o2);
+      continue;
+    }
+    let c2 = a$1[s];
+    if (E2(c2)) {
+      let l2 = c2;
+      for (let p2 of Object.keys(l2)) n.operator?.(o2, p2, l2[p2], `${o2}.${p2}`);
+      continue;
+    }
+    if (x(c2)) {
+      if (n.nested?.(s) === false) continue;
+      h(c2, n, o2, i, t + 1);
+      continue;
+    }
+    n.literal?.(o2, c2);
+  }
+}
+function ie(e) {
+  if (!x(e)) return false;
+  let n = false;
+  return h(e, { operator() {
+    n = true;
+  }, literal() {
+    n = true;
+  }, combinator() {
+    n = true;
+  }, strayOperatorKey() {
+    n = true;
+  }, bail() {
+    n = true;
+  } }), !n;
+}
+function I(e) {
+  return u(e) && Object.hasOwn(e, "$template") && typeof e.$template == "string";
+}
+function _() {
+  return { ids: /* @__PURE__ */ new WeakMap(), next: { v: 1 }, pairs: /* @__PURE__ */ new Set() };
+}
+function v(e, n) {
+  let r2 = e.ids.get(n);
+  return r2 === void 0 && (r2 = e.next.v++, e.ids.set(n, r2)), r2;
+}
+function d(e, n, r2) {
+  if (Object.is(e, n)) return true;
+  if (e instanceof Date && n instanceof Date) return e.getTime() === n.getTime();
+  if (typeof e != "object" || typeof n != "object" || e === null || n === null) return false;
+  let i = r2 ?? _(), t = `${v(i, e)}:${v(i, n)}`;
+  if (i.pairs.has(t)) return true;
+  if (i.pairs.add(t), Array.isArray(e) || Array.isArray(n)) return !Array.isArray(e) || !Array.isArray(n) || e.length !== n.length ? false : e.every((o2, c2) => d(o2, n[c2], i));
+  if (e instanceof Set || n instanceof Set) {
+    if (!(e instanceof Set) || !(n instanceof Set) || e.size !== n.size) return false;
+    let o2 = [...n];
+    return [...e].every((c2) => o2.some((l2) => d(c2, l2, i)));
+  }
+  if (e instanceof Map || n instanceof Map) {
+    if (!(e instanceof Map) || !(n instanceof Map) || e.size !== n.size) return false;
+    let o2 = [...n.entries()], c2 = new Array(o2.length).fill(false);
+    for (let [l2, p2] of e) {
+      let m3 = false;
+      for (let y2 = 0; y2 < o2.length; y2++) {
+        if (c2[y2]) continue;
+        let [$2, N] = o2[y2];
+        if (d(l2, $2, i) && d(p2, N, i)) {
+          c2[y2] = true, m3 = true;
+          break;
+        }
+      }
+      if (!m3) return false;
+    }
+    return true;
+  }
+  let a2 = Object.keys(e), s = Object.keys(n);
+  return a2.length !== s.length ? false : a2.every((o2) => Object.hasOwn(n, o2) && d(e[o2], n[o2], i));
+}
+function j(e) {
+  if (e instanceof Date) return e.getTime();
+  if (typeof e == "number" || typeof e == "bigint" || typeof e == "string") return e;
+}
+function A2(e, n, r2) {
+  let i = j(n), t = j(r2);
+  if (i === void 0 || t === void 0 || typeof i != typeof t) return false;
+  switch (e) {
+    case "$gt":
+      return i > t;
+    case "$gte":
+      return i >= t;
+    case "$lt":
+      return i < t;
+    case "$lte":
+      return i <= t;
+    default:
+      return false;
+  }
+}
+function R2(e, n, r2, i) {
+  switch (e) {
+    case "$eq":
+      return d(n, r2);
+    case "$ne":
+      return !d(n, r2);
+    case "$in":
+      return Array.isArray(r2) && r2.some((t) => d(n, t));
+    case "$nin":
+      return Array.isArray(r2) && !r2.some((t) => d(n, t));
+    case "$exists":
+      return r2 === (n !== void 0);
+    case "$changed":
+      return !d(n, i);
+    case "$gt":
+    case "$gte":
+    case "$lt":
+    case "$lte":
+      return A2(e, n, r2);
+    case "$between": {
+      if (!Array.isArray(r2) || r2.length !== 2) return false;
+      let t = j(r2[0]), a2 = j(r2[1]);
+      return t !== void 0 && a2 !== void 0 && typeof t == typeof a2 && t > a2 ? (f("$between: reversed pair \u2014 [min, max] required"), false) : A2("$gte", n, r2[0]) && A2("$lte", n, r2[1]);
+    }
+    case "$matches": {
+      if (!(r2 instanceof RegExp)) throw new Error("[Directive] $matches: operand must be a RegExp (string operands are no longer accepted; pass /pattern/flags directly).");
+      return typeof n != "string" ? false : r2.test(n);
+    }
+    case "$startsWith":
+      return typeof n != "string" ? false : n.startsWith(String(r2));
+    case "$endsWith":
+      return typeof n != "string" ? false : n.endsWith(String(r2));
+    case "$contains":
+      return typeof n == "string" ? n.includes(String(r2)) : Array.isArray(n) ? n.some((t) => d(t, r2)) : n instanceof Set ? n.has(r2) : false;
+    default:
+      return false;
+  }
+}
+function f(e) {
+  S && console.warn(`[Directive] ${e}`);
+}
+function q(e, n, r2, i) {
+  if (E2(e)) {
+    let t = Object.keys(e);
+    t.length > 1 && f(`predicate: operator object has ${t.length} operators (${t.join(", ")}) \u2014 write the array form or $all instead. The runtime ANDs them as a best-effort fallback.`);
+    for (let a2 of t) if (!R2(a2, n, e[a2], r2)) return false;
+    return true;
+  }
+  return u(e) ? S2(e, u(n) ? n : /* @__PURE__ */ Object.create(null), u(r2) ? r2 : void 0, i + 1) : d(n, e);
+}
+function S2(e, n, r2, i = 0) {
+  if (i > O) return f(`predicate depth limit (${O}) exceeded \u2014 flatten the predicate or split it into multiple constraints. If this is unexpected, check for a cyclic spec object.`), false;
+  if (Array.isArray(e)) return e.every((t) => {
+    if (!u(t)) return false;
+    let { fact: a2, op: s, value: o2 } = t;
+    return R2(s, n?.[a2], o2, r2?.[a2]);
+  });
+  if (!u(e)) return !!e;
+  if ("$all" in e) return e.$all.every((t) => S2(t, n, r2, i + 1));
+  if ("$any" in e) return e.$any.some((t) => S2(t, n, r2, i + 1));
+  if ("$not" in e) return !S2(e.$not, n, r2, i + 1);
+  for (let t of Object.keys(e)) {
+    if (g.has(t)) return f(`predicate: operator "${t}" mixed with fact keys \u2014 wrap operators in a per-fact object`), false;
+    if (!q(e[t], n?.[t], r2?.[t], i)) return false;
+  }
+  return true;
+}
+function V(e, n, r2, i = "") {
+  let t = [];
+  if (Array.isArray(e)) {
+    for (let a2 of e) {
+      if (!u(a2)) continue;
+      let { fact: s, op: o2, value: c2 } = a2, l2 = n?.[s];
+      t.push({ path: i + s, op: o2, expected: c2, actual: l2, pass: R2(o2, l2, c2, r2?.[s]) });
+    }
+    return t;
+  }
+  if (!u(e)) return t;
+  for (let a2 of ["$all", "$any", "$not"]) if (a2 in e) {
+    let s = a2 === "$not" ? [e.$not] : e[a2], o2 = [];
+    for (let p2 of s) o2.push(...V(p2, n, r2, i));
+    let c2 = o2.filter((p2) => p2.pass).length, l2;
+    return a2 === "$all" ? l2 = o2.length === 0 || c2 === o2.length : a2 === "$any" ? l2 = o2.length > 0 && c2 > 0 : l2 = !o2.every((p2) => p2.pass), t.push({ path: i || a2, op: a2, expected: s.length, actual: c2, pass: l2, children: o2 }), t;
+  }
+  for (let a2 of Object.keys(e)) {
+    if (g.has(a2)) continue;
+    let s = e[a2], o2 = n?.[a2], c2 = i + a2;
+    if (E2(s)) for (let l2 of Object.keys(s)) t.push({ path: c2, op: l2, expected: s[l2], actual: o2, pass: R2(l2, o2, s[l2], r2?.[a2]) });
+    else u(s) ? t.push(...V(s, u(o2) ? o2 : /* @__PURE__ */ Object.create(null), u(r2?.[a2]) ? r2?.[a2] : void 0, `${c2}.`)) : t.push({ path: c2, op: "$eq", expected: s, actual: o2, pass: d(o2, s) });
+  }
+  return t;
+}
+var F = /* @__PURE__ */ new WeakMap();
+function ce(e) {
+  if (e === null || typeof e != "object") throw new Error(`[Directive] memoizePredicate: predicate must be a plain object or array; got ${typeof e}`);
+  let n = F.get(e);
+  if (n) return n;
+  let r2 = (i, t) => S2(e, i, t);
+  return F.set(e, r2), r2;
+}
+function le(e, n = "") {
+  let r2 = /* @__PURE__ */ new Set();
+  return h(e, { operator(i) {
+    r2.add(n + i);
+  }, literal(i) {
+    r2.add(n + i);
+  }, strayOperatorKey(i) {
+    g.has(i) || f(`extractDeps: unknown operator "${i}" \u2014 skipping. Known operators: ${[...g].join(", ")}`);
+  } }), r2;
+}
+var C = /^[A-Za-z_][A-Za-z0-9_]*$/;
+function J(e) {
+  return typeof e == "symbol" || e == null ? "" : String(e);
+}
+function B(e, n) {
+  return typeof e == "symbol" ? (f("template: cannot interpolate a symbol value \u2014 using empty string"), "") : e === void 0 ? (f(`template: ${n ? `key "${n}" is ` : ""}undefined \u2014 using empty string`), "") : e === null ? (f(`template: ${n ? `key "${n}" is ` : ""}null \u2014 using empty string`), "") : String(e);
+}
+function L(e, n) {
+  let r2 = e.$template, i = "", t = 0;
+  for (; t < r2.length; ) {
+    if (r2[t] === "$" && r2[t + 1] === "$" && r2[t + 2] === "{") {
+      i += "${", t += 3;
+      continue;
+    }
+    if (r2[t] === "$" && r2[t + 1] === "{") {
+      let a2 = r2.indexOf("}", t + 2);
+      if (a2 === -1) {
+        f(`template: unterminated "\${" in ${JSON.stringify(r2)}`), i += r2.slice(t);
+        break;
+      }
+      let s = r2.slice(t + 2, a2);
+      if (!C.test(s)) f(`template: invalid placeholder "\${${s}}" \u2014 not an identifier`);
+      else {
+        let o2 = n != null && Object.hasOwn(n, s), c2 = o2 ? n[s] : void 0;
+        o2 ? i += B(c2, s) : (f(`template: unknown key "${s}"`), i += J(c2));
+      }
+      t = a2 + 1;
+      continue;
+    }
+    i += r2[t], t++;
+  }
+  return i;
+}
+function de(e, n) {
+  return e.map((r2) => m(n?.[r2])).join("|");
+}
+function fe(e, n, r2) {
+  let i = e.$set, t = r2 ?? {};
+  for (let a2 of Object.keys(i)) {
+    let s = i[a2];
+    if (I(s)) n[a2] = L(s, t);
+    else if (u(s) && Object.hasOwn(s, "$ref") && typeof s.$ref == "string") {
+      let o2 = s.$ref;
+      Object.hasOwn(t, o2) || f(`applyPatch: $ref "${o2}" is missing from event payload \u2014 assigning undefined to fact "${a2}"`), n[a2] = t[o2];
+    } else n[a2] = s;
+  }
+}
+
+// ../../node_modules/.pnpm/@directive-run+core@1.23.0/node_modules/@directive-run/core/dist/chunk-WD47DB52.js
+var r = [];
+function g2(e) {
+  let t = /* @__PURE__ */ new Set();
+  r.push(t);
+  try {
+    return { value: e(), deps: t };
+  } finally {
+    r.pop();
+  }
+}
+function x2(e) {
+  let t = r.splice(0, r.length);
+  try {
+    return e();
+  } finally {
+    for (let n of t) r.push(n);
+  }
+}
+function q2(e) {
+  let t = r.length;
+  t !== 0 && r[t - 1].add(e);
+}
+var h2 = Object.freeze(/* @__PURE__ */ new Set(["__proto__", "constructor", "prototype"]));
+function y(e) {
+  if (e === null || typeof e != "object") return null;
+  if (e instanceof Date) return "Date";
+  if (e instanceof Set) return "Set";
+  if (e instanceof Map) return "Map";
+  if (typeof File < "u" && e instanceof File) return "File";
+  if (Array.isArray(e)) return null;
+  let t = Object.getPrototypeOf(e);
+  return t !== null && t !== Object.prototype ? "ClassInstance" : null;
+}
+var a = 1e3;
+var o = /* @__PURE__ */ new Set();
+var c = { Date: ".getTime() for timestamps", Set: "[...set] for arrays", Map: "Object.fromEntries(map) for plain objects", File: "{ name, size, type, lastModified } for metadata", ClassInstance: "a plain-object snapshot" };
+function C2(e, t) {
+  let n = `${e}|${t}`;
+  if (o.has(n)) return;
+  if (o.size >= a) {
+    let i = o.values().next().value;
+    i !== void 0 && o.delete(i);
+  }
+  o.add(n);
+  let s = c[t] ?? "a JSON-roundtrippable value";
+  console.warn(`[Directive] Fact "${e}" assigned a ${t} instance.
+Facts must be JSON-roundtrippable for reactivity to work correctly.
+${t} mutations are not tracked.
+Use ${s} instead.
+See: https://directive.run/docs/facts#json-rule`);
+}
+
+// ../../node_modules/.pnpm/@directive-run+core@1.23.0/node_modules/@directive-run/core/dist/chunk-WVP3GOY2.js
+var Oe = class extends Error {
+  constructor(x3, y2, P, p2, w2 = true) {
+    super(x3);
+    this.source = y2;
+    this.sourceId = P;
+    this.context = p2;
+    this.recoverable = w2;
+    this.name = "DirectiveError";
+  }
+};
+function me(f3) {
+  if (!f3) return;
+  let s = Object.assign(/* @__PURE__ */ Object.create(null), f3);
+  return Array.isArray(s.tags) && Object.freeze(s.tags), Object.freeze(s);
+}
+function tn(f3) {
+  return typeof f3 == "object" && f3 !== null && Object.hasOwn(f3, "compute") && typeof f3.compute == "function";
+}
+function jt(f3) {
+  return typeof f3 == "boolean" ? { enabled: f3, maxSnapshots: 100 } : { enabled: true, maxSnapshots: f3.maxSnapshots ?? 100, redactSnapshot: f3.redactSnapshot };
+}
+function ot(f3) {
+  let { historyOption: s, facts: x3, store: y2, onSnapshot: P, onHistoryChange: p2 } = f3, { enabled: w2, maxSnapshots: O2, redactSnapshot: z } = jt(s), I2 = [], A4 = -1, G = 1, q3 = false, h3 = false, S4 = [], k = null, N = -1;
+  function T2() {
+    return y2.toObject();
+  }
+  function E4() {
+    let _2 = T2();
+    if (z) try {
+      _2 = z(_2);
+    } catch (H2) {
+      console.warn("[Directive] history.redactSnapshot threw, snapshot stored raw", { error: H2 });
+    }
+    try {
+      return structuredClone(_2);
+    } catch {
+      try {
+        return JSON.parse(JSON.stringify(_2));
+      } catch {
+        return { ..._2 };
+      }
+    }
+  }
+  function X2(_2) {
+    if (!D(_2)) {
+      console.error("[Directive] Potential prototype pollution detected in snapshot data, skipping restore");
+      return;
+    }
+    y2.batch(() => {
+      for (let [H2, U] of Object.entries(_2)) {
+        if (H2 === "__proto__" || H2 === "constructor" || H2 === "prototype") {
+          console.warn(`[Directive] Skipping dangerous key "${H2}" during fact restoration`);
+          continue;
+        }
+        x3[H2] = U;
+      }
+    });
+  }
+  return { get isEnabled() {
+    return w2;
+  }, get isRestoring() {
+    return h3;
+  }, get isPaused() {
+    return q3;
+  }, get snapshots() {
+    return [...I2];
+  }, get currentIndex() {
+    return A4;
+  }, takeSnapshot(_2) {
+    if (!w2 || q3) return { id: -1, timestamp: Date.now(), facts: {}, trigger: _2 };
+    let H2 = { id: G++, timestamp: Date.now(), facts: E4(), trigger: _2 };
+    for (A4 < I2.length - 1 && I2.splice(A4 + 1), I2.push(H2), A4 = I2.length - 1; I2.length > O2; ) I2.shift(), A4--;
+    return P?.(H2), H2;
+  }, restore(_2) {
+    if (w2) {
+      q3 = true, h3 = true;
+      try {
+        X2(_2.facts);
+      } finally {
+        q3 = false, h3 = false;
+      }
+    }
+  }, goBack(_2 = 1) {
+    if (!w2 || I2.length === 0) return;
+    let H2 = A4, U = A4, a2 = S4.find((d2) => A4 > d2.startIndex && A4 <= d2.endIndex);
+    if (a2) U = a2.startIndex;
+    else if (S4.find((M) => A4 === M.startIndex)) {
+      let M = S4.find((L2) => L2.endIndex < A4 && A4 - L2.endIndex <= _2);
+      U = M ? M.startIndex : Math.max(0, A4 - _2);
+    } else U = Math.max(0, A4 - _2);
+    if (H2 === U) return;
+    A4 = U;
+    let u2 = I2[A4];
+    u2 && (this.restore(u2), p2?.(H2, U));
+  }, goForward(_2 = 1) {
+    if (!w2 || I2.length === 0) return;
+    let H2 = A4, U = A4, a2 = S4.find((d2) => A4 >= d2.startIndex && A4 < d2.endIndex);
+    if (a2 ? U = a2.endIndex : U = Math.min(I2.length - 1, A4 + _2), H2 === U) return;
+    A4 = U;
+    let u2 = I2[A4];
+    u2 && (this.restore(u2), p2?.(H2, U));
+  }, goTo(_2) {
+    if (!w2) return;
+    let H2 = I2.findIndex((u2) => u2.id === _2);
+    if (H2 === -1) {
+      console.warn(`[Directive] Snapshot ${_2} not found`);
+      return;
+    }
+    let U = A4;
+    A4 = H2;
+    let a2 = I2[A4];
+    a2 && (this.restore(a2), p2?.(U, H2));
+  }, replay() {
+    if (!w2 || I2.length === 0) return;
+    A4 = 0;
+    let _2 = I2[0];
+    _2 && this.restore(_2);
+  }, export() {
+    return JSON.stringify({ version: 1, snapshots: I2, currentIndex: A4 });
+  }, import(_2) {
+    if (w2) try {
+      let H2 = JSON.parse(_2);
+      if (typeof H2 != "object" || H2 === null) throw new Error("[Directive] Invalid history data: expected object");
+      if (H2.version !== 1) throw new Error(`[Directive] Unsupported history export version: ${H2.version}`);
+      if (!Array.isArray(H2.snapshots)) throw new Error("[Directive] Invalid history data: snapshots must be an array");
+      if (typeof H2.currentIndex != "number") throw new Error("Invalid history data: currentIndex must be a number");
+      for (let a2 of H2.snapshots) {
+        if (typeof a2 != "object" || a2 === null) throw new Error("[Directive] Invalid snapshot: expected object");
+        if (typeof a2.id != "number" || typeof a2.timestamp != "number" || typeof a2.trigger != "string" || typeof a2.facts != "object") throw new Error("Invalid snapshot structure");
+        if (!D(a2.facts)) throw new Error("[Directive] Invalid fact data: potential prototype pollution detected in nested objects");
+      }
+      I2.length = 0, I2.push(...H2.snapshots), A4 = H2.currentIndex;
+      let U = I2[A4];
+      U && this.restore(U);
+    } catch (H2) {
+      console.error("[Directive] Failed to import history data:", H2);
+    }
+  }, beginChangeset(_2) {
+    w2 && (k = _2, N = A4);
+  }, endChangeset() {
+    !w2 || k === null || (A4 > N && S4.push({ label: k, startIndex: N, endIndex: A4 }), k = null, N = -1);
+  }, pause() {
+    q3 = true;
+  }, resume() {
+    q3 = false;
+  } };
+}
+function it() {
+  let f3 = { id: -1, timestamp: 0, facts: {}, trigger: "" };
+  return { isEnabled: false, isRestoring: false, isPaused: false, snapshots: [], currentIndex: -1, takeSnapshot: () => f3, restore: () => {
+  }, goBack: () => {
+  }, goForward: () => {
+  }, goTo: () => {
+  }, replay: () => {
+  }, export: () => "{}", import: () => {
+  }, beginChangeset: () => {
+  }, endChangeset: () => {
+  }, pause: () => {
+  }, resume: () => {
+  } };
+}
+var st = /* @__PURE__ */ new WeakMap();
+function $t(f$1, s) {
+  if (s) return s(f$1);
+  let x3 = st.get(f$1);
+  if (x3 !== void 0) return x3;
+  let { type: y2, ...P } = f$1, p2 = m(P), w2 = `${y2}:${p2}`;
+  return st.set(f$1, w2), w2;
+}
+function ze(f3, s, x3) {
+  return { requirement: f3, id: $t(f3, x3), fromConstraint: s };
+}
+var Ee = class f2 {
+  map = /* @__PURE__ */ new Map();
+  add(s) {
+    this.map.has(s.id) || this.map.set(s.id, s);
+  }
+  remove(s) {
+    return this.map.delete(s);
+  }
+  has(s) {
+    return this.map.has(s);
+  }
+  get(s) {
+    return this.map.get(s);
+  }
+  all() {
+    return [...this.map.values()];
+  }
+  ids() {
+    return [...this.map.keys()];
+  }
+  get size() {
+    return this.map.size;
+  }
+  clear() {
+    this.map.clear();
+  }
+  clone() {
+    let s = new f2();
+    for (let x3 of this.map.values()) s.add(x3);
+    return s;
+  }
+  diff(s) {
+    let x3 = [], y2 = [];
+    for (let P of this.map.values()) s.has(P.id) || x3.push(P);
+    for (let P of s.map.values()) this.map.has(P.id) || y2.push(P);
+    return { added: x3, removed: y2 };
+  }
+};
+var Ft = 5e3;
+function at(f3) {
+  let { definitions: s, facts: x3, requirementKeys: y2 = {}, defaultTimeout: P = Ft, onEvaluate: p$1, onError: w2 } = f3, O2 = /* @__PURE__ */ new Map();
+  function z(t, r2) {
+    if (!r2 || typeof r2.when == "function") return;
+    let i = r2.when;
+    if (S && (r2.async && console.warn(`[Directive] constraint "${t}": data \`when\` is always sync; \`async: true\` will be ignored`), r2.deps && console.warn(`[Directive] constraint "${t}": data \`when\` cannot be combined with explicit \`deps\` \u2014 deps are tracked automatically`)), r2.deps && (r2.deps = void 0), I2(i)) throw new Error(`[Directive] constraint "${t}": $changed is effects-only \u2014 constraint when has no prev snapshot. Move the change-detection to an effect, or use a boolean derivation as a synthetic prev.`);
+    if (i === null || typeof i != "object") throw new Error(`[Directive] memoizePredicate: predicate must be a plain object or array; got ${typeof i}`);
+    S && ie(i) && console.warn(`[Directive] constraint '${t}': data spec has no operators, combinators, or clauses \u2014 looks like a config object passed by mistake. Either pass a predicate like { phase: 'red' } or a function.`), A(i);
+    let R3 = ce(i);
+    r2.when = T("constraint", t, ($2) => R3($2)), O2.set(t, i), r2.async && (r2.async = false);
+  }
+  function I2(t) {
+    let r2 = false;
+    return h(t, { operator(i, R3) {
+      R3 === "$changed" && (r2 = true);
+    }, strayOperatorKey(i) {
+      i === "$changed" && (r2 = true);
+    } }), r2;
+  }
+  for (let t of Object.keys(s)) z(t, s[t]);
+  let A4 = /* @__PURE__ */ new Map(), G = /* @__PURE__ */ new Set(), q$1 = /* @__PURE__ */ new Set(), h$1 = /* @__PURE__ */ new Map(), S4 = /* @__PURE__ */ new Map(), k = /* @__PURE__ */ new Set(), N = /* @__PURE__ */ new Map(), T2 = /* @__PURE__ */ new Map(), E4 = false, X2 = /* @__PURE__ */ new Set(), ee2 = /* @__PURE__ */ new Set(), _2 = /* @__PURE__ */ new Map(), H2 = [], U = /* @__PURE__ */ new Map();
+  function a$1(t, r2) {
+    s[t] && (_2.has(t) || _2.set(t, /* @__PURE__ */ new Set()), _2.get(t).add(r2));
+  }
+  function u2() {
+    _2.clear();
+    for (let [t, r2] of Object.entries(s)) if (r2.after) for (let i of r2.after) a$1(i, t);
+  }
+  function d2(t, r2, i, R3, $2) {
+    if (i.has(t)) return;
+    if (R3.has(t)) {
+      let Z2 = r2.indexOf(t), Q2 = [...r2.slice(Z2), t].join(" \u2192 ");
+      throw new Error(`[Directive] Constraint cycle detected: ${Q2}. Remove one of the \`after\` dependencies to break the cycle.`);
+    }
+    R3.add(t), r2.push(t);
+    let K2 = s[t];
+    if (K2?.after) for (let Z2 of K2.after) s[Z2] && d2(Z2, r2, i, R3, $2);
+    r2.pop(), R3.delete(t), i.add(t), $2.push(t);
+  }
+  function M() {
+    let t = /* @__PURE__ */ new Set(), r2 = /* @__PURE__ */ new Set(), i = [];
+    for (let R3 of Object.keys(s)) d2(R3, [], t, r2, i);
+    H2 = i, U = new Map(H2.map((R3, $2) => [R3, $2]));
+  }
+  M(), u2();
+  function L2() {
+    for (let [t, r2] of Object.entries(s)) if (r2.after) for (let i of r2.after) s[i] || console.warn(`[Directive] Constraint "${t}" references unknown constraint "${i}" in \`after\`. This dependency will be ignored. Check for typos or ensure the constraint exists.`);
+  }
+  S && L2();
+  function J3(t, r2) {
+    return r2.async !== void 0 ? r2.async : !!q$1.has(t);
+  }
+  function ce3(t) {
+    let r2 = s[t];
+    if (!r2) throw new Error(`[Directive] Unknown constraint: ${t}`);
+    let i = J3(t, r2);
+    i && q$1.add(t);
+    let R3 = { id: t, priority: r2.priority ?? 0, isAsync: i, lastResult: null, isEvaluating: false, error: null, lastResolvedAt: null, after: r2.after ?? [], hitCount: 0, lastActiveAt: null };
+    return A4.set(t, R3), R3;
+  }
+  function ne2(t) {
+    return A4.get(t) ?? ce3(t);
+  }
+  function ge(t, r2) {
+    if (t.size !== r2.size || t.size === 0) return false;
+    for (let i of r2) if (!t.has(i)) return false;
+    return true;
+  }
+  function b$1(t, r2) {
+    for (let i of r2) {
+      let R3 = S4.get(i);
+      R3 && (R3.delete(t), R3.size === 0 && S4.delete(i));
+    }
+  }
+  function c$1(t, r2) {
+    for (let i of r2) S4.has(i) || S4.set(i, /* @__PURE__ */ new Set()), S4.get(i).add(t);
+  }
+  function C4(t) {
+    let r2 = h$1.get(t);
+    r2 && (b$1(t, r2), h$1.delete(t));
+  }
+  function j3(t) {
+    _2.delete(t);
+    for (let r2 of _2.values()) r2.delete(t);
+  }
+  function Y(t, r2) {
+    let i = h$1.get(t) ?? /* @__PURE__ */ new Set();
+    ge(i, r2) || (b$1(t, i), c$1(t, r2), h$1.set(t, r2));
+  }
+  function re3(t, r2) {
+    let i = r2.when;
+    if (r2.deps) return N.set(t, new Set(r2.deps)), i(x3);
+    let R3 = g2(() => i(x3));
+    return N.set(t, R3.deps), R3.value;
+  }
+  function le3(t, r2, i) {
+    r2.lastResult = i, i && (r2.hitCount++, r2.lastActiveAt = Date.now()), r2.isEvaluating = false, p$1?.(t, i);
+  }
+  function ve2(t, r2, i) {
+    r2.error = i instanceof Error ? i : new Error(String(i)), r2.lastResult = false, r2.isEvaluating = false, w2?.(t, i);
+  }
+  function he2(t, r2, i) {
+    return q$1.add(t), r2.isAsync = true, S && console.warn(`[Directive] Constraint "${t}" returned a Promise but was not marked as async. Add \`async: true\` to the constraint definition to avoid this warning and improve performance.`), i.then((R3) => (le3(t, r2, R3), R3)).catch((R3) => (ve2(t, r2, R3), false));
+  }
+  function Se2(t) {
+    let r2 = s[t];
+    if (!r2) return false;
+    let i = ne2(t);
+    i.isEvaluating = true, i.error = null;
+    try {
+      let R3 = re3(t, r2);
+      return R3 instanceof Promise ? he2(t, i, R3) : (le3(t, i, R3), R3);
+    } catch (R3) {
+      return ve2(t, i, R3), false;
+    }
+  }
+  async function se2(t) {
+    let r2 = s[t];
+    if (!r2) return false;
+    let i = ne2(t), R3 = r2.timeout ?? P;
+    if (i.isEvaluating = true, i.error = null, r2.deps?.length) {
+      let $2 = new Set(r2.deps);
+      Y(t, $2), N.set(t, $2);
+    }
+    try {
+      let $2 = r2.when(x3), K2 = await E($2, R3, `Constraint "${t}" timed out after ${R3}ms`);
+      return i.lastResult = K2, K2 && (i.hitCount++, i.lastActiveAt = Date.now()), i.isEvaluating = false, p$1?.(t, K2), K2;
+    } catch ($2) {
+      return i.error = $2 instanceof Error ? $2 : new Error(String($2)), i.lastResult = false, i.isEvaluating = false, w2?.(t, $2), false;
+    }
+  }
+  let be2 = 10;
+  function Ce(t, r2) {
+    if (t == null) return [];
+    if (Array.isArray(t)) {
+      let i = t.filter((R3) => R3 != null);
+      return S && i.length > be2 && r2 && console.warn(`[Directive] Constraint "${r2}" produced ${i.length} requirements. Consider splitting into multiple constraints for better performance.`), i;
+    }
+    return [t];
+  }
+  function Re2(t) {
+    let r2 = s[t];
+    if (!r2) return { requirements: [], deps: /* @__PURE__ */ new Set() };
+    let i = r2.require;
+    if (typeof i == "function") {
+      let { value: $2, deps: K2 } = g2(() => i(x3));
+      return { requirements: Ce($2, t), deps: K2 };
+    }
+    return { requirements: Ce(i, t), deps: /* @__PURE__ */ new Set() };
+  }
+  function De2(t, r2) {
+    if (r2.size === 0) return;
+    let i = h$1.get(t) ?? /* @__PURE__ */ new Set();
+    for (let R3 of r2) i.add(R3);
+    c$1(t, r2), h$1.set(t, i);
+  }
+  let pe2 = null;
+  function Ie() {
+    return pe2 || (pe2 = Object.keys(s).sort((t, r2) => {
+      let i = ne2(t), $2 = ne2(r2).priority - i.priority;
+      if ($2 !== 0) return $2;
+      let K2 = U.get(t) ?? 0, Z2 = U.get(r2) ?? 0;
+      return K2 - Z2;
+    })), pe2;
+  }
+  for (let t of Object.keys(s)) ce3(t);
+  function Me2(t) {
+    for (let [r2, i] of Object.entries(t)) i.async && !i.deps && console.warn(`[Directive] Async constraint "${r2}" has no \`deps\` declared. Auto-tracking cannot work across async boundaries. Add \`deps: ["key1", "key2"]\` to enable dependency tracking.`);
+  }
+  S && Me2(s);
+  function ke2(t) {
+    return !s[t] || G.has(t) || ee2.has(t) ? true : X2.has(t);
+  }
+  function W(t) {
+    let r2 = A4.get(t);
+    if (!r2 || r2.after.length === 0) return true;
+    for (let i of r2.after) if (!ke2(i)) return false;
+    return true;
+  }
+  function ae2(t) {
+    let r2 = N.get(t);
+    r2 !== void 0 && Y(t, r2), ee2.add(t), T2.set(t, []);
+  }
+  function ye(t, r2, i) {
+    if (r2 !== void 0) {
+      let R3 = new Set(r2);
+      for (let $2 of i) R3.add($2);
+      Y(t, R3);
+    } else De2(t, i);
+  }
+  function l2(t, r2, i) {
+    if (r2.length === 0) {
+      T2.set(t, []);
+      return;
+    }
+    let R3 = r2.map(($2) => ze($2, t, y2[$2.type]));
+    for (let $2 of R3) i.add($2);
+    T2.set(t, R3);
+  }
+  function v2(t, r2) {
+    for (let i of t) r2.add(i);
+  }
+  function D2(t, r2, i) {
+    if (G.has(t)) return;
+    if (!r2) {
+      ae2(t);
+      return;
+    }
+    ee2.delete(t);
+    let R3 = N.get(t), $2, K2;
+    try {
+      let Z2 = Re2(t);
+      $2 = Z2.requirements, K2 = Z2.deps;
+    } catch (Z2) {
+      w2?.(t, Z2), ae2(t);
+      return;
+    }
+    ye(t, R3, K2), l2(t, $2, i);
+  }
+  function F2(t, r2) {
+    let i = [], R3 = [];
+    for (let $2 of t) {
+      if (W($2)) {
+        R3.push($2);
+        continue;
+      }
+      i.push($2);
+      let K2 = T2.get($2);
+      K2 && v2(K2, r2);
+    }
+    return { blocked: i, ready: R3 };
+  }
+  function V2(t, r2) {
+    let i = [];
+    for (let R3 of t) {
+      let $2 = Se2(R3);
+      if ($2 instanceof Promise) {
+        i.push({ id: R3, promise: $2 });
+        continue;
+      }
+      D2(R3, $2, r2);
+    }
+    return i;
+  }
+  async function B3(t, r2) {
+    let i = await Promise.all(t.map(async ({ id: R3, promise: $2 }) => ({ id: R3, active: await $2 })));
+    for (let { id: R3, active: $2 } of i) D2(R3, $2, r2);
+  }
+  async function ie3(t, r2) {
+    let { blocked: i, ready: R3 } = F2(t, r2);
+    if (R3.length === 0) return i;
+    let $2 = [], K2 = [];
+    for (let Q2 of R3) ne2(Q2).isAsync ? K2.push(Q2) : $2.push(Q2);
+    let Z2 = V2($2, r2);
+    if (Z2.length > 0 && await B3(Z2, r2), K2.length > 0) {
+      let Q2 = K2.map((ue2) => ({ id: ue2, promise: se2(ue2) }));
+      await B3(Q2, r2);
+    }
+    return i;
+  }
+  function e$1(t, r2) {
+    for (let i of t) {
+      let R3 = S4.get(i);
+      if (R3) for (let $2 of R3) G.has($2) || r2.add($2);
+    }
+  }
+  function n(t) {
+    for (let r2 of k) G.has(r2) || t.add(r2);
+    k.clear();
+  }
+  function o2(t) {
+    let r2 = /* @__PURE__ */ new Set();
+    return e$1(t, r2), n(r2), r2;
+  }
+  function m3(t, r2, i) {
+    for (let R3 of t) {
+      if (r2.has(R3)) continue;
+      let $2 = T2.get(R3);
+      $2 && v2($2, i);
+    }
+  }
+  return { async evaluate(t) {
+    let r2 = new Ee();
+    ee2.clear();
+    let i = Ie(), R3 = G.size === 0 ? i : i.filter((Q2) => !G.has(Q2)), $2;
+    if (!E4 || !t || t.size === 0) $2 = R3, E4 = true;
+    else {
+      let Q2 = o2(t);
+      $2 = [...Q2], m3(R3, Q2, r2);
+    }
+    let K2 = $2, Z2 = $2.length + 1;
+    for (; K2.length > 0 && Z2 > 0; ) {
+      let Q2 = K2.length;
+      if (K2 = await ie3(K2, r2), K2.length === Q2) break;
+      Z2--;
+    }
+    return r2.all();
+  }, getState(t) {
+    return A4.get(t);
+  }, getDependencies(t) {
+    return h$1.get(t);
+  }, getAllStates() {
+    return [...A4.values()];
+  }, disable(t) {
+    if (!A4.has(t)) {
+      console.warn(`[Directive] constraints.disable("${t}") \u2014 no such constraint`);
+      return;
+    }
+    G.add(t), pe2 = null, T2.delete(t), C4(t), N.delete(t);
+  }, enable(t) {
+    if (!A4.has(t)) {
+      console.warn(`[Directive] constraints.enable("${t}") \u2014 no such constraint`);
+      return;
+    }
+    G.delete(t), pe2 = null, k.add(t);
+  }, isDisabled(t) {
+    return G.has(t);
+  }, invalidate(t) {
+    let r2 = S4.get(t);
+    if (r2) for (let i of r2) k.add(i);
+  }, markResolved(t) {
+    X2.add(t);
+    let r2 = A4.get(t);
+    r2 && (r2.lastResolvedAt = Date.now());
+    let i = _2.get(t);
+    if (i) for (let R3 of i) k.add(R3);
+  }, isResolved(t) {
+    return X2.has(t);
+  }, registerDefinitions(t) {
+    let r2 = false;
+    for (let [i, R3] of Object.entries(t)) s[i] = R3, z(i, s[i]), ce3(i), k.add(i), R3.after?.length && (r2 = true);
+    pe2 = null, r2 && M(), u2();
+  }, assignDefinition(t, r2) {
+    if (!s[t]) throw new Error(`[Directive] Cannot assign constraint "${t}" \u2014 it does not exist. Use register() to create it.`);
+    s[t] = r2, O2.delete(t), z(t, s[t]), ce3(t), k.add(t), pe2 = null, M(), u2();
+  }, unregisterDefinition(t) {
+    s[t] && (delete s[t], A4.delete(t), G.delete(t), q$1.delete(t), k.delete(t), ee2.delete(t), X2.delete(t), T2.delete(t), N.delete(t), C4(t), j3(t), pe2 = null, M(), u2());
+  }, async callOne(t, r2) {
+    if (!s[t]) throw new Error(`[Directive] Cannot call constraint "${t}" \u2014 it does not exist.`);
+    if (G.has(t)) return [];
+    let R3 = ne2(t), $2;
+    if (R3.isAsync) $2 = await se2(t);
+    else {
+      let Q2 = Se2(t);
+      $2 = Q2 instanceof Promise ? await Q2 : Q2;
+    }
+    if (!$2) return [];
+    let { requirements: K2 } = Re2(t);
+    if (K2.length === 0) return [];
+    let Z2 = [];
+    for (let Q2 of K2) {
+      let ue2 = r2 ? { ...Q2, ...r2 } : Q2;
+      Z2.push(ze(ue2, t, y2[ue2.type]));
+    }
+    return Z2;
+  }, setRequirementKey(t, r2) {
+    y2[t] = r2;
+  }, removeRequirementKey(t) {
+    delete y2[t];
+  }, getWhenSpec(t) {
+    return O2.get(t);
+  }, explainWhen(t) {
+    let r2 = O2.get(t);
+    if (r2) return V(r2, x3);
+  } };
+}
+function ct(f3) {
+  let { definitions: s$1, facts: x3, onCompute: y2, onInvalidate: P, onError: p2 } = f3, w2 = 3, O2 = /* @__PURE__ */ new Map();
+  function z(b$1, c$1) {
+    if (typeof c$1 != "object" || c$1 === null || !Object.hasOwn(c$1, "compute")) return;
+    let C4 = c$1, j3 = C4.compute, Y;
+    if (typeof j3 == "function") Y = j3;
+    else if (I(j3)) A(j3), Y = (re3) => L(j3, re3);
+    else if (typeof j3 == "object" && j3 !== null) {
+      A(j3);
+      let re3 = ce(j3);
+      Y = T("derivation", b$1, (le3) => re3(le3));
+    } else if (j3 !== void 0) throw new Error(`[Directive] memoizePredicate: predicate must be a plain object or array; got ${typeof j3}`);
+    if (Y) {
+      s$1[b$1] = Y;
+      let re3 = me(C4.meta);
+      re3 && O2.set(b$1, re3);
+    }
+  }
+  for (let [b2, c2] of Object.entries(s$1)) z(b2, c2);
+  let I2 = /* @__PURE__ */ new Map(), A4 = /* @__PURE__ */ new Map(), G = /* @__PURE__ */ new Map(), q$1 = /* @__PURE__ */ new Map(), h$1 = 0, S4 = /* @__PURE__ */ new Set(), k$2 = false, N = 100, T2;
+  function E4(b2, c2) {
+    let C4 = I2.has(b2) ? q$1 : G, j3 = C4.get(b2);
+    j3?.delete(c2), j3 && j3.size === 0 && C4.delete(b2);
+  }
+  function X2(b2, c2) {
+    let C4 = s$1[b2] ? q$1 : G, j3 = C4.get(b2);
+    j3 || (j3 = /* @__PURE__ */ new Set(), C4.set(b2, j3)), j3.add(c2);
+  }
+  function ee2(b2) {
+    let c2 = I2.get(b2);
+    if (c2) for (let C4 of c2.dependencies) E4(C4, b2);
+  }
+  function _2(b2) {
+    let c2 = q$1.get(b2);
+    if (c2) {
+      h$1++;
+      try {
+        for (let C4 of c2) ne2(C4);
+      } finally {
+        h$1--;
+      }
+      q$1.delete(b2);
+    }
+  }
+  function H2(b2) {
+    delete s$1[b2], I2.delete(b2), A4.delete(b2), S4.delete(b2), O2.delete(b2);
+  }
+  function U(b2) {
+    if (!s$1[b2]) throw new Error(`[Directive] Unknown derivation: ${b2}`);
+    let C4 = { id: b2, compute: () => u2(b2), cachedValue: void 0, dependencies: /* @__PURE__ */ new Set(), isStale: true, isComputing: false, stableRunCount: 0, depsStable: false };
+    return I2.set(b2, C4), C4;
+  }
+  function a2(b2) {
+    return I2.get(b2) ?? U(b2);
+  }
+  function u2(b2) {
+    let c2 = a2(b2), C4 = s$1[b2];
+    if (!C4) throw new Error(`[Directive] Unknown derivation: ${b2}`);
+    if (c2.isComputing) throw new Error(`[Directive] Circular dependency detected in derivation: ${b2}`);
+    c2.isComputing = true;
+    try {
+      let j3 = c2.cachedValue, Y, re3;
+      if (c2.depsStable && c2.dependencies.size > 0) Y = C4(x3, T2), re3 = c2.dependencies;
+      else {
+        let le3 = g2(() => C4(x3, T2));
+        Y = le3.value, re3 = le3.deps, c2.dependencies.size > 0 && d2(re3, c2.dependencies) ? (c2.stableRunCount++, c2.stableRunCount >= w2 && (c2.depsStable = true)) : c2.stableRunCount = 0;
+      }
+      return c2.cachedValue = Y, c2.isStale = false, M(b2, re3), y2 && y2(b2, Y, j3, [...re3]), Y;
+    } catch (j3) {
+      throw p2?.(b2, j3), j3;
+    } finally {
+      c2.isComputing = false;
+    }
+  }
+  function d2(b2, c2) {
+    if (b2.size !== c2.size) return false;
+    for (let C4 of c2) if (!b2.has(C4)) return false;
+    return true;
+  }
+  function M(b2, c2) {
+    let C4 = a2(b2), j3 = C4.dependencies;
+    if (!d2(j3, c2)) {
+      for (let Y of j3) E4(Y, b2);
+      for (let Y of c2) X2(Y, b2);
+      C4.dependencies = c2;
+    }
+  }
+  function L2(b2) {
+    for (let c2 of b2) {
+      let C4 = A4.get(c2);
+      if (C4) for (let j3 of C4) j3();
+    }
+  }
+  function J3() {
+    if (!(h$1 > 0 || k$2)) {
+      k$2 = true;
+      try {
+        let b2 = 0;
+        for (; S4.size > 0; ) {
+          if (++b2 > N) {
+            let C4 = [...S4];
+            throw S4.clear(), new Error(`[Directive] Infinite derivation notification loop detected after ${N} iterations. Remaining: ${C4.join(", ")}. This usually means a derivation listener is mutating facts that re-trigger the same derivation.`);
+          }
+          let c2 = [...S4];
+          S4.clear(), L2(c2);
+        }
+      } finally {
+        k$2 = false;
+      }
+    }
+  }
+  function ce3(b2, c2) {
+    let C4 = q$1.get(b2);
+    if (C4) for (let j3 of C4) c2.push(j3);
+  }
+  function ne2(b2, c2 = /* @__PURE__ */ new Set()) {
+    let C4 = [b2];
+    for (; C4.length > 0; ) {
+      let j3 = C4.pop();
+      if (c2.has(j3)) continue;
+      c2.add(j3);
+      let Y = I2.get(j3);
+      !Y || Y.isStale || (Y.isStale = true, Y.depsStable = false, Y.stableRunCount = 0, P?.(j3), S4.add(j3), ce3(j3, C4));
+    }
+  }
+  return T2 = new Proxy({}, { get(b2, c2) {
+    if (typeof c2 == "symbol" || h2.has(c2) || !s$1[c2]) return;
+    q2(c2);
+    let C4 = a2(c2);
+    return C4.isStale && u2(c2), C4.cachedValue;
+  }, set() {
+    return false;
+  }, deleteProperty() {
+    return false;
+  }, defineProperty() {
+    return false;
+  }, getPrototypeOf() {
+    return null;
+  }, setPrototypeOf() {
+    return false;
+  } }), { get(b2) {
+    let c2 = a2(b2);
+    return c2.isStale && u2(b2), c2.cachedValue;
+  }, isStale(b2) {
+    return I2.get(b2)?.isStale ?? true;
+  }, invalidate(b2) {
+    let c2 = G.get(b2);
+    if (!c2) return;
+    h$1++;
+    let C4 = /* @__PURE__ */ new Set();
+    try {
+      for (let j3 of c2) ne2(j3, C4);
+    } finally {
+      h$1--, J3();
+    }
+  }, invalidateMany(b2) {
+    h$1++;
+    let c2 = /* @__PURE__ */ new Set();
+    try {
+      for (let C4 of b2) {
+        let j3 = G.get(C4);
+        if (j3) for (let Y of j3) ne2(Y, c2);
+      }
+    } finally {
+      h$1--, J3();
+    }
+  }, invalidateAll() {
+    h$1++;
+    try {
+      for (let b2 of I2.values()) b2.isStale || (b2.isStale = true, b2.depsStable = false, b2.stableRunCount = 0, S4.add(b2.id));
+    } finally {
+      h$1--, J3();
+    }
+  }, subscribe(b2, c2) {
+    for (let C4 of b2) {
+      let j3 = C4;
+      A4.has(j3) || A4.set(j3, /* @__PURE__ */ new Set()), A4.get(j3).add(c2);
+    }
+    return () => {
+      for (let C4 of b2) {
+        let j3 = C4, Y = A4.get(j3);
+        Y?.delete(c2), Y && Y.size === 0 && A4.delete(j3);
+      }
+    };
+  }, getProxy() {
+    return T2;
+  }, getDependencies(b2) {
+    return a2(b2).dependencies;
+  }, registerDefinitions(b2) {
+    for (let [c2, C4] of Object.entries(b2)) typeof C4 == "function" ? s$1[c2] = C4 : z(c2, C4), U(c2);
+  }, assignDefinition(b2, c2) {
+    if (!s$1[b2]) throw new Error(`[Directive] Cannot assign derivation "${b2}" \u2014 it does not exist. Use register() to create it.`);
+    typeof c2 == "function" ? (s$1[b2] = c2, O2.delete(b2)) : (O2.delete(b2), z(b2, c2));
+    let C4 = I2.get(b2);
+    C4 && (C4.isStale = true, C4.depsStable = false, C4.stableRunCount = 0, S4.add(b2)), J3();
+  }, unregisterDefinition(b2) {
+    s$1[b2] && (ee2(b2), _2(b2), H2(b2), J3());
+  }, getMeta(b2) {
+    return O2.get(b2);
+  }, callOne(b2) {
+    if (!s$1[b2]) throw new Error(`[Directive] Cannot call derivation "${b2}" \u2014 it does not exist.`);
+    return u2(b2);
+  } };
+}
+var Bt = 3;
+function ut(f3) {
+  let { definitions: s, facts: x3, store: y2, onRun: P, onError: p2 } = f3, w2 = /* @__PURE__ */ new Map(), O2 = null, z = false, I2 = /* @__PURE__ */ new Map();
+  function A4(a2) {
+    let u2 = s[a2];
+    if (!u2) throw new Error(`[Directive] Unknown effect: ${a2}`);
+    I2.delete(a2);
+    let d2 = null, M = false;
+    if (u2.deps) d2 = new Set(u2.deps), M = true;
+    else if (u2.on !== void 0) {
+      if (!re(u2.on)) throw new Error(`[Directive] effect on must be a FactPredicate spec; got ${typeof u2.on}`);
+      if (u2.on === null || typeof u2.on != "object") throw new Error(`[Directive] memoizePredicate: predicate must be a plain object or array; got ${typeof u2.on}`);
+      A(u2.on), d2 = le(u2.on), M = true;
+      let J3 = ce(u2.on);
+      I2.set(a2, T("effect", a2, (ce3, ne2) => J3(ce3, ne2)));
+    }
+    let L2 = { id: a2, enabled: true, hasExplicitDeps: M, dependencies: d2, cleanup: null, stableRunCount: 0, depsStable: false };
+    return w2.set(a2, L2), L2;
+  }
+  function G(a2) {
+    return w2.get(a2) ?? A4(a2);
+  }
+  function q$1() {
+    return y2.toObject();
+  }
+  function h$2(a2) {
+    a2.depsStable = false, a2.stableRunCount = 0;
+  }
+  function S4(a2, u2) {
+    for (let d2 of a2) if (u2.has(d2)) return true;
+    return false;
+  }
+  function k(a2, u2) {
+    let d2 = G(a2);
+    if (!d2.enabled) return false;
+    if (d2.dependencies) {
+      if (!S4(d2.dependencies, u2)) return false;
+      d2.depsStable && h$2(d2);
+      let M = I2.get(a2);
+      if (M) {
+        let L2 = q$1();
+        return M(L2, O2 ?? void 0);
+      }
+      return true;
+    }
+    return true;
+  }
+  function N(a2) {
+    if (a2.cleanup) {
+      try {
+        a2.cleanup();
+      } catch (u2) {
+        p2?.(a2.id, u2), console.error(`[Directive] Effect "${a2.id}" cleanup threw an error:`, u2);
+      }
+      a2.cleanup = null;
+    }
+  }
+  function T2(a2, u2) {
+    if (typeof u2 == "function") if (z) try {
+      u2();
+    } catch (d2) {
+      p2?.(a2.id, d2), console.error(`[Directive] Effect "${a2.id}" cleanup threw an error:`, d2);
+    }
+    else a2.cleanup = u2;
+  }
+  async function E4(a2, u2) {
+    let d2;
+    if (y2.batch(() => {
+      d2 = u2.run(x3, O2);
+    }), d2 instanceof Promise) {
+      let M = await d2;
+      T2(a2, M);
+    } else T2(a2, d2);
+  }
+  function X2(a2, u2) {
+    if (a2.size !== u2.size) return false;
+    for (let d2 of u2) if (!a2.has(d2)) return false;
+    return true;
+  }
+  function ee2(a2, u2) {
+    if (!(a2.dependencies && X2(a2.dependencies, u2))) {
+      h$2(a2);
+      return;
+    }
+    a2.stableRunCount++, a2.stableRunCount >= Bt && (a2.depsStable = true);
+  }
+  async function _2(a2, u2) {
+    if (a2.depsStable && a2.dependencies) {
+      await E4(a2, u2);
+      return;
+    }
+    let d2, M = g2(() => (y2.batch(() => {
+      d2 = u2.run(x3, O2);
+    }), d2)), L2 = M.deps, J3 = M.value;
+    J3 instanceof Promise && (J3 = await J3), T2(a2, J3), ee2(a2, L2), a2.dependencies = L2.size > 0 ? L2 : null;
+  }
+  async function H2(a2) {
+    let u2 = G(a2), d2 = s[a2];
+    if (!(!u2.enabled || !d2)) {
+      N(u2), P?.(a2, u2.dependencies ? [...u2.dependencies] : []);
+      try {
+        u2.hasExplicitDeps ? await E4(u2, d2) : await _2(u2, d2);
+      } catch (M) {
+        p2?.(a2, M), console.error(`[Directive] Effect "${a2}" threw an error:`, M), u2.hasExplicitDeps || h$2(u2);
+      }
+    }
+  }
+  for (let a2 of Object.keys(s)) A4(a2);
+  return { async runEffects(a2) {
+    let u2 = [];
+    for (let d2 of Object.keys(s)) k(d2, a2) && u2.push(d2);
+    await Promise.all(u2.map(H2)), O2 = q$1();
+  }, async runAll() {
+    let a2 = Object.keys(s);
+    await Promise.all(a2.map((u2) => {
+      let d2 = G(u2);
+      return d2.enabled ? (h$2(d2), H2(u2)) : Promise.resolve();
+    })), O2 = q$1();
+  }, disable(a2) {
+    let u2 = G(a2);
+    u2.enabled = false;
+  }, enable(a2) {
+    let u2 = G(a2);
+    u2.enabled = true;
+  }, isEnabled(a2) {
+    return G(a2).enabled;
+  }, cleanupAll() {
+    z = true;
+    for (let a2 of w2.values()) N(a2);
+  }, registerDefinitions(a2) {
+    for (let [u2, d2] of Object.entries(a2)) s[u2] = d2, A4(u2);
+  }, assignDefinition(a2, u2) {
+    if (!s[a2]) throw new Error(`[Directive] Cannot assign effect "${a2}" \u2014 it does not exist. Use register() to create it.`);
+    let d2 = w2.get(a2);
+    d2 && N(d2), s[a2] = u2, A4(a2);
+  }, unregisterDefinition(a2) {
+    if (!s[a2]) return;
+    let u2 = w2.get(a2);
+    u2 && N(u2), delete s[a2], w2.delete(a2), I2.delete(a2);
+  }, async callOne(a2) {
+    let u2 = s[a2];
+    if (!u2) throw new Error(`[Directive] Cannot call effect "${a2}" \u2014 it does not exist.`);
+    let d2 = G(a2);
+    if (d2.enabled) {
+      N(d2), P?.(a2, d2.dependencies ? [...d2.dependencies] : []);
+      try {
+        let M;
+        if (y2.batch(() => {
+          M = u2.run(x3, O2);
+        }), M instanceof Promise) {
+          let L2 = await M;
+          T2(d2, L2);
+        } else T2(d2, M);
+      } catch (M) {
+        p2?.(a2, M), console.error(`[Directive] Effect "${a2}" threw an error:`, M);
+      }
+    }
+  } };
+}
+function Kt(f3 = {}) {
+  let { delayMs: s = 1e3, maxRetries: x3 = 3, backoffMultiplier: y2 = 2, maxDelayMs: P = 3e4 } = f3, p2 = /* @__PURE__ */ new Map();
+  function w2(O2) {
+    let z = s * y2 ** (O2 - 1);
+    return Math.min(z, P);
+  }
+  return { scheduleRetry(O2, z, I2, A4, G) {
+    if (A4 > x3) return null;
+    let q3 = w2(A4), h3 = { source: O2, sourceId: z, context: I2, attempt: A4, nextRetryTime: Date.now() + q3, callback: G };
+    return p2.set(z, h3), h3;
+  }, getPendingRetries() {
+    return Array.from(p2.values());
+  }, processDueRetries() {
+    let O2 = Date.now(), z = [];
+    for (let [I2, A4] of p2) A4.nextRetryTime <= O2 && (z.push(A4), p2.delete(I2));
+    return z;
+  }, cancelRetry(O2) {
+    p2.delete(O2);
+  }, clearAll() {
+    p2.clear();
+  } };
+}
+var _t = { constraint: "skip", resolver: "skip", effect: "skip", derivation: "skip", system: "throw" };
+function dt(f3 = {}) {
+  let { config: s = {}, onError: x3, onRecovery: y2 } = f3, P = [], p2 = 100, w2 = Kt(s.retryLater), O2 = /* @__PURE__ */ new Map(), z = 1e3;
+  function I2(S4, k, N, T2) {
+    if (N instanceof Oe) return N;
+    let E4 = N instanceof Error ? N.message : String(N), X2 = S4 !== "system";
+    return new Oe(E4, S4, k, T2, X2);
+  }
+  function A4(S4, k, N) {
+    let T2 = (() => {
+      switch (S4) {
+        case "constraint":
+          return s.onConstraintError;
+        case "resolver":
+          return s.onResolverError;
+        case "effect":
+          return s.onEffectError;
+        case "derivation":
+          return s.onDerivationError;
+        default:
+          return;
+      }
+    })();
+    if (typeof T2 == "function") {
+      try {
+        let E4 = T2(N, k);
+        if (typeof E4 == "string") return E4;
+      } catch (E4) {
+        console.error("[Directive] Error in error handler callback:", E4);
+      }
+      return "skip";
+    }
+    return typeof T2 == "string" ? T2 : _t[S4];
+  }
+  function G(S4) {
+    P.push(S4), P.length > p2 && P.shift();
+    try {
+      x3?.(S4);
+    } catch (k) {
+      console.error("[Directive] Error in onError callback:", k);
+    }
+    try {
+      s.onError?.(S4);
+    } catch (k) {
+      console.error("[Directive] Error in config.onError callback:", k);
+    }
+  }
+  function q3(S4, k, N) {
+    let T2 = (O2.get(k) ?? 0) + 1;
+    if (O2.set(k, T2), O2.size > z) {
+      let X2 = O2.keys().next().value;
+      X2 !== void 0 && O2.delete(X2);
+    }
+    return w2.scheduleRetry(S4, k, N, T2) ? "retry-later" : (O2.delete(k), typeof process < "u" && process.env?.NODE_ENV !== "production" && console.warn(`[Directive] ${S4} "${k}" exceeded max retry-later attempts. Skipping.`), "skip");
+  }
+  return { handleError(S4, k, N, T2) {
+    let E4 = I2(S4, k, N, T2);
+    G(E4);
+    let X2 = A4(S4, k, N instanceof Error ? N : new Error(String(N)));
+    X2 === "retry-later" && (X2 = q3(S4, k, T2));
+    try {
+      y2?.(E4, X2);
+    } catch (ee2) {
+      console.error("[Directive] Error in onRecovery callback:", ee2);
+    }
+    if (X2 === "throw") throw E4;
+    return X2;
+  }, getLastError() {
+    return P[P.length - 1] ?? null;
+  }, getAllErrors() {
+    return [...P];
+  }, clearErrors() {
+    P.length = 0;
+  }, getRetryLaterManager() {
+    return w2;
+  }, processDueRetries() {
+    return w2.processDueRetries();
+  }, clearRetryAttempts(S4) {
+    O2.delete(S4), w2.cancelRetry(S4);
+  } };
+}
+function Wt(f3, s = 100) {
+  try {
+    return JSON.stringify(f3)?.slice(0, s) ?? String(f3);
+  } catch {
+    return "[circular or non-serializable]";
+  }
+}
+function zt(f3) {
+  let { schema: s, onChange: x3, onBatch: y2 } = f3, p2 = Object.keys(s).length === 0, w2 = f3.validate ?? S, O2 = f3.strictKeys ?? (S && !p2), z = f3.redactErrors ?? false, I2 = /* @__PURE__ */ new Map(), A4 = /* @__PURE__ */ new Set(), G = /* @__PURE__ */ new Map(), q3 = /* @__PURE__ */ new Set(), h3 = 0, S4 = [], k$1 = /* @__PURE__ */ new Set(), N = false, T2 = [], E4 = 100;
+  function X2(c2) {
+    return c2 !== null && typeof c2 == "object" && "safeParse" in c2 && typeof c2.safeParse == "function" && "_def" in c2 && "parse" in c2 && typeof c2.parse == "function";
+  }
+  function ee2(c2) {
+    let C4 = c2;
+    if (C4._typeName) return C4._typeName;
+    if (X2(c2)) {
+      let j3 = c2._def;
+      if (j3?.typeName) return j3.typeName.replace(/^Zod/, "").toLowerCase();
+    }
+    return "unknown";
+  }
+  function _2(c2) {
+    return z ? "[redacted]" : Wt(c2);
+  }
+  function H2(c2) {
+    return c2 === null ? "null" : Array.isArray(c2) ? "array" : typeof c2;
+  }
+  function U(c2, C4, j3) {
+    let Y = j3.safeParse(C4);
+    if (Y.success) return;
+    let re3 = H2(C4), le3 = _2(C4), ve2 = Y.error?.message ?? Y.error?.issues?.[0]?.message ?? "Validation failed", he2 = ee2(j3);
+    throw new Error(`[Directive] Validation failed for "${c2}": expected ${he2}, got ${re3} ${le3}. ${ve2}`);
+  }
+  function a$1(c2) {
+    if (typeof c2._lastFailedIndex == "number" && c2._lastFailedIndex >= 0) {
+      let C4 = ` (element at index ${c2._lastFailedIndex} failed)`;
+      return c2._lastFailedIndex = -1, C4;
+    }
+    return "";
+  }
+  function u2(c2, C4, j3) {
+    let Y = j3._validators;
+    if (!Y || !Array.isArray(Y) || Y.length === 0) return;
+    let re3 = j3._typeName ?? "unknown";
+    for (let le3 = 0; le3 < Y.length; le3++) {
+      let ve2 = Y[le3];
+      if (typeof ve2 != "function" || ve2(C4)) continue;
+      let he2 = H2(C4), Se2 = _2(C4), se2 = a$1(j3), be2 = le3 === 0 ? "" : ` (validator ${le3 + 1} failed)`;
+      throw new Error(`[Directive] Validation failed for "${c2}": expected ${re3}, got ${he2} ${Se2}${be2}${se2}`);
+    }
+  }
+  function d2(c2) {
+    if (O2) throw new Error(`[Directive] Unknown fact key: "${c2}". Key not defined in schema.`);
+    console.warn(`[Directive] Unknown fact key: "${c2}"`);
+  }
+  function M(c2, C4) {
+    if (!w2) return;
+    let j3 = s[c2];
+    if (!j3) {
+      d2(c2);
+      return;
+    }
+    if (X2(j3)) {
+      U(c2, C4, j3);
+      return;
+    }
+    u2(c2, C4, j3);
+  }
+  function L2(c2) {
+    G.get(c2)?.forEach((C4) => C4());
+  }
+  function J3() {
+    q3.forEach((c2) => c2());
+  }
+  function ce3(c2, C4, j3) {
+    if (N) {
+      T2.push({ key: c2, value: C4, prev: j3 });
+      return;
+    }
+    N = true;
+    try {
+      x3?.(c2, C4, j3), L2(c2), J3(), ne2(". A listener is repeatedly mutating facts that re-trigger notifications");
+    } finally {
+      N = false;
+    }
+  }
+  function ne2(c2) {
+    let C4 = 0;
+    for (; T2.length > 0; ) {
+      if (++C4 > E4) throw T2.length = 0, new Error(`[Directive] Infinite notification loop detected after ${E4} iterations${c2}.`);
+      let j3 = [...T2];
+      T2.length = 0;
+      for (let Y of j3) x3?.(Y.key, Y.value, Y.prev), L2(Y.key);
+      J3();
+    }
+  }
+  function ge() {
+    if (!(h3 > 0)) {
+      if (y2 && S4.length > 0 && y2([...S4]), k$1.size > 0) {
+        N = true;
+        try {
+          for (let c2 of k$1) L2(c2);
+          J3(), ne2(" during flush");
+        } finally {
+          N = false;
+        }
+      }
+      S4.length = 0, k$1.clear();
+    }
+  }
+  let b2 = { get(c2) {
+    return q2(c2), I2.get(c2);
+  }, has(c2) {
+    return q2(c2), I2.has(c2);
+  }, set(c2, C4) {
+    S && M(c2, C4);
+    let j3 = I2.get(c2);
+    Object.is(j3, C4) || (I2.set(c2, C4), A4.add(c2), h3 > 0 ? (S4.push({ key: c2, value: C4, prev: j3, type: "set" }), k$1.add(c2)) : ce3(c2, C4, j3));
+  }, delete(c2) {
+    let C4 = I2.get(c2);
+    I2.delete(c2), A4.delete(c2), h3 > 0 ? (S4.push({ key: c2, value: void 0, prev: C4, type: "delete" }), k$1.add(c2)) : ce3(c2, void 0, C4);
+  }, batch(c2) {
+    h3++;
+    try {
+      c2();
+    } finally {
+      h3--, ge();
+    }
+  }, subscribe(c2, C4) {
+    for (let j3 of c2) {
+      let Y = j3;
+      G.has(Y) || G.set(Y, /* @__PURE__ */ new Set()), G.get(Y).add(C4);
+    }
+    return () => {
+      for (let j3 of c2) {
+        let Y = G.get(j3);
+        Y && (Y.delete(C4), Y.size === 0 && G.delete(j3));
+      }
+    };
+  }, subscribeAll(c2) {
+    return q3.add(c2), () => q3.delete(c2);
+  }, toObject() {
+    let c2 = {};
+    for (let C4 of A4) I2.has(C4) && (c2[C4] = I2.get(C4));
+    return c2;
+  } };
+  return b2.destroy = () => {
+    G.clear(), q3.clear();
+  }, b2.registerKeys = (c2) => {
+    for (let C4 of Object.keys(c2)) h2.has(C4) || (s[C4] = c2[C4], A4.add(C4));
+  }, b2;
+}
+var Ne = /* @__PURE__ */ new WeakMap();
+function lt(f3, s, x3 = s) {
+  return new Proxy(f3, { get(y2, P) {
+    if (typeof P == "string" && h2.has(P)) return;
+    if (P === /* @__PURE__ */ Symbol.for("nodejs.util.inspect.custom")) return () => y2;
+    let p2 = Reflect.get(y2, P);
+    if (typeof P == "symbol" || typeof p2 != "object" || p2 === null) return p2;
+    if (Ne.has(p2)) return Ne.get(p2);
+    let w2 = lt(p2, s, `${x3}.${String(P)}`);
+    return Ne.set(p2, w2), w2;
+  }, set(y2, P, p2) {
+    return typeof P != "symbol" && console.warn(`[Directive] Nested mutation on "facts.${x3}.${String(P)}" will not trigger reactivity. Use: facts.${s} = { ...facts.${s}, ... }`), Reflect.set(y2, P, p2);
+  } });
+}
+function Nt(f3, s) {
+  let x3 = () => ({ get: (P) => x2(() => f3.get(P)), has: (P) => x2(() => f3.has(P)) });
+  return new Proxy({}, { get(P, p2) {
+    if (typeof p2 == "symbol") return p2 === /* @__PURE__ */ Symbol.for("nodejs.util.inspect.custom") ? () => x2(() => f3.toObject()) : void 0;
+    if (h2.has(p2)) return;
+    if (p2 === "$store") return f3;
+    if (p2 === "$snapshot") return x3;
+    let w2 = f3.get(p2);
+    return S && w2 !== null && typeof w2 == "object" ? lt(w2, p2) : w2;
+  }, set(P, p2, w2) {
+    if (typeof p2 == "symbol" || p2 === "$store" || p2 === "$snapshot" || h2.has(p2)) return false;
+    if (S) {
+      let O2 = y(w2);
+      O2 && C2(p2, O2);
+    }
+    return f3.set(p2, w2), true;
+  }, deleteProperty(P, p2) {
+    return typeof p2 == "symbol" || p2 === "$store" || p2 === "$snapshot" || h2.has(p2) ? false : (f3.delete(p2), true);
+  }, has(P, p2) {
+    return p2 === "$store" || p2 === "$snapshot" ? true : typeof p2 == "symbol" || h2.has(p2) ? false : f3.has(p2);
+  }, ownKeys() {
+    return Object.keys(s);
+  }, getOwnPropertyDescriptor(P, p2) {
+    if (!(typeof p2 == "string" && h2.has(p2))) return p2 === "$store" || p2 === "$snapshot" ? { configurable: true, enumerable: false, writable: false } : { configurable: true, enumerable: true, writable: true };
+  }, defineProperty() {
+    return false;
+  }, getPrototypeOf() {
+    return null;
+  }, setPrototypeOf() {
+    return false;
+  } });
+}
+function ft(f3) {
+  let s = zt(f3), x3 = Nt(s, f3.schema);
+  return { store: s, facts: x3 };
+}
+function gt() {
+  let f3 = [];
+  function s(p2, w2, O2) {
+    if (p2) try {
+      return p2();
+    } catch (z) {
+      console.error("[Directive] Plugin error:", { plugin: w2, hook: O2, error: z });
+      return;
+    }
+  }
+  async function x3(p2, w2, O2) {
+    if (p2) try {
+      return await p2();
+    } catch (z) {
+      console.error("[Directive] Plugin error:", { plugin: w2, hook: O2, error: z });
+      return;
+    }
+  }
+  function y2(p2) {
+    return (...w2) => {
+      let O2 = [...f3];
+      for (let z of O2) s(() => z[p2]?.(...w2), z.name, p2);
+    };
+  }
+  return { register(p2) {
+    f3.some((w2) => w2.name === p2.name) && (console.warn(`[Directive] Plugin "${p2.name}" is already registered, replacing...`), this.unregister(p2.name)), f3.push(p2);
+  }, unregister(p2) {
+    let w2 = f3.findIndex((O2) => O2.name === p2);
+    w2 !== -1 && f3.splice(w2, 1);
+  }, getPlugins() {
+    return [...f3];
+  }, async emitInit(p2) {
+    let w2 = /* @__PURE__ */ new WeakSet();
+    for (let O2 = 0; O2 < 100; O2++) {
+      let z = f3.filter((I2) => !w2.has(I2));
+      if (z.length === 0) break;
+      for (let I2 of z) {
+        w2.add(I2);
+        let A4 = typeof performance < "u" ? performance.now() : Date.now();
+        await x3(() => I2.onInit?.(p2) ?? Promise.resolve(), I2.name, "onInit");
+        let G = (typeof performance < "u" ? performance.now() : Date.now()) - A4;
+        G > 100 && console.warn("[Directive] slow plugin onInit", { plugin: I2.name, hook: "onInit", pass: O2, durationMs: Math.round(G) });
+      }
+    }
+  }, emitStart: y2("onStart"), emitStop: y2("onStop"), emitDestroy: y2("onDestroy"), emitFactSet: y2("onFactSet"), emitFactDelete: y2("onFactDelete"), emitFactsBatch: y2("onFactsBatch"), emitDerivationCompute: y2("onDerivationCompute"), emitDerivationInvalidate: y2("onDerivationInvalidate"), emitReconcileStart: y2("onReconcileStart"), emitReconcileEnd: y2("onReconcileEnd"), emitConstraintEvaluate: y2("onConstraintEvaluate"), emitConstraintError: y2("onConstraintError"), emitConstraintBindingDisabled: y2("onConstraintBindingDisabled"), emitRequirementCreated: y2("onRequirementCreated"), emitRequirementMet: y2("onRequirementMet"), emitRequirementCanceled: y2("onRequirementCanceled"), emitResolverStart: y2("onResolverStart"), emitResolverComplete: y2("onResolverComplete"), emitResolverError: y2("onResolverError"), emitResolverRetry: y2("onResolverRetry"), emitResolverCancel: y2("onResolverCancel"), emitResolverWriteRejected: y2("onResolverWriteRejected"), emitEffectRun: y2("onEffectRun"), emitEffectError: y2("onEffectError"), emitSourceAttach: y2("onSourceAttach"), emitSourcePublish: y2("onSourcePublish"), emitSourceDrop: y2("onSourceDrop"), emitSourceDetach: y2("onSourceDetach"), emitSourceError: y2("onSourceError"), emitGuardrailBlocked: y2("onGuardrailBlocked"), emitClobberLoopDetected: y2("onClobberLoopDetected"), emitClobberLoopResolved: y2("onClobberLoopResolved"), emitSnapshot: y2("onSnapshot"), emitHistoryNavigate: y2("onHistoryNavigate"), emitError: y2("onError"), emitErrorRecovery: y2("onErrorRecovery"), emitDefinitionRegister: y2("onDefinitionRegister"), emitDefinitionAssign: y2("onDefinitionAssign"), emitDefinitionUnregister: y2("onDefinitionUnregister"), emitDefinitionCall: y2("onDefinitionCall"), emitTraceComplete: y2("onTraceComplete") };
+}
+function Lt(f3) {
+  if (!f3.aborted) return;
+  let s = f3.reason;
+  if (s !== null && typeof s == "object" && "kind" in s && s.kind === "clobbered") {
+    let x3 = s;
+    return { reason: "clobbered", clobber: { fact: x3.fact, expected: x3.expected, actual: x3.actual } };
+  }
+  return { reason: "cancelled" };
+}
+function Ht(f3) {
+  return f3[w] === true ? { reason: "timeout" } : { reason: "error" };
+}
+var mt = { attempts: 1, backoff: "none", initialDelay: 100, maxDelay: 3e4 };
+var pt = { enabled: false, windowMs: 50 };
+function Ut(f3, s) {
+  if (!s || s === "none") return f3;
+  if (s === "full") return Math.floor(Math.random() * f3);
+  if (s === "equal") {
+    let x3 = f3 / 2;
+    return Math.floor(x3 + Math.random() * x3);
+  }
+  if (typeof s == "object" && "maxMs" in s) {
+    let x3 = Number.isFinite(s.maxMs) && s.maxMs > 0 ? s.maxMs : 0;
+    return f3 + Math.floor(Math.random() * x3);
+  }
+  return f3;
+}
+function Vt(f3, s) {
+  let { backoff: x3, initialDelay: y2 = 100, maxDelay: P = 3e4 } = f3, p2;
+  switch (x3) {
+    case "none":
+      p2 = y2;
+      break;
+    case "linear":
+      p2 = y2 * s;
+      break;
+    case "exponential":
+      p2 = y2 * 2 ** (s - 1);
+      break;
+    default:
+      p2 = y2;
+  }
+  let w2 = Math.min(p2, P), O2 = Ut(w2, f3.jitter);
+  return Math.max(1, O2);
+}
+function Gt(f3) {
+  if (S) for (let [s, x3] of Object.entries(f3)) {
+    if (!x3.resolve && !x3.resolveBatch && !x3.resolveBatchWithResults) throw new Error(`[Directive] Resolver "${s}" must define either resolve() or resolveBatch(). Add one of these methods to handle requirements.`);
+    if (!(!x3.batch?.enabled || x3.resolveBatch || x3.resolveBatchWithResults)) if (x3.resolve) console.warn(`[Directive] Resolver "${s}" has batch.enabled but no resolveBatch(). Falling back to individual resolve() calls. Add resolveBatch() for true bulk operations.`);
+    else throw new Error(`[Directive] Resolver "${s}" has batch.enabled=true but no resolve(), resolveBatch(), or resolveBatchWithResults() method.`);
+  }
+}
+function yt(f3) {
+  let { definitions: s, facts: x3, store: y2, getConstraintBinding: P, onStart: p2, onComplete: w2, onError: O2, onRetry: z, onCancel: I2, onClobber: A4, onClobberSuppressed: G, onResolutionComplete: q3, onRequeue: h3 } = f3;
+  Gt(s);
+  let S4 = /* @__PURE__ */ new Map(), k = /* @__PURE__ */ new Map(), N = 1e3, T2 = /* @__PURE__ */ new Map(), E4 = /* @__PURE__ */ new Map(), X2 = /* @__PURE__ */ new Map(), ee2 = 0, _2 = /* @__PURE__ */ new Map(), H2 = 1e3;
+  function U() {
+    if (k.size > N) {
+      let l2 = k.size - N, v2 = k.keys();
+      for (let D2 = 0; D2 < l2; D2++) {
+        let F2 = v2.next().value;
+        F2 && k.delete(F2);
+      }
+    }
+  }
+  function a$1(l2) {
+    return typeof l2 == "object" && l2 !== null && "requirement" in l2 && typeof l2.requirement == "string";
+  }
+  function u2(l2) {
+    return typeof l2 == "object" && l2 !== null && "requirement" in l2 && typeof l2.requirement == "function";
+  }
+  function d2(l2, v2) {
+    return a$1(l2) ? v2.type === l2.requirement : u2(l2) ? l2.requirement(v2) : false;
+  }
+  function M(l2, v2) {
+    let D2 = _2.get(l2);
+    if (!D2) return null;
+    _2.delete(l2), _2.set(l2, D2);
+    for (let F2 of D2) {
+      let V2 = s[F2];
+      if (V2 && d2(V2, v2)) return F2;
+    }
+    return null;
+  }
+  function L2(l2, v2) {
+    if (!_2.has(l2)) {
+      if (_2.size >= H2) {
+        let D2 = _2.keys().next().value;
+        D2 !== void 0 && _2.delete(D2);
+      }
+      _2.set(l2, /* @__PURE__ */ new Set());
+    }
+    _2.get(l2).add(v2);
+  }
+  function J3(l2) {
+    let v2 = l2.type, D2 = M(v2, l2);
+    if (D2) return D2;
+    for (let [F2, V2] of Object.entries(s)) if (d2(V2, l2)) return L2(v2, F2), F2;
+    return null;
+  }
+  function ce3(l2) {
+    if (!P || !l2 || !l2.fromConstraint) return null;
+    let v2 = P(l2.fromConstraint);
+    return !v2 || v2.fields.length === 0 ? null : v2;
+  }
+  function ne2(l2, v2, D2, F2, V2) {
+    let B3 = x3, ie3 = new Set(l2.fields), e = 10, n = 0, o2 = false, m3 = /* @__PURE__ */ new Map();
+    for (let r2 of ie3) {
+      let i = D2 ? D2[r2] : B3[r2];
+      m3.set(r2, i);
+    }
+    let g3 = /* @__PURE__ */ new Set();
+    function t(r2) {
+      return g3.has(r2) ? false : Object.is(B3[r2], m3.get(r2)) ? true : (g3.add(r2), n++, n <= e ? F2 && F2(r2, m3.get(r2), B3[r2]) : o2 || (o2 = true, V2 && V2(n - e)), v2.abort({ kind: "clobbered", fact: r2, expected: m3.get(r2), actual: B3[r2] }), false);
+    }
+    return new Proxy(x3, { get(r2, i, R3) {
+      return Reflect.get(x3, i, R3);
+    }, set(r2, i, R3, $2) {
+      if (typeof i != "string" || !ie3.has(i)) return Reflect.set(x3, i, R3);
+      if (!t(i)) return true;
+      let K2 = m3.get(i);
+      m3.set(i, R3);
+      let Z2 = Reflect.set(x3, i, R3);
+      return Z2 || m3.set(i, K2), Z2;
+    }, deleteProperty(r2, i) {
+      if (typeof i != "string" || !ie3.has(i)) return Reflect.deleteProperty(x3, i);
+      if (!t(i)) return true;
+      let R3 = m3.get(i);
+      m3.set(i, void 0);
+      let $2 = Reflect.deleteProperty(x3, i);
+      return $2 || m3.set(i, R3), $2;
+    }, has(r2, i) {
+      return Reflect.has(x3, i);
+    }, ownKeys() {
+      return Reflect.ownKeys(x3);
+    }, getOwnPropertyDescriptor(r2, i) {
+      return Reflect.getOwnPropertyDescriptor(x3, i);
+    } });
+  }
+  function ge(l2, v2, D2, F2, V2, B3) {
+    return { facts: D2 && F2 ? ne2(D2, F2, V2, A4 && B3 ? (o2, m3, g3) => {
+      let { resolverId: t, requirements: r2 } = B3;
+      for (let i of r2) A4(t, i, o2, m3, g3);
+    } : void 0, G && B3 ? (o2) => {
+      let { resolverId: m3, requirements: g3 } = B3;
+      for (let t of g3) G(m3, t, o2);
+    } : void 0) : x3, signal: l2, snapshot: () => x3.$snapshot(), requeue: () => {
+      if (h3) for (let o2 of v2) h3(o2);
+    } };
+  }
+  async function b2(l2, v2, D2, F2) {
+    let V2 = l2 instanceof Error ? l2 : new Error(String(l2)), B3 = Lt(F2.signal);
+    if (F2.signal.aborted) return B3?.reason === "clobbered" && D2.shouldRetry && !D2.shouldRetry(V2, v2, B3) ? { action: "break", error: V2 } : { action: "abort", error: V2 };
+    let ie3 = Ht(V2);
+    if (D2.shouldRetry && !D2.shouldRetry(V2, v2, ie3)) return { action: "break", error: V2 };
+    if (v2 < D2.attempts) {
+      if (F2.signal.aborted) return { action: "abort", error: V2 };
+      let e = Vt(D2, v2);
+      if (await new Promise((n) => {
+        let o2 = setTimeout(n, e), m3 = () => {
+          clearTimeout(o2), n();
+        };
+        F2.signal.addEventListener("abort", m3, { once: true });
+      }), F2.signal.aborted) return { action: "abort", error: V2 };
+    }
+    return { action: "continue", error: V2 };
+  }
+  async function c2(l2, v2, D2, F2, V2, B3) {
+    if (!l2.resolve) return;
+    let ie3 = ce3(D2), e$1;
+    y2.batch(() => {
+      e$1 = l2.resolve(D2.requirement, ge(F2, [D2.id], ie3, V2, B3, { resolverId: v2, requirements: [D2] }));
+    });
+    let n = l2.timeout;
+    if (n && n > 0) {
+      await E(e$1, n, `Resolver "${v2}" timed out after ${n}ms`);
+      return;
+    }
+    await e$1;
+  }
+  function C4(l2, v2, D2) {
+    let F2 = Date.now() - D2;
+    k.set(v2.id, { state: "success", requirementId: v2.id, completedAt: Date.now(), duration: F2 }), U(), w2?.(l2, v2, F2);
+  }
+  function j3(l2, v2, D2, F2) {
+    k.set(v2.id, { state: "error", requirementId: v2.id, error: D2, failedAt: Date.now(), attempts: F2 }), U(), O2?.(l2, v2, D2);
+  }
+  function Y(l2, v2, D2) {
+    let F2 = S4.get(l2);
+    F2 && (F2.attempt = v2, F2.status = { state: "running", requirementId: l2, startedAt: D2, attempt: v2 });
+  }
+  async function re3(l2, v2, D2, F2, V2) {
+    let B3 = await b2(l2, v2, D2, F2);
+    return B3.action === "continue" && v2 < D2.attempts && V2(v2 + 1), { lastError: B3.error, shouldContinue: B3.action === "continue" };
+  }
+  async function le3(l2, v2, D2, F2) {
+    let V2 = s[l2];
+    if (!V2) return;
+    let B3 = { ...mt, ...V2.retry }, ie3 = null, e = S4.get(v2.id)?.startedAt ?? Date.now();
+    for (let n = 1; n <= B3.attempts; n++) {
+      if (D2.signal.aborted) return;
+      Y(v2.id, n, e);
+      try {
+        await c2(V2, l2, v2, D2.signal, D2, F2), C4(l2, v2, e);
+        return;
+      } catch (o2) {
+        let m3 = await re3(o2, n, B3, D2, (g3) => z?.(l2, v2, g3));
+        if (ie3 = m3.lastError, !m3.shouldContinue) break;
+      }
+    }
+    j3(l2, v2, ie3, B3.attempts);
+  }
+  async function ve2(l2, v2, D2) {
+    return v2 && v2 > 0 ? E(l2, v2, D2) : l2;
+  }
+  async function he2(l2, v2, D2, F2, V2, B3, ie3, e) {
+    let n;
+    y2.batch(() => {
+      n = l2.resolveBatchWithResults(F2, V2);
+    });
+    let o2 = await ve2(n, B3, `Batch resolver "${v2}" timed out after ${B3}ms`);
+    if (o2.length !== D2.length) throw new Error(`[Directive] Batch resolver "${v2}" returned ${o2.length} results but expected ${D2.length}. Results array must match input order.`);
+    let m3 = false;
+    for (let g3 = 0; g3 < D2.length; g3++) {
+      let t = D2[g3], r2 = o2[g3];
+      if (r2.success) {
+        C4(v2, t, ie3);
+        continue;
+      }
+      m3 = true;
+      let i = r2.error ?? new Error("Batch item failed");
+      k.set(t.id, { state: "error", requirementId: t.id, error: i, failedAt: Date.now(), attempts: e }), O2?.(v2, t, i);
+    }
+    return !m3 || D2.some((g3, t) => o2[t]?.success) ? "done" : "retry";
+  }
+  async function Se2(l2, v2, D2, F2, V2, B3, ie3) {
+    let e;
+    y2.batch(() => {
+      e = l2.resolveBatch(F2, V2);
+    }), await ve2(e, B3, `Batch resolver "${v2}" timed out after ${B3}ms`);
+    for (let n of D2) C4(v2, n, ie3);
+  }
+  function se2(l2, v2, D2, F2) {
+    for (let V2 of v2) j3(l2, V2, D2, F2);
+  }
+  async function be2(l2, v2) {
+    await Promise.all(v2.map((D2) => {
+      let F2 = new AbortController();
+      return le3(l2, D2, F2);
+    }));
+  }
+  async function Ce(l2, v2, D2, F2, V2, B3, ie3, e, n) {
+    let o2 = null;
+    if (D2.length > 0) {
+      let t = D2[0];
+      D2.every((i) => i.fromConstraint === t.fromConstraint) && (o2 = ce3(t));
+    }
+    let m3 = ge(F2, D2.map((t) => t.id), o2, V2, n, { resolverId: v2, requirements: D2 }), g3 = D2.map((t) => t.requirement);
+    return l2.resolveBatchWithResults ? he2(l2, v2, D2, g3, m3, B3, ie3, e) : (await Se2(l2, v2, D2, g3, m3, B3, ie3), "done");
+  }
+  function Re2(l2, v2, D2) {
+    for (let F2 of v2) z?.(l2, F2, D2);
+  }
+  async function De2(l2, v2, D2, F2, V2, B3, ie3) {
+    let e = ie3 ?? new AbortController(), n = Date.now(), o2 = null;
+    for (let m3 = 1; m3 <= F2.attempts; m3++) {
+      if (e.signal.aborted) return null;
+      try {
+        if (await Ce(l2, v2, D2, e.signal, e, V2, n, m3, B3) === "done") return null;
+      } catch (g3) {
+        let t = await re3(g3, m3, F2, e, (r2) => Re2(v2, D2, r2));
+        if (o2 = t.lastError, !t.shouldContinue) break;
+      }
+    }
+    return o2;
+  }
+  async function pe2(l2, v2, D2) {
+    let F2 = s[l2];
+    if (!F2) return;
+    if (!F2.resolveBatch && !F2.resolveBatchWithResults) {
+      await be2(l2, v2);
+      return;
+    }
+    let V2 = { ...mt, ...F2.retry }, ie3 = { ...pt, ...F2.batch }.timeoutMs ?? F2.timeout, e = `batch-${ee2++}`, n = new AbortController(), o2 = { resolverId: l2, controller: n, requirementIds: new Set(v2.map((g3) => g3.id)) };
+    E4.set(e, o2);
+    for (let g3 of v2) {
+      let t = X2.get(g3.id);
+      t || (t = /* @__PURE__ */ new Set(), X2.set(g3.id, t)), t.add(e);
+    }
+    let m3 = null;
+    try {
+      m3 = await De2(F2, l2, v2, V2, ie3, D2, n);
+    } finally {
+      E4.delete(e);
+      for (let g3 of v2) {
+        let t = X2.get(g3.id);
+        t && (t.delete(e), t.size === 0 && X2.delete(g3.id));
+      }
+    }
+    m3 && se2(l2, v2, m3, V2.attempts);
+  }
+  let Ie = 1e4;
+  function Me2(l2) {
+    l2.timer && (clearTimeout(l2.timer), l2.timer = null);
+  }
+  function ke2(l2) {
+    return T2.has(l2) || T2.set(l2, { resolverId: l2, requirements: [], baselines: [], timer: null }), T2.get(l2);
+  }
+  function W(l2, v2, D2) {
+    let F2 = s[l2];
+    if (!F2) return;
+    let V2 = { ...pt, ...F2.batch }, B3 = ke2(l2), ie3 = V2.maxSize || Ie;
+    if (B3.requirements.length >= ie3 && (Me2(B3), ae2(l2)), B3.requirements.push(v2), B3.baselines.push(D2), V2.maxSize && B3.requirements.length >= V2.maxSize) {
+      Me2(B3), ae2(l2);
+      return;
+    }
+    Me2(B3), B3.timer = setTimeout(() => {
+      ae2(l2);
+    }, V2.windowMs);
+  }
+  function ae2(l2) {
+    let v2 = T2.get(l2);
+    if (!v2 || v2.requirements.length === 0) return;
+    let D2 = [...v2.requirements], F2;
+    for (let V2 = v2.baselines.length - 1; V2 >= 0; V2--) {
+      let B3 = v2.baselines[V2];
+      if (B3 !== void 0) {
+        F2 = B3;
+        break;
+      }
+    }
+    v2.requirements = [], v2.baselines = [], v2.timer = null, pe2(l2, D2, F2).then(() => {
+      q3?.();
+    });
+  }
+  return { resolve(l2, v2) {
+    if (S4.has(l2.id)) return;
+    let D2 = J3(l2.requirement);
+    if (!D2) {
+      S && console.warn(`[Directive] No resolver found for requirement type "${l2.requirement.type}" (id: ${l2.id})`);
+      return;
+    }
+    let F2 = s[D2];
+    if (!F2) return;
+    if (F2.batch?.enabled) {
+      W(D2, l2, v2?.factsBaseline);
+      return;
+    }
+    let V2 = new AbortController(), B3 = Date.now(), ie3 = { requirementId: l2.id, resolverId: D2, controller: V2, startedAt: B3, attempt: 1, status: { state: "pending", requirementId: l2.id, startedAt: B3 }, originalRequirement: l2 };
+    S4.set(l2.id, ie3), p2?.(D2, l2), le3(D2, l2, V2, v2?.factsBaseline).finally(() => {
+      S4.delete(l2.id) && q3?.();
+    });
+  }, abort(l2) {
+    let v2 = S4.get(l2);
+    if (v2) {
+      v2.controller.abort(), S4.delete(l2), k.set(l2, { state: "canceled", requirementId: l2, canceledAt: Date.now() }), U(), I2?.(v2.resolverId, v2.originalRequirement);
+      return;
+    }
+    for (let F2 of T2.values()) {
+      let V2 = F2.requirements.findIndex((B3) => B3.id === l2);
+      if (V2 !== -1) {
+        let [B3] = F2.requirements.splice(V2, 1);
+        F2.baselines.splice(V2, 1), k.set(l2, { state: "canceled", requirementId: l2, canceledAt: Date.now() }), U(), B3 && I2?.(F2.resolverId, B3);
+        return;
+      }
+    }
+    let D2 = X2.get(l2);
+    if (D2 && D2.size > 0) {
+      let F2 = Array.from(D2), V2 = [];
+      for (let B3 of F2) {
+        let ie3 = E4.get(B3);
+        if (ie3) {
+          ie3.controller.abort();
+          for (let e of ie3.requirementIds) {
+            k.set(e, { state: "canceled", requirementId: e, canceledAt: Date.now() });
+            let n = X2.get(e);
+            n && (n.delete(B3), n.size === 0 && X2.delete(e)), V2.push({ resolverId: ie3.resolverId, reqId: e });
+          }
+          E4.delete(B3);
+        }
+      }
+      U();
+      for (let B3 of V2) I2?.(B3.resolverId, { id: B3.reqId });
+    }
+  }, detach(l2) {
+    S4.delete(l2);
+  }, abortAll() {
+    let l2 = [...S4.keys()];
+    for (let v2 of l2) this.abort(v2);
+    for (let v2 of T2.values()) {
+      v2.timer && clearTimeout(v2.timer);
+      for (let D2 of v2.requirements) k.set(D2.id, { state: "canceled", requirementId: D2.id, canceledAt: Date.now() }), I2?.(v2.resolverId, D2);
+    }
+    T2.clear();
+    for (let [, v2] of E4) {
+      v2.controller.abort();
+      for (let D2 of v2.requirementIds) k.set(D2, { state: "canceled", requirementId: D2, canceledAt: Date.now() }), I2?.(v2.resolverId, { id: D2 });
+    }
+    E4.clear(), X2.clear(), U();
+  }, getStatus(l2) {
+    let v2 = S4.get(l2);
+    if (v2) return v2.status;
+    let D2 = k.get(l2);
+    return D2 || { state: "idle" };
+  }, getInflight() {
+    return [...S4.keys()];
+  }, getInflightInfo() {
+    return [...S4.values()].map((l2) => ({ id: l2.requirementId, resolverId: l2.resolverId, startedAt: l2.startedAt }));
+  }, getInflightCount() {
+    return S4.size;
+  }, isResolving(l2) {
+    return S4.has(l2);
+  }, processBatches() {
+    for (let l2 of T2.keys()) ae2(l2);
+  }, hasPendingBatches() {
+    for (let l2 of T2.values()) if (l2.requirements.length > 0) return true;
+    return false;
+  }, registerDefinitions(l2) {
+    for (let [v2, D2] of Object.entries(l2)) s[v2] = D2;
+    _2.clear();
+  }, assignDefinition(l2, v2) {
+    if (!s[l2]) throw new Error(`[Directive] Cannot assign resolver "${l2}" \u2014 it does not exist. Use register() to create it.`);
+    s[l2] = v2, _2.clear();
+  }, unregisterDefinition(l2) {
+    if (!s[l2]) return;
+    for (let [D2, F2] of S4) F2.resolverId === l2 && (F2.controller.abort(), S4.delete(D2), k.set(D2, { state: "canceled", requirementId: D2, canceledAt: Date.now() }), I2?.(l2, F2.originalRequirement));
+    let v2 = T2.get(l2);
+    if (v2) {
+      v2.timer && clearTimeout(v2.timer);
+      for (let D2 of v2.requirements) k.set(D2.id, { state: "canceled", requirementId: D2.id, canceledAt: Date.now() }), I2?.(l2, D2);
+      T2.delete(l2);
+    }
+    delete s[l2], _2.clear(), U();
+  }, async callOne(l2, v2) {
+    let D2 = s[l2];
+    if (!D2) throw new Error(`[Directive] Cannot call resolver "${l2}" \u2014 it does not exist.`);
+    let F2 = new AbortController(), V2 = ge(F2.signal, []);
+    if (D2.resolve) {
+      let B3;
+      y2.batch(() => {
+        B3 = D2.resolve(v2, V2);
+      }), await B3;
+    }
+  }, destroy() {
+    this.abortAll(), k.clear(), _2.clear();
+  } };
+}
+function vt(f3) {
+  return f3.length <= 256 ? f3 : `${f3.slice(0, 256)}\u2026[${f3.length - 256} chars truncated]`;
+}
+var ht = 5e3;
+function St(f3) {
+  return f3 === void 0 ? ht : f3 === Number.POSITIVE_INFINITY ? f3 : !Number.isFinite(f3) || f3 <= 0 ? ht : Math.floor(f3);
+}
+async function bt(f3, s, x3) {
+  if (s === Number.POSITIVE_INFINITY) return await f3;
+  let y2 = false, P = null, p2 = new Promise((O2) => {
+    P = setTimeout(() => {
+      y2 = true, x3(), O2(void 0);
+    }, s);
+  }), w2 = f3.catch((O2) => {
+    if (!y2) throw O2;
+  });
+  try {
+    return await Promise.race([w2, p2]);
+  } finally {
+    P && clearTimeout(P);
+  }
+}
+function je() {
+  return { publishCount: 0, lastPublishAt: null, dropCount: 0, lastDropReason: null, lastDropAt: null, errorCount: 0, lastError: null, attachedAt: null, detachedAt: null };
+}
+function Rt(f3 = {}, s = {}, x3 = {}) {
+  let y2 = /* @__PURE__ */ new Map();
+  for (let [q3, h3] of Object.entries(f3)) y2.set(q3, { def: h3, moduleId: s[q3] ?? "<unknown>" });
+  let P = [], p2 = "idle", w2 = null, O2 = /* @__PURE__ */ new Set(), z = /* @__PURE__ */ new Map();
+  function I2(q3, h3, S4) {
+    let k = z.get(q3) ?? je();
+    k.errorCount += 1, k.lastError = { phase: h3, message: vt(S4.message), at: Date.now() }, z.set(q3, k);
+  }
+  function A4(q3, h3, S4, k) {
+    I2(q3, S4, k);
+    let N = k.message.length <= 256 ? k : Object.assign(new Error(vt(k.message)), { name: k.name, stack: k.stack });
+    x3.onError?.(q3, h3, S4, N);
+  }
+  function G(q3, h3, S4) {
+    let k = { id: q3, moduleId: h3.moduleId, unsubscribe: () => {
+    }, detached: false };
+    z.has(q3) || z.set(q3, je());
+    let N = (E4, X2) => {
+      if (k.detached) return;
+      let ee2 = S4(q3, h3.moduleId, E4, X2), _2 = z.get(q3);
+      if (!_2) return;
+      let H2 = Date.now();
+      ee2.accepted ? (_2.publishCount += 1, _2.lastPublishAt = H2, x3.onPublish?.(q3, h3.moduleId, E4)) : (_2.dropCount += 1, _2.lastDropReason = ee2.reason, _2.lastDropAt = H2, x3.onDrop?.(q3, h3.moduleId, E4, ee2.reason));
+    }, T2;
+    if (h3.def.coalesce === "lastWriteWins") {
+      let E4 = /* @__PURE__ */ new Map(), X2 = false;
+      T2 = (ee2, _2) => {
+        if (!k.detached) {
+          if (E4.has(ee2)) {
+            let H2 = z.get(q3);
+            H2 && (H2.dropCount += 1, H2.lastDropReason = "coalesced", H2.lastDropAt = Date.now()), x3.onDrop?.(q3, h3.moduleId, ee2, "coalesced");
+          }
+          E4.set(ee2, _2), X2 || (X2 = true, queueMicrotask(() => {
+            if (X2 = false, k.detached) {
+              E4.clear();
+              return;
+            }
+            let H2 = Array.from(E4);
+            E4.clear();
+            for (let [U, a2] of H2) N(U, a2);
+          }));
+        }
+      };
+    } else T2 = N;
+    try {
+      let E4 = (_2) => {
+        if (k.detached) return;
+        let H2 = _2 instanceof Error ? _2 : new Error(String(_2));
+        A4(q3, h3.moduleId, "runtime", H2);
+      }, X2 = h3.def.attach(T2, E4);
+      if (typeof X2 != "function") {
+        let _2 = X2 !== null && typeof X2 == "object" && typeof X2.then == "function", H2 = new Error(_2 ? `[Directive] Module "${h3.moduleId}" \u2192 Source "${q3}" attach() returned a Promise. attach() must be synchronous; rewrite as \`attach: (publish) => { ... return () => unsubscribe(); }\`. Do any async work inside the subscription's own internals \u2014 the cleanup function must be registered immediately so \`system.stop()\` can tear the source down.` : `[Directive] Module "${h3.moduleId}" \u2192 Source "${q3}" did not return an unsubscribe function from attach(). Every source must return a cleanup function (e.g. \`return () => undefined\`) so the system can tear it down at stop(). If the source needs no teardown, return \`() => undefined\`, not \`undefined\`.`);
+        console.error(H2), A4(q3, h3.moduleId, "attach", H2);
+        return;
+      }
+      k.unsubscribe = X2, P.push(k), O2.add(q3);
+      let ee2 = z.get(q3);
+      ee2 && (ee2.attachedAt = Date.now(), ee2.detachedAt = null), x3.onAttach?.(q3, h3.moduleId);
+    } catch (E4) {
+      let X2 = E4 instanceof Error ? E4 : new Error(String(E4));
+      console.error(`[Directive] Module "${h3.moduleId}" \u2192 Source "${q3}" attach() threw:`, X2), A4(q3, h3.moduleId, "attach", X2);
+    }
+  }
+  return { registerDefinitions(q3, h3) {
+    for (let [S4, k] of Object.entries(h3)) {
+      if (p2 === "attached" && O2.has(S4)) {
+        for (let N = 0; N < P.length; N++) {
+          let T2 = P[N];
+          if (!T2 || T2.detached || T2.id !== S4) continue;
+          T2.detached = true, x3.onDetach?.(T2.id, T2.moduleId);
+          let E4 = z.get(T2.id) ?? je();
+          E4.detachedAt = Date.now(), z.set(T2.id, E4);
+          try {
+            T2.unsubscribe();
+          } catch (X2) {
+            let ee2 = X2 instanceof Error ? X2 : new Error(String(X2));
+            console.error(`[Directive] Module "${T2.moduleId}" \u2192 Source "${T2.id}" unsubscribe threw during re-registration:`, ee2), A4(T2.id, T2.moduleId, "cleanup", ee2);
+          }
+          P.splice(N, 1);
+          break;
+        }
+        O2.delete(S4);
+      }
+      y2.set(S4, { def: k, moduleId: q3 }), p2 === "attached" && w2 && !O2.has(S4) && G(S4, { def: k, moduleId: q3 }, w2);
+    }
+  }, attachAll(q3) {
+    P = [], O2 = /* @__PURE__ */ new Set(), z.clear(), w2 = q3, p2 = "attached";
+    for (let [h3, S4] of y2) G(h3, S4, q3);
+  }, cleanupAll() {
+    if (p2 === "attached") {
+      p2 = "stopped";
+      for (let q3 = P.length - 1; q3 >= 0; q3--) {
+        let h3 = P[q3];
+        if (!h3 || h3.detached) continue;
+        h3.detached = true, x3.onDetach?.(h3.id, h3.moduleId);
+        let S4 = z.get(h3.id) ?? je();
+        S4.detachedAt = Date.now(), z.set(h3.id, S4);
+        try {
+          h3.unsubscribe();
+        } catch (k) {
+          let N = k instanceof Error ? k : new Error(String(k));
+          console.error(`[Directive] Module "${h3.moduleId}" \u2192 Source "${h3.id}" unsubscribe threw:`, N), A4(h3.id, h3.moduleId, "cleanup", N);
+        }
+      }
+      P = [], O2 = /* @__PURE__ */ new Set(), w2 = null;
+    }
+  }, async cleanupAllAsync() {
+    if (p2 === "attached") {
+      p2 = "stopped";
+      for (let q3 = P.length - 1; q3 >= 0; q3--) {
+        let h3 = P[q3];
+        if (!h3 || h3.detached) continue;
+        h3.detached = true, x3.onDetach?.(h3.id, h3.moduleId);
+        let S4 = z.get(h3.id) ?? je();
+        S4.detachedAt = Date.now(), z.set(h3.id, S4);
+        let k = y2.get(h3.id)?.def, N = St(k?.evictTimeoutMs);
+        try {
+          await bt(Promise.resolve(h3.unsubscribe()), N, () => {
+            let T2 = new Error(`[Directive] Module "${h3.moduleId}" \u2192 Source "${h3.id}" unsubscribe exceeded ${N}ms timeout; abandoning to unblock teardown.`);
+            console.error(T2.message), A4(h3.id, h3.moduleId, "cleanup", T2);
+          });
+        } catch (T2) {
+          let E4 = T2 instanceof Error ? T2 : new Error(String(T2));
+          console.error(`[Directive] Module "${h3.moduleId}" \u2192 Source "${h3.id}" unsubscribe threw:`, E4), A4(h3.id, h3.moduleId, "cleanup", E4);
+        }
+      }
+      P = [], O2 = /* @__PURE__ */ new Set(), w2 = null;
+    }
+  }, async evictAll() {
+    if (p2 === "attached") for (let q3 of P) {
+      if (q3.detached) continue;
+      let h3 = y2.get(q3.id)?.def;
+      if (!h3?.onEvict) continue;
+      let S4 = St(h3.evictTimeoutMs);
+      try {
+        await bt(Promise.resolve(h3.onEvict()), S4, () => {
+          let k = new Error(`[Directive] Module "${q3.moduleId}" \u2192 Source "${q3.id}" onEvict exceeded ${S4}ms timeout; abandoning so downstream sources still get evicted.`);
+          console.error(k.message), A4(q3.id, q3.moduleId, "runtime", k);
+        });
+      } catch (k) {
+        let N = k instanceof Error ? k : new Error(String(k));
+        console.error(`[Directive] Module "${q3.moduleId}" \u2192 Source "${q3.id}" onEvict threw:`, N), A4(q3.id, q3.moduleId, "runtime", N);
+      }
+    }
+  }, attachedCount() {
+    return P.filter((q3) => !q3.detached).length;
+  }, listDefinitions() {
+    let q3 = [];
+    for (let [h3, S4] of y2) {
+      let k = z.get(h3) ?? je();
+      q3.push({ id: h3, moduleId: S4.moduleId, meta: S4.def.meta, attached: O2.has(h3), publishCount: k.publishCount, lastPublishAt: k.lastPublishAt, dropCount: k.dropCount, lastDropReason: k.lastDropReason, lastDropAt: k.lastDropAt, errorCount: k.errorCount, lastError: k.lastError, attachedAt: k.attachedAt, detachedAt: k.detachedAt });
+    }
+    return q3;
+  } };
+}
+function Dt(f3) {
+  let { mergedDerive: s, getDerivation: x3, definitions: y2 } = f3, P = { register: (p2, w2) => y2.register("derivation", p2, w2), assign: (p2, w2) => y2.assign("derivation", p2, w2), unregister: (p2) => y2.unregister("derivation", p2), call: (p2) => y2.call("derivation", p2), isDynamic: (p2) => y2.isDynamic("derivation", p2), listDynamic: () => y2.listDynamic("derivation") };
+  return new Proxy({}, { get(p2, w2) {
+    if (typeof w2 != "symbol" && !h2.has(w2)) {
+      if (w2 in P) return P[w2];
+      if (w2 in s) return x3(w2);
+    }
+  }, has(p2, w2) {
+    return typeof w2 == "symbol" || h2.has(w2) ? false : w2 in s || w2 in P;
+  }, ownKeys() {
+    return Object.keys(s);
+  }, getOwnPropertyDescriptor(p2, w2) {
+    if (typeof w2 != "symbol" && !h2.has(w2) && (w2 in s || w2 in P)) return { configurable: true, enumerable: true };
+  }, set() {
+    return false;
+  }, defineProperty() {
+    return false;
+  }, getPrototypeOf() {
+    return null;
+  }, setPrototypeOf() {
+    return false;
+  } });
+}
+function wt(f3) {
+  let { mergedEvents: s, dispatchEvent: x3 } = f3;
+  return new Proxy({}, { get(y2, P) {
+    if (typeof P != "symbol" && !h2.has(P)) return (p2) => {
+      x3(P, p2);
+    };
+  }, has(y2, P) {
+    return typeof P == "symbol" || h2.has(P) ? false : P in s;
+  }, ownKeys() {
+    return Object.keys(s);
+  }, getOwnPropertyDescriptor(y2, P) {
+    if (typeof P != "symbol" && !h2.has(P) && P in s) return { configurable: true, enumerable: true };
+  }, set() {
+    return false;
+  }, defineProperty() {
+    return false;
+  }, getPrototypeOf() {
+    return null;
+  }, setPrototypeOf() {
+    return false;
+  } });
+}
+var Jt = /* @__PURE__ */ new Set(["register", "assign", "unregister", "call", "isDynamic", "listDynamic"]);
+function kt(f3) {
+  let { mergedConstraints: s, mergedResolvers: x3, mergedDerive: y2, mergedEffects: P, constraintsManager: p2, resolversManager: w2, derivationsManager: O2, effectsManager: z, pluginManager: I2, getState: A4, scheduleReconcile: G, maxDeferredRegistrations: q3 } = f3, h3 = { constraints: /* @__PURE__ */ new Set(), resolvers: /* @__PURE__ */ new Set(), derivations: /* @__PURE__ */ new Set(), effects: /* @__PURE__ */ new Set() }, S4 = { constraints: /* @__PURE__ */ new Map(), resolvers: /* @__PURE__ */ new Map(), derivations: /* @__PURE__ */ new Map(), effects: /* @__PURE__ */ new Map() }, k$1 = [];
+  function N(a2) {
+    if (Jt.has(a2)) throw new Error(`[Directive] Derivation ID "${a2}" conflicts with a reserved derive method name.`);
+  }
+  let T2 = { constraint: { label: "Constraint", mergedMap: s, manager: p2, dynamicSet: h3.constraints, originalsMap: S4.constraints, reconciles: true }, resolver: { label: "Resolver", mergedMap: x3, manager: w2, dynamicSet: h3.resolvers, originalsMap: S4.resolvers, reconciles: true }, derivation: { label: "Derivation", mergedMap: y2, manager: O2, dynamicSet: h3.derivations, originalsMap: S4.derivations, reconciles: false, validateId: N }, effect: { label: "Effect", mergedMap: P, manager: z, dynamicSet: h3.effects, originalsMap: S4.effects, reconciles: false } };
+  function E4(a2) {
+    if (typeof a2 != "string" || a2.length === 0) throw new Error(`[Directive] Definition ID must be a non-empty string. Received: ${String(a2)}`);
+    if (h2.has(a2)) throw new Error(`[Directive] Security: Definition ID "${a2}" is a blocked property.`);
+    if (a2.includes("::")) throw new Error(`[Directive] Definition ID "${a2}" cannot contain "::". This separator is reserved for namespacing.`);
+  }
+  function X2(a2, u2, d2) {
+    let M = T2[a2];
+    if (M.validateId?.(u2), u2 in M.mergedMap) throw new Error(`[Directive] ${M.label} "${u2}" already exists. Use assign() to override.`);
+    if (a2 !== "derivation") {
+      let L2 = d2;
+      L2.meta && (L2.meta = me(L2.meta));
+    }
+    M.mergedMap[u2] = d2, M.manager.registerDefinitions({ [u2]: d2 }), M.dynamicSet.add(u2), I2.emitDefinitionRegister(a2, u2, d2), M.reconciles && G();
+  }
+  function ee2(a2, u2, d2) {
+    let M = T2[a2];
+    if (M.validateId?.(u2), !(u2 in M.mergedMap)) throw new Error(`[Directive] ${M.label} "${u2}" does not exist. Use register() to create it.`);
+    if (a2 !== "derivation") {
+      let J3 = d2;
+      J3.meta && (J3.meta = me(J3.meta));
+    }
+    let L2 = M.mergedMap[u2];
+    M.manager.assignDefinition(u2, d2), M.originalsMap.set(u2, L2), M.mergedMap[u2] = d2, I2.emitDefinitionAssign(a2, u2, d2, L2), M.reconciles && G();
+  }
+  function _2(a$1, u2) {
+    let d2 = T2[a$1];
+    if (!d2.dynamicSet.has(u2)) {
+      S && console.warn(`[Directive] Cannot unregister static ${a$1} "${u2}". Only dynamically registered ${a$1}s can be removed.`);
+      return;
+    }
+    d2.manager.unregisterDefinition(u2), delete d2.mergedMap[u2], d2.dynamicSet.delete(u2), d2.originalsMap.delete(u2), I2.emitDefinitionUnregister(a$1, u2), d2.reconciles && G();
+  }
+  function H2() {
+    if (k$1.length === 0) return;
+    let a$1 = k$1.splice(0);
+    for (let u2 of a$1) try {
+      switch (u2.op) {
+        case "register":
+          X2(u2.type, u2.id, u2.def);
+          break;
+        case "assign":
+          ee2(u2.type, u2.id, u2.def);
+          break;
+        case "unregister":
+          _2(u2.type, u2.id);
+          break;
+      }
+    } catch (d2) {
+      S && console.error(`[Directive] Error in deferred ${u2.op} for ${u2.type} "${u2.id}":`, d2);
+    }
+  }
+  function U(a2, u2, d2, M) {
+    let { isDestroyed: L2, isReconciling: J3 } = A4();
+    if (L2) throw new Error(`[Directive] Cannot ${a2} ${u2} "${d2}" on a destroyed system.`);
+    if (E4(d2), J3) {
+      if (k$1.length >= q3) throw new Error(`[Directive] Too many deferred registrations (max ${q3}). Avoid calling register/assign/unregister in resolver or effect callbacks during reconciliation.`);
+      a2 === "unregister" ? k$1.push({ op: a2, type: u2, id: d2 }) : k$1.push({ op: a2, type: u2, id: d2, def: M });
+      return;
+    }
+    switch (a2) {
+      case "register":
+        X2(u2, d2, M);
+        break;
+      case "assign":
+        ee2(u2, d2, M);
+        break;
+      case "unregister":
+        _2(u2, d2);
+        break;
+    }
+  }
+  return { register(a2, u2, d2) {
+    U("register", a2, u2, d2);
+  }, assign(a2, u2, d2) {
+    U("assign", a2, u2, d2);
+  }, unregister(a2, u2) {
+    U("unregister", a2, u2);
+  }, call(a2, u2, d2) {
+    let { isDestroyed: M } = A4();
+    if (M) throw new Error(`[Directive] Cannot call ${a2} "${u2}" on a destroyed system.`);
+    switch (E4(u2), I2.emitDefinitionCall(a2, u2, d2), a2) {
+      case "constraint":
+        return p2.callOne(u2, d2);
+      case "resolver":
+        return w2.callOne(u2, d2);
+      case "derivation":
+        return O2.callOne(u2);
+      case "effect":
+        return z.callOne(u2);
+    }
+  }, isDynamic(a2, u2) {
+    switch (a2) {
+      case "constraint":
+        return h3.constraints.has(u2);
+      case "resolver":
+        return h3.resolvers.has(u2);
+      case "derivation":
+        return h3.derivations.has(u2);
+      case "effect":
+        return h3.effects.has(u2);
+    }
+  }, listDynamic(a2) {
+    switch (a2) {
+      case "constraint":
+        return [...h3.constraints];
+      case "resolver":
+        return [...h3.resolvers];
+      case "derivation":
+        return [...h3.derivations];
+      case "effect":
+        return [...h3.effects];
+    }
+  }, flushDeferred: H2, getOriginal(a2, u2) {
+    let M = { constraint: S4.constraints, resolver: S4.resolvers, derivation: S4.derivations, effect: S4.effects }[a2];
+    if (M) return M.get(u2);
+  }, restoreOriginal(a2, u2) {
+    let M = { constraint: S4.constraints, resolver: S4.resolvers, derivation: S4.derivations, effect: S4.effects }[a2];
+    if (!M || !M.has(u2)) return false;
+    let L2 = M.get(u2);
+    return U("assign", a2, u2, L2), M.delete(u2), true;
+  }, destroy() {
+    k$1.length = 0, h3.constraints.clear(), h3.resolvers.clear(), h3.derivations.clear(), h3.effects.clear(), S4.constraints.clear(), S4.resolvers.clear(), S4.derivations.clear(), S4.effects.clear();
+  } };
+}
+function Et(f3) {
+  let { traceConfig: s, pluginManager: x3, resolverMetaLookup: y2 } = f3;
+  if (!(s === true || typeof s == "object" && s !== null)) return { enabled: false, recordFactChange() {
+  }, startRun() {
+    return 0;
+  }, currentTrace: null, getEntries() {
+    return null;
+  }, attributeResolverStart() {
+  }, recordResolverComplete() {
+  }, recordResolverError() {
+  }, decrementInflight() {
+  }, finalizeCurrentRun() {
+  }, drainPendingChanges() {
+  }, destroy() {
+  } };
+  let p2 = (typeof s == "object" && s !== null ? s.maxRuns : void 0) ?? 100, w2 = [], O2 = /* @__PURE__ */ new Map(), z = 0, I2 = null, A4 = [], G = /* @__PURE__ */ new Map(), q3 = /* @__PURE__ */ new Map(), h3 = /* @__PURE__ */ new Map(), S4 = null, k = 0, N = 0, T2 = { count: 0, totalDuration: 0, avgDuration: 0, maxDuration: 0, avgResolverCount: 0, totalResolverCount: 0, avgFactChangeCount: 0, totalFactChangeCount: 0 };
+  function E4(d2) {
+    let M = O2.get(d2);
+    if (M && M.status === "pending") {
+      M.status = "settled";
+      let L2 = h3.get(d2);
+      M.duration = L2 !== void 0 ? performance.now() - L2 : Date.now() - M.timestamp, h3.delete(d2), q3.delete(d2), M.causalChain = _2(M), H2(M), N++, x3.emitTraceComplete(M);
+    }
+  }
+  function X2(d2) {
+    let M = G.get(d2);
+    if (G.delete(d2), M !== void 0) {
+      let L2 = (q3.get(M) ?? 1) - 1;
+      L2 <= 0 ? E4(M) : q3.set(M, L2);
+    }
+  }
+  function ee2() {
+    let d2 = w2.shift();
+    if (d2 && (O2.delete(d2.id), h3.delete(d2.id), d2.status === "pending")) {
+      q3.delete(d2.id);
+      for (let [M, L2] of G) L2 === d2.id && G.delete(M);
+    }
+  }
+  function _2(d2) {
+    let M = [];
+    for (let L2 of d2.factChanges) M.push(`${L2.key} changed`);
+    for (let L2 of d2.derivationsRecomputed) M.push(`${L2.id} recomputed`);
+    for (let L2 of d2.constraintsHit) M.push(`${L2.id} constraint hit`);
+    for (let L2 of d2.requirementsAdded) M.push(`${L2.type} requirement added`);
+    for (let L2 of d2.resolversCompleted) M.push(`${L2.resolver} resolved (${L2.duration.toFixed(0)}ms)`);
+    for (let L2 of d2.resolversErrored) M.push(`${L2.resolver} errored`);
+    for (let L2 of d2.effectsRun) M.push(`${L2.id} effect ran`);
+    return M.join(" \u2192 ");
+  }
+  function H2(d2) {
+    T2.count++, T2.totalDuration += d2.duration, T2.avgDuration = T2.totalDuration / T2.count, d2.duration > T2.maxDuration && (T2.maxDuration = d2.duration);
+    let M = d2.resolversStarted.length;
+    T2.totalResolverCount += M, T2.avgResolverCount = T2.totalResolverCount / T2.count;
+    let L2 = d2.factChanges.length;
+    T2.totalFactChangeCount += L2, T2.avgFactChangeCount = T2.totalFactChangeCount / T2.count;
+    let J3 = [];
+    T2.count > 3 && d2.duration > T2.avgDuration * 5 && J3.push(`Duration ${d2.duration.toFixed(0)}ms is 5x+ above average (${T2.avgDuration.toFixed(0)}ms)`), d2.resolversErrored.length > 0 && J3.push(`${d2.resolversErrored.length} resolver(s) errored`), J3.length > 0 && (d2.anomalies = J3);
+  }
+  function U(d2) {
+    w2.push(d2), O2.set(d2.id, d2), w2.length > p2 && ee2(), N++;
+  }
+  function a2(d2) {
+    return d2.factChanges.length > 0 || d2.constraintsHit.length > 0 || d2.requirementsAdded.length > 0 || d2.effectsRun.length > 0;
+  }
+  return { enabled: true, get currentTrace() {
+    return I2;
+  }, set currentTrace(d2) {
+    I2 = d2;
+  }, recordFactChange(d2, M, L2) {
+    A4.push({ key: d2, oldValue: M, newValue: L2 });
+  }, startRun() {
+    let d2 = performance.now(), M = ++z;
+    return h3.set(M, d2), I2 = { id: M, timestamp: Date.now(), duration: 0, status: "pending", factChanges: A4.splice(0), derivationsRecomputed: [], constraintsHit: [], requirementsAdded: [], requirementsRemoved: [], resolversStarted: [], resolversCompleted: [], resolversErrored: [], effectsRun: [], effectErrors: [] }, d2;
+  }, getEntries() {
+    return (!S4 || k !== N) && (S4 = [...w2], k = N), S4;
+  }, attributeResolverStart(d2) {
+    I2 && G.set(d2, I2.id);
+  }, recordResolverComplete(d2, M, L2) {
+    let J3 = G.get(d2);
+    if (J3 !== void 0) {
+      let ce3 = O2.get(J3);
+      ce3 && ce3.resolversCompleted.push({ resolver: M, requirementId: d2, duration: L2, meta: y2?.(M) });
+    }
+  }, recordResolverError(d2, M, L2) {
+    let J3 = G.get(d2);
+    if (J3 !== void 0) {
+      let ce3 = O2.get(J3);
+      ce3 && ce3.resolversErrored.push({ resolver: M, requirementId: d2, error: L2, meta: y2?.(M) });
+    }
+  }, decrementInflight(d2) {
+    X2(d2);
+  }, finalizeCurrentRun(d2) {
+    if (!I2) return;
+    if (I2.duration = performance.now() - d2, !a2(I2)) {
+      h3.delete(I2.id), I2 = null;
+      return;
+    }
+    let M = I2.resolversStarted.length;
+    M === 0 ? (I2.status = "settled", I2.causalChain = _2(I2), H2(I2), U(I2), x3.emitTraceComplete(I2)) : (I2.status = "pending", U(I2), q3.set(I2.id, M)), I2 = null;
+  }, drainPendingChanges() {
+    A4.length = 0;
+  }, destroy() {
+    w2.length = 0, O2.clear(), G.clear(), q3.clear(), h3.clear(), A4.length = 0, I2 = null, S4 = null;
+  } };
+}
+function Ct(f3, s) {
+  for (let [x3, y2] of Object.entries(f3)) {
+    if (typeof y2 != "object" || y2 === null) continue;
+    let P = Object.hasOwn(y2, "handler"), p2 = Object.hasOwn(y2, "patch");
+    if (P && p2 && S && console.warn(`[Directive] event "${x3}": both \`handler\` and \`patch\` provided \u2014 using \`handler\` (patch is ignored).`), P) {
+      let w2 = y2;
+      if (f3[x3] = w2.handler, w2.meta) {
+        let O2 = me(w2.meta);
+        O2 && s.set(x3, O2);
+      }
+      continue;
+    }
+    if (p2) {
+      let w2 = y2, O2 = w2.patch;
+      if (A(O2), f3[x3] = (z, I2) => fe(O2, z, I2 ?? {}), w2.meta) {
+        let z = me(w2.meta);
+        z && s.set(x3, z);
+      }
+    }
+  }
+}
+function dr(f3) {
+  let s = /* @__PURE__ */ Object.create(null), x3 = /* @__PURE__ */ Object.create(null), y2 = /* @__PURE__ */ Object.create(null), P = /* @__PURE__ */ Object.create(null), p2 = /* @__PURE__ */ Object.create(null), w2 = /* @__PURE__ */ Object.create(null), O2 = /* @__PURE__ */ Object.create(null), z = /* @__PURE__ */ Object.create(null), I2 = /* @__PURE__ */ new Map(), A4 = /* @__PURE__ */ new Map(), G = /* @__PURE__ */ new Map(), q3 = /* @__PURE__ */ new Map(), h3 = /* @__PURE__ */ new Map();
+  for (let e of f3.modules) {
+    let n = (m3, g3) => {
+      if (m3) for (let t of Object.keys(m3)) {
+        if (h2.has(t)) throw new Error(`[Directive] Security: Module "${e.id}" has dangerous key "${t}" in ${g3}. This could indicate a prototype pollution attempt.`);
+        if (g3 === "schema" && t.startsWith("$")) throw new Error(`[Directive] Module "${e.id}" has schema key "${t}" starting with "$". Keys starting with $ are reserved for internal accessors ($store, $snapshot).`);
+      }
+    };
+    n(e.schema, "schema"), n(e.events, "events"), n(e.derive, "derive"), n(e.effects, "effects"), n(e.sources, "sources"), n(e.constraints, "constraints"), n(e.resolvers, "resolvers");
+    for (let m3 of Object.keys(e.schema)) {
+      let g3 = G.get(m3);
+      if (g3) throw new Error(`[Directive] Schema collision: Fact "${m3}" is defined in both module "${g3}" and "${e.id}". Use namespacing (e.g., "${e.id}::${m3}") or merge into one module.`);
+      G.set(m3, e.id);
+    }
+    let o2 = (m3, g3) => {
+      if (m3) for (let t of Object.keys(m3)) {
+        let r2 = q3.get(t);
+        if (r2 && r2 !== e.id) throw new Error(`[Directive] Definition collision: ${g3} "${t}" is defined in both module "${r2}" and "${e.id}". Use namespacing or rename to avoid conflicts.`);
+        q3.set(t, e.id);
+      }
+    };
+    o2(e.derive, "derivation"), o2(e.effects, "effect"), o2(e.sources, "source"), o2(e.constraints, "constraint"), o2(e.resolvers, "resolver"), o2(e.events, "event"), Object.assign(s, e.schema), e.events && (Ct(e.events, A4), Object.assign(x3, e.events)), e.derive && Object.assign(y2, e.derive), e.effects && Object.assign(P, e.effects);
+    {
+      let m3 = e.sources;
+      if (m3) {
+        Object.assign(p2, m3);
+        for (let g3 of Object.keys(m3)) w2[g3] = e.id;
+      }
+    }
+    if (e.constraints && Object.assign(O2, e.constraints), e.resolvers) {
+      Object.assign(z, e.resolvers);
+      for (let m3 of Object.keys(e.resolvers)) h3.set(m3, e);
+    }
+    if (e.meta) {
+      let m3 = me(e.meta);
+      m3 && I2.set(e.id, m3);
+    }
+  }
+  for (let e of Object.values(O2)) e.meta && (e.meta = me(e.meta));
+  for (let e of Object.values(z)) e.meta && (e.meta = me(e.meta));
+  for (let e of Object.values(P)) {
+    let n = e;
+    n.meta && (n.meta = me(n.meta));
+  }
+  for (let e of Object.values(s)) {
+    let n = e;
+    n._meta && (n._meta = me(n._meta));
+  }
+  let S4 = null;
+  if (f3.modules.some((e) => e.history?.snapshotEvents)) {
+    S4 = /* @__PURE__ */ new Set();
+    for (let e of f3.modules) {
+      let n = e;
+      if (n.history?.snapshotEvents) for (let o2 of n.history.snapshotEvents) S4.add(o2);
+      else if (n.events) for (let o2 of Object.keys(n.events)) S4.add(o2);
+    }
+  }
+  let N = 0, T2 = false;
+  if (S) {
+    let e = new Set(Object.keys(y2));
+    for (let n of Object.keys(s)) e.has(n) && console.warn(`[Directive] "${n}" exists as both a fact and a derivation. This may cause unexpected dependency tracking behavior.`);
+  }
+  let E4 = gt();
+  for (let e of f3.plugins ?? []) E4.register(e);
+  let X2 = E4.getPlugins().length > 0, ee2 = 0, _2 = E4.register.bind(E4), H2 = E4.unregister.bind(E4);
+  E4.register = (e) => {
+    _2(e), X2 = true;
+  }, E4.unregister = (e) => {
+    H2(e), X2 = E4.getPlugins().length > 0;
+  };
+  let U = () => X2, a$1 = dt({ config: f3.errorBoundary, onError: (e) => E4.emitError(e), onRecovery: (e, n) => E4.emitErrorRecovery(e, n) }), u$1 = null, d2 = () => {
+  }, M = () => {
+  }, L2 = null, J3 = Et({ traceConfig: f3.trace, pluginManager: E4, resolverMetaLookup: (e) => z[e]?.meta }), ce3 = J3.enabled, { store: ne2, facts: ge } = ft({ schema: s, onChange: (e, n, o2) => {
+    E4.emitFactSet(e, n, o2), d2(e), ce3 && J3.recordFactChange(String(e), o2, n), !L2?.isRestoring && (N === 0 && (T2 = true), W.changedKeys.add(e), ye());
+  }, onBatch: (e) => {
+    E4.emitFactsBatch(e);
+    let n = [];
+    for (let o2 of e) n.push(o2.key);
+    if (ce3) for (let o2 of e) J3.recordFactChange(o2.key, o2.prev, o2.type === "delete" ? void 0 : o2.value);
+    if (M(n), !L2?.isRestoring) {
+      N === 0 && (T2 = true);
+      for (let o2 of e) W.changedKeys.add(o2.key);
+      ye();
+    }
+  } }), b2 = ct({ definitions: y2, facts: ge, onCompute: (e, n, o2, m3) => {
+    U() && E4.emitDerivationCompute(e, n, m3), J3.currentTrace && J3.currentTrace.derivationsRecomputed.push({ id: e, deps: m3 ? [...m3] : [], oldValue: o2, newValue: n, meta: b2.getMeta(e) });
+  }, onInvalidate: (e) => {
+    U() && E4.emitDerivationInvalidate(e);
+  }, onError: (e, n) => {
+    a$1.handleError("derivation", e, n) === "retry" && b2.invalidate(e);
+  } });
+  d2 = (e) => b2.invalidate(e), M = (e) => b2.invalidateMany(e);
+  let c2 = ut({ definitions: P, facts: ge, store: ne2, onRun: (e, n) => {
+    U() && E4.emitEffectRun(e), J3.currentTrace && J3.currentTrace.effectsRun.push({ id: e, triggeredBy: n, meta: P[e]?.meta });
+  }, onError: (e, n) => {
+    let o2 = a$1.handleError("effect", e, n);
+    U() && E4.emitEffectError(e, n), J3.currentTrace && J3.currentTrace.effectErrors.push({ id: e, error: String(n), meta: P[e]?.meta }), o2 === "disable" && c2.disable(e), o2 === "retry" && (W.changedKeys.add("*"), ye());
+  } }), C4 = Rt(p2, w2, { onAttach: (e, n) => {
+    U() && E4.emitSourceAttach(e, n);
+  }, onPublish: (e, n, o2) => {
+    U() && E4.emitSourcePublish(e, n, o2);
+  }, onDrop: (e, n, o2, m3) => {
+    U() && E4.emitSourceDrop(e, n, o2, m3);
+  }, onDetach: (e, n) => {
+    U() && E4.emitSourceDetach(e, n);
+  }, onError: (e, n, o2, m3) => {
+    U() && E4.emitSourceError(e, n, o2, m3);
+  } });
+  function j3(e) {
+    if (Array.isArray(e)) {
+      let n = e;
+      return (o2) => de(n, o2);
+    }
+    return e;
+  }
+  let Y = /* @__PURE__ */ Object.create(null);
+  for (let e of Object.values(z)) e.key && typeof e.requirement == "string" && (Y[e.requirement] = j3(e.key));
+  let re3 = at({ definitions: O2, facts: ge, requirementKeys: Y, onEvaluate: (e, n) => {
+    if (U()) {
+      let o2 = re3.explainWhen(e);
+      E4.emitConstraintEvaluate(e, n, o2);
+    }
+  }, onError: (e, n) => {
+    let o2 = a$1.handleError("constraint", e, n);
+    U() && E4.emitConstraintError(e, n), o2 === "disable" && re3.disable(e);
+  } });
+  function le3(e) {
+    for (let n of Object.values(e)) n.key && typeof n.requirement == "string" && re3.setRequirementKey(n.requirement, j3(n.key));
+  }
+  function ve2(e) {
+    let n = O2[e];
+    if (!n?.abortOn || n.abortOn.length === 0) return;
+    let o2 = re3.getState(e);
+    if (o2?.isAsync || n.async) {
+      let m3 = o2?.isAsync && !n.async ? "async-promoted" : "async-declared", g3 = `${e}::${m3}`, t = Se2.has(g3);
+      t || Se2.add(g3), S && !t && console.warn(m3 === "async-promoted" ? `[Directive] constraint '${e}': abortOn binding disabled because when() returned a Promise \u2014 convert to a synchronous when, mark the constraint async: true and accept the binding being off, or use a data-form when (always sync).` : `[Directive] Constraint "${e}" has \`abortOn\` but is async. Binding is disabled \u2014 async constraints cannot be bound. To enable abortOn, switch to a synchronous function-form when or a data-form when (always sync), and drop \`async: true\`.`), U() && !t && E4.emitConstraintBindingDisabled(e, m3);
+      return;
+    }
+    return { fields: n.abortOn };
+  }
+  let he2 = /* @__PURE__ */ new Set(), Se2 = /* @__PURE__ */ new Set(), se2 = yt({ definitions: z, facts: ge, store: ne2, getConstraintBinding: ve2, onStart: (e, n) => {
+    U() && E4.emitResolverStart(e, n);
+  }, onComplete: (e, n, o2) => {
+    a$1.clearRetryAttempts(e), U() && (E4.emitResolverComplete(e, n, o2), E4.emitRequirementMet(n, e)), re3.markResolved(n.fromConstraint), ce3 && (J3.recordResolverComplete(n.id, e, o2), J3.decrementInflight(n.id));
+  }, onError: (e, n, o2) => {
+    let m3 = a$1.handleError("resolver", e, o2, n);
+    if (U() && E4.emitResolverError(e, n, o2), m3 === "disable" && re3.disable(n.fromConstraint), m3 === "retry" && (W.previousRequirements.remove(n.id), ye()), m3 === "retry-later") {
+      let i = a$1.getRetryLaterManager().getPendingRetries().find((R3) => R3.sourceId === e);
+      i && !i.callback && (i.callback = () => {
+        ye();
+      });
+    }
+    ce3 && (J3.recordResolverError(n.id, e, String(o2)), J3.decrementInflight(n.id));
+    let g3 = h3.get(e), t = g3?.hooks?.onResolverError;
+    if (t) {
+      let r2 = o2 instanceof Error ? o2 : new Error(String(o2));
+      try {
+        t(r2, n.requirement, { facts: ge });
+      } catch (i) {
+        console.error(`[Directive] onResolverError hook for module "${g3?.id}" threw:`, i);
+      }
+    }
+  }, onRetry: (e, n, o2) => E4.emitResolverRetry(e, n, o2), onCancel: (e, n) => {
+    E4.emitResolverCancel(e, n), E4.emitRequirementCanceled(n), ce3 && J3.decrementInflight(n.id);
+  }, onClobber: (e, n, o2, m3, g3) => {
+    U() && E4.emitResolverWriteRejected({ kind: "rejection", resolver: e, req: n, reason: "clobbered", fact: o2, expected: m3, actual: g3 });
+  }, onClobberSuppressed: (e, n, o2) => {
+    U() && E4.emitResolverWriteRejected({ kind: "summary", resolver: e, req: n, reason: "clobbered", dropped: o2 });
+  }, onResolutionComplete: () => {
+    pe2(), ye();
+  }, onRequeue: (e) => {
+    he2.add(e);
+  } }), be2 = /* @__PURE__ */ new Set();
+  function Ce() {
+    for (let e of be2) e();
+  }
+  let Re2 = f3.history ? ot({ historyOption: f3.history, facts: ge, store: ne2, onSnapshot: (e) => {
+    E4.emitSnapshot(e), Ce();
+  }, onHistoryChange: (e, n) => {
+    E4.emitHistoryNavigate(e, n), Ce();
+  } }) : it();
+  L2 = Re2;
+  let De2 = /* @__PURE__ */ new Set();
+  function pe2() {
+    for (let e of De2) e();
+  }
+  let Ie = 50, Me2 = 100, ke2 = 0, W = { isRunning: false, isReconciling: false, reconcileScheduled: false, isInitializing: false, isInitialized: false, isReady: false, isDestroyed: false, isEvicting: false, changedKeys: /* @__PURE__ */ new Set(), previousRequirements: new Ee(), readyPromise: null, readyResolve: null }, ae2 = kt({ mergedConstraints: O2, mergedResolvers: z, mergedDerive: y2, mergedEffects: P, constraintsManager: re3, resolversManager: se2, derivationsManager: b2, effectsManager: c2, pluginManager: E4, getState: () => W, scheduleReconcile: ye, maxDeferredRegistrations: Me2 });
+  function ye() {
+    !W.isRunning || W.reconcileScheduled || W.isInitializing || (W.reconcileScheduled = true, pe2(), queueMicrotask(() => {
+      W.reconcileScheduled = false, W.isRunning && !W.isInitializing && l2().catch((e) => {
+        S && console.error("[Directive] Unexpected error in reconcile:", e);
+      });
+    }));
+  }
+  async function l2() {
+    if (W.isReconciling) return;
+    if (ke2++, ke2 > Ie) {
+      S && console.warn(`[Directive] Reconcile loop exceeded ${Ie} iterations. This usually means resolvers are creating circular requirement chains. Check that resolvers aren't mutating facts that re-trigger their own constraints.`), ce3 && J3.drainPendingChanges(), W.previousRequirements = new Ee(), ke2 = 0;
+      return;
+    }
+    W.isReconciling = true, pe2();
+    let e = ce3 ? J3.startRun() : 0, n = J3.currentTrace;
+    if (n) for (let o2 of n.factChanges) {
+      let m3 = s[o2.key];
+      o2.meta = m3?._meta;
+    }
+    try {
+      if (W.changedKeys.size > 0) {
+        if (S4 === null || T2) {
+          let K2 = W.changedKeys, Z2 = K2.size <= 5 ? `facts-changed:${[...K2].join(",")}` : `facts-changed:${[...K2].slice(0, 5).join(",")}+${K2.size - 5}more`;
+          Re2.takeSnapshot(Z2);
+        }
+        T2 = false;
+      }
+      let o2 = ge.$snapshot();
+      E4.emitReconcileStart(o2), await c2.runEffects(W.changedKeys);
+      let m3 = new Set(W.changedKeys);
+      W.changedKeys.clear();
+      let g3 = await re3.evaluate(m3), t = new Ee();
+      for (let K2 of g3) t.add(K2), E4.emitRequirementCreated(K2);
+      if (n) {
+        let K2 = new Set(g3.map((Z2) => Z2.fromConstraint));
+        for (let Z2 of K2) {
+          let Q2 = re3.getState(Z2);
+          if (Q2) {
+            let ue2 = re3.getDependencies(Z2);
+            n.constraintsHit.push({ id: Z2, priority: Q2.priority, deps: ue2 ? [...ue2] : [], meta: O2[Z2]?.meta });
+          }
+        }
+      }
+      let { added: r2, removed: i } = t.diff(W.previousRequirements);
+      if (n) {
+        for (let K2 of r2) n.requirementsAdded.push({ id: K2.id, type: K2.requirement.type, fromConstraint: K2.fromConstraint });
+        for (let K2 of i) n.requirementsRemoved.push({ id: K2.id, type: K2.requirement.type, fromConstraint: K2.fromConstraint });
+      }
+      for (let K2 of i) (K2.fromConstraint ? ve2(K2.fromConstraint) : void 0) ? se2.detach(K2.id) : se2.abort(K2.id);
+      let R3;
+      if (r2.length > 0) {
+        let K2 = /* @__PURE__ */ new Set();
+        for (let Z2 of r2) {
+          if (!Z2.fromConstraint) continue;
+          let Q2 = ve2(Z2.fromConstraint);
+          if (Q2) for (let ue2 of Q2.fields) K2.add(ue2);
+        }
+        if (K2.size > 0) {
+          R3 = /* @__PURE__ */ Object.create(null);
+          for (let Z2 of K2) R3[Z2] = ne2.get(Z2);
+        }
+      }
+      for (let K2 of r2) se2.resolve(K2, { factsBaseline: R3 });
+      if (n) {
+        let K2 = se2.getInflightInfo(), Z2 = new Map(K2.map((Q2) => [Q2.id, Q2]));
+        for (let Q2 of r2) {
+          let te2 = Z2.get(Q2.id)?.resolverId ?? "unknown";
+          n.resolversStarted.push({ resolver: te2, requirementId: Q2.id, meta: z[te2]?.meta }), J3.attributeResolverStart(Q2.id);
+        }
+      }
+      if (W.previousRequirements = t, he2.size > 0) {
+        for (let K2 of he2) W.previousRequirements.remove(K2);
+        he2.clear(), ye();
+      }
+      let $2 = se2.getInflightInfo();
+      if (f3.plugins && f3.plugins.length > 0) {
+        let K2 = i.length > 0 ? new Map($2.map((Q2) => [Q2.id, Q2.resolverId])) : void 0, Z2 = { unmet: g3.filter((Q2) => !se2.isResolving(Q2.id)), inflight: $2, completed: [], canceled: i.map((Q2) => ({ id: Q2.id, resolverId: K2?.get(Q2.id) ?? "unknown" })) };
+        E4.emitReconcileEnd(Z2);
+      }
+      W.isReady || (W.isReady = true, W.readyResolve && (W.readyResolve(), W.readyResolve = null));
+    } finally {
+      ce3 && J3.finalizeCurrentRun(e), W.isReconciling = false, ae2.flushDeferred(), ke2 = 0, W.changedKeys.size > 0 && ye(), pe2();
+    }
+  }
+  function v2(e, n) {
+    let o2 = x3[e];
+    if (o2) {
+      N++, (S4 === null || S4.has(e)) && (T2 = true);
+      try {
+        ne2.batch(() => {
+          o2(ge, { type: e, ...n });
+        });
+      } finally {
+        N--;
+      }
+    } else S && console.warn(`[Directive] Unknown event type "${e}". No handler is registered for this event. Available events: ${Object.keys(x3).join(", ") || "(none)"}`);
+  }
+  let D2 = Dt({ mergedDerive: y2, getDerivation: (e) => b2.get(e), definitions: ae2 }), F2 = wt({ mergedEvents: x3, dispatchEvent: v2 });
+  function V2() {
+    let e = [];
+    for (let [n, o2] of I2) e.push({ type: "module", id: n, meta: o2 });
+    for (let n of Object.keys(s)) {
+      let o2 = s[n]?._meta;
+      o2 && e.push({ type: "fact", id: n, meta: o2 });
+    }
+    for (let [n, o2] of A4) e.push({ type: "event", id: n, meta: o2 });
+    for (let [n, o2] of Object.entries(O2)) o2.meta && e.push({ type: "constraint", id: n, meta: o2.meta });
+    for (let [n, o2] of Object.entries(z)) o2.meta && e.push({ type: "resolver", id: n, meta: o2.meta });
+    for (let [n, o2] of Object.entries(P)) {
+      let m3 = o2.meta;
+      m3 && e.push({ type: "effect", id: n, meta: m3 });
+    }
+    for (let n of Object.keys(y2)) {
+      let o2 = b2.getMeta(n);
+      o2 && e.push({ type: "derivation", id: n, meta: o2 });
+    }
+    return e;
+  }
+  let B3 = { facts: ge, history: Re2.isEnabled ? Re2 : null, derive: D2, events: F2, constraints: { disable: (e) => re3.disable(e), enable: (e) => re3.enable(e), isDisabled: (e) => re3.isDisabled(e), register: (e, n) => {
+    ae2.register("constraint", e, n);
+  }, assign: (e, n) => {
+    ae2.assign("constraint", e, n);
+  }, unregister: (e) => {
+    ae2.unregister("constraint", e), Se2.delete(`${e}::async-declared`), Se2.delete(`${e}::async-promoted`);
+  }, call: (e, n) => ae2.call("constraint", e, n), isDynamic: (e) => ae2.isDynamic("constraint", e), listDynamic: () => ae2.listDynamic("constraint") }, effects: { disable: (e) => c2.disable(e), enable: (e) => c2.enable(e), isEnabled: (e) => c2.isEnabled(e), register: (e, n) => {
+    ae2.register("effect", e, n);
+  }, assign: (e, n) => {
+    ae2.assign("effect", e, n);
+  }, unregister: (e) => {
+    ae2.unregister("effect", e);
+  }, call: (e) => ae2.call("effect", e), isDynamic: (e) => ae2.isDynamic("effect", e), listDynamic: () => ae2.listDynamic("effect") }, resolvers: { register: (e, n) => {
+    ae2.register("resolver", e, n), le3({ [e]: n });
+  }, assign: (e, n) => {
+    ae2.assign("resolver", e, n), le3({ [e]: n });
+  }, unregister: (e) => {
+    let n = z[e];
+    n?.key && typeof n.requirement == "string" && re3.removeRequirementKey(n.requirement), ae2.unregister("resolver", e);
+  }, call: (e, n) => ae2.call("resolver", e, n), isDynamic: (e) => ae2.isDynamic("resolver", e), listDynamic: () => ae2.listDynamic("resolver") }, get trace() {
+    return J3.getEntries();
+  }, meta: { module(e) {
+    return I2.get(e);
+  }, fact(e) {
+    return s[e]?._meta;
+  }, event(e) {
+    return A4.get(e);
+  }, constraint(e) {
+    return O2[e]?.meta;
+  }, resolver(e) {
+    return z[e]?.meta;
+  }, effect(e) {
+    return P[e]?.meta;
+  }, derivation(e) {
+    return b2.getMeta(e);
+  }, byCategory(e) {
+    return V2().filter((n) => n.meta.category === e);
+  }, byTag(e) {
+    return V2().filter((n) => n.meta.tags?.includes(e));
+  } }, notify: { guardrailBlocked(e, n, o2, m3, g3) {
+    if (W.isDestroyed || !U() || ee2 >= 4) return;
+    if (!E4.getPlugins().some((r2) => r2.name === e)) {
+      S && console.warn(`[Directive] system.notify.guardrailBlocked called with unknown plugin "${e}". Event dropped.`);
+      return;
+    }
+    ee2 += 1;
+    try {
+      E4.emitGuardrailBlocked(e, n, o2, m3, g3);
+    } finally {
+      ee2 -= 1;
+    }
+  }, clobberLoopDetected(e) {
+    if (!W.isDestroyed && U() && !(ee2 >= 4)) {
+      ee2 += 1;
+      try {
+        E4.emitClobberLoopDetected(e);
+      } finally {
+        ee2 -= 1;
+      }
+    }
+  }, clobberLoopResolved(e) {
+    if (!W.isDestroyed && U() && !(ee2 >= 4)) {
+      ee2 += 1;
+      try {
+        E4.emitClobberLoopResolved(e);
+      } finally {
+        ee2 -= 1;
+      }
+    }
+  } }, observe(e) {
+    if (E4.getPlugins().filter((g3) => g3.name.startsWith("__observer_")).length >= 100) return S && console.warn("[Directive] Maximum observer limit (100) reached. Call the unsubscribe function returned by observe() to clean up."), () => {
+    };
+    let o2 = `__observer_${Date.now()}_${Math.random().toString(36).slice(2)}`, m3 = { name: o2, onInit: () => e({ type: "system.init" }), onStart: () => e({ type: "system.start" }), onStop: () => e({ type: "system.stop" }), onDestroy: () => e({ type: "system.destroy" }), onFactSet: (g3, t, r2) => e({ type: "fact.change", key: g3, prev: r2, next: t }), onConstraintEvaluate: (g3, t, r2) => {
+      e(r2 ? { type: "constraint.evaluate", id: g3, active: t, whenExplain: r2 } : { type: "constraint.evaluate", id: g3, active: t });
+    }, onConstraintError: (g3, t) => e({ type: "constraint.error", id: g3, error: t }), onConstraintBindingDisabled: (g3, t) => e({ type: "constraint.binding.disabled", id: g3, reason: t }), onRequirementCreated: (g3) => e({ type: "requirement.created", id: g3.id, requirementType: g3.requirement.type }), onRequirementMet: (g3, t) => e({ type: "requirement.met", id: g3.id, byResolver: t }), onRequirementCanceled: (g3) => e({ type: "requirement.canceled", id: g3.id }), onResolverStart: (g3, t) => e({ type: "resolver.start", resolver: g3, requirementId: t.id }), onResolverComplete: (g3, t, r2) => e({ type: "resolver.complete", resolver: g3, requirementId: t.id, duration: r2 }), onResolverError: (g3, t, r2) => e({ type: "resolver.error", resolver: g3, requirementId: t.id, error: r2 }), onResolverWriteRejected: (g3) => {
+      if (g3.kind === "summary") {
+        e({ type: "resolver.write.rejected", kind: "summary", resolver: g3.resolver, requirementId: g3.req.id, reason: g3.reason, dropped: g3.dropped });
+        return;
+      }
+      e({ type: "resolver.write.rejected", kind: "rejection", resolver: g3.resolver, requirementId: g3.req.id, reason: g3.reason, fact: g3.fact, expected: g3.expected, actual: g3.actual });
+    }, onEffectRun: (g3) => e({ type: "effect.run", id: g3 }), onEffectError: (g3, t) => e({ type: "effect.error", id: g3, error: t }), onSourceAttach: (g3, t) => e({ type: "source.attach", id: g3, moduleId: t }), onSourcePublish: (g3, t, r2) => e({ type: "source.publish", id: g3, moduleId: t, eventName: r2 }), onSourceDrop: (g3, t, r2, i) => e({ type: "source.drop", id: g3, moduleId: t, eventName: r2, reason: i }), onSourceDetach: (g3, t) => e({ type: "source.detach", id: g3, moduleId: t }), onSourceError: (g3, t, r2, i) => e({ type: "source.error", id: g3, moduleId: t, phase: r2, error: i }), onGuardrailBlocked: (g3, t, r2, i, R3) => e({ type: "guardrail.blocked", plugin: g3, key: t, kind: r2, count: i, ...R3 !== void 0 ? { category: R3 } : {} }), onClobberLoopDetected: (g3) => e(g3), onClobberLoopResolved: (g3) => e(g3), onDerivationCompute: (g3, t) => e({ type: "derivation.compute", id: g3, value: t }), onReconcileStart: () => e({ type: "reconcile.start" }), onReconcileEnd: (g3) => {
+      let t = g3;
+      e({ type: "reconcile.end", resolversCompleted: Array.isArray(t.completed) ? t.completed.length : 0, resolversCanceled: Array.isArray(t.canceled) ? t.canceled.length : 0 });
+    } };
+    return E4.register(m3), () => E4.unregister(o2);
+  }, initialize() {
+    if (!W.isInitialized) {
+      W.isInitializing = true;
+      for (let e of f3.modules) e.init && ne2.batch(() => {
+        e.init(ge);
+      });
+      f3.onAfterModuleInit && ne2.batch(() => {
+        f3.onAfterModuleInit();
+      }), W.isInitializing = false, W.isInitialized = true;
+      for (let e of Object.keys(y2)) b2.get(e);
+    }
+  }, start() {
+    if (!W.isRunning) {
+      if (W.isEvicting) {
+        S && console.warn("[Directive] system.start() called during evict() \u2014 ignored. Re-create the system after destroyAsync() resolves.");
+        return;
+      }
+      if (W.isDestroyed) {
+        S && console.warn("[Directive] system.start() called after destroy \u2014 ignored. Systems are not reusable; create a new one.");
+        return;
+      }
+      W.isInitialized || this.initialize(), W.isRunning = true;
+      for (let e of f3.modules) e.hooks?.onStart?.(B3);
+      if (C4.attachAll((e, n, o2, m3) => W.isDestroyed ? { accepted: false, reason: "post-destroy" } : W.isRunning ? typeof o2 != "string" || o2.length === 0 ? { accepted: false, reason: "invalid-event-name" } : h2.has(o2) ? { accepted: false, reason: "blocked-event-name" } : (v2(o2, m3 ?? {}), { accepted: true }) : { accepted: false, reason: "post-stop" }), E4.emitStart(B3), f3.errorBoundary?.retryLater && !u$1) {
+        let e = Math.max(f3.errorBoundary.retryLater.delayMs ?? 1e3, 250);
+        u$1 = setInterval(() => {
+          let n = a$1.processDueRetries();
+          for (let o2 of n) o2.callback ? o2.callback() : ye();
+        }, Math.min(e, 500));
+      }
+      ye();
+    }
+  }, stop() {
+    if (W.isRunning) {
+      W.isRunning = false, u$1 !== null && (clearInterval(u$1), u$1 = null), a$1.getRetryLaterManager().clearAll(), se2.abortAll(), C4.cleanupAll(), c2.cleanupAll();
+      for (let e of f3.modules) e.hooks?.onStop?.(B3);
+      E4.emitStop(B3);
+    }
+  }, destroy() {
+    W.isDestroyed || (this.stop(), W.isDestroyed = true, ne2.destroy?.(), se2.destroy(), a$1.clearErrors(), De2.clear(), be2.clear(), J3.destroy(), ae2.destroy(), I2.clear(), A4.clear(), he2.clear(), E4.emitDestroy(B3));
+  }, async stopAsync() {
+    if (W.isRunning) {
+      W.isRunning = false, u$1 !== null && (clearInterval(u$1), u$1 = null), a$1.getRetryLaterManager().clearAll(), se2.abortAll(), await C4.cleanupAllAsync(), c2.cleanupAll();
+      for (let e of f3.modules) e.hooks?.onStop?.(B3);
+      E4.emitStop(B3);
+    }
+  }, async destroyAsync() {
+    W.isDestroyed || (await this.stopAsync(), W.isDestroyed = true, ne2.destroy?.(), se2.destroy(), a$1.clearErrors(), De2.clear(), be2.clear(), J3.destroy(), ae2.destroy(), I2.clear(), A4.clear(), he2.clear(), E4.emitDestroy(B3));
+  }, async evict(e) {
+    if (W.isEvicting || W.isDestroyed) return;
+    W.isEvicting = true;
+    let n = () => (async () => {
+      await C4.evictAll(), await this.destroyAsync();
+    })().finally(() => {
+      W.isEvicting = false;
+    });
+    if (e !== void 0 && e - Date.now() <= 0) {
+      n().catch(() => {
+      });
+      return;
+    }
+    let o2 = n();
+    if (e === void 0) {
+      await o2;
+      return;
+    }
+    let m3 = e - Date.now();
+    o2.catch(() => {
+    }), await Promise.race([o2, new Promise((g3) => setTimeout(g3, m3))]);
+  }, dispatch(e) {
+    h2.has(e.type) || v2(e.type, e);
+  }, read(e) {
+    return b2.get(e);
+  }, subscribe(e, n) {
+    let o2 = [], m3 = [];
+    for (let t of e) t in y2 ? o2.push(t) : t in s ? m3.push(t) : S && console.warn(`[Directive] subscribe: unknown key "${t}"`);
+    let g3 = [];
+    return o2.length > 0 && g3.push(b2.subscribe(o2, n)), m3.length > 0 && g3.push(ne2.subscribe(m3, n)), () => {
+      for (let t of g3) t();
+    };
+  }, watch(e, n, o2) {
+    let m3 = o2?.equalityFn ? (t, r2) => o2.equalityFn(t, r2) : (t, r2) => Object.is(t, r2);
+    if (e in y2) {
+      let t = b2.get(e);
+      return b2.subscribe([e], () => {
+        let r2 = b2.get(e);
+        if (!m3(r2, t)) {
+          let i = t;
+          t = r2, n(r2, i);
+        }
+      });
+    }
+    S && (e in s || console.warn(`[Directive] watch: unknown key "${e}"`));
+    let g3 = ne2.get(e);
+    return ne2.subscribe([e], () => {
+      let t = ne2.get(e);
+      if (!m3(t, g3)) {
+        let r2 = g3;
+        g3 = t, n(t, r2);
+      }
+    });
+  }, when(e, n) {
+    return new Promise((o2, m3) => {
+      let g3 = ne2.toObject();
+      if (e(g3)) {
+        o2();
+        return;
+      }
+      let t, r2, i = () => {
+        t?.(), r2 !== void 0 && clearTimeout(r2);
+      };
+      t = ne2.subscribeAll(() => {
+        let R3 = ne2.toObject();
+        e(R3) && (i(), o2());
+      }), n?.timeout !== void 0 && n.timeout > 0 && (r2 = setTimeout(() => {
+        i(), m3(new Error(`[Directive] when: timed out after ${n.timeout}ms`));
+      }, n.timeout));
+    });
+  }, inspect() {
+    return { unmet: W.previousRequirements.all(), inflight: se2.getInflightInfo(), facts: Object.keys(s).map((e) => ({ key: e, meta: s[e]?._meta })), events: Object.keys(x3).map((e) => ({ name: e, meta: A4.get(e) })), constraints: re3.getAllStates().map((e) => {
+      let n = re3.getWhenSpec(e.id), o2 = O2[e.id], m3 = o2?.abortOn && o2.abortOn.length > 0 ? o2.abortOn : void 0;
+      return { id: e.id, active: e.lastResult ?? false, disabled: re3.isDisabled(e.id), priority: e.priority, hitCount: e.hitCount, lastActiveAt: e.lastActiveAt, meta: o2?.meta, ...n ? { whenSpec: n } : {}, ...m3 ? { abortOn: m3 } : {} };
+    }), resolvers: Object.fromEntries(se2.getInflight().map((e) => [e, se2.getStatus(e)])), resolverDefs: Object.entries(z).map(([e, n]) => ({ id: e, requirement: typeof n.requirement == "string" ? n.requirement : "(predicate)", meta: n.meta })), effects: Object.entries(P).map(([e, n]) => ({ id: e, meta: n.meta })), sources: C4.listDefinitions().map((e) => ({ id: e.id, moduleId: e.moduleId, meta: e.meta, attached: e.attached, attachedAt: e.attachedAt, detachedAt: e.detachedAt, publishCount: e.publishCount, lastPublishAt: e.lastPublishAt, dropCount: e.dropCount, lastDropReason: e.lastDropReason, lastDropAt: e.lastDropAt, errorCount: e.errorCount, lastError: e.lastError })), attachedSourceCount: C4.attachedCount(), derivations: Object.keys(y2).map((e) => ({ id: e, meta: b2.getMeta(e) })), modules: f3.modules.map((e) => ({ id: e.id, meta: I2.get(e.id) })), traceEnabled: ce3, ...ce3 ? { trace: structuredClone(J3.getEntries() ?? []) } : {} };
+  }, explain(e) {
+    let o2 = W.previousRequirements.all().find((te2) => te2.id === e);
+    if (!o2) return null;
+    let m3 = re3.getState(o2.fromConstraint), g3 = se2.getStatus(e), t = {}, r2 = re3.getDependencies(o2.fromConstraint);
+    if (r2) for (let te2 of r2) t[te2] = ne2.get(te2);
+    else for (let [te2, fe3] of Object.entries(ne2.toObject())) t[te2] = fe3;
+    let i = O2[o2.fromConstraint], R3 = i?.meta?.label ?? o2.fromConstraint, $2 = [`Requirement "${o2.requirement.type}" (id: ${o2.id})`, `\u251C\u2500 Produced by constraint: ${R3}`, `\u251C\u2500 Constraint priority: ${m3?.priority ?? 0}`, `\u251C\u2500 Constraint active: ${m3?.lastResult ?? "unknown"}`, `\u251C\u2500 Resolver status: ${g3.state}`];
+    i?.meta?.description && $2.push(`\u251C\u2500 Description: ${i.meta.description}`);
+    let K2 = re3.explainWhen(o2.fromConstraint), Z2 = (te2, fe3, Pe) => {
+      let $e2 = Pe ? "\u2514\u2500" : "\u251C\u2500", Te = te2.pass ? "\u2713" : "\u2717";
+      if (te2.children) {
+        if (te2.op === "$not") {
+          let We = te2.pass ? " (child failed)" : " (child passed)";
+          $2.push(`${fe3}${$e2} ${Te} $not${We}`);
+        } else $2.push(`${fe3}${$e2} ${Te} ${te2.op} (${te2.actual}/${te2.expected})`);
+        let It = `${fe3}${Pe ? "   " : "\u2502  "}`;
+        te2.children.forEach((We, Pt) => {
+          Z2(We, It, Pt === te2.children.length - 1);
+        });
+        return;
+      }
+      let Mt = typeof te2.expected == "object" ? JSON.stringify(te2.expected) : String(te2.expected), xt = te2.actual === void 0 ? "undefined" : typeof te2.actual == "object" ? JSON.stringify(te2.actual) : String(te2.actual);
+      $2.push(`${fe3}${$e2} ${Te} ${te2.path} ${te2.op} ${Mt} (actual: ${xt})`);
+    };
+    K2 && K2.length > 0 && ($2.push("\u251C\u2500 Predicate clauses:"), K2.forEach((te2, fe3) => {
+      Z2(te2, "\u2502  ", fe3 === K2.length - 1);
+    }));
+    let Q2 = Object.entries(o2.requirement).filter(([te2]) => te2 !== "type").map(([te2, fe3]) => `${te2}=${JSON.stringify(fe3)}`).join(", ");
+    Q2 && $2.push(`\u251C\u2500 Requirement payload: { ${Q2} }`);
+    let ue2 = Object.entries(t).slice(0, 10);
+    return ue2.length > 0 && ($2.push("\u2514\u2500 Relevant facts:"), ue2.forEach(([te2, fe3], Pe) => {
+      let $e2 = Pe === ue2.length - 1 ? "   \u2514\u2500" : "   \u251C\u2500", Te = typeof fe3 == "object" ? JSON.stringify(fe3) : String(fe3);
+      $2.push(`${$e2} ${te2} = ${Te.slice(0, 50)}${Te.length > 50 ? "..." : ""}`);
+    })), $2.join(`
+`);
+  }, getOriginal(e, n) {
+    return ae2.getOriginal(e, n);
+  }, restoreOriginal(e, n) {
+    return ae2.restoreOriginal(e, n);
+  }, async settle(e = 5e3) {
+    let n = () => se2.getInflightCount() === 0 && !W.isReconciling && !W.reconcileScheduled && !se2.hasPendingBatches();
+    if (se2.hasPendingBatches() && se2.processBatches(), await new Promise((o2) => queueMicrotask(o2)), !n()) return new Promise((o2, m3) => {
+      let g3 = false, t = () => {
+        g3 || (g3 = true, clearTimeout(r2), i());
+      }, r2 = setTimeout(() => {
+        t();
+        let R3 = [], $2 = se2.getInflightInfo();
+        $2.length > 0 && R3.push(`${$2.length} resolvers inflight: ${$2.map((Z2) => Z2.resolverId).join(", ")}`), W.isReconciling && R3.push("reconciliation in progress"), W.reconcileScheduled && R3.push("reconcile scheduled");
+        let K2 = W.previousRequirements.all();
+        K2.length > 0 && R3.push(`${K2.length} unmet requirements: ${K2.map((Z2) => Z2.requirement.type).join(", ")}`), m3(new Error(`[Directive] settle() timed out after ${e}ms. ${R3.join("; ")}`));
+      }, e), i = this.onSettledChange(() => {
+        se2.hasPendingBatches() && se2.processBatches(), queueMicrotask(() => {
+          !g3 && n() && (t(), o2());
+        });
+      });
+    });
+  }, getSnapshot() {
+    return { facts: ne2.toObject(), version: 1 };
+  }, getDistributableSnapshot(e = {}) {
+    let { includeDerivations: n, excludeDerivations: o2, includeFacts: m3, ttlSeconds: g3, metadata: t, includeVersion: r2 } = e, i = {}, R3 = Object.keys(y2), $2 = new Set(R3), K2;
+    if (n) {
+      if (K2 = n.filter((ue2) => $2.has(ue2)), S) {
+        let ue2 = n.filter((te2) => !$2.has(te2));
+        ue2.length > 0 && console.warn(`[Directive] getDistributableSnapshot: Unknown derivation keys ignored: ${ue2.join(", ")}. Available: ${R3.join(", ") || "(none)"}`);
+      }
+    } else K2 = R3;
+    if (o2) {
+      let ue2 = new Set(o2);
+      K2 = K2.filter((te2) => !ue2.has(te2));
+    }
+    for (let ue2 of K2) try {
+      i[ue2] = b2.get(ue2);
+    } catch (te2) {
+      S && console.warn(`[Directive] getDistributableSnapshot: Skipping derivation "${ue2}" due to error:`, te2);
+    }
+    if (m3 && m3.length > 0) {
+      let ue2 = ne2.toObject(), te2 = Object.keys(ue2);
+      if (S) {
+        let fe3 = m3.filter((Pe) => !(Pe in ue2));
+        fe3.length > 0 && console.warn(`[Directive] getDistributableSnapshot: Unknown fact keys ignored: ${fe3.join(", ")}. Available: ${te2.join(", ") || "(none)"}`);
+      }
+      for (let fe3 of m3) fe3 in ue2 && (i[fe3] = ue2[fe3]);
+    }
+    let Z2 = Date.now(), Q2 = { data: i, createdAt: Z2 };
+    return g3 !== void 0 && g3 > 0 && (Q2.expiresAt = Z2 + g3 * 1e3), r2 && (Q2.version = R(i)), t && (Q2.metadata = t), Q2;
+  }, watchDistributableSnapshot(e, n) {
+    let { includeDerivations: o2, excludeDerivations: m3 } = e, g3 = Object.keys(y2), t;
+    if (o2 ? t = o2.filter((R3) => g3.includes(R3)) : t = g3, m3) {
+      let R3 = new Set(m3);
+      t = t.filter(($2) => !R3.has($2));
+    }
+    if (t.length === 0) return S && console.warn("[Directive] watchDistributableSnapshot: No derivations to watch. Callback will never be called."), () => {
+    };
+    let i = this.getDistributableSnapshot({ ...e, includeVersion: true }).version;
+    return b2.subscribe(t, () => {
+      let R3 = this.getDistributableSnapshot({ ...e, includeVersion: true });
+      R3.version !== i && (i = R3.version, n(R3));
+    });
+  }, restore(e) {
+    if (!e || typeof e != "object") throw new Error("[Directive] restore() requires a valid snapshot object");
+    if (!e.facts || typeof e.facts != "object") throw new Error("[Directive] restore() snapshot must have a facts object");
+    if (!D(e)) throw new Error("[Directive] restore() rejected: snapshot contains potentially dangerous keys (__proto__, constructor, or prototype). This may indicate a prototype pollution attack.");
+    ne2.batch(() => {
+      for (let [n, o2] of Object.entries(e.facts)) h2.has(n) || ne2.set(n, o2);
+    });
+  }, onSettledChange(e) {
+    return De2.add(e), () => {
+      De2.delete(e);
+    };
+  }, onHistoryChange(e) {
+    return be2.add(e), () => {
+      be2.delete(e);
+    };
+  }, batch(e) {
+    ne2.batch(e);
+  }, get isSettled() {
+    return se2.getInflightCount() === 0 && !se2.hasPendingBatches() && !W.isReconciling && !W.reconcileScheduled;
+  }, get isRunning() {
+    return W.isRunning;
+  }, get isInitialized() {
+    return W.isInitialized;
+  }, get isReady() {
+    return W.isReady;
+  }, whenReady() {
+    return W.isReady ? Promise.resolve() : W.isRunning ? (W.readyPromise || (W.readyPromise = new Promise((e) => {
+      W.readyResolve = e;
+    })), W.readyPromise) : Promise.reject(new Error("[Directive] whenReady() called before start(). Call system.start() first, then await system.whenReady()."));
+  } };
+  function ie3(e) {
+    if (W.isReconciling) throw new Error(`[Directive] Cannot register module "${e.id}" during reconciliation. Wait for the current reconciliation cycle to complete.`);
+    if (W.isDestroyed) throw new Error(`[Directive] Cannot register module "${e.id}" on a destroyed system.`);
+    let n = (o2, m3) => {
+      if (o2) for (let g3 of Object.keys(o2)) {
+        if (h2.has(g3)) throw new Error(`[Directive] Security: Module "${e.id}" has dangerous key "${g3}" in ${m3}.`);
+        if (m3 === "schema" && g3.startsWith("$")) throw new Error(`[Directive] Module "${e.id}" has schema key "${g3}" starting with "$". Keys starting with $ are reserved for internal accessors ($store, $snapshot).`);
+      }
+    };
+    n(e.schema, "schema"), n(e.events, "events"), n(e.derive, "derive"), n(e.effects, "effects"), n(e.sources, "sources"), n(e.constraints, "constraints"), n(e.resolvers, "resolvers");
+    for (let o2 of Object.keys(e.schema)) if (o2 in s) throw new Error(`[Directive] Schema collision: Fact "${o2}" already exists. Cannot register module "${e.id}".`);
+    if (S && e.derive) {
+      let o2 = new Set(Object.keys(s));
+      for (let m3 of Object.keys(e.derive)) o2.has(m3) && console.warn(`[Directive] "${m3}" exists as both a fact and a derivation after registering module "${e.id}".`);
+    }
+    if (e.history?.snapshotEvents) {
+      S4 === null && (S4 = new Set(Object.keys(x3)));
+      for (let o2 of e.history.snapshotEvents) S4.add(o2);
+    } else if (S4 !== null && e.events) for (let o2 of Object.keys(e.events)) S4.add(o2);
+    Object.assign(s, e.schema);
+    for (let o2 of Object.values(e.schema)) {
+      let m3 = o2;
+      m3._meta && (m3._meta = me(m3._meta));
+    }
+    if (e.events && (Ct(e.events, A4), Object.assign(x3, e.events)), e.derive && (Object.assign(y2, e.derive), b2.registerDefinitions(e.derive)), e.effects) {
+      for (let o2 of Object.values(e.effects)) {
+        let m3 = o2;
+        m3.meta && (m3.meta = me(m3.meta));
+      }
+      Object.assign(P, e.effects), c2.registerDefinitions(e.effects);
+    }
+    if (e.sources) {
+      Object.assign(p2, e.sources);
+      for (let o2 of Object.keys(e.sources)) w2[o2] = e.id;
+      for (let [o2, m3] of Object.entries(e.sources)) {
+        let g3 = m3.meta;
+        E4.emitDefinitionRegister("source", o2, { moduleId: e.id, ...g3 !== void 0 ? { meta: g3 } : {} });
+      }
+      C4.registerDefinitions(e.id, e.sources);
+    }
+    if (e.constraints) {
+      for (let o2 of Object.values(e.constraints)) {
+        let m3 = o2;
+        m3.meta && (m3.meta = me(m3.meta));
+      }
+      Object.assign(O2, e.constraints), re3.registerDefinitions(e.constraints);
+    }
+    if (e.resolvers) {
+      for (let o2 of Object.values(e.resolvers)) {
+        let m3 = o2;
+        m3.meta && (m3.meta = me(m3.meta));
+      }
+      Object.assign(z, e.resolvers);
+      for (let o2 of Object.keys(e.resolvers)) h3.set(o2, e);
+      se2.registerDefinitions(e.resolvers), le3(e.resolvers);
+    }
+    if (ne2.registerKeys(e.schema), e.meta) {
+      let o2 = me(e.meta);
+      o2 && I2.set(e.id, o2);
+    }
+    f3.modules.push(e), e.init && ne2.batch(() => {
+      e.init(ge);
+    }), e.hooks?.onInit?.(B3), W.isRunning && (e.hooks?.onStart?.(B3), ye());
+  }
+  B3.registerModule = ie3, E4.emitInit(B3).catch((e) => {
+    console.error("[Directive] Plugin emitInit failure", { error: e });
+  });
+  for (let e of f3.modules) e.hooks?.onInit?.(B3);
+  return B3;
+}
+
+// ../../node_modules/.pnpm/@directive-run+core@1.23.0/node_modules/@directive-run/core/dist/chunk-AFPLATPV.js
+var m2 = "::";
+var he = /* @__PURE__ */ Symbol.for("nodejs.util.inspect.custom");
+function we(e) {
+  if (!e.ownKeys) return {};
+  let n = {};
+  for (let t of e.ownKeys()) n[t] = e.get(t);
+  return n;
+}
+function $(e) {
+  return new Proxy({}, { get(n, t) {
+    if (typeof t == "symbol") return t === he ? () => we(e) : void 0;
+    if (!h2.has(t)) return e.get(t);
+  }, set(n, t, i) {
+    return typeof t == "symbol" || h2.has(t) ? false : e.set ? e.set(t, i) : false;
+  }, has(n, t) {
+    return typeof t == "symbol" || h2.has(t) ? false : e.has ? e.has(t) : false;
+  }, deleteProperty(n, t) {
+    return typeof t == "symbol" || h2.has(t) ? false : e.delete ? e.delete(t) : false;
+  }, ownKeys() {
+    return e.ownKeys ? e.ownKeys() : [];
+  }, getOwnPropertyDescriptor(n, t) {
+    if (typeof t != "symbol" && e.has && typeof t == "string" && e.has(t)) return { configurable: true, enumerable: true };
+  }, defineProperty() {
+    return false;
+  }, getPrototypeOf() {
+    return null;
+  }, setPrototypeOf() {
+    return false;
+  } });
+}
+var Z = /* @__PURE__ */ new WeakMap();
+var Q = /* @__PURE__ */ new WeakMap();
+var X = /* @__PURE__ */ new WeakMap();
+var ee = /* @__PURE__ */ new WeakMap();
+var ne = /* @__PURE__ */ new WeakMap();
+var te = /* @__PURE__ */ new WeakMap();
+function j2(e, n) {
+  let t = Z.get(e);
+  if (t) {
+    let r2 = t.get(n);
+    if (r2) return r2;
+  } else t = /* @__PURE__ */ new Map(), Z.set(e, t);
+  let i = $({ get: (r2) => r2 === "$store" || r2 === "$snapshot" ? e[r2] : e[`${n}${m2}${r2}`], set: (r2, u2) => {
+    if (S) {
+      let s = y(u2);
+      s && C2(`${n}.${r2}`, s);
+    }
+    return e[`${n}${m2}${r2}`] = u2, true;
+  }, has: (r2) => `${n}${m2}${r2}` in e, delete: (r2) => (delete e[`${n}${m2}${r2}`], true) });
+  return t.set(n, i), i;
+}
+function re2(e, n, t) {
+  let i = Q.get(e);
+  if (i) return i;
+  let r2 = $({ get: (u2) => {
+    if (Object.hasOwn(n, u2)) return j2(e, u2);
+  }, has: (u2) => Object.hasOwn(n, u2), ownKeys: () => t() });
+  return Q.set(e, r2), r2;
+}
+function oe(e, n, t) {
+  let i = `${n}|${t.join(",")}`, r2 = ne.get(e);
+  if (r2) {
+    let o2 = r2.get(i);
+    if (o2) return o2;
+  } else r2 = /* @__PURE__ */ new Map(), ne.set(e, r2);
+  let u2 = new Set(t), s = ["self", ...t], c2 = $({ get: (o2) => {
+    if (o2 === "self") return j2(e, n);
+    if (u2.has(o2)) return j2(e, o2);
+    S && console.warn(`[Directive] Module "${n}" accessed undeclared cross-module property "${o2}". Add it to crossModuleDeps or use "facts.self.${o2}" for own module facts.`);
+  }, has: (o2) => o2 === "self" || u2.has(o2), ownKeys: () => s });
+  return r2.set(i, c2), c2;
+}
+function K(e, n) {
+  let t = ee.get(e);
+  if (t) {
+    let r2 = t.get(n);
+    if (r2) return r2;
+  } else t = /* @__PURE__ */ new Map(), ee.set(e, t);
+  let i = $({ get: (r2) => e[`${n}${m2}${r2}`], has: (r2) => `${n}${m2}${r2}` in e });
+  return t.set(n, i), i;
+}
+function se(e, n, t) {
+  let i = X.get(e);
+  if (i) return i;
+  let r2 = $({ get: (u2) => {
+    if (Object.hasOwn(n, u2)) return K(e, u2);
+  }, has: (u2) => Object.hasOwn(n, u2), ownKeys: () => t() });
+  return X.set(e, r2), r2;
+}
+function ie2(e, n, t) {
+  let i = te.get(e);
+  return i || (i = /* @__PURE__ */ new Map(), te.set(e, i)), $({ get: (r2) => {
+    if (!Object.hasOwn(n, r2)) return;
+    let u2 = i.get(r2);
+    if (u2) return u2;
+    let s = $({ get: (c2) => (o2) => {
+      e.dispatch({ type: `${r2}${m2}${c2}`, ...o2 });
+    } });
+    return i.set(r2, s), s;
+  }, has: (r2) => Object.hasOwn(n, r2), ownKeys: () => t() });
+}
+function S3(e) {
+  if (e.includes(".")) {
+    let [n, ...t] = e.split(".");
+    return `${n}${m2}${t.join(m2)}`;
+  }
+  return e;
+}
+function B2(e) {
+  let n = {};
+  for (let [t, i] of Object.entries(e)) {
+    let r2 = t.indexOf(m2);
+    if (r2 > 0) {
+      let u2 = t.slice(0, r2), s = t.slice(r2 + m2.length);
+      n[u2] || (n[u2] = {}), n[u2][s] = i;
+    } else n._root || (n._root = {}), n._root[t] = i;
+  }
+  return n;
+}
+function A3(e, n, t, i) {
+  return t ? oe(e, n, i) : j2(e, n);
+}
+function b(e, n) {
+  return `${e}${m2}${n}`;
+}
+function ae(e) {
+  return e.includes(m2);
+}
+function E3(e, n, t) {
+  if (Array.isArray(e)) {
+    let s = e.map((c2) => {
+      if (c2 && typeof c2 == "object" && typeof c2.fact == "string") {
+        let o2 = c2.fact;
+        return ae(o2) ? c2 : { ...c2, fact: b(n, o2) };
+      }
+      return c2;
+    });
+    return A(s), s;
+  }
+  if (!e || typeof e != "object") return e;
+  let i = e;
+  if ("$all" in i || "$any" in i) {
+    let s = "$all" in i ? "$all" : "$any", c2 = i[s], o2 = { [s]: c2.map((f3) => E3(f3, n, t)) };
+    return A(o2), o2;
+  }
+  if ("$not" in i) {
+    let s = { $not: E3(i.$not, n, t) };
+    return A(s), s;
+  }
+  function r2(s, c2) {
+    return E3(s, c2, ce2);
+  }
+  let u2 = {};
+  for (let s of Object.keys(i)) {
+    if (s.startsWith("$") || ae(s)) {
+      u2[s] = i[s];
+      continue;
+    }
+    if (s === "self") {
+      let c2 = i[s];
+      if (c2 && typeof c2 == "object") {
+        let o2 = r2(c2, n);
+        if (o2 && typeof o2 == "object" && !Array.isArray(o2)) {
+          for (let [f3, l2] of Object.entries(o2)) u2[f3] = l2;
+          continue;
+        }
+      }
+    }
+    if (t.has(s)) {
+      let c2 = i[s];
+      if (c2 && typeof c2 == "object") {
+        let o2 = r2(c2, s);
+        if (o2 && typeof o2 == "object" && !Array.isArray(o2)) {
+          for (let [f3, l2] of Object.entries(o2)) u2[f3] = l2;
+          continue;
+        }
+      }
+    }
+    u2[b(n, s)] = i[s];
+  }
+  return A(u2), u2;
+}
+var ce2 = /* @__PURE__ */ new Set();
+function me2(e, n) {
+  let t = e.crossModuleDeps ? new Set(Object.keys(e.crossModuleDeps)) : ce2, i = e.constraints;
+  if (i) {
+    let c2 = false, o2 = {};
+    for (let [f3, l2] of Object.entries(i)) {
+      let d2 = l2;
+      if (d2.when !== void 0 && typeof d2.when != "function") {
+        o2[f3] = { ...d2, when: E3(d2.when, n, t) }, c2 = true;
+        continue;
+      }
+      o2[f3] = l2;
+    }
+    c2 && (i = o2);
+  }
+  let r2 = e.derive;
+  if (r2) {
+    let c2 = false, o2 = {};
+    for (let [f3, l2] of Object.entries(r2)) {
+      let d2 = l2 && typeof l2 == "object" && Object.hasOwn(l2, "compute") ? l2 : null;
+      if (!d2) {
+        o2[f3] = l2;
+        continue;
+      }
+      let h$1 = d2.compute;
+      if (typeof h$1 == "function") {
+        o2[f3] = l2;
+        continue;
+      }
+      if (I(h$1)) {
+        A(h$1);
+        let k = (g3) => L(h$1, g3);
+        o2[f3] = d2.meta ? { compute: k, meta: d2.meta } : k, c2 = true;
+        continue;
+      }
+      if (re(h$1)) {
+        A(h$1);
+        let k = ce(h$1), g3 = (P) => k(P);
+        o2[f3] = d2.meta ? { compute: g3, meta: d2.meta } : g3, c2 = true;
+        continue;
+      }
+      o2[f3] = l2;
+    }
+    c2 && (r2 = o2);
+  }
+  let u2 = e.events;
+  if (u2) {
+    let c2 = false, o2 = {};
+    for (let [f3, l2] of Object.entries(u2)) {
+      if (l2 && typeof l2 == "object") {
+        let d2 = Object.hasOwn(l2, "handler"), h3 = Object.hasOwn(l2, "patch");
+        if (d2 && h3 && S && console.warn(`[Directive] event "${f3}": both \`handler\` and \`patch\` provided \u2014 using \`handler\` (patch is ignored).`), h3 && !d2) {
+          let k = l2;
+          A(k.patch);
+          let g3 = (P, x3) => fe(k.patch, P, x3 ?? {});
+          o2[f3] = k.meta ? { handler: g3, meta: k.meta } : g3, c2 = true;
+          continue;
+        }
+      }
+      o2[f3] = l2;
+    }
+    c2 && (u2 = o2);
+  }
+  let s$1 = e.effects;
+  if (s$1) {
+    let c2 = false, o2 = {};
+    for (let [f3, l2] of Object.entries(s$1)) {
+      let d2 = l2;
+      if (d2.on !== void 0 && re(d2.on)) {
+        o2[f3] = { ...d2, on: E3(d2.on, n, t) }, c2 = true;
+        continue;
+      }
+      o2[f3] = l2;
+    }
+    c2 && (s$1 = o2);
+  }
+  return i === e.constraints && r2 === e.derive && u2 === e.events && s$1 === e.effects ? e : { ...e, constraints: i, derive: r2, events: u2, effects: s$1 };
+}
+function C3(e) {
+  return Object.keys(e).length > 0 ? e : void 0;
+}
+function ke(e, n) {
+  let t = {};
+  for (let [i, r2] of Object.entries(e.schema.facts)) t[b(n, i)] = r2;
+  return t;
+}
+function pe(e, n) {
+  if (e.init) return (t) => {
+    let i = j2(t, n);
+    e.init(i);
+  };
+}
+function ve(e, n, t, i) {
+  if (!e.derive) return;
+  let r2 = {};
+  for (let [u2, s] of Object.entries(e.derive)) {
+    let c2 = tn(s), o2 = c2 ? s.compute : s, f3 = c2 ? s.meta : void 0, l2 = (d2, h3) => {
+      let k = A3(d2, n, t, i), g3 = K(h3, n);
+      return o2(k, g3);
+    };
+    r2[b(n, u2)] = f3 ? { compute: l2, meta: f3 } : l2;
+  }
+  return C3(r2);
+}
+function be(e, n) {
+  if (!e.events) return;
+  let t = {};
+  for (let [i, r2] of Object.entries(e.events)) {
+    let u2 = typeof r2 == "object" && r2 !== null && Object.hasOwn(r2, "handler"), s = u2 ? r2.handler : r2, c2 = u2 ? r2.meta : void 0, o2 = (f3, l2) => {
+      let d2 = j2(f3, n);
+      s(d2, l2);
+    };
+    t[b(n, i)] = c2 ? { handler: o2, meta: c2 } : o2;
+  }
+  return C3(t);
+}
+function Me(e, n, t, i) {
+  if (!e.constraints) return;
+  let r2 = {};
+  for (let [u2, s] of Object.entries(e.constraints)) {
+    let c2 = s, o2 = typeof c2.when == "function";
+    r2[b(n, u2)] = { ...c2, deps: c2.deps?.map((f3) => b(n, f3)), after: c2.after?.map((f3) => f3.includes(m2) ? f3 : b(n, f3)), abortOn: c2.abortOn?.map((f3) => f3.includes(m2) ? f3 : b(n, f3)), when: o2 ? (f3) => {
+      let l2 = A3(f3, n, t, i);
+      return c2.when(l2);
+    } : c2.when, require: typeof c2.require == "function" ? (f3) => {
+      let l2 = A3(f3, n, t, i);
+      return c2.require(l2);
+    } : c2.require };
+  }
+  return C3(r2);
+}
+function Re(e, n, t, i) {
+  if (!e.resolvers) return;
+  let r2 = {};
+  for (let [s, c2] of Object.entries(e.resolvers)) {
+    let f3 = function(l2) {
+      return { facts: A3(l2.facts, n, t, i), signal: l2.signal };
+    };
+    let o2 = c2;
+    r2[b(n, s)] = { ...o2, ...o2.resolve && { resolve: async (l2, d2) => {
+      await o2.resolve(l2, f3(d2));
+    } }, ...o2.resolveBatch && { resolveBatch: async (l2, d2) => {
+      await o2.resolveBatch(l2, f3(d2));
+    } }, ...o2.resolveBatchWithResults && { resolveBatchWithResults: async (l2, d2) => o2.resolveBatchWithResults(l2, f3(d2)) } };
+  }
+  return C3(r2);
+}
+function Se(e, n, t, i) {
+  if (!e.effects) return;
+  let r2 = {};
+  for (let [u2, s] of Object.entries(e.effects)) {
+    let c2 = s;
+    r2[b(n, u2)] = { ...c2, run: (o2, f3) => {
+      let l2 = A3(o2, n, t, i), d2 = f3 ? A3(f3, n, t, i) : void 0;
+      return c2.run(l2, d2);
+    }, deps: c2.deps?.map((o2) => b(n, o2)) };
+  }
+  return C3(r2);
+}
+function Oe2(e, n, t) {
+  return { snapshotEvents: t && !t.has(n) ? [] : e.history?.snapshotEvents?.map((i) => b(n, i)) };
+}
+function H(e) {
+  let { mod: n, namespace: t, snapshotModulesSet: i } = e, r2 = me2(n, t), u2 = !!(r2.crossModuleDeps && Object.keys(r2.crossModuleDeps).length > 0), s = u2 ? Object.keys(r2.crossModuleDeps) : [];
+  return { id: r2.id, schema: ke(r2, t), requirements: r2.schema.requirements ?? {}, init: pe(r2, t), derive: ve(r2, t, u2, s), events: be(r2, t), effects: Se(r2, t, u2, s), sources: r2.sources, constraints: Me(r2, t, u2, s), resolvers: Re(r2, t, u2, s), hooks: r2.hooks, meta: r2.meta, history: Oe2(r2, t, i) };
+}
+function xe(e) {
+  let n = Object.keys(e), t = new Set(n), i = /* @__PURE__ */ new Set(), r2 = /* @__PURE__ */ new Set(), u2 = [], s = [];
+  function c2(o2) {
+    if (i.has(o2)) return;
+    if (r2.has(o2)) {
+      let l2 = s.indexOf(o2), d2 = [...s.slice(l2), o2].join(" \u2192 ");
+      throw new Error(`[Directive] Circular dependency detected: ${d2}. Modules cannot have circular crossModuleDeps. Break the cycle by removing one of the cross-module references.`);
+    }
+    r2.add(o2), s.push(o2);
+    let f3 = e[o2];
+    if (f3?.crossModuleDeps) for (let l2 of Object.keys(f3.crossModuleDeps)) t.has(l2) && c2(l2);
+    s.pop(), r2.delete(o2), i.add(o2), u2.push(o2);
+  }
+  for (let o2 of n) c2(o2);
+  return u2;
+}
+function ue(e, n) {
+  let t = [];
+  for (let i of Object.keys(n.schema.facts)) t.push(`${e}${m2}${i}`);
+  if (n.schema.derivations) for (let i of Object.keys(n.schema.derivations)) t.push(`${e}${m2}${i}`);
+  return t;
+}
+function ze2(e) {
+  if (!e || !("module" in e) && !("modules" in e)) throw new Error("[Directive] createSystem requires either `{ module }` (single-module form) or `{ modules: { name: module } }` (namespaced form). Got an options object with neither.");
+  if ("module" in e) {
+    if (!e.module) throw new Error(`[Directive] createSystem requires a module. Got: ${typeof e.module}`);
+    return $e(e);
+  }
+  let n = e;
+  if (Array.isArray(n.modules)) throw new Error(`[Directive] createSystem expects modules as an object, not an array.
+
+Instead of:
+  createSystem({ modules: [authModule, dataModule] })
+
+Use:
+  createSystem({ modules: { auth: authModule, data: dataModule } })
+
+Or for a single module:
+  createSystem({ module: counterModule })`);
+  let t = n.modules;
+  if (t && typeof t == "object" && "id" in t && "schema" in t) throw new Error(`[Directive] A single module was passed to \`modules:\`. For a single module, use \`module:\` instead:
+
+  createSystem({ module: myModule })
+
+For multiple modules, wrap in an object:
+  createSystem({ modules: { myName: myModule } })`);
+  return De(n);
+}
+function De(e) {
+  let n = e.modules, t = new Set(Object.keys(n)), i = typeof e.history == "object" ? e.history : null, r2 = i?.snapshotModules ? new Set(i.snapshotModules) : null;
+  if (e.tickMs !== void 0 && e.tickMs <= 0) throw new Error("[Directive] tickMs must be a positive number");
+  if (S) {
+    for (let [a2, y2] of Object.entries(n)) if (y2.crossModuleDeps) for (let w2 of Object.keys(y2.crossModuleDeps)) w2 === a2 ? console.warn(`[Directive] Module "${a2}" references itself in crossModuleDeps. Use "facts.self" to access own module's facts instead.`) : t.has(w2) || console.warn(`[Directive] Module "${a2}" declares crossModuleDeps.${w2}, but no module with namespace "${w2}" exists in the system. Available modules: ${[...t].join(", ")}`);
+  }
+  if (S && i?.snapshotModules) for (let a2 of i.snapshotModules) t.has(a2) || console.warn(`[Directive] history.snapshotModules entry "${a2}" doesn't match any module. Available modules: ${[...t].join(", ")}`);
+  let u2, s = e.initOrder ?? "auto";
+  if (Array.isArray(s)) {
+    let a2 = s, y2 = Object.keys(n).filter((w2) => !a2.includes(w2));
+    if (y2.length > 0) throw new Error(`[Directive] initOrder is missing modules: ${y2.join(", ")}. All modules must be included in the explicit order.`);
+    u2 = a2;
+  } else s === "declaration" ? u2 = Object.keys(n) : u2 = xe(n);
+  let { history: c2, trace: o2, errorBoundary: f3 } = de2(e);
+  for (let a2 of Object.keys(n)) {
+    if (a2.includes(m2)) throw new Error(`[Directive] Module name "${a2}" contains the reserved separator "${m2}". Module names cannot contain "${m2}".`);
+    let y2 = n[a2];
+    if (y2) {
+      for (let w2 of Object.keys(y2.schema.facts)) if (w2.includes(m2)) throw new Error(`[Directive] Schema key "${w2}" in module "${a2}" contains the reserved separator "${m2}". Schema keys cannot contain "${m2}".`);
+    }
+  }
+  let l2 = { names: null };
+  function d2() {
+    return l2.names === null && (l2.names = Object.keys(n)), l2.names;
+  }
+  let h3 = u2.map((a2) => {
+    let y2 = n[a2];
+    return y2 ? H({ mod: y2, namespace: a2, snapshotModulesSet: r2 }) : null;
+  }).filter((a2) => a2 !== null);
+  S && e.tickMs && e.tickMs > 0 && (h3.some((y2) => y2.events && Object.keys(y2.events).some((w2) => w2.endsWith(`${m2}tick`))) || console.warn(`[Directive] tickMs is set to ${e.tickMs}ms but no module defines a "tick" event handler.`));
+  let k$1 = null, g$1 = null;
+  function P(a$1) {
+    for (let [y2, w2] of Object.entries(a$1)) {
+      if (h2.has(y2)) {
+        S && console.warn(`[Directive] initialFacts/hydrate contains blocked namespace "${y2}". Skipping.`);
+        continue;
+      }
+      if (!t.has(y2)) {
+        S && console.warn(`[Directive] initialFacts/hydrate contains unknown namespace "${y2}". Available modules: ${[...t].join(", ")}`);
+        continue;
+      }
+      if (w2 && typeof w2 == "object" && !D(w2)) throw new Error(`[Directive] initialFacts/hydrate for namespace "${y2}" contains potentially dangerous keys (__proto__, constructor, or prototype). This may indicate a prototype pollution attack.`);
+      for (let [M, D2] of Object.entries(w2)) h2.has(M) || (g$1.facts[`${y2}${m2}${M}`] = D2);
+    }
+  }
+  g$1 = dr({ modules: h3, plugins: e.plugins, history: c2, trace: o2, errorBoundary: f3, tickMs: e.tickMs, cloud: e.cloud, onAfterModuleInit: () => {
+    e.initialFacts && P(e.initialFacts), k$1 && (P(k$1), k$1 = null);
+  } });
+  let x3 = /* @__PURE__ */ new Map();
+  for (let a2 of Object.keys(n)) {
+    let y2 = n[a2];
+    y2 && x3.set(a2, ue(a2, y2));
+  }
+  let q3 = re2(g$1.facts, n, d2), ye = se(g$1.derive, n, d2), ge = ie2(g$1, n, d2), R3 = null, F2 = e.tickMs, _2 = { _mode: "namespaced", facts: q3, history: g$1.history, derive: ye, events: ge, constraints: g$1.constraints, effects: g$1.effects, resolvers: g$1.resolvers, async hydrate(a2) {
+    if (g$1.isRunning) throw new Error("[Directive] hydrate() must be called before start(). The system is already running.");
+    let y2 = await a2();
+    y2 && typeof y2 == "object" && (k$1 = y2);
+  }, initialize() {
+    g$1.initialize();
+  }, start() {
+    if (g$1.start(), F2 && F2 > 0) {
+      let a2;
+      for (let y2 of h3) if (y2?.events && (a2 = Object.keys(y2.events).find((w2) => w2.endsWith(`${m2}tick`)), a2)) break;
+      if (a2) {
+        let y2 = a2;
+        R3 = setInterval(() => {
+          g$1.dispatch({ type: y2 });
+        }, F2);
+      }
+    }
+  }, stop() {
+    R3 && (clearInterval(R3), R3 = null), g$1.stop();
+  }, async stopAsync() {
+    R3 && (clearInterval(R3), R3 = null), await g$1.stopAsync();
+  }, destroy() {
+    this.stop(), g$1.destroy();
+  }, async destroyAsync() {
+    await this.stopAsync(), await g$1.destroyAsync();
+  }, async evict(a2) {
+    R3 && (clearInterval(R3), R3 = null), await g$1.evict(a2);
+  }, dispatch(a2) {
+    g$1.dispatch(a2);
+  }, read(a2) {
+    return g$1.read(S3(a2));
+  }, subscribe(a$1, y2) {
+    let w2 = [];
+    for (let M of a$1) if (M.endsWith(".*")) {
+      let D2 = M.slice(0, -2), W = x3.get(D2);
+      W ? w2.push(...W) : S && console.warn(`[Directive] subscribe wildcard "${M}" \u2014 namespace "${D2}" not found.`);
+    } else w2.push(S3(M));
+    return g$1.subscribe(w2, y2);
+  }, subscribeModule(a$1, y2) {
+    let w2 = x3.get(a$1);
+    return !w2 || w2.length === 0 ? (S && console.warn(`[Directive] subscribeModule("${a$1}") \u2014 namespace not found. Available: ${[...x3.keys()].join(", ")}`), () => {
+    }) : g$1.subscribe(w2, y2);
+  }, watch(a2, y2, w2) {
+    return g$1.watch(S3(a2), y2, w2);
+  }, when(a2, y2) {
+    return g$1.when(() => a2(q3), y2);
+  }, getDistributableSnapshot(a2) {
+    let y2 = { ...a2, includeDerivations: a2?.includeDerivations?.map(S3), excludeDerivations: a2?.excludeDerivations?.map(S3), includeFacts: a2?.includeFacts?.map(S3) }, w2 = g$1.getDistributableSnapshot(y2);
+    return { ...w2, data: B2(w2.data) };
+  }, watchDistributableSnapshot(a2, y2) {
+    let w2 = { ...a2, includeDerivations: a2?.includeDerivations?.map(S3), excludeDerivations: a2?.excludeDerivations?.map(S3), includeFacts: a2?.includeFacts?.map(S3) };
+    return g$1.watchDistributableSnapshot(w2, (M) => {
+      y2({ ...M, data: B2(M.data) });
+    });
+  }, registerModule(a2, y2) {
+    if (t.has(a2)) throw new Error(`[Directive] Module namespace "${a2}" already exists. Cannot register a duplicate namespace.`);
+    if (a2.includes(m2)) throw new Error(`[Directive] Module name "${a2}" contains the reserved separator "${m2}".`);
+    if (h2.has(a2)) throw new Error(`[Directive] Module name "${a2}" is a blocked property.`);
+    for (let D2 of Object.keys(y2.schema.facts)) if (D2.includes(m2)) throw new Error(`[Directive] Schema key "${D2}" in module "${a2}" contains the reserved separator "${m2}".`);
+    let w2 = y2, M = H({ mod: w2, namespace: a2, snapshotModulesSet: r2 });
+    t.add(a2), n[a2] = w2, l2.names = null, x3.set(a2, ue(a2, w2)), g$1.registerModule(M);
+  } };
+  return le2(_2, g$1), fe2(_2), _2;
+}
+function de2(e) {
+  let n = e.history, t = e.trace, i = e.errorBoundary;
+  return e.zeroConfig && (n = n ?? S, i = { onConstraintError: "skip", onResolverError: "skip", onEffectError: "skip", onDerivationError: "skip", ...e.errorBoundary }), { history: n, trace: t, errorBoundary: i };
+}
+function le2(e, n) {
+  Object.defineProperties(e, { trace: { get() {
+    return n.trace;
+  }, enumerable: true, configurable: true }, meta: { value: n.meta, enumerable: true, configurable: true }, isRunning: { get() {
+    return n.isRunning;
+  }, enumerable: true, configurable: true }, isSettled: { get() {
+    return n.isSettled;
+  }, enumerable: true, configurable: true }, isInitialized: { get() {
+    return n.isInitialized;
+  }, enumerable: true, configurable: true }, isReady: { get() {
+    return n.isReady;
+  }, enumerable: true, configurable: true } }), e.whenReady = n.whenReady.bind(n), e.batch = n.batch.bind(n), e.onSettledChange = n.onSettledChange.bind(n), e.onHistoryChange = n.onHistoryChange.bind(n), e.inspect = n.inspect.bind(n), e.settle = n.settle.bind(n), e.explain = n.explain.bind(n), e.getSnapshot = n.getSnapshot.bind(n), e.restore = n.restore.bind(n), e.observe = n.observe.bind(n), n.notify && (e.notify = n.notify);
+  let t = ["dispatch", "read", "subscribe", "watch", "when", "getDistributableSnapshot", "watchDistributableSnapshot"];
+  for (let i of t) i in e || (e[i] = n[i].bind(n));
+}
+function fe2(e) {
+  S && (typeof process > "u" || process.env?.NODE_ENV !== "test") && setTimeout(() => {
+    !e.isRunning && !e.isInitialized && console.warn("[Directive] System created but start() was never called. Constraints, resolvers, and effects will not run until you call system.start().");
+  }, 0);
+}
+function $e(e) {
+  let n = e.module;
+  if (!n) throw new Error(`[Directive] createSystem requires a module. Got: ${typeof n}`);
+  if (e.tickMs !== void 0 && e.tickMs <= 0) throw new Error("[Directive] tickMs must be a positive number");
+  if (e.initialFacts && !D(e.initialFacts)) throw new Error("[Directive] initialFacts contains potentially dangerous keys (__proto__, constructor, or prototype). This may indicate a prototype pollution attack.");
+  S && (n.crossModuleDeps && Object.keys(n.crossModuleDeps).length > 0 && console.warn("[Directive] Single module mode ignores crossModuleDeps. Use multiple modules if cross-module access is needed: createSystem({ modules: { ... } })"), e.tickMs && e.tickMs > 0 && (n.events && "tick" in n.events || console.warn(`[Directive] tickMs is set to ${e.tickMs}ms but module has no "tick" event handler.`)), (typeof e.history == "object" ? e.history : null)?.snapshotModules && console.warn("[Directive] history.snapshotModules has no effect in single-module mode. Use history.snapshotEvents on the module definition instead, or switch to createSystem({ modules: { ... } }) for multi-module filtering."));
+  let { history: t, trace: i, errorBoundary: r2 } = de2(e), u2 = null, s = null;
+  s = dr({ modules: [{ id: n.id, schema: n.schema.facts, requirements: n.schema.requirements, init: n.init, derive: n.derive, events: n.events, effects: n.effects, sources: n.sources, constraints: n.constraints, resolvers: n.resolvers, hooks: n.hooks, meta: n.meta, history: n.history }], plugins: e.plugins, history: t, trace: i, errorBoundary: r2, tickMs: e.tickMs, cloud: e.cloud, onAfterModuleInit: () => {
+    if (e.initialFacts) for (let [d2, h3] of Object.entries(e.initialFacts)) h2.has(d2) || (s.facts[d2] = h3);
+    if (u2) {
+      if (!D(u2)) S && console.warn("[Directive] hydrate() data contains potentially dangerous keys. Skipping.");
+      else for (let [d2, h3] of Object.entries(u2)) h2.has(d2) || (s.facts[d2] = h3);
+      u2 = null;
+    }
+  } });
+  let c2 = new Proxy({}, { get(d2, h3) {
+    if (typeof h3 != "symbol" && !h2.has(h3)) return (k) => {
+      s.dispatch({ type: h3, ...k });
+    };
+  }, has(d2, h3) {
+    return typeof h3 == "symbol" || h2.has(h3) ? false : n.events ? h3 in n.events : false;
+  }, ownKeys() {
+    return n.events ? Object.keys(n.events) : [];
+  }, getOwnPropertyDescriptor(d2, h3) {
+    if (typeof h3 != "symbol" && !h2.has(h3) && n.events && h3 in n.events) return { configurable: true, enumerable: true };
+  }, set() {
+    return false;
+  }, deleteProperty() {
+    return false;
+  }, defineProperty() {
+    return false;
+  }, getPrototypeOf() {
+    return null;
+  }, setPrototypeOf() {
+    return false;
+  } }), o2 = null, f3 = e.tickMs, l2 = { _mode: "single", facts: s.facts, history: s.history, derive: s.derive, events: c2, constraints: s.constraints, effects: s.effects, resolvers: s.resolvers, async hydrate(d2) {
+    if (s.isRunning) throw new Error("[Directive] hydrate() must be called before start(). The system is already running.");
+    let h3 = await d2();
+    h3 && typeof h3 == "object" && (u2 = h3);
+  }, initialize() {
+    s.initialize();
+  }, start() {
+    s.start(), f3 && f3 > 0 && n.events && "tick" in n.events && (o2 = setInterval(() => {
+      s.dispatch({ type: "tick" });
+    }, f3));
+  }, stop() {
+    o2 && (clearInterval(o2), o2 = null), s.stop();
+  }, async stopAsync() {
+    o2 && (clearInterval(o2), o2 = null), await s.stopAsync();
+  }, destroy() {
+    this.stop(), s.destroy();
+  }, async destroyAsync() {
+    await this.stopAsync(), await s.destroyAsync();
+  }, async evict(d2) {
+    o2 && (clearInterval(o2), o2 = null), await s.evict(d2);
+  }, registerModule(d2) {
+    s.registerModule({ id: d2.id, schema: d2.schema.facts, requirements: d2.schema.requirements, init: d2.init, derive: d2.derive, events: d2.events, effects: d2.effects, sources: d2.sources, constraints: d2.constraints, resolvers: d2.resolvers, hooks: d2.hooks, history: d2.history });
+  } };
+  return le2(l2, s), fe2(l2), l2;
+}
+
+// ../../node_modules/.pnpm/@directive-run+core@1.23.0/node_modules/@directive-run/core/dist/index.js
+function J2(e = [], t, n, r2, i, s, o2) {
+  return { _type: void 0, _validators: e, _typeName: t, _default: n, _transform: r2, _description: i, _refinements: s, _meta: o2, validate(u2) {
+    return J2([...e, u2], t, n, r2, i, s, o2);
+  } };
+}
+function p(e, t, n, r2, i, s, o2) {
+  return { ...J2(e, t, n, r2, i, s, o2), default(a2) {
+    return p(e, t, a2, r2, i, s, o2);
+  }, transform(a2) {
+    return p([], t, void 0, (l2) => {
+      let f3 = r2 ? r2(l2) : l2;
+      return a2(f3);
+    }, i, void 0, o2);
+  }, brand() {
+    return p(e, `Branded<${t}>`, n, r2, i, s, o2);
+  }, describe(a2) {
+    return p(e, t, n, r2, a2, s, o2);
+  }, refine(a2, c2) {
+    let l2 = [...s ?? [], { predicate: a2, message: c2 }];
+    return p([...e, a2], t, n, r2, i, l2, o2);
+  }, nullable() {
+    return p([(a2) => a2 === null || e.every((c2) => c2(a2))], `${t} | null`, n, r2, i, void 0, o2);
+  }, optional() {
+    return p([(a2) => a2 === void 0 || e.every((c2) => c2(a2))], `${t} | undefined`, n, r2, i, void 0, o2);
+  }, meta(a2) {
+    return p(e, t, n, r2, i, s, a2);
+  } };
+}
+var ln = ((...e) => {
+  if (e.length === 0) return p([], "union");
+  let t = e.map((n) => n._typeName ?? "unknown");
+  return p([(n) => e.some((r2) => r2._validators.every((i) => i(n)))], t.join(" | "));
+});
+var fn = { string() {
+  let e = (t, n, r2, i, s, o2) => ({ ...p(t, "string", n, r2, i, s, o2), minLength(a2) {
+    return e([...t, (c2) => c2.length >= a2], n, r2, i, s, o2);
+  }, maxLength(a2) {
+    return e([...t, (c2) => c2.length <= a2], n, r2, i, s, o2);
+  }, pattern(a2) {
+    return e([...t, (c2) => a2.test(c2)], n, r2, i, s, o2);
+  }, default(a2) {
+    return e(t, a2, r2, i, s, o2);
+  }, describe(a2) {
+    return e(t, n, r2, a2, s, o2);
+  }, refine(a2, c2) {
+    let l2 = [...s ?? [], { predicate: a2, message: c2 }];
+    return e([...t, a2], n, r2, i, l2, o2);
+  }, meta(a2) {
+    return e(t, n, r2, i, s, a2);
+  } });
+  return e([(t) => typeof t == "string"]);
+}, number() {
+  let e = (t, n, r2, i, s, o2) => ({ ...p(t, "number", n, r2, i, s, o2), min(a2) {
+    return e([...t, (c2) => c2 >= a2], n, r2, i, s, o2);
+  }, max(a2) {
+    return e([...t, (c2) => c2 <= a2], n, r2, i, s, o2);
+  }, default(a2) {
+    return e(t, a2, r2, i, s, o2);
+  }, describe(a2) {
+    return e(t, n, r2, a2, s, o2);
+  }, refine(a2, c2) {
+    let l2 = [...s ?? [], { predicate: a2, message: c2 }];
+    return e([...t, a2], n, r2, i, l2, o2);
+  }, meta(a2) {
+    return e(t, n, r2, i, s, a2);
+  } });
+  return e([(t) => typeof t == "number"]);
+}, boolean() {
+  return p([(e) => typeof e == "boolean"], "boolean");
+}, array() {
+  let e = (t, n, r2, i, s, o2) => {
+    let u2 = p(t, "array", r2, void 0, i, void 0, o2), a2 = s ?? { value: -1 };
+    return { ...u2, get _lastFailedIndex() {
+      return a2.value;
+    }, set _lastFailedIndex(l2) {
+      a2.value = l2;
+    }, of(l2) {
+      let f3 = { value: -1 };
+      return e([...t, (h3) => {
+        for (let b2 = 0; b2 < h3.length; b2++) if (!l2._validators.every((v2) => v2(h3[b2]))) return f3.value = b2, false;
+        return true;
+      }], l2, r2, i, f3, o2);
+    }, nonEmpty() {
+      return e([...t, (l2) => l2.length > 0], n, r2, i, a2, o2);
+    }, maxLength(l2) {
+      return e([...t, (f3) => f3.length <= l2], n, r2, i, a2, o2);
+    }, minLength(l2) {
+      return e([...t, (f3) => f3.length >= l2], n, r2, i, a2, o2);
+    }, default(l2) {
+      return e(t, n, l2, i, a2, o2);
+    }, describe(l2) {
+      return e(t, n, r2, l2, a2, o2);
+    }, meta(l2) {
+      return e(t, n, r2, i, a2, l2);
+    } };
+  };
+  return e([(t) => Array.isArray(t)]);
+}, object() {
+  let e = (t, n, r2, i) => ({ ...p(t, "object", n, void 0, r2, void 0, i), shape(o2) {
+    return e([...t, (u2) => {
+      for (let [a2, c2] of Object.entries(o2)) {
+        let l2 = u2[a2], f3 = c2;
+        if (f3 && !f3._validators.every((h3) => h3(l2))) return false;
+      }
+      return true;
+    }], n, r2, i);
+  }, nonNull() {
+    return e([...t, (o2) => o2 != null], n, r2, i);
+  }, hasKeys(...o2) {
+    return e([...t, (u2) => o2.every((a2) => a2 in u2)], n, r2, i);
+  }, default(o2) {
+    return e(t, o2, r2, i);
+  }, describe(o2) {
+    return e(t, n, o2, i);
+  }, meta(o2) {
+    return e(t, n, r2, o2);
+  } });
+  return e([(t) => typeof t == "object" && t !== null && !Array.isArray(t)]);
+}, enum(...e) {
+  S && e.length === 0 && console.warn("[Directive] t.enum() called with no values - this will reject all strings");
+  let t = new Set(e);
+  return p([(n) => typeof n == "string" && t.has(n)], `enum(${e.join("|")})`);
+}, literal(e) {
+  return p([(t) => t === e], `literal(${String(e)})`);
+}, nullable(e) {
+  let t = e._typeName ?? "unknown";
+  return J2([(n) => n === null ? true : e._validators.every((r2) => r2(n))], `${t} | null`);
+}, optional(e) {
+  let t = e._typeName ?? "unknown";
+  return J2([(n) => n === void 0 ? true : e._validators.every((r2) => r2(n))], `${t} | undefined`);
+}, union: ln, record(e) {
+  let t = e._typeName ?? "unknown";
+  return p([(n) => typeof n != "object" || n === null || Array.isArray(n) ? false : Object.values(n).every((r2) => e._validators.every((i) => i(r2)))], `Record<string, ${t}>`);
+}, tuple(...e) {
+  S && e.length === 0 && console.warn("[Directive] t.tuple() called with no types - this will only accept empty arrays");
+  let t = e.map((n) => n._typeName ?? "unknown");
+  return p([(n) => !Array.isArray(n) || n.length !== e.length ? false : e.every((r2, i) => r2._validators.every((s) => s(n[i])))], `[${t.join(", ")}]`);
+}, date() {
+  return p([(e) => e instanceof Date && !Number.isNaN(e.getTime())], "Date");
+}, uuid() {
+  let e = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+  return p([(t) => typeof t == "string" && e.test(t)], "uuid");
+}, email() {
+  let e = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return p([(t) => typeof t == "string" && e.test(t)], "email");
+}, url() {
+  return p([(e) => {
+    if (typeof e != "string") return false;
+    try {
+      return new URL(e), true;
+    } catch {
+      return false;
+    }
+  }], "url");
+}, bigint() {
+  return p([(e) => typeof e == "bigint"], "bigint");
+}, any() {
+  return p([], "any");
+}, unknown() {
+  return p([], "unknown");
+} };
+function dn(e) {
+  if (!e || typeof e != "string") {
+    console.warn("[Directive] Module ID must be a non-empty string");
+    return;
+  }
+  /^(__[a-z][a-z0-9_-]*|[a-z][a-z0-9-]*)$/i.test(e) || console.warn(`[Directive] Module ID "${e}" should follow kebab-case convention (e.g., "my-module")`);
+}
+function Le(e, t, n, r2, i) {
+  for (let s of e) t.has(s) || console.warn(`[Directive] ${n} "${s}" not declared in ${r2}`);
+  for (let s of t) e.has(s) || console.warn(`[Directive] ${r2}["${s}"] ${i}`);
+}
+function pn(e, t) {
+  e.length === 0 && console.warn("[Directive] history.snapshotEvents is an empty array \u2014 no events will create history snapshots. Omit history.snapshotEvents entirely to snapshot all events, or list specific events.");
+  let n = new Set(Object.keys(t));
+  for (let r2 of e) n.has(r2) || console.warn(`[Directive] history.snapshotEvents entry "${r2}" not declared in schema.events. Available events: ${[...n].join(", ") || "(none)"}`);
+}
+function gn(e, t) {
+  let n = new Set(Object.keys(t));
+  for (let [r2, i] of Object.entries(e)) {
+    let s = i;
+    typeof s.requirement == "string" && !n.has(s.requirement) && console.warn(`[Directive] Resolver "${r2}" references unknown requirement type "${s.requirement}". Available types: ${[...n].join(", ") || "(none)"}`);
+  }
+}
+function yn(e, t) {
+  let n = t.schema?.facts ?? {}, r2 = Object.keys(n);
+  if (r2.length === 0) return;
+  let i = /* @__PURE__ */ new Set(["self", "prev", "current"]), s = "crossModuleDeps" in t && t.crossModuleDeps ? Object.keys(t.crossModuleDeps) : [];
+  for (let o2 of s) i.add(o2);
+  for (let o2 of r2) if (i.has(o2)) throw new Error(`[Directive] module '${e}': fact key '${o2}' conflicts with a reserved namespace pivot or evaluation alias (self / prev / current / a crossModuleDep namespace). Three fixes:
+  1. Rename the fact (e.g. ${o2}_)
+  2. Remove '${o2}' from this module's crossModuleDeps if it's not actually needed
+  3. Move the fact under a wrapping namespace (t.object({ inner: ... }))`);
+}
+function mn(e, t) {
+  let n = t.constraints;
+  if (n) for (let [r2, i] of Object.entries(n)) {
+    let s = i?.abortOn;
+    if (s) {
+      for (let o2 of s) if (h2.has(o2) || o2.startsWith("$")) throw new Error(`[Directive] module '${e}' constraint '${r2}': abortOn key '${o2}' is reserved (BLOCKED_PROPS or $-prefixed)`);
+    }
+  }
+}
+function hn(e, t) {
+  let n = t.constraints;
+  if (n) for (let [r2, i] of Object.entries(n)) {
+    let s = i?.bind;
+    if (s) {
+      for (let o2 of s) if (h2.has(o2) || o2.startsWith("$")) throw new Error(`[Directive] module '${e}' constraint '${r2}': bind key '${o2}' is reserved (BLOCKED_PROPS or $-prefixed)`);
+    }
+  }
+}
+function $n(e, t) {
+  dn(e), t.schema ? t.schema.facts || (Object.values(t.schema).some((r2) => r2 != null && typeof r2 == "object" && "_typeName" in r2) && console.warn(`[Directive] Module "${e}" schema appears to contain fact declarations directly. Did you mean \`schema: { facts: { ... } }\` instead of \`schema: { ... }\`?`), console.warn("[Directive] Module schema.facts is required")) : console.warn("[Directive] Module schema is required"), Le(new Set(Object.keys(t.derive ?? {})), new Set(Object.keys(t.schema?.derivations ?? {})), "Derivation", "schema.derivations", "has no matching implementation in derive"), Le(new Set(Object.keys(t.events ?? {})), new Set(Object.keys(t.schema?.events ?? {})), "Event", "schema.events", "has no matching handler in events"), t.history?.snapshotEvents && pn(t.history.snapshotEvents, t.schema?.events ?? {}), t.resolvers && t.schema?.requirements && gn(t.resolvers, t.schema.requirements);
+}
+function qe(e, t) {
+  yn(e, t), mn(e, t), hn(e, t), S && $n(e, t);
+  let n = "crossModuleDeps" in t ? t.crossModuleDeps : void 0;
+  return { id: e, schema: t.schema, init: t.init, derive: t.derive ?? {}, events: t.events ?? {}, effects: t.effects, sources: t.sources, constraints: t.constraints, resolvers: t.resolvers, hooks: t.hooks, meta: t.meta, history: t.history, crossModuleDeps: n };
+}
 var BroadcastBudgetExceeded = class extends Error {
   constructor(message, limit, observed, scope) {
     super(message);
@@ -65410,56 +69634,99 @@ var DEFAULT_COST_BREAKER_CONFIG = {
 };
 var MS_PER_DAY = 24 * 60 * 60 * 1e3;
 var MS_PER_MONTH = 30 * MS_PER_DAY;
-function createCostBreaker(config = DEFAULT_COST_BREAKER_CONFIG, now = Date.now) {
-  const state = {
-    perEvent: /* @__PURE__ */ new Map(),
-    perDay: [],
-    perMonth: [],
-    usdPerDay: 0,
-    lastRolloverAt: now()
-  };
-  function rolloverIfNeeded() {
-    const t = now();
-    const dayBefore = t - MS_PER_DAY;
-    const monthBefore = t - MS_PER_MONTH;
-    while (state.perDay.length > 0 && state.perDay[0] < dayBefore) {
-      state.perDay.shift();
+var breakerModule = qe("cost-breaker", {
+  schema: {
+    facts: {
+      /** Append-only ledger of accepted posts. The rolling-window
+       * counters all derive off this — no shifting, no manual
+       * rollover. For the practical broadcaster load (hundreds of
+       * posts per month, not millions) the O(n) scan dominates
+       * nothing. */
+      posts: fn.array().default(() => []),
+      /** Wall-clock at the most recent gate call. The gate bumps
+       * this before reading derivations so the rolling-window cuts
+       * reflect the call's actual time, not module-init time. Kept
+       * as a fact (not a derivation input) because Directive
+       * derivations are pure functions of facts — making `now()` a
+       * fact gives the engine a real dependency it can invalidate
+       * from. */
+      nowMs: fn.number().default(0)
+    },
+    derivations: {
+      dayCount: fn.number(),
+      monthCount: fn.number(),
+      usdSpentToday: fn.number(),
+      eventCounts: fn.object()
     }
-    while (state.perMonth.length > 0 && state.perMonth[0] < monthBefore) {
-      state.perMonth.shift();
-    }
-    if (t - state.lastRolloverAt >= MS_PER_DAY) {
-      state.usdPerDay = 0;
-      state.lastRolloverAt = t;
+  },
+  init: (facts) => {
+    facts.posts = [];
+    facts.nowMs = 0;
+  },
+  derive: {
+    // Derivations may fire once before init() has run; default the
+    // facts to empty so the first invalidation pass doesn't crash on
+    // `undefined.filter(...)`. Subsequent reads see the init values.
+    dayCount: (facts) => {
+      const posts = facts.posts ?? [];
+      const nowMs = facts.nowMs ?? 0;
+      return posts.filter((p2) => nowMs - p2.ts < MS_PER_DAY).length;
+    },
+    monthCount: (facts) => {
+      const posts = facts.posts ?? [];
+      const nowMs = facts.nowMs ?? 0;
+      return posts.filter((p2) => nowMs - p2.ts < MS_PER_MONTH).length;
+    },
+    usdSpentToday: (facts) => {
+      const posts = facts.posts ?? [];
+      const nowMs = facts.nowMs ?? 0;
+      return posts.filter((p2) => nowMs - p2.ts < MS_PER_DAY).reduce((sum, p2) => sum + p2.costUsd, 0);
+    },
+    eventCounts: (facts) => {
+      const posts = facts.posts ?? [];
+      const map = /* @__PURE__ */ new Map();
+      for (const p2 of posts) {
+        map.set(p2.eventId, (map.get(p2.eventId) ?? 0) + 1);
+      }
+      return map;
     }
   }
+});
+function createCostBreaker(config = DEFAULT_COST_BREAKER_CONFIG, now = Date.now) {
+  const system = ze2({ module: breakerModule });
+  system.facts.posts = [];
+  system.facts.nowMs = now();
+  function refreshClock() {
+    system.facts.nowMs = now();
+  }
   function estimate(input) {
-    rolloverIfNeeded();
+    refreshClock();
     let postCost = 0;
-    for (const p of input.platforms) {
-      postCost += p.capabilities.costPerPostUSD;
+    for (const p2 of input.platforms) {
+      postCost += p2.capabilities.costPerPostUSD;
     }
     const llmCost = (input.llmTokenEstimate ?? 0) / 1e3 * (input.llmCostPerKTokensUSD ?? 0);
     const estimatedUsd = postCost + llmCost;
-    if (state.usdPerDay + estimatedUsd > config.maxUsdPerDay) {
+    const usdSpentToday = system.derive.usdSpentToday;
+    if (usdSpentToday + estimatedUsd > config.maxUsdPerDay) {
       throw new BroadcastBudgetExceeded(
-        `Pre-flight estimate ${(state.usdPerDay + estimatedUsd).toFixed(4)} USD for event ${input.eventId} would exceed daily cap ${config.maxUsdPerDay}.`,
+        `Pre-flight estimate ${(usdSpentToday + estimatedUsd).toFixed(4)} USD for event ${input.eventId} would exceed daily cap ${config.maxUsdPerDay}.`,
         config.maxUsdPerDay,
-        state.usdPerDay + estimatedUsd,
+        usdSpentToday + estimatedUsd,
         "dailyUsd"
       );
     }
     return { estimatedUsd };
   }
   function acquire(input) {
-    rolloverIfNeeded();
+    refreshClock();
     if (input.seenIdempotencyKey(input.idempotencyKey)) {
       throw new BroadcastIdempotencyConflict(
         `Duplicate post detected for key ${input.idempotencyKey}; refusing replay.`,
         input.idempotencyKey
       );
     }
-    const eventCount = state.perEvent.get(input.eventId) ?? 0;
+    const eventCount = system.derive.eventCounts.get(input.eventId) ?? 0;
     if (eventCount >= config.maxPostsPerEvent) {
       throw new BroadcastBudgetExceeded(
         `Event ${input.eventId} would exceed per-event post cap (${config.maxPostsPerEvent}).`,
@@ -65468,44 +69735,51 @@ function createCostBreaker(config = DEFAULT_COST_BREAKER_CONFIG, now = Date.now)
         "event"
       );
     }
-    if (state.perDay.length >= config.maxPostsPerDay) {
+    const dayCount = system.derive.dayCount;
+    if (dayCount >= config.maxPostsPerDay) {
       throw new BroadcastBudgetExceeded(
         `Daily post cap (${config.maxPostsPerDay}) would be exceeded.`,
         config.maxPostsPerDay,
-        state.perDay.length + 1,
+        dayCount + 1,
         "day"
       );
     }
-    if (state.perMonth.length >= config.maxPostsPerMonth) {
+    const monthCount = system.derive.monthCount;
+    if (monthCount >= config.maxPostsPerMonth) {
       throw new BroadcastBudgetExceeded(
         `Monthly post cap (${config.maxPostsPerMonth}) would be exceeded.`,
         config.maxPostsPerMonth,
-        state.perMonth.length + 1,
+        monthCount + 1,
         "month"
       );
     }
-    if (state.usdPerDay + input.costUsd > config.maxUsdPerDay) {
+    const usdSpentToday = system.derive.usdSpentToday;
+    if (usdSpentToday + input.costUsd > config.maxUsdPerDay) {
       throw new BroadcastBudgetExceeded(
         `Acquiring ${input.costUsd.toFixed(4)} USD for ${input.platform} would push daily spend past ${config.maxUsdPerDay} USD.`,
         config.maxUsdPerDay,
-        state.usdPerDay + input.costUsd,
+        usdSpentToday + input.costUsd,
         "dailyUsd"
       );
     }
-    const t = now();
-    state.perEvent.set(input.eventId, eventCount + 1);
-    state.perDay.push(t);
-    state.perMonth.push(t);
-    state.usdPerDay += input.costUsd;
+    system.facts.posts = [
+      ...system.facts.posts,
+      {
+        eventId: input.eventId,
+        platform: input.platform,
+        costUsd: input.costUsd,
+        ts: system.facts.nowMs
+      }
+    ];
   }
   return {
     estimate,
     acquire,
     counters: () => ({
-      eventCounts: state.perEvent,
-      dayCount: state.perDay.length,
-      monthCount: state.perMonth.length,
-      usdSpentToday: state.usdPerDay
+      eventCounts: system.derive.eventCounts,
+      dayCount: system.derive.dayCount,
+      monthCount: system.derive.monthCount,
+      usdSpentToday: system.derive.usdSpentToday
     })
   };
 }
@@ -65579,8 +69853,8 @@ function sanitizeDraft(text) {
   const matches = [];
   for (const { label, pattern } of BANNED_TOKEN_PATTERNS) {
     if (pattern.global) pattern.lastIndex = 0;
-    const m = pattern.exec(text);
-    if (m) matches.push({ token: m[0], label });
+    const m3 = pattern.exec(text);
+    if (m3) matches.push({ token: m3[0], label });
   }
   if (matches.length === 0) {
     return { clean: true, matches: [], escalation: void 0 };
@@ -65599,7 +69873,7 @@ function isHardDisabled() {
     return false;
   }
 }
-function createKillSwitch(log = (m) => console.warn(m)) {
+function createKillSwitch(log = (m3) => console.warn(m3)) {
   const state = {
     enabled: !isHardDisabled(),
     incident: { active: false, reason: null, declaredAt: null },
@@ -65703,11 +69977,11 @@ function payloadToEvent(payload) {
 }
 function inferNoteworthiness(tag, body) {
   const breakingMarker = (body ?? "").match(/BREAKING CHANGE|BREAKING:/i);
-  const m = tag.match(/^v?(\d+)\.(\d+)\.(\d+)/);
-  if (!m) return "manual";
-  const major = Number(m[1]);
-  const minor = Number(m[2]);
-  const patch = Number(m[3]);
+  const m3 = tag.match(/^v?(\d+)\.(\d+)\.(\d+)/);
+  if (!m3) return "manual";
+  const major = Number(m3[1]);
+  const minor = Number(m3[2]);
+  const patch = Number(m3[3]);
   if (breakingMarker) return "major";
   if (patch === 0 && minor === 0 && major > 0) return "major";
   if (patch === 0 && minor > 0) return "minor";
@@ -65758,7 +70032,7 @@ function buildFacets(text) {
       features: [{ $type: "app.bsky.richtext.facet#tag", tag }]
     });
   }
-  out.sort((a, b) => a.index.byteStart - b.index.byteStart);
+  out.sort((a2, b2) => a2.index.byteStart - b2.index.byteStart);
   return out;
 }
 var BLUESKY_MAX_CHARS = 300;
@@ -65786,11 +70060,11 @@ function createBlueskyAdapter(config) {
           reason: `text exceeds Bluesky max (${BLUESKY_MAX_CHARS}); got ${input.text.length}`
         };
       }
-      for (const t of input.thread ?? []) {
-        if (t.length > BLUESKY_MAX_CHARS) {
+      for (const t3 of input.thread ?? []) {
+        if (t3.length > BLUESKY_MAX_CHARS) {
           return {
             ok: false,
-            reason: `thread entry exceeds Bluesky max (${BLUESKY_MAX_CHARS}); got ${t.length}`
+            reason: `thread entry exceeds Bluesky max (${BLUESKY_MAX_CHARS}); got ${t3.length}`
           };
         }
       }
@@ -65825,11 +70099,11 @@ function createBlueskyAdapter(config) {
       await authenticate(agent, config.auth);
       try {
         const res = await agent.api.app.bsky.feed.getPosts({ uris: [postId] });
-        const p = res.data.posts[0];
+        const p2 = res.data.posts[0];
         return {
-          likes: p?.likeCount ?? 0,
-          reposts: p?.repostCount ?? 0,
-          replies: p?.replyCount ?? 0,
+          likes: p2?.likeCount ?? 0,
+          reposts: p2?.repostCount ?? 0,
+          replies: p2?.replyCount ?? 0,
           observedAt: Date.now()
         };
       } catch (err) {
@@ -65851,13 +70125,13 @@ function createBlueskyAdapter(config) {
         let embed;
         if (input.media && input.media.length > 0) {
           const imageRefs = [];
-          for (const m of input.media.slice(0, 4)) {
-            if (m.kind !== "image") continue;
+          for (const m3 of input.media.slice(0, 4)) {
+            if (m3.kind !== "image") continue;
             const blobRef = await uploadImageBlob(
               agent,
-              m
+              m3
             );
-            imageRefs.push({ alt: m.altText, image: blobRef });
+            imageRefs.push({ alt: m3.altText, image: blobRef });
           }
           if (imageRefs.length > 0) {
             embed = {
@@ -65877,7 +70151,7 @@ function createBlueskyAdapter(config) {
         let lastCid = rootCid;
         for (const reply of input.thread ?? []) {
           const replyFacets = buildFacets(reply);
-          const r = await agent.post({
+          const r2 = await agent.post({
             text: reply,
             ...replyFacets.length > 0 ? { facets: replyFacets } : {},
             reply: {
@@ -65885,8 +70159,8 @@ function createBlueskyAdapter(config) {
               parent: { uri: lastUri, cid: lastCid }
             }
           });
-          lastUri = r.uri;
-          lastCid = r.cid;
+          lastUri = r2.uri;
+          lastCid = r2.cid;
         }
         const handle = (agent.session?.handle ?? "unknown").replace(/^@/, "");
         const url = `https://bsky.app/profile/${handle}/post/${extractRkey(rootUri)}`;
@@ -66018,16 +70292,16 @@ function createMastodonAdapter(config) {
           reason: `text exceeds instance max (${maxChars}); got ${input.text.length}`
         };
       }
-      for (const t of input.thread ?? []) {
-        if (t.length > maxChars) {
+      for (const t3 of input.thread ?? []) {
+        if (t3.length > maxChars) {
           return {
             ok: false,
             reason: `thread entry exceeds instance max (${maxChars})`
           };
         }
       }
-      for (const m of input.media ?? []) {
-        if (!m.altText || m.altText.trim().length === 0) {
+      for (const m3 of input.media ?? []) {
+        if (!m3.altText || m3.altText.trim().length === 0) {
           return {
             ok: false,
             reason: "Mastodon requires altText on every media attachment"
@@ -66048,20 +70322,24 @@ function createMastodonAdapter(config) {
       }
       const token = await resolveBearer(config.auth);
       const visibility = config.visibility ?? MASTODON_DEFAULT_VISIBILITY;
+      const mediaIds = await Promise.all(
+        (input.media ?? []).map((m3) => uploadMedia(config.instance, token, m3))
+      );
       const root = await postStatus(config.instance, token, {
         status: input.text,
         visibility,
-        ...config.language !== void 0 ? { language: config.language } : {}
+        ...config.language !== void 0 ? { language: config.language } : {},
+        ...mediaIds.length > 0 ? { media_ids: mediaIds } : {}
       });
       let parentId = root.id;
       for (const reply of input.thread ?? []) {
-        const r = await postStatus(config.instance, token, {
+        const r2 = await postStatus(config.instance, token, {
           status: reply,
           in_reply_to_id: parentId,
           visibility,
           ...config.language !== void 0 ? { language: config.language } : {}
         });
-        parentId = r.id;
+        parentId = r2.id;
       }
       return {
         id: root.id,
@@ -66079,6 +70357,38 @@ async function resolveBearer(auth2) {
     `[mastodon] only bearer / apiKey auth supported (got ${auth2.kind})`
   );
 }
+async function uploadMedia(instance, token, ref) {
+  const fileRes = await fetch(ref.url);
+  if (!fileRes.ok) {
+    throw {
+      kind: "ContentRejected",
+      reason: `media fetch failed (${ref.url}): HTTP ${fileRes.status}`
+    };
+  }
+  const arrayBuffer = await fileRes.arrayBuffer();
+  const blob = new Blob([arrayBuffer], {
+    type: ref.mimeType ?? "application/octet-stream"
+  });
+  const form = new FormData();
+  form.append("file", blob, "media");
+  form.append("description", ref.altText);
+  const res = await fetch(`${instance}/api/v2/media`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}` },
+    body: form
+  });
+  if (!res.ok && res.status !== 202) {
+    throw classifyResponse(res, await res.text().catch(() => ""));
+  }
+  const data = await res.json();
+  if (!data.id) {
+    throw {
+      kind: "ContentRejected",
+      reason: "Mastodon /api/v2/media response missing id"
+    };
+  }
+  return data.id;
+}
 async function postStatus(instance, token, body) {
   const serialized = JSON.stringify(body);
   try {
@@ -66087,7 +70397,14 @@ async function postStatus(instance, token, body) {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
-        "Idempotency-Key": hash(body.status + (body.in_reply_to_id ?? ""))
+        // Include `media_ids` in the idempotency hash — otherwise a
+        // retry of the same text with different attached media
+        // silently dedupes to the first post (Mastodon sees the
+        // same key and returns the original response) and the new
+        // media never lands.
+        "Idempotency-Key": hash(
+          body.status + (body.in_reply_to_id ?? "") + (body.media_ids ?? []).join(",")
+        )
       },
       body: serialized
     });
@@ -66170,39 +70487,25 @@ function createDiscordAdapter(config) {
         };
       }
       const headUrl = buildWebhookUrl(webhookUrl, input.replyTo);
-      const headRes = await fetch(headUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          content: input.text,
-          username: config.username,
-          avatar_url: config.avatarUrl,
-          allowed_mentions: { parse: [] }
-        })
+      const headRes = await postWebhook(headUrl, {
+        content: input.text,
+        username: config.username,
+        avatarUrl: config.avatarUrl,
+        media: input.media ?? []
       });
-      if (!headRes.ok) {
-        throw classifyResponse2(headRes, await headRes.text().catch(() => ""));
-      }
       const head = await headRes.json();
-      const headPermalink = `https://discord.com/channels/@me/${head.channel_id}/${head.id}`;
+      const headPermalink = `https://discord.com/channels/${head.channel_id}/${head.id}`;
       for (const reply of input.thread ?? []) {
         const followUp = `${reply}
 
 _(continued from ${headPermalink})_`;
         const followUpUrl = buildWebhookUrl(webhookUrl, input.replyTo);
-        const r = await fetch(followUpUrl, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            content: followUp,
-            username: config.username,
-            avatar_url: config.avatarUrl,
-            allowed_mentions: { parse: [] }
-          })
+        await postWebhook(followUpUrl, {
+          content: followUp,
+          username: config.username,
+          avatarUrl: config.avatarUrl,
+          media: []
         });
-        if (!r.ok) {
-          throw classifyResponse2(r, await r.text().catch(() => ""));
-        }
       }
       return {
         id: head.id,
@@ -66212,6 +70515,65 @@ _(continued from ${headPermalink})_`;
       };
     }
   };
+}
+async function postWebhook(url, msg) {
+  const payload = {
+    content: msg.content,
+    username: msg.username,
+    avatar_url: msg.avatarUrl,
+    allowed_mentions: { parse: [] },
+    ...msg.media.length > 0 ? {
+      attachments: msg.media.map((m3, i) => ({
+        id: i,
+        description: m3.altText,
+        filename: discordFilename(m3, i)
+      }))
+    } : {}
+  };
+  if (msg.media.length === 0) {
+    const res2 = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if (!res2.ok) {
+      throw classifyResponse2(res2, await res2.text().catch(() => ""));
+    }
+    return res2;
+  }
+  const blobs = await Promise.all(msg.media.map((m3) => fetchMediaBlob(m3)));
+  const form = new FormData();
+  form.append("payload_json", JSON.stringify(payload));
+  blobs.forEach((blob, i) => {
+    form.append(`files[${i}]`, blob, discordFilename(msg.media[i], i));
+  });
+  const res = await fetch(url, { method: "POST", body: form });
+  if (!res.ok) {
+    throw classifyResponse2(res, await res.text().catch(() => ""));
+  }
+  return res;
+}
+async function fetchMediaBlob(ref) {
+  const fileRes = await fetch(ref.url);
+  if (!fileRes.ok) {
+    throw {
+      kind: "ContentRejected",
+      reason: `media fetch failed (${ref.url}): HTTP ${fileRes.status}`
+    };
+  }
+  const arrayBuffer = await fileRes.arrayBuffer();
+  return new Blob([arrayBuffer], {
+    type: ref.mimeType ?? "application/octet-stream"
+  });
+}
+function discordFilename(ref, index) {
+  try {
+    const pathname = new URL(ref.url).pathname;
+    const segment = pathname.split("/").filter(Boolean).pop();
+    if (segment?.includes(".")) return segment;
+  } catch {
+  }
+  return ref.kind === "video" ? `media-${index}.mp4` : `media-${index}.png`;
 }
 function buildWebhookUrl(base, threadId) {
   const sep = base.includes("?") ? "&" : "?";
@@ -66246,11 +70608,11 @@ function canonicalJsonStringify(value) {
   if (value === null) {
     return "null";
   }
-  const t = typeof value;
-  if (t === "string") {
+  const t3 = typeof value;
+  if (t3 === "string") {
     return JSON.stringify(value);
   }
-  if (t === "number") {
+  if (t3 === "number") {
     if (!Number.isFinite(value)) {
       throw new Error(
         "[broadcast/pluck] canonicalJsonStringify: non-finite number has no canonical representation"
@@ -66258,18 +70620,18 @@ function canonicalJsonStringify(value) {
     }
     return JSON.stringify(value);
   }
-  if (t === "boolean") {
+  if (t3 === "boolean") {
     return value ? "true" : "false";
   }
-  if (t === "undefined" || t === "function" || t === "symbol" || t === "bigint") {
+  if (t3 === "undefined" || t3 === "function" || t3 === "symbol" || t3 === "bigint") {
     throw new Error(
-      `[broadcast/pluck] canonicalJsonStringify: value of type ${t} has no canonical representation`
+      `[broadcast/pluck] canonicalJsonStringify: value of type ${t3} has no canonical representation`
     );
   }
   if (Array.isArray(value)) {
     const parts2 = [];
-    for (const v of value) {
-      parts2.push(canonicalJsonStringify(v));
+    for (const v2 of value) {
+      parts2.push(canonicalJsonStringify(v2));
     }
     return `[${parts2.join(",")}]`;
   }
@@ -66377,10 +70739,10 @@ function pemToCanonicalJwk(pem) {
 function loadOrCreateDevKey(path) {
   if (existsSync(path)) {
     try {
-      const st = statSync(path);
-      if ((st.mode & 63) !== 0) {
+      const st2 = statSync(path);
+      if ((st2.mode & 63) !== 0) {
         console.warn(
-          `[broadcast] dev signing key at ${path} has permissive mode ${(st.mode & 511).toString(8)} \u2014 consider chmod 600.`
+          `[broadcast] dev signing key at ${path} has permissive mode ${(st2.mode & 511).toString(8)} \u2014 consider chmod 600.`
         );
       }
     } catch {
@@ -66398,6 +70760,43 @@ function loadOrCreateDevKey(path) {
   writeFileSync(path, JSON.stringify(pair, null, 2), { mode: 384 });
   return pair;
 }
+var DEFAULT_AUTO_PUBLISH_MS = 15 * 60 * 1e3;
+var DEFAULT_TTL_MS = 48 * 60 * 60 * 1e3;
+qe("tier2-tick", {
+  schema: {
+    facts: {
+      pending: fn.array().default(() => []),
+      nowMs: fn.number().default(0),
+      ttlMs: fn.number().default(DEFAULT_TTL_MS),
+      autoPublishMs: fn.number().default(DEFAULT_AUTO_PUBLISH_MS)
+    },
+    derivations: {
+      overdueTTL: fn.array(),
+      overduePublish: fn.array()
+    }
+  },
+  derive: {
+    // Derivations may fire once before the workflow populates the
+    // facts on the next tick(), so guard against undefined here.
+    overdueTTL: (facts) => {
+      const pending = facts.pending ?? [];
+      const nowMs = facts.nowMs ?? 0;
+      const ttlMs = facts.ttlMs ?? DEFAULT_TTL_MS;
+      return pending.filter(
+        (d2) => d2.status === "queued" && nowMs - d2.queuedAt >= ttlMs
+      );
+    },
+    overduePublish: (facts, derived) => {
+      const pending = facts.pending ?? [];
+      const nowMs = facts.nowMs ?? 0;
+      const autoPublishMs = facts.autoPublishMs ?? DEFAULT_AUTO_PUBLISH_MS;
+      const ttlIds = new Set(derived.overdueTTL.map((d2) => d2.draftId));
+      return pending.filter(
+        (d2) => d2.status === "queued" && nowMs - d2.queuedAt >= autoPublishMs && !ttlIds.has(d2.draftId)
+      );
+    }
+  }
+});
 function inMemoryStateStore() {
   const seen = /* @__PURE__ */ new Set();
   return {
@@ -66542,59 +70941,59 @@ function hostOf(url) {
 function scrubSocial(text, config = {}) {
   const findings = [];
   let out = text;
-  out = out.replace(MASS_MENTION_RE, (m) => {
+  out = out.replace(MASS_MENTION_RE, (m3) => {
     findings.push({
       kind: "mass-mention-stripped",
       label: "mass-mention token",
-      excerpt: m
+      excerpt: m3
     });
     return "";
   });
-  out = out.replace(SLACK_REF_RE, (m) => {
+  out = out.replace(SLACK_REF_RE, (m3) => {
     findings.push({
       kind: "mass-mention-stripped",
       label: "slack reference",
-      excerpt: m
+      excerpt: m3
     });
     return "";
   });
   if (config.allowedMentions !== void 0) {
-    out = out.replace(MENTION_RE, (m, handle) => {
+    out = out.replace(MENTION_RE, (m3, handle) => {
       const lower = String(handle).toLowerCase();
-      if (config.allowedMentions.has(lower)) return m;
+      if (config.allowedMentions.has(lower)) return m3;
       findings.push({
         kind: "unknown-mention-stripped",
         label: "unknown mention",
-        excerpt: m
+        excerpt: m3
       });
       return "";
     });
   }
   if (config.trustedHosts !== void 0) {
-    out = out.replace(URL_RE2, (m) => {
-      const host = hostOf(m);
-      if (host && config.trustedHosts.has(host)) return m;
+    out = out.replace(URL_RE2, (m3) => {
+      const host = hostOf(m3);
+      if (host && config.trustedHosts.has(host)) return m3;
       findings.push({
         kind: "untrusted-url-removed",
         label: "untrusted url host",
-        excerpt: m
+        excerpt: m3
       });
-      return config.strictUrls ? "" : m;
+      return config.strictUrls ? "" : m3;
     });
   }
-  out = out.replace(DANGEROUS_CONTROL_RE, (m) => {
+  out = out.replace(DANGEROUS_CONTROL_RE, (m3) => {
     findings.push({
       kind: "control-char-stripped",
       label: "dangerous control character",
-      excerpt: `U+${m.charCodeAt(0).toString(16).toUpperCase()}`
+      excerpt: `U+${m3.charCodeAt(0).toString(16).toUpperCase()}`
     });
     return "";
   });
-  out = out.replace(HTML_TAG_RE, (m) => {
+  out = out.replace(HTML_TAG_RE, (m3) => {
     findings.push({
       kind: "html-tag-escaped",
       label: "html tag in social text",
-      excerpt: m
+      excerpt: m3
     });
     return "";
   });
@@ -66633,54 +71032,54 @@ var BLOCK_STRIP_RE = /<(script|style|iframe|object|embed|noscript)\b[^>]*>[\s\S]
 function scrubHtml(text) {
   const findings = [];
   let out = text;
-  out = out.replace(BLOCK_STRIP_RE, (m, tag) => {
+  out = out.replace(BLOCK_STRIP_RE, (m3, tag) => {
     findings.push({
       kind: "html-tag-escaped",
       label: `disallowed html tag <${tag}> (with body)`,
-      excerpt: m.length > 60 ? `${m.slice(0, 60)}\u2026` : m
+      excerpt: m3.length > 60 ? `${m3.slice(0, 60)}\u2026` : m3
     });
     return "";
   });
-  out = out.replace(ON_ATTR_RE, (m) => {
+  out = out.replace(ON_ATTR_RE, (m3) => {
     findings.push({
       kind: "html-tag-escaped",
       label: "on* event handler attribute",
-      excerpt: m.trim()
+      excerpt: m3.trim()
     });
     return "";
   });
-  out = out.replace(HREF_JS_RE, (m) => {
+  out = out.replace(HREF_JS_RE, (m3) => {
     findings.push({
       kind: "html-tag-escaped",
       label: "javascript: href",
-      excerpt: m.trim()
+      excerpt: m3.trim()
     });
     return "";
   });
-  out = out.replace(SRC_JS_RE, (m) => {
+  out = out.replace(SRC_JS_RE, (m3) => {
     findings.push({
       kind: "html-tag-escaped",
       label: "javascript: src",
-      excerpt: m.trim()
+      excerpt: m3.trim()
     });
     return "";
   });
-  out = out.replace(HTML_TAG_FULL_RE, (m, tagName) => {
+  out = out.replace(HTML_TAG_FULL_RE, (m3, tagName) => {
     if (NEWSLETTER_ALLOWED_TAGS.has(String(tagName).toLowerCase())) {
-      return m;
+      return m3;
     }
     findings.push({
       kind: "html-tag-escaped",
       label: `disallowed html tag <${tagName}>`,
-      excerpt: m
+      excerpt: m3
     });
     return "";
   });
-  out = out.replace(DANGEROUS_CONTROL_RE, (m) => {
+  out = out.replace(DANGEROUS_CONTROL_RE, (m3) => {
     findings.push({
       kind: "control-char-stripped",
       label: "dangerous control character",
-      excerpt: `U+${m.charCodeAt(0).toString(16).toUpperCase()}`
+      excerpt: `U+${m3.charCodeAt(0).toString(16).toUpperCase()}`
     });
     return "";
   });
@@ -66696,7 +71095,7 @@ function scrubForAdapter(text, category, config = {}) {
   }
 }
 function createBroadcaster(config) {
-  const log = config.log ?? ((m) => console.warn(m));
+  const log = config.log ?? ((m3) => console.warn(m3));
   const cost = createCostBreaker({
     ...DEFAULT_COST_BREAKER_CONFIG,
     ...config.costBreaker
@@ -66732,7 +71131,7 @@ function createBroadcaster(config) {
         }
       ];
     }
-    const platforms = config.adapters.filter((a) => a.enabled);
+    const platforms = config.adapters.filter((a2) => a2.enabled);
     if (platforms.length === 0) {
       return [
         {
@@ -66741,7 +71140,7 @@ function createBroadcaster(config) {
         }
       ];
     }
-    const realSpendPlatforms = platforms.filter((a) => !a.dryRun);
+    const realSpendPlatforms = platforms.filter((a2) => !a2.dryRun);
     cost.estimate({ eventId: event.id, platforms: realSpendPlatforms });
     const results = [];
     for (const adapter of platforms) {
@@ -66775,14 +71174,14 @@ function createBroadcaster(config) {
       });
       if (scrubbed.findings.length > 0) {
         log(
-          `[broadcast] attacker-content scrub on ${adapter.id} stripped ${scrubbed.findings.length} finding(s): ${scrubbed.findings.slice(0, 4).map((f) => `${f.kind}(${f.excerpt})`).join(", ")}`
+          `[broadcast] attacker-content scrub on ${adapter.id} stripped ${scrubbed.findings.length} finding(s): ${scrubbed.findings.slice(0, 4).map((f3) => `${f3.kind}(${f3.excerpt})`).join(", ")}`
         );
       }
       const text = scrubbed.text;
       const sanitized = sanitizeDraft(text);
       if (!sanitized.clean) {
         log(
-          `[broadcast] sanitize blocked ${adapter.id} draft: ${sanitized.matches.map((m) => `${m.label}(${m.token})`).join(", ")}`
+          `[broadcast] sanitize blocked ${adapter.id} draft: ${sanitized.matches.map((m3) => `${m3.label}(${m3.token})`).join(", ")}`
         );
         results.push({
           platform: adapter.id,
@@ -66837,7 +71236,7 @@ function createBroadcaster(config) {
             if (prev.outcome.kind !== "posted" && prev.outcome.kind !== "posted-unsigned") {
               continue;
             }
-            const prevAdapter = platforms.find((p) => p.id === prev.platform);
+            const prevAdapter = platforms.find((p2) => p2.id === prev.platform);
             if (!prevAdapter?.deletePost) {
               results[i] = {
                 platform: prev.platform,
@@ -66936,7 +71335,7 @@ function createBroadcaster(config) {
   };
 }
 function substituteTemplate(template, event) {
-  return template.replace(/\$\{([\w.]+)\}/g, (_, path) => {
+  return template.replace(/\$\{([\w.]+)\}/g, (_2, path) => {
     const segments = path.split(".");
     let cur = event;
     for (const s of segments) {
@@ -66963,7 +71362,7 @@ async function hash3(input) {
 function buildAdaptersFromEnv(input) {
   const adapters = [];
   const missing = [];
-  const allowed = new Set(input.platforms.map((p) => p.toLowerCase()));
+  const allowed = new Set(input.platforms.map((p2) => p2.toLowerCase()));
   const env = input.env;
   function tryAdd(id, envKey, factory) {
     if (!allowed.has(id)) return;
@@ -67040,8 +71439,8 @@ async function runDispatch(input) {
     config: input.config
   });
   const skipped = built.missing.map(
-    (p) => ({
-      platform: p,
+    (p2) => ({
+      platform: p2,
       reason: "no secret bound for platform"
     })
   );
@@ -67068,7 +71467,7 @@ async function runDispatch(input) {
       } : {},
       ...input.config.attackerScrub?.strictUrls !== void 0 ? { strictUrls: input.config.attackerScrub.strictUrls } : {}
     },
-    log: input.log ?? ((m) => console.warn(m))
+    log: input.log ?? ((m3) => console.warn(m3))
   });
   const templates = {
     templates: new Map(Object.entries(input.config.templates))
@@ -67134,18 +71533,18 @@ async function runDispatch(input) {
         apiKey: input.saas.apiKey,
         entries: saasEntries
       });
-      receiptUrls = response.accepted.map((a) => ({
-        platform: a.platform,
-        receiptUrl: a.receiptUrl
+      receiptUrls = response.accepted.map((a2) => ({
+        platform: a2.platform,
+        receiptUrl: a2.receiptUrl
       }));
-      for (const r of response.rejected) {
+      for (const r2 of response.rejected) {
         skipped.push({
-          platform: r.platform,
-          reason: `saas-rejected: ${r.reason}`
+          platform: r2.platform,
+          reason: `saas-rejected: ${r2.reason}`
         });
       }
       if (response.usage) {
-        (input.log ?? ((m) => console.warn(m)))(
+        (input.log ?? ((m3) => console.warn(m3)))(
           `[broadcast] usage: ${response.usage.usedThisMonth}/${response.usage.cap} broadcasts this month`
         );
       }
@@ -67169,23 +71568,23 @@ function toSaasEntry(entry, event, operatorKeyId) {
   }
   const payload = entry.cassette.payload;
   if (!payload || typeof payload !== "object") return null;
-  const p = payload;
-  if (typeof p.eventId !== "string") return null;
-  if (typeof p.briefHash !== "string") return null;
-  if (typeof p.finalText !== "string") return null;
-  const drafts = Array.isArray(p.draftsConsidered) ? p.draftsConsidered : [];
-  const approval = p.approval;
+  const p2 = payload;
+  if (typeof p2.eventId !== "string") return null;
+  if (typeof p2.briefHash !== "string") return null;
+  if (typeof p2.finalText !== "string") return null;
+  const drafts = Array.isArray(p2.draftsConsidered) ? p2.draftsConsidered : [];
+  const approval = p2.approval;
   if (!approval || typeof approval.tier !== "string" || typeof approval.approvedBy !== "string" || typeof approval.approvedAt !== "number") {
     return null;
   }
-  const postUrl = typeof p.platformResponse?.url === "string" ? p.platformResponse.url : event.ref.url;
+  const postUrl = typeof p2.platformResponse?.url === "string" ? p2.platformResponse.url : event.ref.url;
   return {
     platform: entry.platform,
     postId: entry.postId,
     postUrl,
-    text: p.finalText,
-    eventId: p.eventId,
-    briefHash: p.briefHash,
+    text: p2.finalText,
+    eventId: p2.eventId,
+    briefHash: p2.briefHash,
     draftsConsidered: drafts,
     approval: {
       tier: approval.tier,
@@ -67254,7 +71653,7 @@ function refusalMessage(event, tier) {
 // src/index.ts
 function parseInputs() {
   return {
-    platforms: core.getInput("platforms", { required: true }).split(",").map((p) => p.trim()).filter(Boolean),
+    platforms: core.getInput("platforms", { required: true }).split(",").map((p2) => p2.trim()).filter(Boolean),
     configPath: core.getInput("config-path") || ".sizl/broadcast.config.json",
     dryRun: core.getBooleanInput("dry-run"),
     postsIndexUrl: core.getInput("posts-index-url") || "https://broadcast.directive.run/posts",
@@ -67342,8 +71741,8 @@ async function run() {
     `[broadcast-action] dispatched ${result.cassetteHashes.length} post(s); skipped ${result.skipped.length}.`
   );
   if (result.receiptUrls && result.receiptUrls.length > 0) {
-    for (const r of result.receiptUrls) {
-      core.info(`[broadcast-action] ${r.platform} receipt: ${r.receiptUrl}`);
+    for (const r2 of result.receiptUrls) {
+      core.info(`[broadcast-action] ${r2.platform} receipt: ${r2.receiptUrl}`);
     }
   }
 }
