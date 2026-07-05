@@ -83,6 +83,34 @@ When a GitHub release is published in your project, this Action:
 | `cassette-hashes` | JSON array of `{platform, cassetteHash, postId, rekorUrl}` entries — one per posted platform. |
 | `skipped` | JSON array of `{platform, reason}` entries for platforms that were skipped (kill-switch, sanitize, validation, idempotency). |
 
+## Retry policy — SaaS rejection reasons
+
+The SaaS Worker returns each entry as either `accepted` or `rejected`. Consumers writing custom retry logic can `import { REJECT_REASONS, type RejectReason } from "@sizl/broadcast-posts-index"` and pattern-match against the stable enum. The four failure classes:
+
+| Class | Codes | Retry class |
+|---|---|---|
+| Shape validation | `entry-not-object`, `invalid-platform`, `invalid-postId`, `invalid-postUrl`, `missing-text`, `text-exceeds-server-cap`, `invalid-text`, `invalid-eventId`, `invalid-briefHash`, `missing-approval`, `invalid-approval-tier`, `invalid-approvedBy`, `invalid-approvedAt`, `invalid-draftsConsidered` | **Terminal** — caller-side payload bug; fix and retry. |
+| Batch bounds | `too-many-entries`, `quota-exhausted-in-batch` | **Terminal** — split the batch or wait for the next quota window. |
+| Signer-side | `signer-unavailable`, `sign-failed` | **Retryable** — server transient; exponential backoff. |
+| Signer contract | `sign-no-cassette` | **Investigate** — signer succeeded without a cassette; report don't retry. |
+| Persist | `persist-failed` | **Retryable** — KV write transient; exponential backoff. |
+
+The `invalid-text` reason additionally carries a `detail` string with the byte offset + Unicode code point of the first rejected control character — safe to surface in operator-facing logs.
+
+### Top-level errors (`response.error`)
+
+Reject reasons above live inside `response.rejected[].reason` — one per entry that failed. A separate class of error terminates the whole request before any entry is processed and appears as `response.error` at HTTP 4xx/5xx:
+
+| HTTP | `error` | Retry class |
+|---|---|---|
+| 400 | `malformed-json` | **Terminal** — caller bug; fix the JSON. |
+| 400 | `no-entries` | **Terminal** — send at least one entry. |
+| 400 | `too-many-entries` | **Terminal** — split the batch (cap is 32). |
+| 413 | `body-too-large` | **Terminal** — split the batch (cap is 200 KiB). |
+| 429 | `monthly-cap-reached` | **Wait** — monthly usage counter hit the tier cap. |
+| 429 | `rate-limit-exceeded` | **Retryable with backoff** — burst limit (60/min); back off and retry. |
+| 500 | `signer-misconfigured` | **Investigate** — server-side configuration issue; report don't retry. |
+
 ## Verify the binary
 
 Every release of this Action is signed with Sigstore keyless OIDC tied to the source workflow in `sizls/broadcast`. Before pinning a new SHA, run:
