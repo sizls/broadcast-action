@@ -1,6 +1,8 @@
 # `sizls/broadcast-action`
 
-> Auto-post release announcements to social + community channels from your GitHub Actions release workflow. Every post gets a Pluck-signed receipt anchored to Sigstore Rekor so visitors at [`directive.run/broadcast`](https://directive.run/broadcast) can verify the post happened, exactly as shown, months later.
+> Auto-post release announcements to social + community channels from your GitHub Actions release workflow. Every post gets a Pluck-signed receipt so visitors at [`directive.run/broadcast`](https://directive.run/broadcast) can verify the post happened, exactly as shown, months later.
+>
+> **Roadmap**: Rekor anchoring of the cassette envelope is planned (the `PostsIndexRow.rekorUrl` field ships as `null` today; wiring the anchor lands the third-party-witness leg). The signed cassette + client-side ed25519 verify path is already live.
 
 This is the **mirror** of `@sizl/broadcast-action` — the source lives in the private [`sizls/broadcast`](https://github.com/sizls/broadcast) monorepo and is published here on every release as a bundled `dist/index.js` you can pin by SHA. Every release is signed via [Sigstore](https://sigstore.dev) using GitHub Actions keyless OIDC, so you can verify the binary you're running is the binary the monorepo produced.
 
@@ -64,7 +66,7 @@ When a GitHub release is published in your project, this Action:
 2. **Resolves the tier** for the event from your `.sizl/broadcast.config.json` (PATCH releases default to Tier 1, MINOR / MAJOR / RECAP / MANUAL default to Tier 2).
 3. **Refuses Tier 2/3 events with a structured error** — the GitHub Actions runtime is ephemeral and cannot host the 15-minute Tier 2 approval window. The refusal message points you at the Cloudflare Worker template (`pnpm create broadcast-worker`) which CAN.
 4. For Tier 1 events, runs the broadcaster's safety floor (cost circuit breaker, internal-token sanitizer, kill switch, dry-run mode) and dispatches the post.
-5. After each successful post, POSTs the cassette envelope (Pluck signature + Rekor URL) to the Sizl-hosted posts-index at `broadcast.directive.run/posts`. That endpoint feeds the `directive.run/broadcast` kill-log page and the long-running engagement collector.
+5. After each successful post, POSTs the cassette envelope (Pluck-signed under the tenant's managed ed25519 keypair; the `rekorUrl` field is placeholder until Sigstore Rekor anchoring wires up) to the Sizl-hosted posts-index at `broadcast.directive.run/posts`. That endpoint feeds the `directive.run/broadcast` kill-log page and the long-running engagement collector.
 
 ## Inputs
 
@@ -80,8 +82,9 @@ When a GitHub release is published in your project, this Action:
 
 | Output | Description |
 |---|---|
-| `cassette-hashes` | JSON array of `{platform, cassetteHash, postId, rekorUrl}` entries — one per posted platform. |
+| `cassette-hashes` | JSON array of `{platform, cassetteHash, postId}` entries — one per posted platform. |
 | `skipped` | JSON array of `{platform, reason}` entries for platforms that were skipped (kill-switch, sanitize, validation, idempotency). |
+| `receipt-urls` | JSON array of `{platform, receiptUrl}` entries returned by the SaaS path (`broadcast.run/r/<token>` — one per accepted entry). Empty on the legacy HMAC path; receipts there resolve through the kill-log page at the posts-index host. |
 
 ## Retry policy — SaaS rejection reasons
 
