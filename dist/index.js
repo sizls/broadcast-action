@@ -1,17 +1,19 @@
+import { createRequire } from 'module';
 import { readFileSync, existsSync, mkdirSync, statSync, writeFileSync } from 'fs';
 import { resolve, join } from 'path';
 import { createHmac, createHash, generateKeyPairSync, createPublicKey, sign } from 'crypto';
 
+const require$1 = createRequire(import.meta.url);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __require = /* @__PURE__ */ ((x3) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x3, {
-  get: (a2, b2) => (typeof require !== "undefined" ? require : a2)[b2]
+var __require = /* @__PURE__ */ ((x3) => typeof require$1 !== "undefined" ? require$1 : typeof Proxy !== "undefined" ? new Proxy(x3, {
+  get: (a2, b2) => (typeof require$1 !== "undefined" ? require$1 : a2)[b2]
 }) : x3)(function(x3) {
-  if (typeof require !== "undefined") return require.apply(this, arguments);
+  if (typeof require$1 !== "undefined") return require$1.apply(this, arguments);
   throw Error('Dynamic require of "' + x3 + '" is not supported');
 });
 var __esm = (fn2, res) => function __init() {
