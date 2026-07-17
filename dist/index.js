@@ -80869,7 +80869,7 @@ function parseInputs() {
     platforms: core.getInput("platforms", { required: true }).split(",").map((p2) => p2.trim()).filter(Boolean),
     configPath: core.getInput("config-path") || ".sizl/broadcast.config.json",
     dryRun: core.getBooleanInput("dry-run"),
-    postsIndexUrl: core.getInput("posts-index-url") || "https://broadcast.directive.run/posts",
+    postsIndexUrl: core.getInput("posts-index-url") || "https://broadcast.sizls.com/posts",
     postsIndexSecret: core.getInput("posts-index-secret") || null,
     broadcastApiKey: process.env.BROADCAST_API_KEY ?? null,
     broadcastUrl: process.env.BROADCAST_URL ?? "https://broadcast.sizls.com/v1/broadcast"

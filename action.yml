@@ -18,9 +18,9 @@ inputs:
     required: false
     default: "false"
   posts-index-url:
-    description: "Sizl-hosted posts-index URL where the Action POSTs the cassette envelope after a successful post. Default `https://broadcast.directive.run/posts`."
+    description: "Sizl-hosted posts-index URL where the Action POSTs the cassette envelope after a successful post. Default `https://broadcast.sizls.com/posts`."
     required: false
-    default: "https://broadcast.directive.run/posts"
+    default: "https://broadcast.sizls.com/posts"
   posts-index-secret:
     description: "HMAC secret for the posts-index POST. Required only when post-index-url is reachable; dry-runs skip the call."
     required: false

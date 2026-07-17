@@ -39,15 +39,15 @@ WebCrypto against the inlined cassette envelope.
 
 ### Legacy / self-host (no SaaS account)
 
-If you run your own posts-index Worker (e.g. directive's existing
-`broadcast.directive.run` deployment), skip `BROADCAST_API_KEY` and use
-the HMAC inputs instead:
+If you run your own posts-index Worker (deployed via
+`pnpm create broadcast-worker` on your own Cloudflare account), skip
+`BROADCAST_API_KEY` and use the HMAC inputs instead:
 
 ```yaml
       - uses: sizls/broadcast-action@<sha>
         with:
           platforms: bluesky,mastodon,discord
-          posts-index-url: https://broadcast.directive.run/posts
+          posts-index-url: https://your-worker.example.com/posts
           posts-index-secret: ${{ secrets.POSTS_INDEX_SECRET }}
         env:
           BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
@@ -66,7 +66,7 @@ When a GitHub release is published in your project, this Action:
 2. **Resolves the tier** for the event from your `.sizl/broadcast.config.json` (PATCH releases default to Tier 1, MINOR / MAJOR / RECAP / MANUAL default to Tier 2).
 3. **Refuses Tier 2/3 events with a structured error** — the GitHub Actions runtime is ephemeral and cannot host the 15-minute Tier 2 approval window. The refusal message points you at the Cloudflare Worker template (`pnpm create broadcast-worker`) which CAN.
 4. For Tier 1 events, runs the broadcaster's safety floor (cost circuit breaker, internal-token sanitizer, kill switch, dry-run mode) and dispatches the post.
-5. After each successful post, POSTs the cassette envelope (Pluck-signed under the tenant's managed ed25519 keypair; the `rekorUrl` field is placeholder until Sigstore Rekor anchoring wires up) to the Sizl-hosted posts-index at `broadcast.directive.run/posts`. That endpoint feeds the `directive.run/broadcast` kill-log page and the long-running engagement collector.
+5. After each successful post, POSTs the cassette envelope (Pluck-signed under the tenant's managed ed25519 keypair; the `rekorUrl` field is placeholder until Sigstore Rekor anchoring wires up) to the Sizl-hosted posts-index at `broadcast.sizls.com/posts`. That endpoint feeds the `broadcast.sizls.com/broadcast` kill-log page and the long-running engagement collector.
 
 ## Inputs
 
@@ -75,7 +75,7 @@ When a GitHub release is published in your project, this Action:
 | `platforms` | yes | — | Comma-separated platform IDs (`bluesky,mastodon,twitter,linkedin,discord,slack,facebook,instagram,threads,reddit,mailchimp,convertkit,beehiiv,buttondown,ghost,mailerlite,substack`). |
 | `config-path` | no | `.sizl/broadcast.config.json` | Path to your broadcast config JSON file inside the repo. The Action loads this via `JSON.parse`; `.ts` configs are not supported. |
 | `dry-run` | no | `false` | When `true`, validates + sanitizes + signs but doesn't post. |
-| `posts-index-url` | no | `https://broadcast.directive.run/posts` | Sizl-hosted posts-index URL to POST cassette envelopes to. |
+| `posts-index-url` | no | `https://broadcast.sizls.com/posts` | Sizl-hosted posts-index URL to POST cassette envelopes to. |
 | `posts-index-secret` | no | — | HMAC secret for the posts-index POST. Skipped on dry-run. |
 
 ## Outputs
