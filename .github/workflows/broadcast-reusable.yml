@@ -1,0 +1,240 @@
+name: Broadcast (reusable)
+
+# Reusable GitHub workflow for `@sizl/broadcast`. Called by consumer
+# repos with `uses:`; internally shells out to
+# `npx --yes @sizl/broadcast-cli@<version> post --from-github-event`.
+#
+# This file is mirror-published into the public `sizls/broadcast-action`
+# repository by `.github/workflows/release-action.yml` alongside the
+# bundled action's dist/index.js — every broadcast-action release ships
+# a synchronised copy of this workflow, so consumers can pin a single
+# `sizls/broadcast-action@<sha>` and get both the bundle-based path
+# (`uses: sizls/broadcast-action@<sha>`) AND the reusable-workflow
+# path (`uses: sizls/broadcast-action/.github/workflows/broadcast-reusable.yml@<sha>`)
+# from the same commit.
+#
+# Consumer example (releases/2027-ish):
+#
+#   name: Broadcast
+#   on:
+#     release:
+#       types: [published]
+#   jobs:
+#     broadcast:
+#       uses: sizls/broadcast-action/.github/workflows/broadcast-reusable.yml@<sha>
+#       with:
+#         platforms: bluesky,mastodon,discord
+#         cli-version: "0.1"       # minor-floating; use "0.1.2" for exact-pin
+#       secrets: inherit
+#
+# Trust chain: the caller's commit-SHA pin on this workflow fixes the
+# workflow file's contents. The `cli-version` input decides which
+# published @sizl/broadcast-cli version runs. Both are verifiable —
+# the workflow via git, the CLI via `npm audit signatures
+# @sizl/broadcast-cli` (which cryptographically verifies the tarball
+# against its Sigstore-anchored npm provenance attestation), and this
+# workflow runs that same `npm audit signatures` check at runtime
+# before invoking the CLI so a hostile republish fails-closed.
+
+on:
+  workflow_call:
+    inputs:
+      platforms:
+        required: true
+        type: string
+        description: "Comma-separated platform ids (e.g. bluesky,mastodon,discord)."
+      config-path:
+        required: false
+        type: string
+        default: ".sizl/broadcast.config.json"
+        description: "Path to the broadcast config JSON in the caller's repo."
+      cli-version:
+        required: false
+        type: string
+        default: "0.1"
+        description: "@sizl/broadcast-cli version to invoke via npx. Default '0.1' is minor-floating (matches 0.1.x, blocks a hostile 0.2.0). Pass an exact version like '0.1.2' for full reproducibility. Validated against ^[0-9]+\\.[0-9]+(\\.[0-9]+)?$ before use — a bare major like '0' is rejected because it would float across minor bumps and unpin the CLI surface entirely."
+      dry-run:
+        required: false
+        type: boolean
+        default: false
+        description: "When true, the CLI validates + signs but does NOT post to any platform."
+      posts-index-url:
+        required: false
+        type: string
+        description: "Override the default posts-index URL (default: https://broadcast.sizls.com/posts)."
+      timeout-minutes:
+        required: false
+        type: number
+        default: 15
+        description: "Job-level ceiling in minutes. Default 15 covers the v1 launch set (Bluesky + Mastodon + Discord) with room for one adapter to retry. Consumers fanning out to many adapters (newsletter family, LinkedIn, etc. once those ship) can raise this — the outer GitHub-Actions workflow ceiling is 6 h, so anything up to ~360 is valid."
+    secrets:
+      BROADCAST_API_KEY:
+        required: false
+        description: "SaaS-path bearer token → your tenant on broadcast.sizls.com."
+      BLUESKY_APP_PASSWORD:
+        required: false
+        description: "Bluesky auth in `identifier:appPassword` format. Missing → adapter silently skips."
+      MASTODON_TOKEN:
+        required: false
+        description: "Mastodon OAuth app token with write:statuses. Missing → adapter silently skips."
+      DISCORD_WEBHOOK_URL:
+        required: false
+        description: "Discord channel webhook URL. Missing → adapter silently skips."
+      POSTS_INDEX_SECRET:
+        required: false
+        description: "Legacy self-host HMAC secret. Skip when using BROADCAST_API_KEY (SaaS path)."
+
+# Serialise broadcasts per release tag so a re-run of the same tag
+# can't race the original, but keep parallel releases independent.
+# Falls back to run_id when the workflow is invoked outside a release
+# event (e.g. workflow_dispatch smoke test). Never cancel in progress —
+# a half-posted broadcast is worse than a queued one.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.release.tag_name || github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  broadcast:
+    name: Broadcast release to social
+    runs-on: ubuntu-latest
+    # Job-level ceiling. Individual steps below have finer-grained
+    # `timeout N` bounds around the npm-registry-facing lines (audit,
+    # npx), but if something outside those (checkout, setup-node,
+    # provenance verify tmpdir setup) hangs, this job cap guarantees
+    # the run dies before the workflow-level 6h ceiling. Default 15
+    # covers the v1 launch set (Bluesky + Mastodon + Discord); consumers
+    # fanning out to many adapters can raise the `timeout-minutes`
+    # input on the reusable workflow.
+    timeout-minutes: ${{ inputs.timeout-minutes }}
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "22"
+          # Cache npm because `npx --yes @sizl/broadcast-cli` fetches
+          # from npm on every run — the cache turns the second-run
+          # download into a no-op. actions/setup-node's built-in npm
+          # cache handles ~/.npm; the tarball cache is inside there.
+          cache: "npm"
+
+      # Validate cli-version BEFORE any network call. Rejects anything
+      # that isn't semver-ish (major, major.minor, or major.minor.patch,
+      # digits only). Blocks tag names, dist-tags, git URLs, and shell
+      # metacharacters — a caller who passes `latest` or `x; rm -rf /`
+      # fails fast here rather than reaching npx.
+      - name: Validate cli-version input
+        env:
+          CLI_VERSION: ${{ inputs.cli-version }}
+        run: |
+          set -euo pipefail
+          if [[ ! "$CLI_VERSION" =~ ^[0-9]+\.[0-9]+(\.[0-9]+)?$ ]]; then
+            echo "::error::Invalid cli-version '$CLI_VERSION'. Must match ^[0-9]+\.[0-9]+(\.[0-9]+)?$ (e.g. '0.1' or '0.1.2'). A bare major like '0' is rejected — it would float across minor bumps and unpin the CLI surface."
+            exit 1
+          fi
+          echo "cli-version '$CLI_VERSION' passes semver-ish validation."
+
+      # Verify the CLI's npm provenance attestation against its Sigstore
+      # signature BEFORE invoking it. `npm audit signatures` fails-closed
+      # if the attestation is missing, expired, or signed by a non-Sizls
+      # OIDC identity — a hostile republish of @sizl/broadcast-cli under
+      # a squatted maintainer account won't clear this gate. The install
+      # is done in an ephemeral tmpdir so we don't pollute the caller's
+      # node_modules or package-lock.json.
+      - name: Verify CLI provenance attestation
+        env:
+          CLI_VERSION: ${{ inputs.cli-version }}
+        run: |
+          set -euo pipefail
+          npm view "@sizl/broadcast-cli@$CLI_VERSION" version >/dev/null
+          tmpdir=$(mktemp -d)
+          pushd "$tmpdir" >/dev/null
+          npm init -y >/dev/null
+          npm install --no-save --package-lock-only "@sizl/broadcast-cli@$CLI_VERSION"
+          # Bound the audit lookup at 120s. `npm audit signatures` reaches
+          # out to registry.npmjs.org's Sigstore mirror; a registry
+          # incident or DNS blackhole here used to hang until the
+          # job/workflow timeout — capping it hard means an operator
+          # learns fast and can retry.
+          timeout 120 npm audit signatures
+          popd >/dev/null
+          rm -rf "$tmpdir"
+
+      - name: Broadcast
+        env:
+          BROADCAST_API_KEY: ${{ secrets.BROADCAST_API_KEY }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+          MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          POSTS_INDEX_SECRET: ${{ secrets.POSTS_INDEX_SECRET }}
+          # Route every caller-controlled input through env vars, never
+          # `${{ inputs.* }}` substitution inside the `run:` block. Env
+          # interpolation is not shell-reparsed, which closes the
+          # template-injection surface a fork PR (or a re-runnable event
+          # body) would otherwise open.
+          CLI_VERSION: ${{ inputs.cli-version }}
+          PLATFORMS: ${{ inputs.platforms }}
+          CONFIG_PATH: ${{ inputs.config-path }}
+          POSTS_INDEX_URL: ${{ inputs.posts-index-url }}
+          DRY_RUN: ${{ inputs.dry-run }}
+          # Point the CLI's cassette durability buffer at a stable
+          # per-run path inside `${{ runner.temp }}` so the
+          # `Upload cassette buffer` step below has a fixed path to
+          # point at. Without this env, the CLI falls back to
+          # `mkdtempSync(tmpdir())` — safe but unpredictable, which
+          # defeats the upload-artifact hand-off.
+          #
+          # Includes `run_id` + `run_attempt` in the path so a
+          # self-hosted runner executing two broadcast jobs in
+          # parallel (or a re-run against the same runner where
+          # `${{ runner.temp }}` is not nuked between jobs) can't
+          # collide on the same buffer directory. A collision would
+          # let one job's cassette files leak into another job's
+          # upload-artifact bundle.
+          SIZL_BROADCAST_CASSETTE_BUFFER_DIR: ${{ runner.temp }}/sizl-broadcast-cassettes-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          # Build the argv array in bash so optional flags never appear
+          # in the command line at all when unset — this avoids both
+          # empty-string args to Commander and any `format()`-style
+          # expression injection at the workflow layer.
+          args=(post --from-github-event --platforms "$PLATFORMS" --config "$CONFIG_PATH")
+          if [[ -n "${POSTS_INDEX_URL:-}" ]]; then
+            args+=(--posts-index-url "$POSTS_INDEX_URL")
+          fi
+          if [[ "${DRY_RUN:-false}" == "true" ]]; then
+            args+=(--dry-run)
+          fi
+          # `timeout 300` bounds the whole npx invocation at 5 minutes
+          # so a hung npm registry or a wedged adapter can't burn the
+          # 6h GitHub-Actions ceiling. `npx --yes` here resolves to the
+          # `broadcast` bin declared in @sizl/broadcast-cli's package.json,
+          # so the first positional arg is a Commander subcommand
+          # (`post`), NOT the bin name repeated.
+          timeout 300 npx --yes "@sizl/broadcast-cli@$CLI_VERSION" "${args[@]}"
+
+      # Lift any cassette envelopes that the CLI persisted to the
+      # durability buffer into a GitHub Actions artifact.
+      # `if: always()` runs on cancellation and on failure so a
+      # hung POST, a runner SIGTERM, or a `timeout 300` kill still
+      # hands the operator a durable copy they can replay
+      # out-of-band once Bureau/Worker recovers. On the happy path
+      # the buffer is empty by the time we reach this step (the CLI
+      # clears it after a 2xx upstream POST) and the step is a
+      # no-op — `if-no-files-found: ignore` avoids failing the run
+      # in that case. `retention-days: 7` is deliberately short:
+      # these are transient replay artifacts, not audit records.
+      # Pinned to actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874 (v4.4.0);
+      # no prior use of this action in the repo, so this is the
+      # canonical pin — follow-on workflows should mirror this SHA
+      # for supply-chain consistency.
+      - name: Upload cassette buffer
+        if: always()
+        uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874 # v4.4.0
+        with:
+          name: sizl-broadcast-cassettes-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/sizl-broadcast-cassettes-${{ github.run_id }}-${{ github.run_attempt }}/
+          if-no-files-found: ignore
+          retention-days: 7

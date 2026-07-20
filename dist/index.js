@@ -1,7 +1,8 @@
 import { createRequire } from 'module';
-import { readFileSync, existsSync, mkdirSync, statSync, writeFileSync } from 'fs';
-import { resolve, join } from 'path';
 import { createHmac, createHash, generateKeyPairSync, createPublicKey, sign } from 'crypto';
+import { readFileSync, existsSync, mkdirSync, mkdtempSync, statSync, writeFileSync, rmSync, readdirSync } from 'fs';
+import { resolve, sep, join } from 'path';
+import { tmpdir } from 'os';
 
 const require$1 = createRequire(import.meta.url);
 var __create = Object.create;
@@ -15040,7 +15041,7 @@ var require_snapshot_recorder = __commonJS({
           return;
         }
         const request2 = formatRequestKey(requestOpts, this.#headerFilters, this.matchOptions);
-        const hash2 = createRequestHash(request2);
+        const hash3 = createRequestHash(request2);
         const normalizedHeaders = normalizeHeaders(response.headers);
         const responseData = {
           statusCode: response.statusCode,
@@ -15048,16 +15049,16 @@ var require_snapshot_recorder = __commonJS({
           body: Buffer.isBuffer(response.body) ? response.body.toString("base64") : Buffer.from(String(response.body || "")).toString("base64"),
           trailers: response.trailers
         };
-        if (this.#snapshots.size >= this.#maxSnapshots && !this.#snapshots.has(hash2)) {
+        if (this.#snapshots.size >= this.#maxSnapshots && !this.#snapshots.has(hash3)) {
           const oldestKey = this.#snapshots.keys().next().value;
           this.#snapshots.delete(oldestKey);
         }
-        const existingSnapshot = this.#snapshots.get(hash2);
+        const existingSnapshot = this.#snapshots.get(hash3);
         if (existingSnapshot && existingSnapshot.responses) {
           existingSnapshot.responses.push(responseData);
           existingSnapshot.timestamp = (/* @__PURE__ */ new Date()).toISOString();
         } else {
-          this.#snapshots.set(hash2, {
+          this.#snapshots.set(hash3, {
             request: request2,
             responses: [responseData],
             // Always store as array for consistency
@@ -15093,8 +15094,8 @@ var require_snapshot_recorder = __commonJS({
           return void 0;
         }
         const request2 = formatRequestKey(requestOpts, this.#headerFilters, this.matchOptions);
-        const hash2 = createRequestHash(request2);
-        const snapshot = this.#snapshots.get(hash2);
+        const hash3 = createRequestHash(request2);
+        const snapshot = this.#snapshots.get(hash3);
         if (!snapshot) return void 0;
         const currentCallCount = snapshot.callCount || 0;
         const responseIndex = Math.min(currentCallCount, snapshot.responses.length - 1);
@@ -15119,8 +15120,8 @@ var require_snapshot_recorder = __commonJS({
           const parsed = JSON.parse(data);
           if (Array.isArray(parsed)) {
             this.#snapshots.clear();
-            for (const { hash: hash2, snapshot } of parsed) {
-              this.#snapshots.set(hash2, snapshot);
+            for (const { hash: hash3, snapshot } of parsed) {
+              this.#snapshots.set(hash3, snapshot);
             }
           } else {
             this.#snapshots = new Map(Object.entries(parsed));
@@ -15146,8 +15147,8 @@ var require_snapshot_recorder = __commonJS({
         }
         const resolvedPath = resolve2(path);
         await mkdir(dirname(resolvedPath), { recursive: true });
-        const data = Array.from(this.#snapshots.entries()).map(([hash2, snapshot]) => ({
-          hash: hash2,
+        const data = Array.from(this.#snapshots.entries()).map(([hash3, snapshot]) => ({
+          hash: hash3,
           snapshot
         }));
         await writeFile(resolvedPath, JSON.stringify(data, null, 2), { flush: true });
@@ -15189,8 +15190,8 @@ var require_snapshot_recorder = __commonJS({
        */
       deleteSnapshot(requestOpts) {
         const request2 = formatRequestKey(requestOpts, this.#headerFilters, this.matchOptions);
-        const hash2 = createRequestHash(request2);
-        return this.#snapshots.delete(hash2);
+        const hash3 = createRequestHash(request2);
+        return this.#snapshots.delete(hash3);
       }
       /**
        * Gets information about a specific snapshot
@@ -15199,11 +15200,11 @@ var require_snapshot_recorder = __commonJS({
        */
       getSnapshotInfo(requestOpts) {
         const request2 = formatRequestKey(requestOpts, this.#headerFilters, this.matchOptions);
-        const hash2 = createRequestHash(request2);
-        const snapshot = this.#snapshots.get(hash2);
+        const hash3 = createRequestHash(request2);
+        const snapshot = this.#snapshots.get(hash3);
         if (!snapshot) return null;
         return {
-          hash: hash2,
+          hash: hash3,
           request: snapshot.request,
           responseCount: snapshot.responses ? snapshot.responses.length : snapshot.response ? 1 : 0,
           // .response for legacy snapshots
@@ -15219,8 +15220,8 @@ var require_snapshot_recorder = __commonJS({
       replaceSnapshots(snapshotData) {
         this.#snapshots.clear();
         if (Array.isArray(snapshotData)) {
-          for (const { hash: hash2, snapshot } of snapshotData) {
-            this.#snapshots.set(hash2, snapshot);
+          for (const { hash: hash3, snapshot } of snapshotData) {
+            this.#snapshots.set(hash3, snapshot);
           }
         } else if (snapshotData && typeof snapshotData === "object") {
           this.#snapshots = new Map(Object.entries(snapshotData));
@@ -38161,11 +38162,11 @@ var require_aturi = __commonJS({
         if (this.searchParams.size) {
           qs = `?${this.searchParams.toString()}`;
         }
-        let hash2 = this.hash;
-        if (hash2 && !hash2.startsWith("#")) {
-          hash2 = `#${hash2}`;
+        let hash3 = this.hash;
+        if (hash3 && !hash3.startsWith("#")) {
+          hash3 = `#${hash3}`;
         }
-        return `at://${this.host}${path}${qs}${hash2}`;
+        return `at://${this.host}${path}${qs}${hash3}`;
       }
     };
     exports.AtUri = AtUri;
@@ -44424,17 +44425,17 @@ var require_util11 = __commonJS({
     function isObject(v2) {
       return v2 != null && typeof v2 === "object";
     }
-    function is$type($type, id, hash2) {
-      return hash2 === "main" ? $type === id : (
+    function is$type($type, id, hash3) {
+      return hash3 === "main" ? $type === id : (
         // $type === `${id}#${hash}`
-        typeof $type === "string" && $type.length === id.length + 1 + hash2.length && $type.charCodeAt(id.length) === 35 && $type.startsWith(id) && $type.endsWith(hash2)
+        typeof $type === "string" && $type.length === id.length + 1 + hash3.length && $type.charCodeAt(id.length) === 35 && $type.startsWith(id) && $type.endsWith(hash3)
       );
     }
-    function is$typed(v2, id, hash2) {
-      return isObject(v2) && "$type" in v2 && is$type(v2.$type, id, hash2);
+    function is$typed(v2, id, hash3) {
+      return isObject(v2) && "$type" in v2 && is$type(v2.$type, id, hash3);
     }
-    function maybe$typed(v2, id, hash2) {
-      return isObject(v2) && ("$type" in v2 ? v2.$type === void 0 || is$type(v2.$type, id, hash2) : true);
+    function maybe$typed(v2, id, hash3) {
+      return isObject(v2) && ("$type" in v2 ? v2.$type === void 0 || is$type(v2.$type, id, hash3) : true);
     }
     function asPredicate(validate) {
       return function(v2) {
@@ -59333,10 +59334,10 @@ var require_lexicons2 = __commonJS({
     };
     exports.schemas = Object.values(exports.schemaDict);
     exports.lexicons = new lexicon_1.Lexicons(exports.schemas);
-    function validate(v2, id, hash2, requiredType) {
-      return (requiredType ? util_js_1.is$typed : util_js_1.maybe$typed)(v2, id, hash2) ? exports.lexicons.validate(`${id}#${hash2}`, v2) : {
+    function validate(v2, id, hash3, requiredType) {
+      return (requiredType ? util_js_1.is$typed : util_js_1.maybe$typed)(v2, id, hash3) ? exports.lexicons.validate(`${id}#${hash3}`, v2) : {
         success: false,
-        error: new lexicon_1.ValidationError(`Must be an object with "${hash2 === "main" ? id : `${id}#${hash2}`}" $type property`)
+        error: new lexicon_1.ValidationError(`Must be an object with "${hash3 === "main" ? id : `${id}#${hash3}`}" $type property`)
       };
     }
     exports.ids = {
@@ -78806,38 +78807,9 @@ function qe(e, t) {
   let n = "crossModuleDeps" in t ? t.crossModuleDeps : void 0;
   return { id: e, schema: t.schema, init: t.init, derive: t.derive ?? {}, events: t.events ?? {}, effects: t.effects, sources: t.sources, constraints: t.constraints, resolvers: t.resolvers, hooks: t.hooks, meta: t.meta, history: t.history, crossModuleDeps: n };
 }
-var BroadcastBudgetExceeded = class extends Error {
-  constructor(message, limit, observed, scope) {
-    super(message);
-    this.limit = limit;
-    this.observed = observed;
-    this.scope = scope;
-    this.name = "BroadcastBudgetExceeded";
-  }
-  limit;
-  observed;
-  scope;
-  kind = "BroadcastBudgetExceeded";
-};
-var BroadcastIdempotencyConflict = class extends Error {
-  constructor(message, key) {
-    super(message);
-    this.key = key;
-    this.name = "BroadcastIdempotencyConflict";
-  }
-  key;
-  kind = "BroadcastIdempotencyConflict";
-};
-var DEFAULT_COST_BREAKER_CONFIG = {
-  maxPostsPerEvent: 3,
-  maxPostsPerDay: 20,
-  maxPostsPerMonth: 100,
-  maxUsdPerDay: 5,
-  maxUsdPerNewsletter: 25
-};
 var MS_PER_DAY = 24 * 60 * 60 * 1e3;
 var MS_PER_MONTH = 30 * MS_PER_DAY;
-var breakerModule = qe("cost-breaker", {
+qe("cost-breaker", {
   schema: {
     facts: {
       /** Append-only ledger of accepted posts. The rolling-window
@@ -78895,8 +78867,962 @@ var breakerModule = qe("cost-breaker", {
     }
   }
 });
+function payloadToEvent(payload) {
+  if (payload.action !== "published") return null;
+  if (payload.release.draft) return null;
+  const tag = payload.release.tag_name;
+  const repo = payload.repository.full_name;
+  const noteworthiness = inferNoteworthiness(tag, payload.release.body);
+  return {
+    id: hashIdempotency(`${repo}:${tag}`),
+    origin: "github-release",
+    noteworthiness,
+    ref: {
+      repo,
+      tag,
+      version: tag.replace(/^v/, ""),
+      url: payload.release.html_url
+    },
+    payload,
+    detectedAt: Date.now()
+  };
+}
+function inferNoteworthiness(tag, body) {
+  const breakingMarker = (body ?? "").match(/BREAKING CHANGE|BREAKING:/i);
+  const m3 = tag.match(/^v?(\d+)\.(\d+)\.(\d+)/);
+  if (!m3) return "manual";
+  const major = Number(m3[1]);
+  const minor = Number(m3[2]);
+  const patch = Number(m3[3]);
+  if (breakingMarker) return "major";
+  if (patch === 0 && minor === 0 && major > 0) return "major";
+  if (patch === 0 && minor > 0) return "minor";
+  return "patch";
+}
+function hashIdempotency(input) {
+  return `gh-${createHash("sha256").update(input).digest("hex").slice(0, 32)}`;
+}
+var AUTO_ESCALATION_EXHAUSTIVE = {
+  "claim-has-unsourced-number": true,
+  "mentions-unallowed-account": true,
+  "sentiment-argumentative": true,
+  "mentions-competitor": true,
+  "prior-post-killed-within-24h": true,
+  "draft-too-long-after-reflect": true,
+  "internal-token-detected": true
+};
+new Set(Object.keys(AUTO_ESCALATION_EXHAUSTIVE));
+var DEFAULT_AUTO_PUBLISH_MS = 15 * 60 * 1e3;
+var DEFAULT_TTL_MS = 48 * 60 * 60 * 1e3;
+qe("tier2-tick", {
+  schema: {
+    facts: {
+      pending: fn.array().default(() => []),
+      nowMs: fn.number().default(0),
+      ttlMs: fn.number().default(DEFAULT_TTL_MS),
+      autoPublishMs: fn.number().default(DEFAULT_AUTO_PUBLISH_MS)
+    },
+    derivations: {
+      overdueTTL: fn.array(),
+      overduePublish: fn.array()
+    }
+  },
+  derive: {
+    // Derivations may fire once before the workflow populates the
+    // facts on the next tick(), so guard against undefined here.
+    overdueTTL: (facts) => {
+      const pending = facts.pending ?? [];
+      const nowMs = facts.nowMs ?? 0;
+      const ttlMs = facts.ttlMs ?? DEFAULT_TTL_MS;
+      return pending.filter(
+        (d2) => d2.status === "queued" && nowMs - d2.queuedAt >= ttlMs
+      );
+    },
+    overduePublish: (facts, derived) => {
+      const pending = facts.pending ?? [];
+      const nowMs = facts.nowMs ?? 0;
+      const autoPublishMs = facts.autoPublishMs ?? DEFAULT_AUTO_PUBLISH_MS;
+      const ttlIds = new Set(derived.overdueTTL.map((d2) => d2.draftId));
+      return pending.filter(
+        (d2) => d2.status === "queued" && nowMs - d2.queuedAt >= autoPublishMs && !ttlIds.has(d2.draftId)
+      );
+    }
+  }
+});
+var URL_RE = /https?:\/\/[^\s<>"'`]+/g;
+var TAG_RE = /(^|[\s(])#([\p{L}\p{N}_]{1,64})/gu;
+function trimTrailingPunct(url) {
+  let out = url;
+  while (out.length > 0) {
+    const last = out[out.length - 1];
+    if (".,;:!?)]}>".includes(last)) {
+      out = out.slice(0, -1);
+      continue;
+    }
+    break;
+  }
+  return out;
+}
+function byteLength(s) {
+  return new TextEncoder().encode(s).byteLength;
+}
+function buildFacets(text) {
+  const out = [];
+  for (const match of text.matchAll(URL_RE)) {
+    const raw = match[0];
+    const trimmed = trimTrailingPunct(raw);
+    const startIdx = match.index ?? 0;
+    const prefix = text.slice(0, startIdx);
+    const byteStart = byteLength(prefix);
+    const byteEnd = byteStart + byteLength(trimmed);
+    out.push({
+      index: { byteStart, byteEnd },
+      features: [{ $type: "app.bsky.richtext.facet#link", uri: trimmed }]
+    });
+  }
+  for (const match of text.matchAll(TAG_RE)) {
+    const prefix = match[1] ?? "";
+    const tag = match[2] ?? "";
+    const startInText = (match.index ?? 0) + prefix.length;
+    const byteStart = byteLength(text.slice(0, startInText));
+    const byteEnd = byteStart + byteLength(`#${tag}`);
+    out.push({
+      index: { byteStart, byteEnd },
+      features: [{ $type: "app.bsky.richtext.facet#tag", tag }]
+    });
+  }
+  out.sort((a2, b2) => a2.index.byteStart - b2.index.byteStart);
+  return out;
+}
+var BLUESKY_MAX_CHARS = 300;
+function createBlueskyAdapter(config) {
+  return {
+    id: "bluesky",
+    category: "social",
+    capabilities: {
+      maxChars: BLUESKY_MAX_CHARS,
+      supportsThreading: true,
+      supportsImage: true,
+      supportsLink: true,
+      costPerPostUSD: 0
+    },
+    auth: config.auth,
+    enabled: config.enabled ?? true,
+    dryRun: config.dryRun ?? false,
+    validate(input) {
+      if (input.text.length === 0) {
+        return { ok: false, reason: "empty text" };
+      }
+      if (input.text.length > BLUESKY_MAX_CHARS) {
+        return {
+          ok: false,
+          reason: `text exceeds Bluesky max (${BLUESKY_MAX_CHARS}); got ${input.text.length}`
+        };
+      }
+      for (const t2 of input.thread ?? []) {
+        if (t2.length > BLUESKY_MAX_CHARS) {
+          return {
+            ok: false,
+            reason: `thread entry exceeds Bluesky max (${BLUESKY_MAX_CHARS}); got ${t2.length}`
+          };
+        }
+      }
+      return { ok: true };
+    },
+    async deletePost(postId) {
+      const atproto = await loadAtProto();
+      const { BskyAgent } = atproto;
+      const agent = new BskyAgent({
+        service: config.service ?? "https://bsky.social"
+      });
+      await authenticate(agent, config.auth);
+      const match = postId.match(/^at:\/\/([^/]+)\/([^/]+)\/([^/]+)$/);
+      if (!match) {
+        throw new Error(`[bluesky] postId is not an at-URI: ${postId}`);
+      }
+      const repo = match[1];
+      const collection = match[2];
+      const rkey = match[3];
+      try {
+        await agent.api.com.atproto.repo.deleteRecord({ repo, collection, rkey });
+      } catch (err) {
+        throw classifyError(err);
+      }
+    },
+    async fetchEngagement(postId) {
+      const atproto = await loadAtProto();
+      const { BskyAgent } = atproto;
+      const agent = new BskyAgent({
+        service: config.service ?? "https://bsky.social"
+      });
+      await authenticate(agent, config.auth);
+      try {
+        const res = await agent.api.app.bsky.feed.getPosts({ uris: [postId] });
+        const p2 = res.data.posts[0];
+        return {
+          likes: p2?.likeCount ?? 0,
+          reposts: p2?.repostCount ?? 0,
+          replies: p2?.replyCount ?? 0,
+          observedAt: Date.now()
+        };
+      } catch (err) {
+        throw classifyError(err);
+      }
+    },
+    async post(input) {
+      if (this.dryRun) {
+        return synthesizeDryRunResult(input);
+      }
+      const atproto = await loadAtProto();
+      const { BskyAgent } = atproto;
+      const agent = new BskyAgent({
+        service: config.service ?? "https://bsky.social"
+      });
+      await authenticate(agent, config.auth);
+      try {
+        const rootFacets = buildFacets(input.text);
+        let embed;
+        if (input.media && input.media.length > 0) {
+          const imageRefs = [];
+          for (const m3 of input.media.slice(0, 4)) {
+            if (m3.kind !== "image") continue;
+            const blobRef = await uploadImageBlob(
+              agent,
+              m3
+            );
+            imageRefs.push({ alt: m3.altText, image: blobRef });
+          }
+          if (imageRefs.length > 0) {
+            embed = {
+              $type: "app.bsky.embed.images",
+              images: imageRefs
+            };
+          }
+        }
+        const root = await agent.post({
+          text: input.text,
+          ...rootFacets.length > 0 ? { facets: rootFacets } : {},
+          ...embed ? { embed } : {}
+        });
+        const rootUri = root.uri;
+        const rootCid = root.cid;
+        let lastUri = rootUri;
+        let lastCid = rootCid;
+        for (const reply of input.thread ?? []) {
+          const replyFacets = buildFacets(reply);
+          const r2 = await agent.post({
+            text: reply,
+            ...replyFacets.length > 0 ? { facets: replyFacets } : {},
+            reply: {
+              root: { uri: rootUri, cid: rootCid },
+              parent: { uri: lastUri, cid: lastCid }
+            }
+          });
+          lastUri = r2.uri;
+          lastCid = r2.cid;
+        }
+        const handle = (agent.session?.handle ?? "unknown").replace(/^@/, "");
+        const url = `https://bsky.app/profile/${handle}/post/${extractRkey(rootUri)}`;
+        return {
+          id: rootUri,
+          url,
+          postedAt: Date.now(),
+          rawResponse: {
+            rootUri,
+            rootCid,
+            threadCount: input.thread?.length ?? 0
+          }
+        };
+      } catch (err) {
+        throw classifyError(err);
+      }
+    }
+  };
+}
+function synthesizeDryRunResult(input) {
+  const tid = `dry-run-${Math.random().toString(36).slice(2, 10)}`;
+  return {
+    id: `at://dry-run/app.bsky.feed.post/${tid}`,
+    url: `https://bsky.app/dry-run/${tid}`,
+    postedAt: Date.now(),
+    rawResponse: { dryRun: true, threadCount: input.thread?.length ?? 0 }
+  };
+}
+function extractRkey(atUri) {
+  const parts = atUri.split("/");
+  return parts[parts.length - 1] ?? "unknown";
+}
+async function uploadImageBlob(agent, media) {
+  const res = await fetch(media.url);
+  if (!res.ok) {
+    throw new Error(`[bluesky] media fetch failed: ${res.status} ${media.url}`);
+  }
+  const contentType = media.mimeType ?? res.headers.get("content-type") ?? "image/jpeg";
+  const buf = await res.arrayBuffer();
+  const upload = await agent.uploadBlob(new Uint8Array(buf), {
+    encoding: contentType
+  });
+  return upload.data.blob;
+}
+async function authenticate(agent, auth2) {
+  if (auth2.kind === "bearer") {
+    const token = await auth2.token();
+    const sep2 = token.indexOf(":");
+    if (sep2 === -1) {
+      throw new Error(
+        '[bluesky] bearer token must be "identifier:appPassword" (got no separator)'
+      );
+    }
+    await agent.login({
+      identifier: token.slice(0, sep2),
+      password: token.slice(sep2 + 1)
+    });
+    return;
+  }
+  if (auth2.kind === "oauth2") {
+    throw new Error(
+      "[bluesky] OAuth2 auth not yet wired; use { kind: 'bearer' } with App Password (identifier:appPassword)."
+    );
+  }
+  throw new Error(
+    `[bluesky] unsupported auth kind: ${auth2.kind}`
+  );
+}
+async function loadAtProto() {
+  try {
+    const mod = await Promise.resolve().then(() => __toESM(require_dist9(), 1));
+    return mod;
+  } catch (err) {
+    throw new Error(
+      `[bluesky] @atproto/api is a peer dependency and must be installed by the consumer: pnpm add @atproto/api. Underlying error: ${err.message}`
+    );
+  }
+}
+function classifyError(err) {
+  const e = err;
+  switch (e.error) {
+    case "RateLimitExceeded":
+      return { kind: "RateLimit", retryAfterMs: 6e4 };
+    case "ExpiredToken":
+    case "AuthenticationRequired":
+    case "InvalidToken":
+      return { kind: "AuthExpired", canRefresh: true };
+    case "InvalidRequest":
+      return {
+        kind: "ContentRejected",
+        reason: e.message ?? "invalid request"
+      };
+  }
+  if (e.status === 429) {
+    return { kind: "RateLimit", retryAfterMs: 6e4 };
+  }
+  if (e.status === 401 || e.status === 403) {
+    return { kind: "AuthExpired", canRefresh: true };
+  }
+  if (e.status === 400 && e.message?.match(/too long|invalid/i)) {
+    return { kind: "ContentRejected", reason: e.message ?? "rejected" };
+  }
+  return e.status !== void 0 ? { kind: "Transport", status: e.status, cause: err } : { kind: "Transport", cause: err };
+}
+var DISCORD_MAX_CHARS = 2e3;
+function createDiscordAdapter(config) {
+  if (config.auth.kind !== "webhook") {
+    throw new Error(
+      `[discord] webhook auth required (got ${config.auth.kind}). The webhook URL itself is the auth surface \u2014 generate via Server Settings > Integrations > Webhooks > New Webhook.`
+    );
+  }
+  const webhookUrl = config.auth.url;
+  return {
+    id: "discord",
+    category: "community",
+    capabilities: {
+      maxChars: DISCORD_MAX_CHARS,
+      supportsThreading: false,
+      supportsImage: true,
+      supportsLink: true,
+      costPerPostUSD: 0
+    },
+    auth: config.auth,
+    enabled: config.enabled ?? true,
+    dryRun: config.dryRun ?? false,
+    validate(input) {
+      if (input.text.length === 0) return { ok: false, reason: "empty text" };
+      if (input.text.length > DISCORD_MAX_CHARS) {
+        return {
+          ok: false,
+          reason: `text exceeds Discord max (${DISCORD_MAX_CHARS}); got ${input.text.length}`
+        };
+      }
+      return { ok: true };
+    },
+    async post(input) {
+      if (this.dryRun) {
+        const tid = `dry-run-${Math.random().toString(36).slice(2, 10)}`;
+        return {
+          id: tid,
+          url: "https://discord.com/dry-run",
+          postedAt: Date.now(),
+          rawResponse: { dryRun: true }
+        };
+      }
+      const headUrl = buildWebhookUrl(webhookUrl, input.replyTo);
+      const headRes = await postWebhook(headUrl, {
+        content: input.text,
+        username: config.username,
+        avatarUrl: config.avatarUrl,
+        media: input.media ?? []
+      });
+      const head = await headRes.json();
+      const headPermalink = `https://discord.com/channels/${head.channel_id}/${head.id}`;
+      for (const reply of input.thread ?? []) {
+        const followUp = `${reply}
+
+_(continued from ${headPermalink})_`;
+        const followUpUrl = buildWebhookUrl(webhookUrl, input.replyTo);
+        await postWebhook(followUpUrl, {
+          content: followUp,
+          username: config.username,
+          avatarUrl: config.avatarUrl,
+          media: []
+        });
+      }
+      return {
+        id: head.id,
+        url: headPermalink,
+        postedAt: Date.now(),
+        rawResponse: head
+      };
+    }
+  };
+}
+async function postWebhook(url, msg) {
+  const payload = {
+    content: msg.content,
+    username: msg.username,
+    avatar_url: msg.avatarUrl,
+    allowed_mentions: { parse: [] },
+    ...msg.media.length > 0 ? {
+      attachments: msg.media.map((m3, i) => ({
+        id: i,
+        description: m3.altText,
+        filename: discordFilename(m3, i)
+      }))
+    } : {}
+  };
+  if (msg.media.length === 0) {
+    const res2 = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if (!res2.ok) {
+      throw classifyResponse(res2, await res2.text().catch(() => ""));
+    }
+    return res2;
+  }
+  const blobs = await Promise.all(msg.media.map((m3) => fetchMediaBlob(m3)));
+  const form = new FormData();
+  form.append("payload_json", JSON.stringify(payload));
+  blobs.forEach((blob, i) => {
+    form.append(`files[${i}]`, blob, discordFilename(msg.media[i], i));
+  });
+  const res = await fetch(url, { method: "POST", body: form });
+  if (!res.ok) {
+    throw classifyResponse(res, await res.text().catch(() => ""));
+  }
+  return res;
+}
+async function fetchMediaBlob(ref) {
+  const fileRes = await fetch(ref.url);
+  if (!fileRes.ok) {
+    throw {
+      kind: "ContentRejected",
+      reason: `media fetch failed (${ref.url}): HTTP ${fileRes.status}`
+    };
+  }
+  const arrayBuffer = await fileRes.arrayBuffer();
+  return new Blob([arrayBuffer], {
+    type: ref.mimeType ?? "application/octet-stream"
+  });
+}
+function discordFilename(ref, index) {
+  try {
+    const pathname = new URL(ref.url).pathname;
+    const segment = pathname.split("/").filter(Boolean).pop();
+    if (segment?.includes(".")) return segment;
+  } catch {
+  }
+  return ref.kind === "video" ? `media-${index}.mp4` : `media-${index}.png`;
+}
+function buildWebhookUrl(base, threadId) {
+  const sep2 = base.includes("?") ? "&" : "?";
+  if (threadId) {
+    return `${base}${sep2}thread_id=${encodeURIComponent(threadId)}&wait=true`;
+  }
+  return `${base}${sep2}wait=true`;
+}
+function classifyResponse(res, body) {
+  if (res.status === 429) {
+    const headerVal = Number(res.headers.get("retry-after"));
+    let bodyVal = null;
+    try {
+      const parsed = JSON.parse(body);
+      if (typeof parsed.retry_after === "number") {
+        bodyVal = parsed.retry_after;
+      }
+    } catch {
+    }
+    const seconds = bodyVal !== null ? bodyVal : Number.isFinite(headerVal) && headerVal > 0 ? headerVal : 60;
+    return { kind: "RateLimit", retryAfterMs: Math.ceil(seconds * 1e3) };
+  }
+  if (res.status === 401 || res.status === 403 || res.status === 404) {
+    return { kind: "AuthExpired", canRefresh: false };
+  }
+  if (res.status === 400 || res.status === 413) {
+    return { kind: "ContentRejected", reason: body || `HTTP ${res.status}` };
+  }
+  return { kind: "Transport", status: res.status, cause: body };
+}
+var MASTODON_DEFAULT_MAX_CHARS = 500;
+var MASTODON_DEFAULT_VISIBILITY = "public";
+function createMastodonAdapter(config) {
+  const maxChars = config.maxChars ?? MASTODON_DEFAULT_MAX_CHARS;
+  return {
+    id: "mastodon",
+    category: "social",
+    capabilities: {
+      maxChars,
+      supportsThreading: true,
+      supportsImage: true,
+      supportsLink: true,
+      costPerPostUSD: 0
+    },
+    auth: config.auth,
+    enabled: config.enabled ?? true,
+    dryRun: config.dryRun ?? false,
+    validate(input) {
+      if (input.text.length === 0) {
+        return { ok: false, reason: "empty text" };
+      }
+      if (input.text.length > maxChars) {
+        return {
+          ok: false,
+          reason: `text exceeds instance max (${maxChars}); got ${input.text.length}`
+        };
+      }
+      for (const t2 of input.thread ?? []) {
+        if (t2.length > maxChars) {
+          return {
+            ok: false,
+            reason: `thread entry exceeds instance max (${maxChars})`
+          };
+        }
+      }
+      for (const m3 of input.media ?? []) {
+        if (!m3.altText || m3.altText.trim().length === 0) {
+          return {
+            ok: false,
+            reason: "Mastodon requires altText on every media attachment"
+          };
+        }
+      }
+      return { ok: true };
+    },
+    async post(input) {
+      if (this.dryRun) {
+        const tid = `dry-run-${Math.random().toString(36).slice(2, 10)}`;
+        return {
+          id: tid,
+          url: `${config.instance}/dry-run/${tid}`,
+          postedAt: Date.now(),
+          rawResponse: { dryRun: true }
+        };
+      }
+      const token = await resolveBearer(config.auth);
+      const visibility = config.visibility ?? MASTODON_DEFAULT_VISIBILITY;
+      const mediaIds = await Promise.all(
+        (input.media ?? []).map((m3) => uploadMedia(config.instance, token, m3))
+      );
+      const root = await postStatus(config.instance, token, {
+        status: input.text,
+        visibility,
+        ...config.language !== void 0 ? { language: config.language } : {},
+        ...mediaIds.length > 0 ? { media_ids: mediaIds } : {}
+      });
+      let parentId = root.id;
+      for (const reply of input.thread ?? []) {
+        const r2 = await postStatus(config.instance, token, {
+          status: reply,
+          in_reply_to_id: parentId,
+          visibility,
+          ...config.language !== void 0 ? { language: config.language } : {}
+        });
+        parentId = r2.id;
+      }
+      return {
+        id: root.id,
+        url: root.url,
+        postedAt: Date.now(),
+        rawResponse: root
+      };
+    }
+  };
+}
+async function resolveBearer(auth2) {
+  if (auth2.kind === "bearer") return auth2.token();
+  if (auth2.kind === "apiKey") return auth2.key();
+  throw new Error(
+    `[mastodon] only bearer / apiKey auth supported (got ${auth2.kind})`
+  );
+}
+async function uploadMedia(instance, token, ref) {
+  const fileRes = await fetch(ref.url);
+  if (!fileRes.ok) {
+    throw {
+      kind: "ContentRejected",
+      reason: `media fetch failed (${ref.url}): HTTP ${fileRes.status}`
+    };
+  }
+  const arrayBuffer = await fileRes.arrayBuffer();
+  const blob = new Blob([arrayBuffer], {
+    type: ref.mimeType ?? "application/octet-stream"
+  });
+  const form = new FormData();
+  form.append("file", blob, "media");
+  form.append("description", ref.altText);
+  const res = await fetch(`${instance}/api/v2/media`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}` },
+    body: form
+  });
+  if (!res.ok && res.status !== 202) {
+    throw classifyResponse2(res, await res.text().catch(() => ""));
+  }
+  const data = await res.json();
+  if (!data.id) {
+    throw {
+      kind: "ContentRejected",
+      reason: "Mastodon /api/v2/media response missing id"
+    };
+  }
+  return data.id;
+}
+async function postStatus(instance, token, body) {
+  const serialized = JSON.stringify(body);
+  try {
+    const res = await fetch(`${instance}/api/v1/statuses`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+        // Include `media_ids` in the idempotency hash — otherwise a
+        // retry of the same text with different attached media
+        // silently dedupes to the first post (Mastodon sees the
+        // same key and returns the original response) and the new
+        // media never lands.
+        "Idempotency-Key": hash(
+          body.status + (body.in_reply_to_id ?? "") + (body.media_ids ?? []).join(",")
+        )
+      },
+      body: serialized
+    });
+    if (!res.ok) {
+      throw classifyResponse2(res, await res.text().catch(() => ""));
+    }
+    return await res.json();
+  } catch (err) {
+    if (isAdapterError(err)) throw err;
+    throw transportError(err);
+  }
+}
+function classifyResponse2(res, body) {
+  if (res.status === 429) {
+    const retryAfter = Number(res.headers.get("retry-after")) || 60;
+    return { kind: "RateLimit", retryAfterMs: retryAfter * 1e3 };
+  }
+  if (res.status === 401 || res.status === 403) {
+    return { kind: "AuthExpired", canRefresh: true };
+  }
+  if (res.status === 422 || res.status === 400) {
+    return { kind: "ContentRejected", reason: body || `HTTP ${res.status}` };
+  }
+  return { kind: "Transport", status: res.status, cause: body };
+}
+function transportError(err) {
+  return { kind: "Transport", cause: err };
+}
+function isAdapterError(err) {
+  return typeof err === "object" && err !== null && "kind" in err && typeof err.kind === "string" && [
+    "RateLimit",
+    "AuthExpired",
+    "ContentRejected",
+    "Transport",
+    "IdempotencyConflict"
+  ].includes(err.kind);
+}
+function hash(input) {
+  return createHash("sha256").update(input).digest("hex").slice(0, 32);
+}
+var MASS_MENTION_RE = /(<!(?:channel|here|everyone|subteam\^[^>]+)>|@(?:everyone|here|channel|all)\b)/gi;
+var SLACK_REF_RE = /<[#@!][A-Z0-9][A-Z0-9._-]*(?:\|[^>]+)?>/gi;
+var MENTION_RE = /@([A-Za-z0-9][A-Za-z0-9_.-]+)\b/g;
+var URL_RE2 = /https?:\/\/[^\s<>"'`]+/g;
+var HTML_TAG_RE = /<\/?[A-Za-z][^>]*>/g;
+var DANGEROUS_CONTROL_RE = /[​-‏‪-‮⁠-⁯﻿]/g;
+function hostOf(url) {
+  try {
+    return new URL(url).host.toLowerCase();
+  } catch {
+    return null;
+  }
+}
+function scrubSocial(text, config = {}) {
+  const findings = [];
+  let out = text;
+  out = out.replace(MASS_MENTION_RE, (m3) => {
+    findings.push({
+      kind: "mass-mention-stripped",
+      label: "mass-mention token",
+      excerpt: m3
+    });
+    return "";
+  });
+  out = out.replace(SLACK_REF_RE, (m3) => {
+    findings.push({
+      kind: "mass-mention-stripped",
+      label: "slack reference",
+      excerpt: m3
+    });
+    return "";
+  });
+  if (config.allowedMentions !== void 0) {
+    out = out.replace(MENTION_RE, (m3, handle) => {
+      const lower = String(handle).toLowerCase();
+      if (config.allowedMentions.has(lower)) return m3;
+      findings.push({
+        kind: "unknown-mention-stripped",
+        label: "unknown mention",
+        excerpt: m3
+      });
+      return "";
+    });
+  }
+  if (config.trustedHosts !== void 0) {
+    out = out.replace(URL_RE2, (m3) => {
+      const host = hostOf(m3);
+      if (host && config.trustedHosts.has(host)) return m3;
+      findings.push({
+        kind: "untrusted-url-removed",
+        label: "untrusted url host",
+        excerpt: m3
+      });
+      return config.strictUrls ? "" : m3;
+    });
+  }
+  out = out.replace(DANGEROUS_CONTROL_RE, (m3) => {
+    findings.push({
+      kind: "control-char-stripped",
+      label: "dangerous control character",
+      excerpt: `U+${m3.charCodeAt(0).toString(16).toUpperCase()}`
+    });
+    return "";
+  });
+  out = out.replace(HTML_TAG_RE, (m3) => {
+    findings.push({
+      kind: "html-tag-escaped",
+      label: "html tag in social text",
+      excerpt: m3
+    });
+    return "";
+  });
+  return { text: out, findings };
+}
+var NEWSLETTER_ALLOWED_TAGS = /* @__PURE__ */ new Set([
+  "p",
+  "a",
+  "strong",
+  "b",
+  "em",
+  "i",
+  "u",
+  "ul",
+  "ol",
+  "li",
+  "br",
+  "hr",
+  "blockquote",
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
+  "pre",
+  "code",
+  "span",
+  "div"
+]);
+var HTML_TAG_FULL_RE = /<\/?([A-Za-z][A-Za-z0-9]*)\b([^>]*)>/g;
+var ON_ATTR_RE = /\son[a-z]+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi;
+var HREF_JS_RE = /\shref\s*=\s*("javascript:[^"]*"|'javascript:[^']*'|javascript:[^\s>]+)/gi;
+var SRC_JS_RE = /\ssrc\s*=\s*("javascript:[^"]*"|'javascript:[^']*'|javascript:[^\s>]+)/gi;
+var BLOCK_STRIP_RE = /<(script|style|iframe|object|embed|noscript)\b[^>]*>[\s\S]*?<\/\1>/gi;
+function scrubHtml(text) {
+  const findings = [];
+  let out = text;
+  out = out.replace(BLOCK_STRIP_RE, (m3, tag) => {
+    findings.push({
+      kind: "html-tag-escaped",
+      label: `disallowed html tag <${tag}> (with body)`,
+      excerpt: m3.length > 60 ? `${m3.slice(0, 60)}\u2026` : m3
+    });
+    return "";
+  });
+  out = out.replace(ON_ATTR_RE, (m3) => {
+    findings.push({
+      kind: "html-tag-escaped",
+      label: "on* event handler attribute",
+      excerpt: m3.trim()
+    });
+    return "";
+  });
+  out = out.replace(HREF_JS_RE, (m3) => {
+    findings.push({
+      kind: "html-tag-escaped",
+      label: "javascript: href",
+      excerpt: m3.trim()
+    });
+    return "";
+  });
+  out = out.replace(SRC_JS_RE, (m3) => {
+    findings.push({
+      kind: "html-tag-escaped",
+      label: "javascript: src",
+      excerpt: m3.trim()
+    });
+    return "";
+  });
+  out = out.replace(HTML_TAG_FULL_RE, (m3, tagName) => {
+    if (NEWSLETTER_ALLOWED_TAGS.has(String(tagName).toLowerCase())) {
+      return m3;
+    }
+    findings.push({
+      kind: "html-tag-escaped",
+      label: `disallowed html tag <${tagName}>`,
+      excerpt: m3
+    });
+    return "";
+  });
+  out = out.replace(DANGEROUS_CONTROL_RE, (m3) => {
+    findings.push({
+      kind: "control-char-stripped",
+      label: "dangerous control character",
+      excerpt: `U+${m3.charCodeAt(0).toString(16).toUpperCase()}`
+    });
+    return "";
+  });
+  return { text: out, findings };
+}
+function scrubForAdapter(text, category, config = {}) {
+  switch (category) {
+    case "social":
+    case "community":
+      return scrubSocial(text, config);
+    case "newsletter":
+      return scrubHtml(text);
+  }
+}
+var BroadcastBudgetExceeded = class extends Error {
+  constructor(message, limit, observed, scope) {
+    super(message);
+    this.limit = limit;
+    this.observed = observed;
+    this.scope = scope;
+    this.name = "BroadcastBudgetExceeded";
+  }
+  limit;
+  observed;
+  scope;
+  kind = "BroadcastBudgetExceeded";
+};
+var BroadcastIdempotencyConflict = class extends Error {
+  constructor(message, key) {
+    super(message);
+    this.key = key;
+    this.name = "BroadcastIdempotencyConflict";
+  }
+  key;
+  kind = "BroadcastIdempotencyConflict";
+};
+var DEFAULT_COST_BREAKER_CONFIG = {
+  maxPostsPerEvent: 3,
+  maxPostsPerDay: 20,
+  maxPostsPerMonth: 100,
+  maxUsdPerDay: 5,
+  maxUsdPerNewsletter: 25
+};
+var MS_PER_DAY2 = 24 * 60 * 60 * 1e3;
+var MS_PER_MONTH2 = 30 * MS_PER_DAY2;
+var breakerModule2 = qe("cost-breaker", {
+  schema: {
+    facts: {
+      /** Append-only ledger of accepted posts. The rolling-window
+       * counters all derive off this — no shifting, no manual
+       * rollover. For the practical broadcaster load (hundreds of
+       * posts per month, not millions) the O(n) scan dominates
+       * nothing. */
+      posts: fn.array().default(() => []),
+      /** Wall-clock at the most recent gate call. The gate bumps
+       * this before reading derivations so the rolling-window cuts
+       * reflect the call's actual time, not module-init time. Kept
+       * as a fact (not a derivation input) because Directive
+       * derivations are pure functions of facts — making `now()` a
+       * fact gives the engine a real dependency it can invalidate
+       * from. */
+      nowMs: fn.number().default(0)
+    },
+    derivations: {
+      dayCount: fn.number(),
+      monthCount: fn.number(),
+      usdSpentToday: fn.number(),
+      eventCounts: fn.object()
+    }
+  },
+  init: (facts) => {
+    facts.posts = [];
+    facts.nowMs = 0;
+  },
+  derive: {
+    // Derivations may fire once before init() has run; default the
+    // facts to empty so the first invalidation pass doesn't crash on
+    // `undefined.filter(...)`. Subsequent reads see the init values.
+    dayCount: (facts) => {
+      const posts = facts.posts ?? [];
+      const nowMs = facts.nowMs ?? 0;
+      return posts.filter((p2) => nowMs - p2.ts < MS_PER_DAY2).length;
+    },
+    monthCount: (facts) => {
+      const posts = facts.posts ?? [];
+      const nowMs = facts.nowMs ?? 0;
+      return posts.filter((p2) => nowMs - p2.ts < MS_PER_MONTH2).length;
+    },
+    usdSpentToday: (facts) => {
+      const posts = facts.posts ?? [];
+      const nowMs = facts.nowMs ?? 0;
+      return posts.filter((p2) => nowMs - p2.ts < MS_PER_DAY2).reduce((sum, p2) => sum + p2.costUsd, 0);
+    },
+    eventCounts: (facts) => {
+      const posts = facts.posts ?? [];
+      const map = /* @__PURE__ */ new Map();
+      for (const p2 of posts) {
+        map.set(p2.eventId, (map.get(p2.eventId) ?? 0) + 1);
+      }
+      return map;
+    }
+  }
+});
 function createCostBreaker(config = DEFAULT_COST_BREAKER_CONFIG, now = Date.now) {
-  const system = ze2({ module: breakerModule });
+  const system = ze2({ module: breakerModule2 });
   system.facts.posts = [];
   system.facts.nowMs = now();
   function refreshClock() {
@@ -79158,858 +80084,6 @@ function createKillSwitch(log = (m3) => console.warn(m3)) {
     }
   };
 }
-function payloadToEvent(payload) {
-  if (payload.action !== "published") return null;
-  if (payload.release.draft) return null;
-  const tag = payload.release.tag_name;
-  const repo = payload.repository.full_name;
-  const noteworthiness = inferNoteworthiness(tag, payload.release.body);
-  return {
-    id: hashIdempotency(`${repo}:${tag}`),
-    origin: "github-release",
-    noteworthiness,
-    ref: {
-      repo,
-      tag,
-      version: tag.replace(/^v/, ""),
-      url: payload.release.html_url
-    },
-    payload,
-    detectedAt: Date.now()
-  };
-}
-function inferNoteworthiness(tag, body) {
-  const breakingMarker = (body ?? "").match(/BREAKING CHANGE|BREAKING:/i);
-  const m3 = tag.match(/^v?(\d+)\.(\d+)\.(\d+)/);
-  if (!m3) return "manual";
-  const major = Number(m3[1]);
-  const minor = Number(m3[2]);
-  const patch = Number(m3[3]);
-  if (breakingMarker) return "major";
-  if (patch === 0 && minor === 0 && major > 0) return "major";
-  if (patch === 0 && minor > 0) return "minor";
-  return "patch";
-}
-function hashIdempotency(input) {
-  return `gh-${createHash("sha256").update(input).digest("hex").slice(0, 32)}`;
-}
-var URL_RE = /https?:\/\/[^\s<>"'`]+/g;
-var TAG_RE = /(^|[\s(])#([\p{L}\p{N}_]{1,64})/gu;
-function trimTrailingPunct(url) {
-  let out = url;
-  while (out.length > 0) {
-    const last = out[out.length - 1];
-    if (".,;:!?)]}>".includes(last)) {
-      out = out.slice(0, -1);
-      continue;
-    }
-    break;
-  }
-  return out;
-}
-function byteLength(s) {
-  return new TextEncoder().encode(s).byteLength;
-}
-function buildFacets(text) {
-  const out = [];
-  for (const match of text.matchAll(URL_RE)) {
-    const raw = match[0];
-    const trimmed = trimTrailingPunct(raw);
-    const startIdx = match.index ?? 0;
-    const prefix = text.slice(0, startIdx);
-    const byteStart = byteLength(prefix);
-    const byteEnd = byteStart + byteLength(trimmed);
-    out.push({
-      index: { byteStart, byteEnd },
-      features: [{ $type: "app.bsky.richtext.facet#link", uri: trimmed }]
-    });
-  }
-  for (const match of text.matchAll(TAG_RE)) {
-    const prefix = match[1] ?? "";
-    const tag = match[2] ?? "";
-    const startInText = (match.index ?? 0) + prefix.length;
-    const byteStart = byteLength(text.slice(0, startInText));
-    const byteEnd = byteStart + byteLength(`#${tag}`);
-    out.push({
-      index: { byteStart, byteEnd },
-      features: [{ $type: "app.bsky.richtext.facet#tag", tag }]
-    });
-  }
-  out.sort((a2, b2) => a2.index.byteStart - b2.index.byteStart);
-  return out;
-}
-var BLUESKY_MAX_CHARS = 300;
-function createBlueskyAdapter(config) {
-  return {
-    id: "bluesky",
-    category: "social",
-    capabilities: {
-      maxChars: BLUESKY_MAX_CHARS,
-      supportsThreading: true,
-      supportsImage: true,
-      supportsLink: true,
-      costPerPostUSD: 0
-    },
-    auth: config.auth,
-    enabled: config.enabled ?? true,
-    dryRun: config.dryRun ?? false,
-    validate(input) {
-      if (input.text.length === 0) {
-        return { ok: false, reason: "empty text" };
-      }
-      if (input.text.length > BLUESKY_MAX_CHARS) {
-        return {
-          ok: false,
-          reason: `text exceeds Bluesky max (${BLUESKY_MAX_CHARS}); got ${input.text.length}`
-        };
-      }
-      for (const t3 of input.thread ?? []) {
-        if (t3.length > BLUESKY_MAX_CHARS) {
-          return {
-            ok: false,
-            reason: `thread entry exceeds Bluesky max (${BLUESKY_MAX_CHARS}); got ${t3.length}`
-          };
-        }
-      }
-      return { ok: true };
-    },
-    async deletePost(postId) {
-      const atproto = await loadAtProto();
-      const { BskyAgent } = atproto;
-      const agent = new BskyAgent({
-        service: config.service ?? "https://bsky.social"
-      });
-      await authenticate(agent, config.auth);
-      const match = postId.match(/^at:\/\/([^/]+)\/([^/]+)\/([^/]+)$/);
-      if (!match) {
-        throw new Error(`[bluesky] postId is not an at-URI: ${postId}`);
-      }
-      const repo = match[1];
-      const collection = match[2];
-      const rkey = match[3];
-      try {
-        await agent.api.com.atproto.repo.deleteRecord({ repo, collection, rkey });
-      } catch (err) {
-        throw classifyError(err);
-      }
-    },
-    async fetchEngagement(postId) {
-      const atproto = await loadAtProto();
-      const { BskyAgent } = atproto;
-      const agent = new BskyAgent({
-        service: config.service ?? "https://bsky.social"
-      });
-      await authenticate(agent, config.auth);
-      try {
-        const res = await agent.api.app.bsky.feed.getPosts({ uris: [postId] });
-        const p2 = res.data.posts[0];
-        return {
-          likes: p2?.likeCount ?? 0,
-          reposts: p2?.repostCount ?? 0,
-          replies: p2?.replyCount ?? 0,
-          observedAt: Date.now()
-        };
-      } catch (err) {
-        throw classifyError(err);
-      }
-    },
-    async post(input) {
-      if (this.dryRun) {
-        return synthesizeDryRunResult(input);
-      }
-      const atproto = await loadAtProto();
-      const { BskyAgent } = atproto;
-      const agent = new BskyAgent({
-        service: config.service ?? "https://bsky.social"
-      });
-      await authenticate(agent, config.auth);
-      try {
-        const rootFacets = buildFacets(input.text);
-        let embed;
-        if (input.media && input.media.length > 0) {
-          const imageRefs = [];
-          for (const m3 of input.media.slice(0, 4)) {
-            if (m3.kind !== "image") continue;
-            const blobRef = await uploadImageBlob(
-              agent,
-              m3
-            );
-            imageRefs.push({ alt: m3.altText, image: blobRef });
-          }
-          if (imageRefs.length > 0) {
-            embed = {
-              $type: "app.bsky.embed.images",
-              images: imageRefs
-            };
-          }
-        }
-        const root = await agent.post({
-          text: input.text,
-          ...rootFacets.length > 0 ? { facets: rootFacets } : {},
-          ...embed ? { embed } : {}
-        });
-        const rootUri = root.uri;
-        const rootCid = root.cid;
-        let lastUri = rootUri;
-        let lastCid = rootCid;
-        for (const reply of input.thread ?? []) {
-          const replyFacets = buildFacets(reply);
-          const r2 = await agent.post({
-            text: reply,
-            ...replyFacets.length > 0 ? { facets: replyFacets } : {},
-            reply: {
-              root: { uri: rootUri, cid: rootCid },
-              parent: { uri: lastUri, cid: lastCid }
-            }
-          });
-          lastUri = r2.uri;
-          lastCid = r2.cid;
-        }
-        const handle = (agent.session?.handle ?? "unknown").replace(/^@/, "");
-        const url = `https://bsky.app/profile/${handle}/post/${extractRkey(rootUri)}`;
-        return {
-          id: rootUri,
-          url,
-          postedAt: Date.now(),
-          rawResponse: {
-            rootUri,
-            rootCid,
-            threadCount: input.thread?.length ?? 0
-          }
-        };
-      } catch (err) {
-        throw classifyError(err);
-      }
-    }
-  };
-}
-function synthesizeDryRunResult(input) {
-  const tid = `dry-run-${Math.random().toString(36).slice(2, 10)}`;
-  return {
-    id: `at://dry-run/app.bsky.feed.post/${tid}`,
-    url: `https://bsky.app/dry-run/${tid}`,
-    postedAt: Date.now(),
-    rawResponse: { dryRun: true, threadCount: input.thread?.length ?? 0 }
-  };
-}
-function extractRkey(atUri) {
-  const parts = atUri.split("/");
-  return parts[parts.length - 1] ?? "unknown";
-}
-async function uploadImageBlob(agent, media) {
-  const res = await fetch(media.url);
-  if (!res.ok) {
-    throw new Error(`[bluesky] media fetch failed: ${res.status} ${media.url}`);
-  }
-  const contentType = media.mimeType ?? res.headers.get("content-type") ?? "image/jpeg";
-  const buf = await res.arrayBuffer();
-  const upload = await agent.uploadBlob(new Uint8Array(buf), {
-    encoding: contentType
-  });
-  return upload.data.blob;
-}
-async function authenticate(agent, auth2) {
-  if (auth2.kind === "bearer") {
-    const token = await auth2.token();
-    const sep = token.indexOf(":");
-    if (sep === -1) {
-      throw new Error(
-        '[bluesky] bearer token must be "identifier:appPassword" (got no separator)'
-      );
-    }
-    await agent.login({
-      identifier: token.slice(0, sep),
-      password: token.slice(sep + 1)
-    });
-    return;
-  }
-  if (auth2.kind === "oauth2") {
-    throw new Error(
-      "[bluesky] OAuth2 auth not yet wired; use { kind: 'bearer' } with App Password (identifier:appPassword)."
-    );
-  }
-  throw new Error(
-    `[bluesky] unsupported auth kind: ${auth2.kind}`
-  );
-}
-async function loadAtProto() {
-  try {
-    const mod = await Promise.resolve().then(() => __toESM(require_dist9(), 1));
-    return mod;
-  } catch (err) {
-    throw new Error(
-      `[bluesky] @atproto/api is a peer dependency and must be installed by the consumer: pnpm add @atproto/api. Underlying error: ${err.message}`
-    );
-  }
-}
-function classifyError(err) {
-  const e = err;
-  switch (e.error) {
-    case "RateLimitExceeded":
-      return { kind: "RateLimit", retryAfterMs: 6e4 };
-    case "ExpiredToken":
-    case "AuthenticationRequired":
-    case "InvalidToken":
-      return { kind: "AuthExpired", canRefresh: true };
-    case "InvalidRequest":
-      return {
-        kind: "ContentRejected",
-        reason: e.message ?? "invalid request"
-      };
-  }
-  if (e.status === 429) {
-    return { kind: "RateLimit", retryAfterMs: 6e4 };
-  }
-  if (e.status === 401 || e.status === 403) {
-    return { kind: "AuthExpired", canRefresh: true };
-  }
-  if (e.status === 400 && e.message?.match(/too long|invalid/i)) {
-    return { kind: "ContentRejected", reason: e.message ?? "rejected" };
-  }
-  return e.status !== void 0 ? { kind: "Transport", status: e.status, cause: err } : { kind: "Transport", cause: err };
-}
-var MASTODON_DEFAULT_MAX_CHARS = 500;
-var MASTODON_DEFAULT_VISIBILITY = "public";
-function createMastodonAdapter(config) {
-  const maxChars = config.maxChars ?? MASTODON_DEFAULT_MAX_CHARS;
-  return {
-    id: "mastodon",
-    category: "social",
-    capabilities: {
-      maxChars,
-      supportsThreading: true,
-      supportsImage: true,
-      supportsLink: true,
-      costPerPostUSD: 0
-    },
-    auth: config.auth,
-    enabled: config.enabled ?? true,
-    dryRun: config.dryRun ?? false,
-    validate(input) {
-      if (input.text.length === 0) {
-        return { ok: false, reason: "empty text" };
-      }
-      if (input.text.length > maxChars) {
-        return {
-          ok: false,
-          reason: `text exceeds instance max (${maxChars}); got ${input.text.length}`
-        };
-      }
-      for (const t3 of input.thread ?? []) {
-        if (t3.length > maxChars) {
-          return {
-            ok: false,
-            reason: `thread entry exceeds instance max (${maxChars})`
-          };
-        }
-      }
-      for (const m3 of input.media ?? []) {
-        if (!m3.altText || m3.altText.trim().length === 0) {
-          return {
-            ok: false,
-            reason: "Mastodon requires altText on every media attachment"
-          };
-        }
-      }
-      return { ok: true };
-    },
-    async post(input) {
-      if (this.dryRun) {
-        const tid = `dry-run-${Math.random().toString(36).slice(2, 10)}`;
-        return {
-          id: tid,
-          url: `${config.instance}/dry-run/${tid}`,
-          postedAt: Date.now(),
-          rawResponse: { dryRun: true }
-        };
-      }
-      const token = await resolveBearer(config.auth);
-      const visibility = config.visibility ?? MASTODON_DEFAULT_VISIBILITY;
-      const mediaIds = await Promise.all(
-        (input.media ?? []).map((m3) => uploadMedia(config.instance, token, m3))
-      );
-      const root = await postStatus(config.instance, token, {
-        status: input.text,
-        visibility,
-        ...config.language !== void 0 ? { language: config.language } : {},
-        ...mediaIds.length > 0 ? { media_ids: mediaIds } : {}
-      });
-      let parentId = root.id;
-      for (const reply of input.thread ?? []) {
-        const r2 = await postStatus(config.instance, token, {
-          status: reply,
-          in_reply_to_id: parentId,
-          visibility,
-          ...config.language !== void 0 ? { language: config.language } : {}
-        });
-        parentId = r2.id;
-      }
-      return {
-        id: root.id,
-        url: root.url,
-        postedAt: Date.now(),
-        rawResponse: root
-      };
-    }
-  };
-}
-async function resolveBearer(auth2) {
-  if (auth2.kind === "bearer") return auth2.token();
-  if (auth2.kind === "apiKey") return auth2.key();
-  throw new Error(
-    `[mastodon] only bearer / apiKey auth supported (got ${auth2.kind})`
-  );
-}
-async function uploadMedia(instance, token, ref) {
-  const fileRes = await fetch(ref.url);
-  if (!fileRes.ok) {
-    throw {
-      kind: "ContentRejected",
-      reason: `media fetch failed (${ref.url}): HTTP ${fileRes.status}`
-    };
-  }
-  const arrayBuffer = await fileRes.arrayBuffer();
-  const blob = new Blob([arrayBuffer], {
-    type: ref.mimeType ?? "application/octet-stream"
-  });
-  const form = new FormData();
-  form.append("file", blob, "media");
-  form.append("description", ref.altText);
-  const res = await fetch(`${instance}/api/v2/media`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}` },
-    body: form
-  });
-  if (!res.ok && res.status !== 202) {
-    throw classifyResponse(res, await res.text().catch(() => ""));
-  }
-  const data = await res.json();
-  if (!data.id) {
-    throw {
-      kind: "ContentRejected",
-      reason: "Mastodon /api/v2/media response missing id"
-    };
-  }
-  return data.id;
-}
-async function postStatus(instance, token, body) {
-  const serialized = JSON.stringify(body);
-  try {
-    const res = await fetch(`${instance}/api/v1/statuses`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-        // Include `media_ids` in the idempotency hash — otherwise a
-        // retry of the same text with different attached media
-        // silently dedupes to the first post (Mastodon sees the
-        // same key and returns the original response) and the new
-        // media never lands.
-        "Idempotency-Key": hash(
-          body.status + (body.in_reply_to_id ?? "") + (body.media_ids ?? []).join(",")
-        )
-      },
-      body: serialized
-    });
-    if (!res.ok) {
-      throw classifyResponse(res, await res.text().catch(() => ""));
-    }
-    return await res.json();
-  } catch (err) {
-    if (isAdapterError(err)) throw err;
-    throw transportError(err);
-  }
-}
-function classifyResponse(res, body) {
-  if (res.status === 429) {
-    const retryAfter = Number(res.headers.get("retry-after")) || 60;
-    return { kind: "RateLimit", retryAfterMs: retryAfter * 1e3 };
-  }
-  if (res.status === 401 || res.status === 403) {
-    return { kind: "AuthExpired", canRefresh: true };
-  }
-  if (res.status === 422 || res.status === 400) {
-    return { kind: "ContentRejected", reason: body || `HTTP ${res.status}` };
-  }
-  return { kind: "Transport", status: res.status, cause: body };
-}
-function transportError(err) {
-  return { kind: "Transport", cause: err };
-}
-function isAdapterError(err) {
-  return typeof err === "object" && err !== null && "kind" in err && typeof err.kind === "string" && [
-    "RateLimit",
-    "AuthExpired",
-    "ContentRejected",
-    "Transport",
-    "IdempotencyConflict"
-  ].includes(err.kind);
-}
-function hash(input) {
-  return createHash("sha256").update(input).digest("hex").slice(0, 32);
-}
-var DISCORD_MAX_CHARS = 2e3;
-function createDiscordAdapter(config) {
-  if (config.auth.kind !== "webhook") {
-    throw new Error(
-      `[discord] webhook auth required (got ${config.auth.kind}). The webhook URL itself is the auth surface \u2014 generate via Server Settings > Integrations > Webhooks > New Webhook.`
-    );
-  }
-  const webhookUrl = config.auth.url;
-  return {
-    id: "discord",
-    category: "community",
-    capabilities: {
-      maxChars: DISCORD_MAX_CHARS,
-      supportsThreading: false,
-      supportsImage: true,
-      supportsLink: true,
-      costPerPostUSD: 0
-    },
-    auth: config.auth,
-    enabled: config.enabled ?? true,
-    dryRun: config.dryRun ?? false,
-    validate(input) {
-      if (input.text.length === 0) return { ok: false, reason: "empty text" };
-      if (input.text.length > DISCORD_MAX_CHARS) {
-        return {
-          ok: false,
-          reason: `text exceeds Discord max (${DISCORD_MAX_CHARS}); got ${input.text.length}`
-        };
-      }
-      return { ok: true };
-    },
-    async post(input) {
-      if (this.dryRun) {
-        const tid = `dry-run-${Math.random().toString(36).slice(2, 10)}`;
-        return {
-          id: tid,
-          url: "https://discord.com/dry-run",
-          postedAt: Date.now(),
-          rawResponse: { dryRun: true }
-        };
-      }
-      const headUrl = buildWebhookUrl(webhookUrl, input.replyTo);
-      const headRes = await postWebhook(headUrl, {
-        content: input.text,
-        username: config.username,
-        avatarUrl: config.avatarUrl,
-        media: input.media ?? []
-      });
-      const head = await headRes.json();
-      const headPermalink = `https://discord.com/channels/${head.channel_id}/${head.id}`;
-      for (const reply of input.thread ?? []) {
-        const followUp = `${reply}
-
-_(continued from ${headPermalink})_`;
-        const followUpUrl = buildWebhookUrl(webhookUrl, input.replyTo);
-        await postWebhook(followUpUrl, {
-          content: followUp,
-          username: config.username,
-          avatarUrl: config.avatarUrl,
-          media: []
-        });
-      }
-      return {
-        id: head.id,
-        url: headPermalink,
-        postedAt: Date.now(),
-        rawResponse: head
-      };
-    }
-  };
-}
-async function postWebhook(url, msg) {
-  const payload = {
-    content: msg.content,
-    username: msg.username,
-    avatar_url: msg.avatarUrl,
-    allowed_mentions: { parse: [] },
-    ...msg.media.length > 0 ? {
-      attachments: msg.media.map((m3, i) => ({
-        id: i,
-        description: m3.altText,
-        filename: discordFilename(m3, i)
-      }))
-    } : {}
-  };
-  if (msg.media.length === 0) {
-    const res2 = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
-    if (!res2.ok) {
-      throw classifyResponse2(res2, await res2.text().catch(() => ""));
-    }
-    return res2;
-  }
-  const blobs = await Promise.all(msg.media.map((m3) => fetchMediaBlob(m3)));
-  const form = new FormData();
-  form.append("payload_json", JSON.stringify(payload));
-  blobs.forEach((blob, i) => {
-    form.append(`files[${i}]`, blob, discordFilename(msg.media[i], i));
-  });
-  const res = await fetch(url, { method: "POST", body: form });
-  if (!res.ok) {
-    throw classifyResponse2(res, await res.text().catch(() => ""));
-  }
-  return res;
-}
-async function fetchMediaBlob(ref) {
-  const fileRes = await fetch(ref.url);
-  if (!fileRes.ok) {
-    throw {
-      kind: "ContentRejected",
-      reason: `media fetch failed (${ref.url}): HTTP ${fileRes.status}`
-    };
-  }
-  const arrayBuffer = await fileRes.arrayBuffer();
-  return new Blob([arrayBuffer], {
-    type: ref.mimeType ?? "application/octet-stream"
-  });
-}
-function discordFilename(ref, index) {
-  try {
-    const pathname = new URL(ref.url).pathname;
-    const segment = pathname.split("/").filter(Boolean).pop();
-    if (segment?.includes(".")) return segment;
-  } catch {
-  }
-  return ref.kind === "video" ? `media-${index}.mp4` : `media-${index}.png`;
-}
-function buildWebhookUrl(base, threadId) {
-  const sep = base.includes("?") ? "&" : "?";
-  if (threadId) {
-    return `${base}${sep}thread_id=${encodeURIComponent(threadId)}&wait=true`;
-  }
-  return `${base}${sep}wait=true`;
-}
-function classifyResponse2(res, body) {
-  if (res.status === 429) {
-    const headerVal = Number(res.headers.get("retry-after"));
-    let bodyVal = null;
-    try {
-      const parsed = JSON.parse(body);
-      if (typeof parsed.retry_after === "number") {
-        bodyVal = parsed.retry_after;
-      }
-    } catch {
-    }
-    const seconds = bodyVal !== null ? bodyVal : Number.isFinite(headerVal) && headerVal > 0 ? headerVal : 60;
-    return { kind: "RateLimit", retryAfterMs: Math.ceil(seconds * 1e3) };
-  }
-  if (res.status === 401 || res.status === 403 || res.status === 404) {
-    return { kind: "AuthExpired", canRefresh: false };
-  }
-  if (res.status === 400 || res.status === 413) {
-    return { kind: "ContentRejected", reason: body || `HTTP ${res.status}` };
-  }
-  return { kind: "Transport", status: res.status, cause: body };
-}
-function canonicalJsonStringify(value) {
-  if (value === null) {
-    return "null";
-  }
-  const t3 = typeof value;
-  if (t3 === "string") {
-    return JSON.stringify(value);
-  }
-  if (t3 === "number") {
-    if (!Number.isFinite(value)) {
-      throw new Error(
-        "[broadcast/pluck] canonicalJsonStringify: non-finite number has no canonical representation"
-      );
-    }
-    return JSON.stringify(value);
-  }
-  if (t3 === "boolean") {
-    return value ? "true" : "false";
-  }
-  if (t3 === "undefined" || t3 === "function" || t3 === "symbol" || t3 === "bigint") {
-    throw new Error(
-      `[broadcast/pluck] canonicalJsonStringify: value of type ${t3} has no canonical representation`
-    );
-  }
-  if (Array.isArray(value)) {
-    const parts2 = [];
-    for (const v2 of value) {
-      parts2.push(canonicalJsonStringify(v2));
-    }
-    return `[${parts2.join(",")}]`;
-  }
-  const obj = value;
-  const keys = Object.keys(obj).sort();
-  const parts = [];
-  for (const k of keys) {
-    parts.push(`${JSON.stringify(k)}:${canonicalJsonStringify(obj[k])}`);
-  }
-  return `{${parts.join(",")}}`;
-}
-function canonicalEnvelopeBytes(envelope) {
-  return canonicalJsonStringify({
-    kind: envelope.kind,
-    operatorKeyId: envelope.operatorKeyId,
-    operatorKeyFingerprint: envelope.operatorKeyFingerprint,
-    operatorKeyMode: envelope.operatorKeyMode,
-    signedAt: envelope.signedAt,
-    publicKey: {
-      kty: envelope.publicKey.kty,
-      crv: envelope.publicKey.crv,
-      x: envelope.publicKey.x
-    },
-    payload: envelope.payload
-  });
-}
-function toCanonicalJwk(jwk) {
-  if (jwk.kty !== "OKP") {
-    throw new Error(
-      `[broadcast/pluck] expected kty="OKP" for ed25519, got ${jwk.kty}`
-    );
-  }
-  if (jwk.crv !== "Ed25519") {
-    throw new Error(`[broadcast/pluck] expected crv="Ed25519", got ${jwk.crv}`);
-  }
-  if (typeof jwk.x !== "string") {
-    throw new Error("[broadcast/pluck] missing 'x' on ed25519 public JWK");
-  }
-  return { kty: "OKP", crv: "Ed25519", x: jwk.x };
-}
-var DEV_KEY_MODE = "DEV-KEY-DO-NOT-USE-FOR-PROD";
-function fingerprintPublicKeySync(jwk) {
-  const canonical = canonicalJsonStringify({
-    kty: jwk.kty,
-    crv: jwk.crv,
-    x: jwk.x
-  });
-  return createHash("sha256").update(canonical).digest("hex");
-}
-function cassetteHashSync(signed) {
-  const json = JSON.stringify(signed, null, 2);
-  return createHash("sha256").update(json).digest("hex");
-}
-function createDevKeySigner(config) {
-  const dir = config.storageDir ?? ".pluck-dev-keys";
-  const cassettesDir = join(dir, "cassettes");
-  if (!existsSync(cassettesDir)) {
-    mkdirSync(cassettesDir, { recursive: true });
-  }
-  const keyPath = join(dir, "dev-keypair.json");
-  const keypair = loadOrCreateDevKey(keyPath);
-  const publicKeyJwk = pemToCanonicalJwk(keypair.publicKeyPem);
-  const operatorKeyFingerprint = fingerprintPublicKeySync(publicKeyJwk);
-  function makeCassette(kind, payload) {
-    const signedAt = Date.now();
-    const envelope = {
-      kind,
-      operatorKeyId: config.operatorKeyId,
-      operatorKeyFingerprint,
-      operatorKeyMode: DEV_KEY_MODE,
-      signedAt,
-      publicKey: publicKeyJwk,
-      payload
-    };
-    const canonical = canonicalEnvelopeBytes(envelope);
-    const signature = sign(null, Buffer.from(canonical), {
-      key: keypair.privateKeyPem
-    }).toString("base64");
-    const signed = { ...envelope, signature };
-    const cassetteJson = JSON.stringify(signed, null, 2);
-    const hash4 = cassetteHashSync(signed);
-    const filename = `${kind}-${hash4}.json`;
-    writeFileSync(join(cassettesDir, filename), cassetteJson, { mode: 384 });
-    return {
-      cassetteHash: hash4,
-      rekorUrl: null,
-      signedAt,
-      cassette: signed
-    };
-  }
-  return {
-    async signPostReceipt(receipt) {
-      return makeCassette("post", receipt);
-    },
-    async signKillRecord(record) {
-      return makeCassette("kill", record);
-    }
-  };
-}
-function pemToCanonicalJwk(pem) {
-  const key = createPublicKey({ key: pem, format: "pem" });
-  const jwk = key.export({ format: "jwk" });
-  return toCanonicalJwk(jwk);
-}
-function loadOrCreateDevKey(path) {
-  if (existsSync(path)) {
-    try {
-      const st2 = statSync(path);
-      if ((st2.mode & 63) !== 0) {
-        console.warn(
-          `[broadcast] dev signing key at ${path} has permissive mode ${(st2.mode & 511).toString(8)} \u2014 consider chmod 600.`
-        );
-      }
-    } catch {
-    }
-    const data = readFileSync(path, "utf8");
-    const parsed = JSON.parse(data);
-    return parsed;
-  }
-  const { publicKey, privateKey } = generateKeyPairSync("ed25519");
-  const pair = {
-    publicKeyPem: publicKey.export({ format: "pem", type: "spki" }).toString(),
-    privateKeyPem: privateKey.export({ format: "pem", type: "pkcs8" }).toString(),
-    createdAt: Date.now()
-  };
-  writeFileSync(path, JSON.stringify(pair, null, 2), { mode: 384 });
-  return pair;
-}
-var AUTO_ESCALATION_EXHAUSTIVE = {
-  "claim-has-unsourced-number": true,
-  "mentions-unallowed-account": true,
-  "sentiment-argumentative": true,
-  "mentions-competitor": true,
-  "prior-post-killed-within-24h": true,
-  "draft-too-long-after-reflect": true,
-  "internal-token-detected": true
-};
-new Set(Object.keys(AUTO_ESCALATION_EXHAUSTIVE));
-var DEFAULT_AUTO_PUBLISH_MS = 15 * 60 * 1e3;
-var DEFAULT_TTL_MS = 48 * 60 * 60 * 1e3;
-qe("tier2-tick", {
-  schema: {
-    facts: {
-      pending: fn.array().default(() => []),
-      nowMs: fn.number().default(0),
-      ttlMs: fn.number().default(DEFAULT_TTL_MS),
-      autoPublishMs: fn.number().default(DEFAULT_AUTO_PUBLISH_MS)
-    },
-    derivations: {
-      overdueTTL: fn.array(),
-      overduePublish: fn.array()
-    }
-  },
-  derive: {
-    // Derivations may fire once before the workflow populates the
-    // facts on the next tick(), so guard against undefined here.
-    overdueTTL: (facts) => {
-      const pending = facts.pending ?? [];
-      const nowMs = facts.nowMs ?? 0;
-      const ttlMs = facts.ttlMs ?? DEFAULT_TTL_MS;
-      return pending.filter(
-        (d2) => d2.status === "queued" && nowMs - d2.queuedAt >= ttlMs
-      );
-    },
-    overduePublish: (facts, derived) => {
-      const pending = facts.pending ?? [];
-      const nowMs = facts.nowMs ?? 0;
-      const autoPublishMs = facts.autoPublishMs ?? DEFAULT_AUTO_PUBLISH_MS;
-      const ttlIds = new Set(derived.overdueTTL.map((d2) => d2.draftId));
-      return pending.filter(
-        (d2) => d2.status === "queued" && nowMs - d2.queuedAt >= autoPublishMs && !ttlIds.has(d2.draftId)
-      );
-    }
-  }
-});
 function inMemoryStateStore() {
   const seen = /* @__PURE__ */ new Set();
   return {
@@ -80032,14 +80106,14 @@ function inMemoryCounterStore() {
   const perMonth = [];
   let usdPerDay = 0;
   let lastRolloverAt = Date.now();
-  const MS_PER_DAY2 = 24 * 60 * 60 * 1e3;
-  const MS_PER_MONTH2 = 30 * MS_PER_DAY2;
+  const MS_PER_DAY22 = 24 * 60 * 60 * 1e3;
+  const MS_PER_MONTH22 = 30 * MS_PER_DAY22;
   function rolloverIfNeeded(now) {
-    const dayBefore = now - MS_PER_DAY2;
-    const monthBefore = now - MS_PER_MONTH2;
+    const dayBefore = now - MS_PER_DAY22;
+    const monthBefore = now - MS_PER_MONTH22;
     while (perDay.length > 0 && perDay[0] < dayBefore) perDay.shift();
     while (perMonth.length > 0 && perMonth[0] < monthBefore) perMonth.shift();
-    if (now - lastRolloverAt >= MS_PER_DAY2) {
+    if (now - lastRolloverAt >= MS_PER_DAY22) {
       usdPerDay = 0;
       lastRolloverAt = now;
     }
@@ -80137,175 +80211,6 @@ function inMemoryEngagementStore() {
       tracked.delete(postId);
     }
   };
-}
-var MASS_MENTION_RE = /(<!(?:channel|here|everyone|subteam\^[^>]+)>|@(?:everyone|here|channel|all)\b)/gi;
-var SLACK_REF_RE = /<[#@!][A-Z0-9][A-Z0-9._-]*(?:\|[^>]+)?>/gi;
-var MENTION_RE = /@([A-Za-z0-9][A-Za-z0-9_.-]+)\b/g;
-var URL_RE2 = /https?:\/\/[^\s<>"'`]+/g;
-var HTML_TAG_RE = /<\/?[A-Za-z][^>]*>/g;
-var DANGEROUS_CONTROL_RE = /[​-‏‪-‮⁠-⁯﻿]/g;
-function hostOf(url) {
-  try {
-    return new URL(url).host.toLowerCase();
-  } catch {
-    return null;
-  }
-}
-function scrubSocial(text, config = {}) {
-  const findings = [];
-  let out = text;
-  out = out.replace(MASS_MENTION_RE, (m3) => {
-    findings.push({
-      kind: "mass-mention-stripped",
-      label: "mass-mention token",
-      excerpt: m3
-    });
-    return "";
-  });
-  out = out.replace(SLACK_REF_RE, (m3) => {
-    findings.push({
-      kind: "mass-mention-stripped",
-      label: "slack reference",
-      excerpt: m3
-    });
-    return "";
-  });
-  if (config.allowedMentions !== void 0) {
-    out = out.replace(MENTION_RE, (m3, handle) => {
-      const lower = String(handle).toLowerCase();
-      if (config.allowedMentions.has(lower)) return m3;
-      findings.push({
-        kind: "unknown-mention-stripped",
-        label: "unknown mention",
-        excerpt: m3
-      });
-      return "";
-    });
-  }
-  if (config.trustedHosts !== void 0) {
-    out = out.replace(URL_RE2, (m3) => {
-      const host = hostOf(m3);
-      if (host && config.trustedHosts.has(host)) return m3;
-      findings.push({
-        kind: "untrusted-url-removed",
-        label: "untrusted url host",
-        excerpt: m3
-      });
-      return config.strictUrls ? "" : m3;
-    });
-  }
-  out = out.replace(DANGEROUS_CONTROL_RE, (m3) => {
-    findings.push({
-      kind: "control-char-stripped",
-      label: "dangerous control character",
-      excerpt: `U+${m3.charCodeAt(0).toString(16).toUpperCase()}`
-    });
-    return "";
-  });
-  out = out.replace(HTML_TAG_RE, (m3) => {
-    findings.push({
-      kind: "html-tag-escaped",
-      label: "html tag in social text",
-      excerpt: m3
-    });
-    return "";
-  });
-  return { text: out, findings };
-}
-var NEWSLETTER_ALLOWED_TAGS = /* @__PURE__ */ new Set([
-  "p",
-  "a",
-  "strong",
-  "b",
-  "em",
-  "i",
-  "u",
-  "ul",
-  "ol",
-  "li",
-  "br",
-  "hr",
-  "blockquote",
-  "h1",
-  "h2",
-  "h3",
-  "h4",
-  "h5",
-  "h6",
-  "pre",
-  "code",
-  "span",
-  "div"
-]);
-var HTML_TAG_FULL_RE = /<\/?([A-Za-z][A-Za-z0-9]*)\b([^>]*)>/g;
-var ON_ATTR_RE = /\son[a-z]+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi;
-var HREF_JS_RE = /\shref\s*=\s*("javascript:[^"]*"|'javascript:[^']*'|javascript:[^\s>]+)/gi;
-var SRC_JS_RE = /\ssrc\s*=\s*("javascript:[^"]*"|'javascript:[^']*'|javascript:[^\s>]+)/gi;
-var BLOCK_STRIP_RE = /<(script|style|iframe|object|embed|noscript)\b[^>]*>[\s\S]*?<\/\1>/gi;
-function scrubHtml(text) {
-  const findings = [];
-  let out = text;
-  out = out.replace(BLOCK_STRIP_RE, (m3, tag) => {
-    findings.push({
-      kind: "html-tag-escaped",
-      label: `disallowed html tag <${tag}> (with body)`,
-      excerpt: m3.length > 60 ? `${m3.slice(0, 60)}\u2026` : m3
-    });
-    return "";
-  });
-  out = out.replace(ON_ATTR_RE, (m3) => {
-    findings.push({
-      kind: "html-tag-escaped",
-      label: "on* event handler attribute",
-      excerpt: m3.trim()
-    });
-    return "";
-  });
-  out = out.replace(HREF_JS_RE, (m3) => {
-    findings.push({
-      kind: "html-tag-escaped",
-      label: "javascript: href",
-      excerpt: m3.trim()
-    });
-    return "";
-  });
-  out = out.replace(SRC_JS_RE, (m3) => {
-    findings.push({
-      kind: "html-tag-escaped",
-      label: "javascript: src",
-      excerpt: m3.trim()
-    });
-    return "";
-  });
-  out = out.replace(HTML_TAG_FULL_RE, (m3, tagName) => {
-    if (NEWSLETTER_ALLOWED_TAGS.has(String(tagName).toLowerCase())) {
-      return m3;
-    }
-    findings.push({
-      kind: "html-tag-escaped",
-      label: `disallowed html tag <${tagName}>`,
-      excerpt: m3
-    });
-    return "";
-  });
-  out = out.replace(DANGEROUS_CONTROL_RE, (m3) => {
-    findings.push({
-      kind: "control-char-stripped",
-      label: "dangerous control character",
-      excerpt: `U+${m3.charCodeAt(0).toString(16).toUpperCase()}`
-    });
-    return "";
-  });
-  return { text: out, findings };
-}
-function scrubForAdapter(text, category, config = {}) {
-  switch (category) {
-    case "social":
-    case "community":
-      return scrubSocial(text, config);
-    case "newsletter":
-      return scrubHtml(text);
-  }
 }
 function createBroadcaster(config) {
   const log = config.log ?? ((m3) => console.warn(m3));
@@ -80416,7 +80321,7 @@ function createBroadcaster(config) {
         });
         continue;
       }
-      const textHash = await hash3(text);
+      const textHash = await hash2(text);
       const idempotencyKey = `${event.id}:${adapter.id}:${textHash}`;
       const acquireCostUsd = adapter.dryRun ? 0 : adapter.capabilities.costPerPostUSD;
       const snapshot = await getSnapshot();
@@ -80436,12 +80341,15 @@ function createBroadcaster(config) {
         continue;
       }
       let postResult;
+      const postStartMs = Date.now();
       try {
         postResult = await adapter.post({ text });
       } catch (err) {
+        const failLatencyMs = Date.now() - postStartMs;
         results.push({
           platform: adapter.id,
-          outcome: { kind: "failed", reason: err.message }
+          outcome: { kind: "failed", reason: err.message },
+          latencyMs: failLatencyMs
         });
         if (config.atomicMode === "all-or-nothing") {
           for (let i = results.length - 2; i >= 0; i--) {
@@ -80456,7 +80364,11 @@ function createBroadcaster(config) {
                 outcome: {
                   kind: "failed",
                   reason: `partial-broadcast-rollback-failed: ${prev.outcome.postId} stayed posted (no deletePost primitive)`
-                }
+                },
+                // Preserve the original post latency across the rewrite —
+                // a rollback-failed entry still had a real adapter.post()
+                // roundtrip worth reporting in the log.
+                ...prev.latencyMs !== void 0 ? { latencyMs: prev.latencyMs } : {}
               };
               continue;
             }
@@ -80467,7 +80379,8 @@ function createBroadcaster(config) {
                 outcome: {
                   kind: "skipped",
                   reason: "rolled-back-by-atomic-mode"
-                }
+                },
+                ...prev.latencyMs !== void 0 ? { latencyMs: prev.latencyMs } : {}
               };
             } catch (rollbackErr) {
               results[i] = {
@@ -80483,6 +80396,7 @@ function createBroadcaster(config) {
         }
         continue;
       }
+      const postLatencyMs = Date.now() - postStartMs;
       snapshot.add(idempotencyKey);
       stateStore.add(idempotencyKey).catch((err) => {
         log(
@@ -80518,7 +80432,8 @@ function createBroadcaster(config) {
             postId: postResult.id,
             cassetteHash: receipt.cassetteHash,
             ...receipt.cassette ? { cassette: receipt.cassette } : {}
-          }
+          },
+          latencyMs: postLatencyMs
         });
       } catch (signerErr) {
         log(
@@ -80530,7 +80445,8 @@ function createBroadcaster(config) {
             kind: "posted-unsigned",
             postId: postResult.id,
             error: signerErr.message
-          }
+          },
+          latencyMs: postLatencyMs
         });
       }
     }
@@ -80560,7 +80476,7 @@ function substituteTemplate(template, event) {
     return String(cur ?? "");
   });
 }
-async function hash3(input) {
+async function hash2(input) {
   const digest = await crypto.subtle.digest(
     "SHA-256",
     new TextEncoder().encode(input)
@@ -80572,247 +80488,300 @@ async function hash3(input) {
   }
   return hex.slice(0, 32);
 }
-function buildAdaptersFromEnv(input) {
-  const adapters = [];
-  const missing = [];
-  const allowed = new Set(input.platforms.map((p2) => p2.toLowerCase()));
-  const env = input.env;
-  function tryAdd(id, envKey, factory) {
-    if (!allowed.has(id)) return;
-    const token = env[envKey];
-    if (!token) {
-      missing.push(id);
+function canonicalJsonStringify(value) {
+  if (value === null) {
+    return "null";
+  }
+  const t2 = typeof value;
+  if (t2 === "string") {
+    return JSON.stringify(value);
+  }
+  if (t2 === "number") {
+    if (!Number.isFinite(value)) {
+      throw new Error(
+        "[broadcast/pluck] canonicalJsonStringify: non-finite number has no canonical representation"
+      );
+    }
+    return JSON.stringify(value);
+  }
+  if (t2 === "boolean") {
+    return value ? "true" : "false";
+  }
+  if (t2 === "undefined" || t2 === "function" || t2 === "symbol" || t2 === "bigint") {
+    throw new Error(
+      `[broadcast/pluck] canonicalJsonStringify: value of type ${t2} has no canonical representation`
+    );
+  }
+  if (Array.isArray(value)) {
+    const parts2 = [];
+    for (const v2 of value) {
+      parts2.push(canonicalJsonStringify(v2));
+    }
+    return `[${parts2.join(",")}]`;
+  }
+  const obj = value;
+  const keys = Object.keys(obj).sort();
+  const parts = [];
+  for (const k of keys) {
+    parts.push(`${JSON.stringify(k)}:${canonicalJsonStringify(obj[k])}`);
+  }
+  return `{${parts.join(",")}}`;
+}
+function canonicalEnvelopeBytes(envelope) {
+  return canonicalJsonStringify({
+    kind: envelope.kind,
+    operatorKeyId: envelope.operatorKeyId,
+    operatorKeyFingerprint: envelope.operatorKeyFingerprint,
+    operatorKeyMode: envelope.operatorKeyMode,
+    signedAt: envelope.signedAt,
+    publicKey: {
+      kty: envelope.publicKey.kty,
+      crv: envelope.publicKey.crv,
+      x: envelope.publicKey.x
+    },
+    payload: envelope.payload
+  });
+}
+function toCanonicalJwk(jwk) {
+  if (jwk.kty !== "OKP") {
+    throw new Error(
+      `[broadcast/pluck] expected kty="OKP" for ed25519, got ${jwk.kty}`
+    );
+  }
+  if (jwk.crv !== "Ed25519") {
+    throw new Error(`[broadcast/pluck] expected crv="Ed25519", got ${jwk.crv}`);
+  }
+  if (typeof jwk.x !== "string") {
+    throw new Error("[broadcast/pluck] missing 'x' on ed25519 public JWK");
+  }
+  return { kty: "OKP", crv: "Ed25519", x: jwk.x };
+}
+var DEV_KEY_MODE = "DEV-KEY-DO-NOT-USE-FOR-PROD";
+function fingerprintPublicKeySync(jwk) {
+  const canonical = canonicalJsonStringify({
+    kty: jwk.kty,
+    crv: jwk.crv,
+    x: jwk.x
+  });
+  return createHash("sha256").update(canonical).digest("hex");
+}
+function cassetteHashSync(signed) {
+  const json = JSON.stringify(signed, null, 2);
+  return createHash("sha256").update(json).digest("hex");
+}
+function createDevKeySigner(config) {
+  const dir = config.storageDir ?? ".pluck-dev-keys";
+  const cassettesDir = join(dir, "cassettes");
+  if (!existsSync(cassettesDir)) {
+    mkdirSync(cassettesDir, { recursive: true });
+  }
+  const keyPath = join(dir, "dev-keypair.json");
+  const keypair = loadOrCreateDevKey(keyPath);
+  const publicKeyJwk = pemToCanonicalJwk(keypair.publicKeyPem);
+  const operatorKeyFingerprint = fingerprintPublicKeySync(publicKeyJwk);
+  function makeCassette(kind, payload) {
+    const signedAt = Date.now();
+    const envelope = {
+      kind,
+      operatorKeyId: config.operatorKeyId,
+      operatorKeyFingerprint,
+      operatorKeyMode: DEV_KEY_MODE,
+      signedAt,
+      publicKey: publicKeyJwk,
+      payload
+    };
+    const canonical = canonicalEnvelopeBytes(envelope);
+    const signature = sign(null, Buffer.from(canonical), {
+      key: keypair.privateKeyPem
+    }).toString("base64");
+    const signed = { ...envelope, signature };
+    const cassetteJson = JSON.stringify(signed, null, 2);
+    const hash3 = cassetteHashSync(signed);
+    const filename = `${kind}-${hash3}.json`;
+    writeFileSync(join(cassettesDir, filename), cassetteJson, { mode: 384 });
+    return {
+      cassetteHash: hash3,
+      rekorUrl: null,
+      signedAt,
+      cassette: signed
+    };
+  }
+  return {
+    async signPostReceipt(receipt) {
+      return makeCassette("post", receipt);
+    },
+    async signKillRecord(record) {
+      return makeCassette("kill", record);
+    }
+  };
+}
+function pemToCanonicalJwk(pem) {
+  const key = createPublicKey({ key: pem, format: "pem" });
+  const jwk = key.export({ format: "jwk" });
+  return toCanonicalJwk(jwk);
+}
+function loadOrCreateDevKey(path) {
+  if (existsSync(path)) {
+    try {
+      const st2 = statSync(path);
+      if ((st2.mode & 63) !== 0) {
+        console.warn(
+          `[broadcast] dev signing key at ${path} has permissive mode ${(st2.mode & 511).toString(8)} \u2014 consider chmod 600.`
+        );
+      }
+    } catch {
+    }
+    const data = readFileSync(path, "utf8");
+    const parsed = JSON.parse(data);
+    return parsed;
+  }
+  const { publicKey, privateKey } = generateKeyPairSync("ed25519");
+  const pair = {
+    publicKeyPem: publicKey.export({ format: "pem", type: "spki" }).toString(),
+    privateKeyPem: privateKey.export({ format: "pem", type: "pkcs8" }).toString(),
+    createdAt: Date.now()
+  };
+  writeFileSync(path, JSON.stringify(pair, null, 2), { mode: 384 });
+  return pair;
+}
+var CASSETTE_BUFFER_DIR_ENV = "SIZL_BROADCAST_CASSETTE_BUFFER_DIR";
+function resolveBufferDir(options = {}) {
+  if (options.dir) {
+    return options.dir;
+  }
+  const env = options.env ?? process.env;
+  const fromEnv = env[CASSETTE_BUFFER_DIR_ENV];
+  if (fromEnv) {
+    return fromEnv;
+  }
+  const pid = options.pid ?? process.pid;
+  return join(tmpdir(), `sizl-broadcast-cassettes-${pid}`);
+}
+var liveBuffers = /* @__PURE__ */ new Set();
+var signalHandlersRegistered = false;
+function runShutdownCleanup(signal) {
+  const drained = [];
+  for (const buffer of liveBuffers) {
+    drained.push(buffer);
+  }
+  for (const buffer of drained) {
+    try {
+      liveBuffers.delete(buffer);
+    } catch (err) {
+      try {
+        console.warn(
+          `[broadcast] cassette-buffer: signal-time cleanup (${signal}): ${err.message}`
+        );
+      } catch {
+      }
+    }
+  }
+}
+function registerSignalHandlersOnce() {
+  if (signalHandlersRegistered) {
+    return;
+  }
+  signalHandlersRegistered = true;
+  const makeHandler = (signal) => {
+    const handler2 = () => {
+      runShutdownCleanup(signal);
+      process.off(signal, handler2);
+      process.kill(process.pid, signal);
+    };
+    return handler2;
+  };
+  process.on("SIGTERM", makeHandler("SIGTERM"));
+  process.on("SIGINT", makeHandler("SIGINT"));
+}
+function createCassetteBuffer(options = {}) {
+  const env = options.env ?? process.env;
+  const usedFallback = !options.dir && !env[CASSETTE_BUFFER_DIR_ENV];
+  const log = options.log ?? ((m3) => console.warn(m3));
+  const writtenFiles = /* @__PURE__ */ new Set();
+  let dir;
+  if (usedFallback) {
+    try {
+      dir = mkdtempSync(join(tmpdir(), "sizl-broadcast-cassettes-"));
+    } catch (err) {
+      log(
+        `[broadcast] cassette-buffer: mkdtemp failed (${err.message}); using deterministic fallback`
+      );
+      dir = resolveBufferDir(options);
+    }
+  } else {
+    dir = resolveBufferDir(options);
+  }
+  function ensureDir() {
+    if (!existsSync(dir)) {
+      mkdirSync(dir, { recursive: true, mode: 448 });
+    }
+  }
+  function safeFileName(platform, cassetteHash) {
+    const p2 = platform.replace(/[^a-z0-9_-]/gi, "_");
+    const h3 = cassetteHash.replace(/[^a-z0-9_-]/gi, "_");
+    return `${p2}-${h3}.json`;
+  }
+  function write(entries) {
+    const persistable = entries.filter((e) => e.cassette !== void 0);
+    if (persistable.length === 0) {
       return;
     }
-    adapters.push(factory(token));
-  }
-  tryAdd(
-    "bluesky",
-    "BLUESKY_APP_PASSWORD",
-    (token) => createBlueskyAdapter({
-      auth: { kind: "bearer", token: async () => token }
-    })
-  );
-  tryAdd(
-    "mastodon",
-    "MASTODON_TOKEN",
-    (token) => createMastodonAdapter({
-      auth: { kind: "bearer", token: async () => token },
-      instance: input.config.mastodonInstance ?? "https://mastodon.social"
-    })
-  );
-  tryAdd(
-    "discord",
-    "DISCORD_WEBHOOK_URL",
-    (token) => createDiscordAdapter({
-      auth: { kind: "webhook", url: token }
-    })
-  );
-  return { adapters, missing };
-}
-async function postCassettesToIndex(input) {
-  const body = JSON.stringify({ entries: input.entries });
-  const timestamp = String(input.now ?? Date.now());
-  const signature = createHmac("sha256", input.secret).update(`${timestamp}.${body}`).digest("hex");
-  const res = await fetch(input.url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-Sizl-Broadcast-Signature": signature,
-      "X-Sizl-Broadcast-Timestamp": timestamp
-    },
-    body
-  });
-  if (!res.ok) {
-    throw new Error(
-      `posts-index POST failed: ${res.status} ${await res.text().catch(() => "")}`
-    );
-  }
-}
-async function postRawToSaas(input) {
-  const res = await fetch(input.url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${input.apiKey}`
-    },
-    body: JSON.stringify({ entries: input.entries })
-  });
-  if (!res.ok) {
-    throw new Error(
-      `broadcast SaaS POST failed: ${res.status} ${await res.text().catch(() => "")}`
-    );
-  }
-  return await res.json();
-}
-async function runDispatch(input) {
-  const built = buildAdaptersFromEnv({
-    platforms: input.platforms,
-    env: input.env,
-    config: input.config
-  });
-  const skipped = built.missing.map(
-    (p2) => ({
-      platform: p2,
-      reason: "no secret bound for platform"
-    })
-  );
-  if (built.adapters.length === 0) {
-    return { cassetteHashes: [], skipped };
-  }
-  const signer = input.signerOverride ?? createDevKeySigner({
-    operatorKeyId: input.operatorKeyId ?? "broadcast-action-dev-key"
-  });
-  const broadcaster = createBroadcaster({
-    adapters: built.adapters,
-    signer,
-    stateStore: input.stateStore ?? inMemoryStateStore(),
-    counterStore: input.counterStore ?? inMemoryCounterStore(),
-    engagementStore: input.engagementStore ?? inMemoryEngagementStore(),
-    attackerScrub: {
-      ...input.config.attackerScrub?.allowedMentions ? {
-        allowedMentions: new Set(
-          input.config.attackerScrub.allowedMentions
-        )
-      } : {},
-      ...input.config.attackerScrub?.trustedHosts ? {
-        trustedHosts: new Set(input.config.attackerScrub.trustedHosts)
-      } : {},
-      ...input.config.attackerScrub?.strictUrls !== void 0 ? { strictUrls: input.config.attackerScrub.strictUrls } : {}
-    },
-    log: input.log ?? ((m3) => console.warn(m3))
-  });
-  const templates = {
-    templates: new Map(Object.entries(input.config.templates))
-  };
-  const results = await broadcaster.inject(input.event, templates);
-  const cassetteHashes = [];
-  const fullEntries = [];
-  for (const result of results) {
-    const outcome = result.outcome;
-    switch (outcome.kind) {
-      case "posted": {
-        cassetteHashes.push({
-          platform: result.platform,
-          postId: outcome.postId,
-          cassetteHash: outcome.cassetteHash
-        });
-        fullEntries.push({
-          platform: result.platform,
-          postId: outcome.postId,
-          cassetteHash: outcome.cassetteHash,
-          ...outcome.cassette ? { cassette: outcome.cassette } : {},
-          // Forward atomic-mode rollback failures to the Worker. The
-          // outcome stays `posted` (the post is still live) but the
-          // operator was trying to delete it — the receipts page needs
-          // to know so it can surface a "rollback failed" badge instead
-          // of rendering a clean row.
-          ...result.rollbackError ? { rollbackError: result.rollbackError } : {}
-        });
-        break;
-      }
-      case "posted-unsigned": {
-        skipped.push({
-          platform: result.platform,
-          reason: `posted-unsigned: ${outcome.postId} (${outcome.error})`
-        });
-        break;
-      }
-      case "skipped": {
-        skipped.push({
-          platform: result.platform,
-          reason: outcome.reason
-        });
-        break;
-      }
-      case "failed": {
-        skipped.push({
-          platform: result.platform,
-          reason: `failed: ${outcome.reason}`
-        });
-        break;
-      }
-      default: {
-        assertNever(outcome);
-      }
+    try {
+      ensureDir();
+    } catch (err) {
+      log(
+        `[broadcast] cassette-buffer: mkdir ${dir} failed: ${err.message} \u2014 continuing without durability`
+      );
+      return;
     }
-  }
-  let receiptUrls;
-  if (input.saas && !input.dryRun && fullEntries.length > 0) {
-    const saasEntries = fullEntries.map((entry) => toSaasEntry(entry, input.event, input.operatorKeyId)).filter((e) => e !== null);
-    if (saasEntries.length > 0) {
-      const response = await postRawToSaas({
-        url: input.saas.url,
-        apiKey: input.saas.apiKey,
-        entries: saasEntries
-      });
-      receiptUrls = response.accepted.map((a2) => ({
-        platform: a2.platform,
-        receiptUrl: a2.receiptUrl
-      }));
-      for (const r2 of response.rejected) {
-        skipped.push({
-          platform: r2.platform,
-          reason: `saas-rejected: ${r2.reason}`
+    for (const entry of persistable) {
+      const filePath = join(
+        dir,
+        safeFileName(entry.platform, entry.cassetteHash)
+      );
+      try {
+        writeFileSync(filePath, JSON.stringify(entry.cassette), {
+          flag: "wx",
+          mode: 384
         });
-      }
-      if (response.usage) {
-        (input.log ?? ((m3) => console.warn(m3)))(
-          `[broadcast] usage: ${response.usage.usedThisMonth}/${response.usage.cap} broadcasts this month`
+        writtenFiles.add(filePath);
+      } catch (err) {
+        log(
+          `[broadcast] cassette-buffer: write ${filePath} failed: ${err.message}`
         );
       }
     }
-  } else if (input.postsIndex && !input.dryRun && fullEntries.length > 0) {
-    await postCassettesToIndex({
-      url: input.postsIndex.url,
-      secret: input.postsIndex.secret,
-      entries: fullEntries
-    });
   }
-  return {
-    cassetteHashes,
-    skipped,
-    ...receiptUrls ? { receiptUrls } : {}
-  };
-}
-function toSaasEntry(entry, event, operatorKeyId) {
-  if (!entry.cassette || typeof entry.cassette !== "object" || !("payload" in entry.cassette)) {
-    return null;
-  }
-  const payload = entry.cassette.payload;
-  if (!payload || typeof payload !== "object") return null;
-  const p2 = payload;
-  if (typeof p2.eventId !== "string") return null;
-  if (typeof p2.briefHash !== "string") return null;
-  if (typeof p2.finalText !== "string") return null;
-  const drafts = Array.isArray(p2.draftsConsidered) ? p2.draftsConsidered : [];
-  const approval = p2.approval;
-  if (!approval || typeof approval.tier !== "string" || typeof approval.approvedBy !== "string" || typeof approval.approvedAt !== "number") {
-    return null;
-  }
-  const postUrl = typeof p2.platformResponse?.url === "string" ? p2.platformResponse.url : event.ref.url;
-  return {
-    platform: entry.platform,
-    postId: entry.postId,
-    postUrl,
-    text: p2.finalText,
-    eventId: p2.eventId,
-    briefHash: p2.briefHash,
-    draftsConsidered: drafts,
-    approval: {
-      tier: approval.tier,
-      approvedBy: approval.approvedBy,
-      approvedAt: approval.approvedAt
+  function clear() {
+    for (const filePath of writtenFiles) {
+      try {
+        rmSync(filePath, { force: true });
+      } catch (err) {
+        log(
+          `[broadcast] cassette-buffer: clear ${filePath} failed: ${err.message}`
+        );
+      }
     }
+    writtenFiles.clear();
+    if (usedFallback) {
+      try {
+        if (existsSync(dir) && readdirSync(dir).length === 0) {
+          rmSync(dir, { recursive: true, force: true });
+        }
+      } catch {
+      }
+    }
+    liveBuffers.delete(handle);
+  }
+  const handle = {
+    write,
+    clear,
+    getPath: () => dir
   };
+  liveBuffers.add(handle);
+  registerSignalHandlersOnce();
+  return handle;
 }
-function assertNever(value) {
-  throw new Error(
-    `[broadcast-action] unhandled outcome variant: ${JSON.stringify(value)}`
-  );
-}
-
-// src/tier-refusal.ts
 function resolveTierOrRefuse(event, config) {
   const declared = config.tierPolicy[event.noteworthiness];
   const tier = declared ?? defaultTier(event.noteworthiness);
@@ -80862,6 +80831,560 @@ function refusalMessage(event, tier) {
     "Docs: https://directive.run/docs/broadcast/action#tier-refusal"
   ].join("\n");
 }
+var ADAPTER_ENV_ALLOWLIST = [
+  // Social adapters
+  "BLUESKY_APP_PASSWORD",
+  "MASTODON_TOKEN",
+  "DISCORD_WEBHOOK_URL",
+  "LINKEDIN_ACCESS_TOKEN",
+  "TWITTER_BEARER_TOKEN",
+  "SLACK_WEBHOOK_URL",
+  "REDDIT_ACCESS_TOKEN",
+  "FACEBOOK_PAGE_TOKEN",
+  "INSTAGRAM_ACCESS_TOKEN",
+  "THREADS_ACCESS_TOKEN",
+  // Newsletter adapters
+  "MAILCHIMP_API_KEY",
+  "CONVERTKIT_API_KEY",
+  "BEEHIIV_API_KEY",
+  "BUTTONDOWN_API_KEY",
+  "GHOST_API_KEY",
+  "MAILERLITE_API_KEY",
+  "SUBSTACK_API_KEY",
+  // SaaS / self-host bindings
+  "BROADCAST_API_KEY",
+  "BROADCAST_URL",
+  "POSTS_INDEX_SECRET",
+  "BROADCAST_OPERATOR_KEY_ID"
+];
+function filteredAdapterEnv(source = process.env) {
+  const filtered = {};
+  for (const key of ADAPTER_ENV_ALLOWLIST) {
+    const value = source[key];
+    if (value) filtered[key] = value;
+  }
+  return filtered;
+}
+var PLATFORM_ENV_MAP = {
+  bluesky: "BLUESKY_APP_PASSWORD",
+  mastodon: "MASTODON_TOKEN",
+  discord: "DISCORD_WEBHOOK_URL"
+};
+function checkAdapterEnvCoverage(platforms, env, warn) {
+  for (const id of platforms) {
+    const envKey = PLATFORM_ENV_MAP[id];
+    if (!envKey) {
+      continue;
+    }
+    if (!env[envKey]) {
+      warn(
+        `no ${envKey} bound \u2014 the '${id}' adapter will skip this run. Set the secret in the caller's workflow, or drop '${id}' from --platforms.`
+      );
+    }
+  }
+}
+var DEFAULT_TRUSTED_HOSTS = [
+  "github.com",
+  "githubusercontent.com"
+];
+var CASSETTE_UPLOAD_TIMEOUT_MS = 3e4;
+var CASSETTE_UPLOAD_RETRIES = 2;
+var POST_BACKOFF_BASE_MS = 500;
+var POST_BACKOFF_CAP_MS = 1e4;
+var POST_BACKOFF_JITTER_RATIO = 0.3;
+function computePostBackoffMs(attempt, random = Math.random) {
+  const base = Math.min(
+    POST_BACKOFF_BASE_MS * 2 ** attempt,
+    POST_BACKOFF_CAP_MS
+  );
+  const jitter = (random() * 2 - 1) * POST_BACKOFF_JITTER_RATIO;
+  const withJitter = base * (1 + jitter);
+  return Math.min(POST_BACKOFF_CAP_MS, Math.max(0, Math.round(withJitter)));
+}
+function sanitizeForLog(input, maxLen = 512) {
+  const s = typeof input === "string" ? input : String(input);
+  const collapsed = s.replace(/\r/g, "\\r").replace(/\n/g, "\\n");
+  if (collapsed.length <= maxLen) {
+    return collapsed;
+  }
+  return `${collapsed.slice(0, maxLen)}\u2026(truncated)`;
+}
+function isSafeReceiptUrl(url) {
+  if (typeof url !== "string") {
+    return false;
+  }
+  if (/[\x00-\x1f\x7f\s]/.test(url)) {
+    return false;
+  }
+  let parsed;
+  try {
+    parsed = new URL(url);
+  } catch {
+    return false;
+  }
+  return parsed.protocol === "https:";
+}
+async function postWithTimeout(url, init, timeoutMs, retries, log, warn) {
+  const emitDegraded = warn ?? log;
+  let lastErr;
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, { ...init, signal: ctrl.signal });
+      clearTimeout(timer);
+      if (res.status >= 500 && attempt < retries) {
+        emitDegraded(
+          `[broadcast] ${url} returned ${res.status}, retrying (${attempt + 1}/${retries})`
+        );
+        await new Promise((r2) => setTimeout(r2, computePostBackoffMs(attempt)));
+        continue;
+      }
+      return res;
+    } catch (err) {
+      clearTimeout(timer);
+      lastErr = err;
+      const isAbort = err?.name === "AbortError";
+      if (attempt < retries && isAbort) {
+        emitDegraded(
+          `[broadcast] ${url} timed out after ${timeoutMs}ms, retrying (${attempt + 1}/${retries})`
+        );
+        await new Promise((r2) => setTimeout(r2, computePostBackoffMs(attempt)));
+        continue;
+      }
+      throw err;
+    }
+  }
+  throw lastErr ?? new Error("postWithTimeout: unreachable");
+}
+function validateBroadcastActionConfig(input, sourcePath) {
+  if (typeof input !== "object" || input === null || Array.isArray(input)) {
+    throw new Error(
+      `broadcast config at ${sourcePath} must be a JSON object at the top level.`
+    );
+  }
+  const cfg = input;
+  if (typeof cfg.templates !== "object" || cfg.templates === null || Array.isArray(cfg.templates)) {
+    throw new Error(
+      `broadcast config at ${sourcePath}: 'templates' must be an object mapping platform id to template string.`
+    );
+  }
+  for (const [platform, template] of Object.entries(
+    cfg.templates
+  )) {
+    if (typeof template !== "string") {
+      throw new Error(
+        `broadcast config at ${sourcePath}: templates.${platform} must be a string (got ${typeof template}).`
+      );
+    }
+  }
+  if (cfg.mastodonInstance !== void 0) {
+    if (typeof cfg.mastodonInstance !== "string" || !cfg.mastodonInstance.startsWith("https://")) {
+      throw new Error(
+        `broadcast config at ${sourcePath}: 'mastodonInstance' must be an https:// URL.`
+      );
+    }
+  }
+  if (cfg.slackChannel !== void 0) {
+    if (typeof cfg.slackChannel !== "string") {
+      throw new Error(
+        `broadcast config at ${sourcePath}: 'slackChannel' must be a string (got ${typeof cfg.slackChannel}).`
+      );
+    }
+  }
+  if (cfg.attackerScrub !== void 0) {
+    if (typeof cfg.attackerScrub !== "object" || cfg.attackerScrub === null || Array.isArray(cfg.attackerScrub)) {
+      throw new Error(
+        `broadcast config at ${sourcePath}: 'attackerScrub' must be an object.`
+      );
+    }
+    const scrub = cfg.attackerScrub;
+    if (scrub.trustedHosts !== void 0) {
+      if (!Array.isArray(scrub.trustedHosts)) {
+        throw new Error(
+          `broadcast config at ${sourcePath}: 'attackerScrub.trustedHosts' must be an array of hostname strings.`
+        );
+      }
+      for (const h3 of scrub.trustedHosts) {
+        if (typeof h3 !== "string") {
+          throw new Error(
+            `broadcast config at ${sourcePath}: every entry in 'attackerScrub.trustedHosts' must be a string.`
+          );
+        }
+      }
+      if (scrub.trustedHosts.some((h3) => h3 === "*")) {
+        throw new Error(
+          `broadcast config at ${sourcePath}: 'attackerScrub.trustedHosts' cannot contain "*" \u2014 that disables scrubbing. Enumerate the specific hosts you trust.`
+        );
+      }
+    }
+    if (scrub.allowedMentions !== void 0) {
+      if (!Array.isArray(scrub.allowedMentions)) {
+        throw new Error(
+          `broadcast config at ${sourcePath}: 'attackerScrub.allowedMentions' must be an array of strings.`
+        );
+      }
+      for (const m3 of scrub.allowedMentions) {
+        if (typeof m3 !== "string") {
+          throw new Error(
+            `broadcast config at ${sourcePath}: every entry in 'attackerScrub.allowedMentions' must be a string.`
+          );
+        }
+      }
+    }
+    if (scrub.strictUrls !== void 0 && typeof scrub.strictUrls !== "boolean") {
+      throw new Error(
+        `broadcast config at ${sourcePath}: 'attackerScrub.strictUrls' must be a boolean.`
+      );
+    }
+  }
+}
+function loadBroadcastConfig(configPath) {
+  if (configPath.includes("..")) {
+    throw new Error(
+      `config-path must not contain '..' (got: ${configPath}). The config file must live inside the current working directory.`
+    );
+  }
+  const cwd = process.cwd();
+  const abs = resolve(cwd, configPath);
+  if (abs !== cwd && !abs.startsWith(cwd + sep)) {
+    throw new Error(
+      `config-path must resolve inside the current working directory (got: ${abs}).`
+    );
+  }
+  const raw = readFileSync(abs, "utf8");
+  let parsed;
+  try {
+    parsed = JSON.parse(raw);
+  } catch (err) {
+    throw new Error(
+      `broadcast config at ${abs} is not valid JSON: ${err.message}`
+    );
+  }
+  validateBroadcastActionConfig(parsed, abs);
+  const config = parsed;
+  if (!config.attackerScrub) {
+    return {
+      ...config,
+      attackerScrub: { trustedHosts: DEFAULT_TRUSTED_HOSTS }
+    };
+  }
+  if (!config.attackerScrub.trustedHosts || config.attackerScrub.trustedHosts.length === 0) {
+    return {
+      ...config,
+      attackerScrub: {
+        ...config.attackerScrub,
+        trustedHosts: DEFAULT_TRUSTED_HOSTS
+      }
+    };
+  }
+  return config;
+}
+function isHardFailure(entry) {
+  const reason = entry.reason;
+  return reason.startsWith("failed:") || reason.startsWith("saas-rejected:");
+}
+function buildAdaptersFromEnv(input) {
+  const adapters = [];
+  const missing = [];
+  const allowed = new Set(input.platforms.map((p2) => p2.toLowerCase()));
+  const env = input.env;
+  function tryAdd(id, envKey, factory) {
+    if (!allowed.has(id)) return;
+    const token = env[envKey];
+    if (!token) {
+      missing.push(id);
+      return;
+    }
+    adapters.push(factory(token));
+  }
+  tryAdd(
+    "bluesky",
+    "BLUESKY_APP_PASSWORD",
+    (token) => createBlueskyAdapter({
+      auth: { kind: "bearer", token: async () => token }
+    })
+  );
+  tryAdd(
+    "mastodon",
+    "MASTODON_TOKEN",
+    (token) => createMastodonAdapter({
+      auth: { kind: "bearer", token: async () => token },
+      instance: input.config.mastodonInstance ?? "https://mastodon.social"
+    })
+  );
+  tryAdd(
+    "discord",
+    "DISCORD_WEBHOOK_URL",
+    (token) => createDiscordAdapter({
+      auth: { kind: "webhook", url: token }
+    })
+  );
+  return { adapters, missing };
+}
+async function postCassettesToIndex(input) {
+  const body = JSON.stringify({ entries: input.entries });
+  const timestamp = String(input.now ?? Date.now());
+  const signature = createHmac("sha256", input.secret).update(`${timestamp}.${body}`).digest("hex");
+  const log = input.log ?? ((m3) => console.warn(m3));
+  const warn = input.warn ?? log;
+  const res = await postWithTimeout(
+    input.url,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Sizl-Broadcast-Signature": signature,
+        "X-Sizl-Broadcast-Timestamp": timestamp
+      },
+      body
+    },
+    CASSETTE_UPLOAD_TIMEOUT_MS,
+    CASSETTE_UPLOAD_RETRIES,
+    log,
+    warn
+  );
+  if (!res.ok) {
+    throw new Error(
+      `posts-index POST failed: ${res.status} ${await res.text().catch(() => "")}`
+    );
+  }
+}
+async function postRawToSaas(input) {
+  const log = input.log ?? ((m3) => console.warn(m3));
+  const warn = input.warn ?? log;
+  const res = await postWithTimeout(
+    input.url,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${input.apiKey}`
+      },
+      body: JSON.stringify({ entries: input.entries })
+    },
+    CASSETTE_UPLOAD_TIMEOUT_MS,
+    CASSETTE_UPLOAD_RETRIES,
+    log,
+    warn
+  );
+  if (!res.ok) {
+    throw new Error(
+      `broadcast SaaS POST failed: ${res.status} ${await res.text().catch(() => "")}`
+    );
+  }
+  const parsed = await res.json();
+  const badReceipts = (parsed.accepted ?? []).filter(
+    (a2) => !isSafeReceiptUrl(a2.receiptUrl)
+  );
+  if (badReceipts.length > 0) {
+    throw new Error(
+      `broadcast SaaS response contained ${badReceipts.length} receipt URL(s) failing the https:// contract. Sample platform: ${sanitizeForLog(badReceipts[0]?.platform ?? "?", 64)}. Refusing to forward \u2014 the SaaS is either misconfigured or the response was tampered with.`
+    );
+  }
+  return parsed;
+}
+async function runDispatch(input) {
+  const built = buildAdaptersFromEnv({
+    platforms: input.platforms,
+    env: input.env,
+    config: input.config
+  });
+  const skipped = built.missing.map(
+    (p2) => ({
+      platform: p2,
+      reason: "no secret bound for platform"
+    })
+  );
+  if (built.adapters.length === 0) {
+    return { cassetteHashes: [], skipped };
+  }
+  const signer = input.signerOverride ?? createDevKeySigner({
+    operatorKeyId: input.operatorKeyId ?? "broadcast-dev-key"
+  });
+  const broadcaster = createBroadcaster({
+    adapters: built.adapters,
+    signer,
+    stateStore: input.stateStore ?? inMemoryStateStore(),
+    counterStore: input.counterStore ?? inMemoryCounterStore(),
+    engagementStore: input.engagementStore ?? inMemoryEngagementStore(),
+    attackerScrub: {
+      ...input.config.attackerScrub?.allowedMentions ? {
+        allowedMentions: new Set(
+          input.config.attackerScrub.allowedMentions
+        )
+      } : {},
+      ...input.config.attackerScrub?.trustedHosts ? {
+        trustedHosts: new Set(input.config.attackerScrub.trustedHosts)
+      } : {},
+      ...input.config.attackerScrub?.strictUrls !== void 0 ? { strictUrls: input.config.attackerScrub.strictUrls } : {}
+    },
+    log: input.log ?? ((m3) => console.warn(m3))
+  });
+  const templates = {
+    templates: new Map(Object.entries(input.config.templates))
+  };
+  const results = await broadcaster.inject(input.event, templates);
+  const dispatchLog = input.log ?? ((m3) => console.warn(m3));
+  const dispatchWarn = input.warn ?? dispatchLog;
+  const cassetteHashes = [];
+  const fullEntries = [];
+  for (const result of results) {
+    const outcome = result.outcome;
+    switch (outcome.kind) {
+      case "posted": {
+        if (result.latencyMs !== void 0) {
+          dispatchLog(
+            `[broadcast] ${result.platform} posted in ${result.latencyMs}ms`
+          );
+        }
+        cassetteHashes.push({
+          platform: result.platform,
+          postId: outcome.postId,
+          cassetteHash: outcome.cassetteHash
+        });
+        fullEntries.push({
+          platform: result.platform,
+          postId: outcome.postId,
+          cassetteHash: outcome.cassetteHash,
+          ...outcome.cassette ? { cassette: outcome.cassette } : {},
+          // Forward atomic-mode rollback failures to the Worker. The
+          // outcome stays `posted` (the post is still live) but the
+          // operator was trying to delete it — the receipts page needs
+          // to know so it can surface a "rollback failed" badge instead
+          // of rendering a clean row.
+          ...result.rollbackError ? { rollbackError: result.rollbackError } : {}
+        });
+        break;
+      }
+      case "posted-unsigned": {
+        if (result.latencyMs !== void 0) {
+          dispatchLog(
+            `[broadcast] ${result.platform} posted-unsigned in ${result.latencyMs}ms`
+          );
+        }
+        skipped.push({
+          platform: result.platform,
+          reason: `posted-unsigned: ${outcome.postId} (${outcome.error})`
+        });
+        break;
+      }
+      case "skipped": {
+        skipped.push({
+          platform: result.platform,
+          reason: outcome.reason
+        });
+        break;
+      }
+      case "failed": {
+        if (result.latencyMs !== void 0) {
+          dispatchLog(
+            `[broadcast] ${result.platform} failed after ${result.latencyMs}ms`
+          );
+        }
+        skipped.push({
+          platform: result.platform,
+          reason: `failed: ${outcome.reason}`
+        });
+        break;
+      }
+      default: {
+        assertNever(outcome);
+      }
+    }
+  }
+  let receiptUrls;
+  const bufferableEntries = fullEntries.filter((e) => e.cassette !== void 0).map((e) => ({
+    platform: e.platform,
+    cassetteHash: e.cassetteHash,
+    cassette: e.cassette
+  }));
+  const shouldBuffer = !input.dryRun && bufferableEntries.length > 0 && (input.saas !== void 0 || input.postsIndex !== void 0);
+  const buffer = shouldBuffer ? createCassetteBuffer({ log: dispatchLog }) : null;
+  if (buffer) {
+    buffer.write(bufferableEntries);
+  }
+  if (input.saas && !input.dryRun && fullEntries.length > 0) {
+    const saasEntries = fullEntries.map((entry) => toSaasEntry(entry, input.event, input.operatorKeyId)).filter((e) => e !== null);
+    if (saasEntries.length > 0) {
+      const response = await postRawToSaas({
+        url: input.saas.url,
+        apiKey: input.saas.apiKey,
+        entries: saasEntries,
+        log: dispatchLog,
+        warn: dispatchWarn
+      });
+      receiptUrls = response.accepted.map((a2) => ({
+        platform: sanitizeForLog(a2.platform, 64),
+        receiptUrl: a2.receiptUrl
+      }));
+      for (const r2 of response.rejected) {
+        skipped.push({
+          platform: sanitizeForLog(r2.platform, 64),
+          reason: `saas-rejected: ${sanitizeForLog(r2.reason, 256)}`
+        });
+      }
+      if (response.usage) {
+        dispatchLog(
+          `[broadcast] usage: ${sanitizeForLog(
+            response.usage.usedThisMonth,
+            32
+          )}/${sanitizeForLog(response.usage.cap, 32)} broadcasts this month`
+        );
+      }
+    }
+  } else if (input.postsIndex && !input.dryRun && fullEntries.length > 0) {
+    await postCassettesToIndex({
+      url: input.postsIndex.url,
+      secret: input.postsIndex.secret,
+      entries: fullEntries,
+      log: dispatchLog,
+      warn: dispatchWarn
+    });
+  }
+  buffer?.clear();
+  return {
+    cassetteHashes,
+    skipped,
+    ...receiptUrls ? { receiptUrls } : {}
+  };
+}
+function toSaasEntry(entry, event, operatorKeyId) {
+  if (!entry.cassette || typeof entry.cassette !== "object" || !("payload" in entry.cassette)) {
+    return null;
+  }
+  const payload = entry.cassette.payload;
+  if (!payload || typeof payload !== "object") return null;
+  const p2 = payload;
+  if (typeof p2.eventId !== "string") return null;
+  if (typeof p2.briefHash !== "string") return null;
+  if (typeof p2.finalText !== "string") return null;
+  const drafts = Array.isArray(p2.draftsConsidered) ? p2.draftsConsidered : [];
+  const approval = p2.approval;
+  if (!approval || typeof approval.tier !== "string" || typeof approval.approvedBy !== "string" || typeof approval.approvedAt !== "number") {
+    return null;
+  }
+  const postUrl = typeof p2.platformResponse?.url === "string" ? p2.platformResponse.url : event.ref.url;
+  return {
+    platform: entry.platform,
+    postId: entry.postId,
+    postUrl,
+    text: p2.finalText,
+    eventId: p2.eventId,
+    briefHash: p2.briefHash,
+    draftsConsidered: drafts,
+    approval: {
+      tier: approval.tier,
+      approvedBy: approval.approvedBy,
+      approvedAt: approval.approvedAt
+    }
+  };
+}
+function assertNever(value) {
+  throw new Error(
+    `[broadcast-action] unhandled outcome variant: ${JSON.stringify(value)}`
+  );
+}
 
 // src/index.ts
 function parseInputs() {
@@ -80892,38 +81415,45 @@ async function buildAnnounceableEvent() {
     }
   });
 }
-function loadConfig(configPath) {
-  const abs = resolve(process.cwd(), configPath);
-  const raw = readFileSync(abs, "utf8");
-  return JSON.parse(raw);
-}
 async function run() {
   const inputs = parseInputs();
   const event = await buildAnnounceableEvent();
   if (!event) {
     core.setOutput("cassette-hashes", "[]");
     core.setOutput("skipped", "[]");
+    core.setOutput("receipt-urls", "[]");
     return;
   }
   let config;
   try {
-    config = loadConfig(inputs.configPath);
+    config = loadBroadcastConfig(inputs.configPath);
   } catch (err) {
     core.setFailed(
       `[broadcast-action] failed to load config at ${inputs.configPath}: ${err.message}`
     );
     return;
   }
-  const decision = resolveTierOrRefuse(event, { tierPolicy: {} });
+  const decision = resolveTierOrRefuse(event, {
+    tierPolicy: config.tierPolicy ?? {}
+  });
   if (decision.kind === "refuse") {
     core.setFailed(decision.message);
     return;
   }
+  const adapterEnv = filteredAdapterEnv();
+  checkAdapterEnvCoverage(
+    inputs.platforms,
+    adapterEnv,
+    (msg) => core.warning(`[broadcast-action] ${msg}`)
+  );
   const result = await runDispatch({
     event,
     config,
     platforms: inputs.platforms,
-    env: process.env,
+    // Pass an allowlisted env dict — never `process.env`. The shared
+    // `ADAPTER_ENV_ALLOWLIST` in `@sizl/broadcast/dispatch` enumerates
+    // exactly what the adapter network is allowed to observe.
+    env: adapterEnv,
     dryRun: inputs.dryRun,
     // Trust anchor: SaaS API key wins when present (the Worker
     // server-signs with the tenant's managed key). Otherwise fall back
@@ -80940,7 +81470,12 @@ async function run() {
       }
     } : {},
     ...process.env.BROADCAST_OPERATOR_KEY_ID ? { operatorKeyId: process.env.BROADCAST_OPERATOR_KEY_ID } : {},
-    log: (msg) => core.info(msg)
+    log: (msg) => core.info(msg),
+    // Retry-consumed messages and other degraded-outcome notes route
+    // here so they surface as `::warning::` annotations in the
+    // Actions UI. Kept in lock-step with the CLI's `warn()` wiring in
+    // `broadcast-cli/src/commands/post.ts`.
+    warn: (msg) => core.warning(msg)
   });
   if (inputs.dryRun) {
     core.info(
@@ -80950,25 +81485,26 @@ async function run() {
   core.setOutput("cassette-hashes", JSON.stringify(result.cassetteHashes));
   core.setOutput("skipped", JSON.stringify(result.skipped));
   core.setOutput("receipt-urls", JSON.stringify(result.receiptUrls ?? []));
-  core.info(
-    `[broadcast-action] dispatched ${result.cassetteHashes.length} post(s); skipped ${result.skipped.length}.`
-  );
+  const summary = `[broadcast] dispatched ${result.cassetteHashes.length} post(s); skipped ${result.skipped.length}.`;
+  if (result.skipped.length > 0) {
+    core.warning(summary);
+  } else {
+    core.info(summary);
+  }
   if (result.receiptUrls && result.receiptUrls.length > 0) {
     for (const r2 of result.receiptUrls) {
-      core.info(`[broadcast-action] ${r2.platform} receipt: ${r2.receiptUrl}`);
+      core.info(
+        `[broadcast-action] ${sanitizeForLog(r2.platform, 64)} receipt: ${sanitizeForLog(r2.receiptUrl)}`
+      );
     }
   }
   const failures = result.skipped.filter(isHardFailure);
   if (failures.length > 0) {
-    const summary = failures.map((f3) => `${f3.platform}: ${f3.reason}`).join("; ");
+    const summary2 = failures.map((f3) => `${f3.platform}: ${f3.reason}`).join("; ");
     core.setFailed(
-      `[broadcast-action] ${failures.length} platform(s) failed to post: ${summary}`
+      `[broadcast-action] ${failures.length} platform(s) failed to post: ${summary2}`
     );
   }
-}
-function isHardFailure(entry) {
-  const reason = entry.reason;
-  return reason.startsWith("failed:") || reason.startsWith("saas-rejected:");
 }
 run().catch((err) => {
   if (err instanceof Error) {

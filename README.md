@@ -1,15 +1,89 @@
 # `sizls/broadcast-action`
 
-> Auto-post release announcements to social + community channels from your GitHub Actions release workflow. Every post gets a Pluck-signed receipt so visitors at [`directive.run/broadcast`](https://directive.run/broadcast) can verify the post happened, exactly as shown, months later.
+> Auto-post release announcements to social + community channels from your GitHub Actions release workflow. Every post gets a Pluck-signed receipt so visitors at [`broadcast.sizls.com/broadcast`](https://broadcast.sizls.com/broadcast) can verify the post happened, exactly as shown, months later.
 >
 > **Roadmap**: Rekor anchoring of the cassette envelope is planned (the `PostsIndexRow.rekorUrl` field ships as `null` today; wiring the anchor lands the third-party-witness leg). The signed cassette + client-side ed25519 verify path is already live.
 
 This is the **mirror** of `@sizl/broadcast-action` — the source lives in the private [`sizls/broadcast`](https://github.com/sizls/broadcast) monorepo and is published here on every release as a bundled `dist/index.js` you can pin by SHA. Every release is signed via [Sigstore](https://sigstore.dev) using GitHub Actions keyless OIDC, so you can verify the binary you're running is the binary the monorepo produced.
 
-## Install (30 seconds)
+## Recommended: reusable workflow (v0.11.3+)
 
-Add to your release workflow. The SaaS path at `broadcast.run` is the
-shortest install — one API key, three platform tokens, done:
+If you're setting up broadcast for the first time, use the reusable
+workflow — smaller config surface, npm-provenance-verified CLI, easier
+upgrades, no bundled JavaScript action to trust byte-for-byte:
+
+```yaml
+# .github/workflows/release.yml
+name: Broadcast
+on:
+  release:
+    types: [published]
+jobs:
+  broadcast:
+    uses: sizls/broadcast-action/.github/workflows/broadcast-reusable.yml@<sha>
+    with:
+      platforms: bluesky,mastodon,discord
+      cli-version: "0.1"       # minor-floating; pass "0.1.2" for exact-pin
+    secrets: inherit
+```
+
+**Secrets to set** on the caller repo (Settings → Secrets and variables → Actions):
+
+- `BROADCAST_API_KEY` — SaaS-path bearer token for your tenant on `broadcast.sizls.com`. Skip if you're on the legacy self-host path with `POSTS_INDEX_SECRET`.
+- `BLUESKY_APP_PASSWORD` — Bluesky auth in `identifier:appPassword` format. Missing → adapter silently skips.
+- `MASTODON_TOKEN` — Mastodon OAuth app token with `write:statuses`. Missing → adapter silently skips.
+- `DISCORD_WEBHOOK_URL` — Discord channel webhook URL. Missing → adapter silently skips.
+
+**Config file:** create `.sizl/broadcast.config.json` in your repo (see the [example config](https://directive.run/docs/broadcast/config)); override the path with the `config-path` input.
+
+**Test locally:** run `npx @sizl/broadcast-cli doctor` to verify env-var coverage. Pass `dry-run: true` to the workflow to validate + sign without posting.
+
+See [`.github/workflows/broadcast-reusable.yml`](./.github/workflows/broadcast-reusable.yml)
+in this repo for the input schema and the trust-chain notes.
+Every invocation runs `npm audit signatures @sizl/broadcast-cli`
+before it reaches the CLI, so a hostile republish under a squatted
+maintainer account can't clear the gate.
+
+### Job-level timeout
+
+The reusable workflow caps the broadcast job at **15 minutes** by
+default. That ceiling covers the v1 launch set (Bluesky + Mastodon +
+Discord) with room for one adapter to retry, plus the ~30 s
+`npm audit signatures` provenance check and the `npx --yes` cold
+tarball fetch on a fresh runner. Consumers who fan out to a larger
+adapter set — the newsletter family, LinkedIn, Reddit — can raise
+the ceiling via the `timeout-minutes` input:
+
+```yaml
+jobs:
+  broadcast:
+    uses: sizls/broadcast-action/.github/workflows/broadcast-reusable.yml@<sha>
+    with:
+      platforms: bluesky,mastodon,discord,mailchimp,buttondown,beehiiv
+      timeout-minutes: 30
+    secrets: inherit
+```
+
+The upstream GitHub-Actions workflow ceiling is 6 h, so any positive
+integer up to ~360 is valid. The default is deliberately tight — a
+run stuck past 15 minutes on the launch set almost always means an
+adapter is wedged and the job should be killed, not extended. The
+one other case worth raising it for is when npm's registry is
+degraded and the `npm audit signatures` provenance check runs long
+against its 120 s per-lookup cap.
+
+## Bundled action (existing consumers)
+
+Everything below is the legacy bundled path — it still works and
+existing consumers pinned to `sizls/broadcast-action@<sha>` don't
+need to migrate. If you're on this path today, the reusable
+workflow above is the recommended shape for new setups but not a
+hard requirement.
+
+### Install (30 seconds)
+
+Add to your release workflow. The SaaS path at `broadcast.sizls.com`
+is the shortest install — one API key, three platform tokens, done:
 
 ```yaml
 # .github/workflows/release.yml
@@ -31,9 +105,9 @@ jobs:
           DISCORD_WEBHOOK_URL:   ${{ secrets.DISCORD_WEBHOOK_URL }}
 ```
 
-Get a `BROADCAST_API_KEY` by emailing `hi@broadcast.run` during the
+Get a `BROADCAST_API_KEY` by emailing `hi@sizls.com` during the
 private beta. Every post comes back with a public receipt URL at
-`broadcast.run/r/<token>` that anyone can open to cryptographically
+`broadcast.sizls.com/r/<token>` that anyone can open to cryptographically
 verify the post in their own browser — no signup, no SDK, just
 WebCrypto against the inlined cassette envelope.
 
@@ -84,7 +158,7 @@ When a GitHub release is published in your project, this Action:
 |---|---|
 | `cassette-hashes` | JSON array of `{platform, cassetteHash, postId}` entries — one per posted platform. |
 | `skipped` | JSON array of `{platform, reason}` entries for platforms that were skipped (kill-switch, sanitize, validation, idempotency). |
-| `receipt-urls` | JSON array of `{platform, receiptUrl}` entries returned by the SaaS path (`broadcast.run/r/<token>` — one per accepted entry). Empty on the legacy HMAC path; receipts there resolve through the kill-log page at the posts-index host. |
+| `receipt-urls` | JSON array of `{platform, receiptUrl}` entries returned by the SaaS path (`broadcast.sizls.com/r/<token>` — one per accepted entry). Empty on the legacy HMAC path; receipts there resolve through the kill-log page at the posts-index host. |
 
 ## Retry policy — SaaS rejection reasons
 
@@ -147,7 +221,7 @@ The source — adapter network, cost-breaker logic, sanitizer rules — lives in
 - [`directive.run/docs/broadcast/action`](https://directive.run/docs/broadcast/action) — full reference
 - [`directive.run/docs/broadcast/worker`](https://directive.run/docs/broadcast/worker) — Cloudflare Worker template (Tier 2/3 events)
 - [`directive.run/docs/broadcast/cli`](https://directive.run/docs/broadcast/cli) — `@sizl/broadcast` CLI for manual posts + backfills
-- [`directive.run/broadcast`](https://directive.run/broadcast) — public Pluck-verifiable kill log
+- [`broadcast.sizls.com/broadcast`](https://broadcast.sizls.com/broadcast) — public Pluck-verifiable kill log
 
 ## License
 
@@ -157,7 +231,7 @@ The source remains under a separate license inside the private monorepo. This mi
 
 ## Security
 
-Found a security issue? Don't open a public issue — email `security@directive.run` or use [GitHub's private vulnerability reporting](https://github.com/sizls/broadcast-action/security/advisories/new).
+Found a security issue? Don't open a public issue — email `hi@sizls.com` or use [GitHub's private vulnerability reporting](https://github.com/sizls/broadcast-action/security/advisories/new).
 
 ---
 
